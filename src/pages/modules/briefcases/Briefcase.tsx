@@ -1,9 +1,11 @@
 import React from 'react';
+import { useLanguage } from '../../../hook/lenguage';
 
 const Briefcase: React.FC = () => {
+  const { translations } = useLanguage();
   return (
     <div>
-      <h2>Briefcase</h2>
+       <h2>{translations['briefcase.title']}</h2> 
     </div>
   );
 };
