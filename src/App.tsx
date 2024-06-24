@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header';
+import Header from './components/common/header/Header';
 import Briefcase from './pages/modules/briefcases/Briefcase';
 
 function App() {
