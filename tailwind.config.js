@@ -9,7 +9,7 @@ module.exports = {
                 dark: {
                     DEFAULT: '#16191D',
                     text: '#ffffff',
-                    primary: '#0070ff',
+                    primary: '#15202B',
                     primaryContent: '#000416',
                     secondary: '#00c6e4',
                     secondaryContent: '#000e12',
@@ -31,7 +31,7 @@ module.exports = {
                     errorContent: '#160807'
                 },
                 light: {
-                    DEFAULT: '#DED9DE',
+                    DEFAULT: '#FFF7FF',
                     text: '#333333',
                     primary: "#004eff",
                     primaryContent: "#cde0ff",
