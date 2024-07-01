@@ -19,14 +19,14 @@ const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
 
   return (
     <div className={`${isDarkTheme ? 'bg-dark-primary' : 'bg-light-primary'}`} style={wrapperStyle}>
-      <div className="circle circle-top-left"></div>
-      <div className="circle circle-top-center"></div>
-      <div className="circle circle-top-right"></div>
-      <div className="circle circle-bottom-left"></div>
-      <div className="circle circle-bottom-center"></div>
-      <div className="circle circle-bottom-right"></div>
+      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-top-left`}></div>
+      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-top-center`}></div>
+      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-top-right`}></div>
+      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-bottom-left`}></div>
+      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-bottom-center`}></div>
+      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-bottom-right`}></div>
 
-      <div className="circle circle-center"></div>
+      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-center`}></div>
 
       <main style={{ position: 'relative', zIndex: 1 }}>
         {children}

@@ -14,52 +14,53 @@
     }
 }
 
+.circle-dark {
+    background: linear-gradient(to bottom right, #7b719c, #000000, #675e68);
+}
+
+.circle-light {
+    background: linear-gradient(to bottom right, #c590c5, #98deeb, #32b8e0);
+}
+
 .circle.circle-top-left {
     top: -40px;
     left: -40px;
-    background: linear-gradient(to bottom right, #a7c6c2, #6e97b0);
     animation: move-random-top-left 12s alternate infinite;
 }
 
 .circle.circle-top-center {
     top: -40px;
     left: calc(50% - 40px);
-    background: linear-gradient(to bottom right, #4285f4, #64c4d4);
     animation: move-random-top-center 8s alternate infinite;
 }
 
 .circle.circle-top-right {
     top: -40px;
     right: -40px;
-    background: linear-gradient(to bottom right, #a7c6c2, #6e97b0);
     animation: move-random-top-right 10s alternate infinite;
 }
 
 .circle.circle-bottom-left {
     bottom: -40px;
     left: -40px;
-    background: linear-gradient(to bottom right, #64c4d4, #4285f4);
     animation: move-random-bottom-left 14s alternate infinite;
 }
 
 .circle.circle-bottom-center {
     bottom: -40px;
     left: calc(50% - 40px);
-    background: linear-gradient(to bottom right, #a7c6c2, #6e97b0);
     animation: move-random-bottom-center 9s alternate infinite;
 }
 
 .circle.circle-bottom-right {
     bottom: -40px;
     right: -40px;
-    background: linear-gradient(to bottom right, #4285f4, #64c4d4);
     animation: move-random-bottom-right 10s alternate infinite;
 }
 
 .circle.circle-center {
     top: calc(50% - 40px);
     left: calc(50% - 40px);
-    background: linear-gradient(to bottom right, #a7c6c2, #6e97b0);
     animation: move-random-center 13s linear infinite;
 }
 
