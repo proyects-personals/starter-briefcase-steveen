@@ -9,7 +9,7 @@ const ThemeController: React.FC = () => {
   };
 
   return (
-    <label className="flex cursor-pointer gap-2">
+    <label className="flex cursor-pointer gap-2 items-center">
       {isDarkTheme ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@ const ThemeController: React.FC = () => {
           height="20"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="currentColor"
+          stroke="#ffffff" /* Color del tema oscuro */
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -32,7 +32,7 @@ const ThemeController: React.FC = () => {
           height="20"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="currentColor"
+          stroke="#000000" /* Color del tema claro */
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
