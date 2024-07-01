@@ -1,0 +1,25 @@
+.intro-id {
+    color: transparent;
+    font-family: studiofeixen, Arial, Helvetica, sans-serif;
+    letter-spacing: 0.05rem;
+    font-weight: 800;
+    -webkit-text-stroke: 2px #606887;
+    font-variation-settings: "wght" 800, "wdth" 100;
+}
+
+.custom-button {
+    background: none;
+    border: none;
+    color: #606887;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.custom-button:hover {
+    color: #000;
+}
+
+.custom-button:focus {
+    outline: none;
+}

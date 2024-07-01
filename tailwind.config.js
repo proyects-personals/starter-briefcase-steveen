@@ -31,9 +31,9 @@ module.exports = {
                     errorContent: '#160807'
                 },
                 light: {
-                    DEFAULT: '#FFF7FF',
+                    DEFAULT: '#D0D2E0',
                     text: '#333333',
-                    primary: "#004eff",
+                    primary: "#FFF7FF",
                     primaryContent: "#cde0ff",
                     secondary: "#b59b00",
                     secondaryContent: "#0c0900",

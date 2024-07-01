@@ -1,5 +1,10 @@
 {
     "header.title": "Encabezado",
     "header.toggleTheme": "Cambiar Tema",
-    "briefcase.title": "Portafolio"
+    "briefcase.hello": "Hola",
+    "briefcase.name": "soy Dayana Carrera",
+    "briefcase.title": "PERO PUEDES LLAMARME Dayita",
+    "briefcase.profession": "Soy Tecnóloga en Desarrollo de Software",
+    "briefcase.see_projects": "→ ver mis proyectos",
+    "briefcase.learn_more": "→ aprender más"
 }

@@ -1,5 +1,10 @@
 {
     "header.title": "Header",
     "header.toggleTheme": "Toggle Theme",
-    "briefcase.title": "Briefcase"
+    "briefcase.hello": "Hello",
+    "briefcase.name": "My name is Dayana Carrera",
+    "briefcase.title": "But you can call me Dayita",
+    "briefcase.profession": "I'm a Software Development Technologist",
+    "briefcase.see_projects": "→ See my projects",
+    "briefcase.learn_more": "→ Learn more"
 }
