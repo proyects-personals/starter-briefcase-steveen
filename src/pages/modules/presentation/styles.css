@@ -1,0 +1,74 @@
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.dark-mode {
+    background-color: #333;
+    /* Color de fondo oscuro */
+    color: #fff;
+    /* Color de texto claro */
+}
+
+.light-mode {
+    background-color: #f0f0f0;
+    /* Color de fondo claro */
+    color: #333;
+    /* Color de texto oscuro */
+}
+
+.image-container {
+    width: 50%;
+    /* Ajusta el tamaño de la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.presentation-image {
+    max-width: 100%;
+    /* Asegura que la imagen no exceda el contenedor */
+    height: auto;
+    /* Ajusta la altura automáticamente */
+}
+
+.text-container {
+    width: 50%;
+    /* Ajusta el tamaño del contenedor de texto */
+    padding: 20px;
+    /* Añade espacio alrededor del texto */
+}
+
+.intro-text {
+    font-size: 1.5rem;
+    /* Tamaño del texto de introducción */
+    margin-bottom: 10px;
+    /* Espacio entre párrafos */
+}
+
+.button-container {
+    margin-top: 20px;
+    /* Espacio sobre los botones */
+}
+
+.custom-button {
+    background-color: #4285f4;
+    /* Color de fondo del botón */
+    color: #fff;
+    /* Color de texto del botón */
+    padding: 10px 20px;
+    /* Espaciado interno del botón */
+    border: none;
+    /* Sin borde */
+    cursor: pointer;
+    /* Cambia el cursor a pointer */
+    margin-right: 10px;
+    /* Espacio entre botones */
+}
+
+.custom-button:hover {
+    background-color: #3367d6;
+    /* Color de fondo al pasar el ratón por encima */
+}
