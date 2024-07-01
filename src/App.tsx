@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/common/header/Header';
-import AppRouter from './router/AppRouter'; // Asegúrate de importar el AppRouter
+import AppRouter from './router/AppRouter';
 
 function App() {
   return (
