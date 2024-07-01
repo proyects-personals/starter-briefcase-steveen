@@ -1,0 +1,156 @@
+.circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    position: absolute;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@media (min-width: 1024px) {
+    .circle {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+.circle.circle-top-left {
+    top: -40px;
+    left: -40px;
+    background: linear-gradient(to bottom right, #a7c6c2, #6e97b0);
+    animation: move-random-top-left 12s alternate infinite;
+}
+
+.circle.circle-top-center {
+    top: -40px;
+    left: calc(50% - 40px);
+    background: linear-gradient(to bottom right, #4285f4, #64c4d4);
+    animation: move-random-top-center 8s alternate infinite;
+}
+
+.circle.circle-top-right {
+    top: -40px;
+    right: -40px;
+    background: linear-gradient(to bottom right, #a7c6c2, #6e97b0);
+    animation: move-random-top-right 10s alternate infinite;
+}
+
+.circle.circle-bottom-left {
+    bottom: -40px;
+    left: -40px;
+    background: linear-gradient(to bottom right, #64c4d4, #4285f4);
+    animation: move-random-bottom-left 14s alternate infinite;
+}
+
+.circle.circle-bottom-center {
+    bottom: -40px;
+    left: calc(50% - 40px);
+    background: linear-gradient(to bottom right, #a7c6c2, #6e97b0);
+    animation: move-random-bottom-center 9s alternate infinite;
+}
+
+.circle.circle-bottom-right {
+    bottom: -40px;
+    right: -40px;
+    background: linear-gradient(to bottom right, #4285f4, #64c4d4);
+    animation: move-random-bottom-right 10s alternate infinite;
+}
+
+.circle.circle-center {
+    top: calc(50% - 40px);
+    left: calc(50% - 40px);
+    background: linear-gradient(to bottom right, #a7c6c2, #6e97b0);
+    animation: move-random-center 13s linear infinite;
+}
+
+@keyframes move-random-top-left {
+    0%,
+    100% {
+        top: -40px;
+        left: -40px;
+    }
+    50% {
+        top: calc(50vh - 40px);
+        left: calc(25vw - 40px);
+    }
+}
+
+@keyframes move-random-top-center {
+    0%,
+    100% {
+        top: -40px;
+        left: calc(50% - 40px);
+    }
+    50% {
+        top: calc(50vh - 40px);
+        left: calc(50% - 40px);
+    }
+}
+
+@keyframes move-random-top-right {
+    0%,
+    100% {
+        top: -40px;
+        right: -40px;
+    }
+    50% {
+        top: calc(50vh - 40px);
+        right: calc(25vw - 40px);
+    }
+}
+
+@keyframes move-random-bottom-left {
+    0%,
+    100% {
+        bottom: -40px;
+        left: -40px;
+    }
+    50% {
+        bottom: calc(50vh - 40px);
+        left: calc(25vw - 40px);
+    }
+}
+
+@keyframes move-random-bottom-center {
+    0%,
+    100% {
+        bottom: -40px;
+        left: calc(50% - 40px);
+    }
+    50% {
+        bottom: calc(50vh - 40px);
+        left: calc(50% - 40px);
+    }
+}
+
+@keyframes move-random-bottom-right {
+    0%,
+    100% {
+        bottom: -40px;
+        right: -40px;
+    }
+    50% {
+        bottom: calc(50vh - 40px);
+        right: calc(25vw - 40px);
+    }
+}
+
+@keyframes move-random-center {
+    0%,
+    100% {
+        top: calc(50% - 40px);
+        left: calc(50% - 40px);
+    }
+    25% {
+        top: calc(25vh - 40px);
+        left: calc(50% - 40px);
+    }
+    50% {
+        top: calc(50% - 40px);
+        left: calc(75vw - 40px);
+    }
+    75% {
+        top: calc(75vh - 40px);
+        left: calc(50% - 40px);
+    }
+}
