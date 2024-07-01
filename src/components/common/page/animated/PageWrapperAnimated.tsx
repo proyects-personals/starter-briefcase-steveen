@@ -1,12 +1,12 @@
 import React from 'react';
-import { useTheme } from '../../../hook/theme';
-import './styles.css'; // Archivo CSS para definir las animaciones
+import { useTheme } from '../../../../hook/theme';
+import './styles.css';
 
 type PageWrapperProps = {
   children: React.ReactNode;
 };
 
-const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
+const PageWrapperAnimated: React.FC<PageWrapperProps> = ({ children }) => {
   const { isDarkTheme } = useTheme();
 
   const wrapperStyle = {
@@ -35,4 +35,4 @@ const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
   );
 };
 
-export default PageWrapper;
+export default PageWrapperAnimated;
