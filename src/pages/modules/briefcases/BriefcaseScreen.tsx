@@ -2,7 +2,6 @@ import React from "react";
 import { useLanguage } from "../../../hook/lenguage";
 import { useTheme } from "../../../hook/theme";
 import { useNavigate } from "react-router-dom";
-
 import './styles.css';
 import PageWrapperAnimated from "../../../components/common/page/animated/PageWrapperAnimated";
 
