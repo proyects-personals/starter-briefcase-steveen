@@ -19,7 +19,7 @@ const Header: React.FC = () => {
         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
           <i className={`fab fa-facebook ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}></i>
         </a>
-        <a href="https://www.linkedin.com/in/dayana-c-54b25223b/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/dayana-carrera-2a617031a/" target="_blank" rel="noopener noreferrer">
           <i className={`fab fa-linkedin ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}></i>
         </a>
         <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">

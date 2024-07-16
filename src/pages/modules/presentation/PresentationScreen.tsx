@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTheme } from "../../../hook/theme";
 import personaImg from "../../../assets/dayana.jpeg";
+import dayana from "../../../assets/dayana1.jpeg"; // Asegúrate de tener la otra imagen lista
 import PageWrapperCustom from "../../../components/common/page/custom/PageWrapperCustom";
 import { useLanguage } from "../../../hook/lenguage";
+import "./styles.css"; // Archivo CSS para estilos y animaciones
 
 const PresentationScreen: React.FC = () => {
   const { isDarkTheme } = useTheme();
   const { translations } = useLanguage();
+  
+  const [currentImg, setCurrentImg] = useState(personaImg);
+
+  const handleMouseEnter = () => {
+    setCurrentImg(dayana);
+  };
+
+  const handleMouseLeave = () => {
+    setCurrentImg(personaImg);
+  };
 
   const handleDownloadCV = () => {
     console.log("doc");
@@ -25,13 +37,16 @@ const PresentationScreen: React.FC = () => {
         <div className="flex-1 flex justify-center items-center order-1 md:order-2 mt-4 md:mt-3">
           <div
             className="relative w-full h-full max-h-screen overflow-hidden md:rounded-none rounded-3xl"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <img
-              src={personaImg}
-              className="w-full h-full object-cover"
+              src={currentImg}
+              className="w-full h-full object-cover transition duration-500 ease-in-out"
               alt="Imagen de presentación"
               style={{
                 filter: isDarkTheme ? "none" : "brightness(85%)",
+                border:10
               }}
             />
           </div>
@@ -39,13 +54,13 @@ const PresentationScreen: React.FC = () => {
         <div className="flex flex-1 flex-col justify-center space-y-4 order-2 md:order-1 p-4">
           <h1 className="text-4xl font-bold">{translations['presentation.name']}</h1>
           <p className="text-lg">
-          {translations['presentation.title']}
+            {translations['presentation.title']}
           </p>
           <p className="text-lg">
-          {translations['presentation.first_stanza']}
+            {translations['presentation.first_stanza']}
           </p>
           <p className="text-lg">
-          {translations['presentation.second_stanza']}
+            {translations['presentation.second_stanza']}
           </p>
           <div className="flex items-start">
             <button
