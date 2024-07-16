@@ -1,4 +1,5 @@
 import React from "react";
+import Slider from "react-slick";
 import { useTheme } from "../../../hook/theme";
 import { useLanguage } from "../../../hook/lenguage";
 import PageWrapperCustom from "../../../components/common/page/custom/PageWrapperCustom";
@@ -6,6 +7,8 @@ import amautaImg from "../../../assets/amauta-tech-logo.png";
 import aterrizarImg from "../../../assets/aterrizar-global-logo.png";
 import tocImg from "../../../assets/toc-systems-logo.png";
 import { FiArrowRight } from 'react-icons/fi';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const WorkExperienceScreen: React.FC = () => {
   const { isDarkTheme } = useTheme();
@@ -32,7 +35,7 @@ const WorkExperienceScreen: React.FC = () => {
     },
     {
       company: "TOC SYSTEMS",
-      position: translations['xperiences.toc_systems.position'],
+      position: translations['experiences.toc_systems.position'],
       description: translations['experiences.toc_systems.description'],
       period: "07/2023 – 08/2023",
       location: "Quito",
@@ -41,44 +44,57 @@ const WorkExperienceScreen: React.FC = () => {
     },
   ];
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false
+  };
+
   return (
     <PageWrapperCustom>
       <div
-        className={`max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8  ${
+        className={`max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 ${
           isDarkTheme ? "bg-dark-primary text-white" : "bg-light-primary text-black"
         }`}
         style={{ fontFamily: "Times New Roman, Times, serif" }}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <Slider {...settings}>
           {experiences.map((experience, index) => (
             <div
               key={index}
-              className={`bg-secondary rounded-lg shadow-md p-4 flex flex-col items-center my-10 gap-2 ${
+              className={`flex flex-col items-center gap-4 py-10 ${
                 isDarkTheme ? "text-white" : "text-black"
               }`}
             >
               <img
                 src={experience.image}
                 alt={`${experience.company} logo`}
-                className="w-24 h-24 mb-4 object-contain"
+                className="w-1/2 h-auto mb-4 object-contain"
               />
-              <h2 className="text-xl font-bold mb-2">{experience.company}</h2>
-              <p className="text-lg font-medium mb-2">{experience.position}</p>
-              <p className="text-base mb-2">{experience.description}</p>
-              <p className="text-sm mb-1">{experience.period}</p>
-              <p className="text-sm">{experience.location}</p>
-              {/* Enlace a la página de la empresa */}
-              <a
-                href={experience.pageUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-sm text-primary mt-2"
-              >
-                {translations['work.visit_page']} <FiArrowRight className="ml-1" />
-              </a>
+              <div className="text-center">
+                <h2 className="text-xl font-bold mb-2">{experience.company}</h2>
+                <p className="text-lg font-medium mb-2">{experience.position}</p>
+                <p className="text-base mb-2">{experience.description}</p>
+                <p className="text-sm mb-1">{experience.period}</p>
+                <p className="text-sm">{experience.location}</p>
+                <a
+                  href={experience.pageUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center text-sm text-primary mt-2"
+                >
+                  {translations['work.visit_page']} <FiArrowRight className="ml-1" />
+                </a>
+              </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </PageWrapperCustom>
   );
