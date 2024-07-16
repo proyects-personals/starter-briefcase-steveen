@@ -6,5 +6,10 @@
     "briefcase.title": "But you can call me Dayita",
     "briefcase.profession": "I'm a Software Development Technologist",
     "briefcase.see_projects": "→ See my projects",
-    "briefcase.learn_more": "→ Learn more"
+    "briefcase.learn_more": "→ Learn more",
+    "presentation.name": "Hello, I'm Dayana!",
+    "presentation.title": "Allow me to introduce myself properly:",
+    "presentation.first_stanza": "I am a passionate software developer with significant experience in C# and Unity, where I have spent the last 18 months interactive and immersive games. My fascination with technology has led me to explore the dynamic world of JavaScript and web development, where I am committed to expanding my knowledge and skills.",
+    "presentation.second_stanza": "In addition to my technical experience, I am a collaborative and results-oriented professional. I enjoy teamwork, where I can contribute innovative ideas and solve complex challenges effectively. My motivation lies in contributing to projects that positively impact end users, offering solutions that combine robust functionality with an exceptional user experience.",
+    "presentation.download_cv": "Download cv"
 }

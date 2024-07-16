@@ -1,10 +1,12 @@
 import React from "react";
 import { useTheme } from "../../../hook/theme";
-import personaImg from "../../../assets/persona.png";
+import personaImg from "../../../assets/dayana.jpeg";
 import PageWrapperCustom from "../../../components/common/page/custom/PageWrapperCustom";
+import { useLanguage } from "../../../hook/lenguage";
 
 const PresentationScreen: React.FC = () => {
   const { isDarkTheme } = useTheme();
+  const { translations } = useLanguage();
 
   const handleDownloadCV = () => {
     console.log("doc");
@@ -12,19 +14,45 @@ const PresentationScreen: React.FC = () => {
 
   return (
     <PageWrapperCustom>
-      <div className={`flex flex-col-reverse md:flex-row mx-4 md:mx-32 h-screen ${isDarkTheme ? "bg-gray-800 text-white" : "bg-white text-black"}`}>
-        <div className="flex-1 flex justify-center md:justify-end items-center md:items-end order-2 md:order-1 p-4">
-          <img src={personaImg} className="w-full max-w-xs h-auto rounded-bl-3xl md:rounded-bl-none" alt="Imagen de presentación" />
+      <div
+        className={`flex flex-col md:flex-row mx-4 ${
+          isDarkTheme
+            ? "bg-dark-primary text-white"
+            : "bg-light-primary text-black"
+        }`}
+        style={{ fontFamily: "Times New Roman, Times, serif" }}
+      >
+        <div className="flex-1 flex justify-center items-center order-1 md:order-2 mt-4 md:mt-3">
+          <div
+            className="relative w-full h-full max-h-screen overflow-hidden md:rounded-none rounded-3xl"
+          >
+            <img
+              src={personaImg}
+              className="w-full h-full object-cover"
+              alt="Imagen de presentación"
+              style={{
+                filter: isDarkTheme ? "none" : "brightness(85%)",
+              }}
+            />
+          </div>
         </div>
-        <div className="flex flex-1 flex-col justify-center space-y-4 order-1 md:order-2 p-4">
-          <h1 className="text-4xl font-bold">Hola, soy Dayita</h1>
-          <p className="text-lg">Una breve introducción sobre mí...</p>
+        <div className="flex flex-1 flex-col justify-center space-y-4 order-2 md:order-1 p-4">
+          <h1 className="text-4xl font-bold">{translations['presentation.name']}</h1>
+          <p className="text-lg">
+          {translations['presentation.title']}
+          </p>
+          <p className="text-lg">
+          {translations['presentation.first_stanza']}
+          </p>
+          <p className="text-lg">
+          {translations['presentation.second_stanza']}
+          </p>
           <div className="flex items-start">
-            <button 
-              onClick={handleDownloadCV} 
+            <button
+              onClick={handleDownloadCV}
               className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition duration-300"
             >
-              Descargar CV
+              {translations['presentation.download_cv']}
             </button>
           </div>
         </div>

@@ -9,7 +9,7 @@ const PageWrapperCustom: React.FC<PageWrapperProps> = ({ children }) => {
   const { isDarkTheme } = useTheme();
 
   return (
-    <div className={`${isDarkTheme ? 'bg-dark-primary' : 'bg-light-primary'} min-h-screen px-8`}>
+    <div className={`${isDarkTheme ? 'bg-dark-primary' : 'bg-light-primary'} px-8`}>
       <main>
         {children}
       </main>

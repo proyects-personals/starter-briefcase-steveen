@@ -16,9 +16,15 @@ const Header: React.FC = () => {
         </h1>
       </div>
       <div className="flex-1 flex justify-center items-center gap-4">
-        <i className={`fab fa-facebook ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}></i>
-        <i className={`fab fa-linkedin ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}></i>
-        <i className={`fab fa-twitter ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}></i>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+          <i className={`fab fa-facebook ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}></i>
+        </a>
+        <a href="https://www.linkedin.com/in/dayana-c-54b25223b/" target="_blank" rel="noopener noreferrer">
+          <i className={`fab fa-linkedin ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+          <i className={`fab fa-twitter ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}></i>
+        </a>
       </div>
       <div className="flex items-center gap-4">
         <LanguageController />

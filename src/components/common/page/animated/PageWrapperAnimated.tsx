@@ -17,18 +17,25 @@ const PageWrapperAnimated: React.FC<PageWrapperProps> = ({ children }) => {
     overflow: 'hidden',
   };
 
+  const mainStyle = {
+    position: 'relative' as const,
+    zIndex: 1,
+    height: '100%',
+  };
+
+  const circleClass = isDarkTheme ? 'circle-dark' : 'circle-light';
+
   return (
     <div className={`${isDarkTheme ? 'bg-dark-primary' : 'bg-light-primary'}`} style={wrapperStyle}>
-      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-top-left`}></div>
-      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-top-center`}></div>
-      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-top-right`}></div>
-      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-bottom-left`}></div>
-      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-bottom-center`}></div>
-      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-bottom-right`}></div>
+      <div className={`${circleClass} circle circle-top-left`}></div>
+      <div className={`${circleClass} circle circle-top-center`}></div>
+      <div className={`${circleClass} circle circle-top-right`}></div>
+      <div className={`${circleClass} circle circle-bottom-left`}></div>
+      <div className={`${circleClass} circle circle-bottom-center`}></div>
+      <div className={`${circleClass} circle circle-bottom-right`}></div>
+      <div className={`${circleClass} circle circle-center`}></div>
 
-      <div className={`${isDarkTheme ? 'circle-dark' : 'circle-light'} circle circle-center`}></div>
-
-      <main style={{ position: 'relative', zIndex: 1 }}>
+      <main style={mainStyle}>
         {children}
       </main>
     </div>
