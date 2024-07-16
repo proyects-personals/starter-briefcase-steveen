@@ -17,9 +17,17 @@ const BriefcaseScreen: React.FC<BriefcaseScreenProps> = () => {
     navigate("/presentacion");
   };
 
+  const handleNavigateToGamePresentation = () => {
+    navigate("/game");
+  };
+
+  const handleNavigateToWorkExperience = () => {
+    navigate("/experience");
+  };
+
   return (
     <PageWrapperAnimated>
-      <div className={`flex flex-col items-center justify-center h-screen text-center ${isDarkTheme ? 'dark-mode' : 'light-mode'}`}>
+      <div className={`flex flex-col items-center justify-center h-screen text-center`}>
         <p className={`intro-id mt-4 text-2xl font-bold ${isDarkTheme ? 'text-white' : 'text-black'}`}>
           {translations['briefcase.hello']}, {translations['briefcase.name']}
         </p>
@@ -30,10 +38,13 @@ const BriefcaseScreen: React.FC<BriefcaseScreenProps> = () => {
           {translations['briefcase.profession']}
         </p>
         <div className="mt-6 flex flex-col items-center">
+        {/* <button className="custom-button mt-2" onClick={handleNavigateToGamePresentation}>
+          game presentation
+          </button> */}
         <button className="custom-button mt-2" onClick={handleNavigateToPresentation}>
             {translations['briefcase.learn_more']}
           </button>
-          <button className="custom-button mt-2" onClick={handleNavigateToPresentation}>
+          <button className="custom-button mt-2" onClick={handleNavigateToWorkExperience}>
             {translations['briefcase.work_experience']}
           </button>
           <button className="custom-button mt-2" onClick={handleNavigateToPresentation}>

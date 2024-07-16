@@ -21,7 +21,7 @@ const PresentationScreen: React.FC = () => {
   };
 
   const handleDownloadCV = () => {
-    console.log("doc");
+    console.log("descargar CV");
   };
 
   return (
@@ -46,26 +46,27 @@ const PresentationScreen: React.FC = () => {
               alt="Imagen de presentación"
               style={{
                 filter: isDarkTheme ? "none" : "brightness(85%)",
-                border:10
               }}
             />
           </div>
         </div>
         <div className="flex flex-1 flex-col justify-center space-y-4 order-2 md:order-1 p-4">
-          <h1 className="text-4xl font-bold">{translations['presentation.name']}</h1>
-          <p className="text-lg">
+          <h1 className={`text-4xl font-bold ${isDarkTheme ? "text-white" : "text-black"}`}>
+            {translations['presentation.name']}
+          </h1>
+          <p className={`text-lg ${isDarkTheme ? "text-white" : "text-black"}`}>
             {translations['presentation.title']}
           </p>
-          <p className="text-lg">
+          <p className={`text-lg ${isDarkTheme ? "text-white" : "text-black"}`}>
             {translations['presentation.first_stanza']}
           </p>
-          <p className="text-lg">
+          <p className={`text-lg ${isDarkTheme ? "text-white" : "text-black"}`}>
             {translations['presentation.second_stanza']}
           </p>
           <div className="flex items-start">
             <button
               onClick={handleDownloadCV}
-              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition duration-300"
+              className={`mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition duration-300`}
             >
               {translations['presentation.download_cv']}
             </button>

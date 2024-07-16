@@ -13,5 +13,26 @@
     "presentation.title": "Permíteme presentarme adecuadamente:",
     "presentation.first_stanza": "Soy una apasionada desarrolladora de software con experiencia significativa en C# y Unity, donde he pasado los últimos 18 meses interactivas y juegos inmersivos. Mi fascinación por la tecnología me ha llevado a explorar el dinámico mundo de JavaScript y el desarrollo web, donde estoy comprometida a expandir mis conocimientos y habilidades.",
     "presentation.second_stanza": "Además de mi experiencia técnica, soy una profesional colaborativa y orientada a resultados. Disfruto del trabajo en equipo, donde puedo aportar ideas innovadoras y resolver desafíos complejos de manera efectiva. Mi motivación radica en contribuir a proyectos que impacten positivamente en los usuarios finales, ofreciendo  soluciones que combinen funcionalidad robusta con una experiencia de usuario excepcional.",
-    "presentation.download_cv": "Descargar cv"
+    "presentation.download_cv": "Descargar cv",
+
+    "experiences.amauta_tech.company": "AMAUTA TECH",
+    "experiences.amauta_tech.position": "Desarrollador full-stack",
+    "experiences.amauta_tech.description": "Ocupé el cargo de desarrollador de software especializado en Angular y Nest.js para el desarrollo de una aplicación web, creando un sistema automatizado para instituciones públicas. Asumí roles adicionales como Project Manager para lograr un mejor objetivo en el proyecto conjuntamente con el equipo.",
+    "experiences.amauta_tech.period": "07/2023 – 08/2023",
+    "experiences.amauta_tech.location": "Quito",
+    "experiences.amauta_tech.pageUrl": "https://www.emis.com/php/company-profile/EC/Instituto_de_Capacitacion_y_Especializacion_Amauta_-_Tech_SAS_BIC_es_13291319.html",
+
+    "experiences.aterrizar_global.company": "ATERRIZAR GLOBAL",
+    "experiences.aterrizar_global.position": "Desarrollador Web",
+    "experiences.aterrizar_global.description": "Desarrollamos una página web de una tienda virtual, utilizando diferentes tecnologías y diseñando una base de datos para la correcta implementación.",
+    "experiences.aterrizar_global.period": "05/2022 – 08/2022",
+    "experiences.aterrizar_global.location": "Quito",
+    "experiences.aterrizar_global.pageUrl": "https://aterrizarglobal.com/",
+
+    "experiences.toc_systems.company": "TOC SYSTEMS",
+    "experiences.toc_systems.position": "Desarrollador web",
+    "experiences.toc_systems.description": "Obtuve un total manejo de las herramientas de Vue, Nuxt, Node, Buefy, etc., leyendo las documentaciones y realizando prácticas para realizar cambios en el aplicativo. Además, realicé diagramas de flujo y de procesos para llevar un buen funcionamiento del sistema.",
+    "experiences.toc_systems.period": "Fecha de inicio – Fecha de fin",
+    "experiences.toc_systems.location": "Ubicación",
+    "experiences.toc_systems.pageUrl": "https://toc.com.ec/"
 }
