@@ -13,7 +13,6 @@ const PageWrapperAnimated: React.FC<PageWrapperProps> = ({ children }) => {
     position: 'relative' as const,
     minHeight: '100vh',
     padding: '0 8px',
-    backgroundColor: isDarkTheme ? '#333' : '#f0f0f0',
     overflow: 'hidden',
   };
 
