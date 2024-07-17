@@ -17,10 +17,6 @@ const BriefcaseScreen: React.FC<BriefcaseScreenProps> = () => {
     navigate("/presentacion");
   };
 
-  const handleNavigateToGamePresentation = () => {
-    navigate("/game");
-  };
-
   const handleNavigateToWorkExperience = () => {
     navigate("/experience");
   };

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import shuffle from 'lodash/shuffle';
-import PageWrapperCustom from '../../../components/common/page/custom/PageWrapperCustom';
 import { useTheme } from '../../../hook/theme';
-import { useLanguage } from '../../../hook/lenguage';
 
 const initialWords = [
   { word: 'Manzana', id: 1 },
@@ -50,21 +48,8 @@ const GameScreen: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
   const { isDarkTheme } = useTheme();
-  const { translations } = useLanguage();
 
-  useEffect(() => {
-    initializeGame();
-
-    return () => {
-      if (initialTimerRef.current) {
-        clearTimeout(initialTimerRef.current);
-      }
-      if (gameTimerRef.current) {
-        clearInterval(gameTimerRef.current);
-      }
-    };
-  }, []);
-
+  // Define initializeGame antes de su uso en el useEffect
   const initializeGame = () => {
     const shuffledWords = shuffle(initialWords.slice(0, 25)).map(({ word }) => ({ word, flipped: true, correct: false }));
     setWords(shuffledWords);
@@ -87,6 +72,19 @@ const GameScreen: React.FC = () => {
       });
     }, 1000);
   };
+
+  useEffect(() => {
+    initializeGame();
+
+    return () => {
+      if (initialTimerRef.current) {
+        clearTimeout(initialTimerRef.current);
+      }
+      if (gameTimerRef.current) {
+        clearInterval(gameTimerRef.current);
+      }
+    };
+  }, []);
 
   const startGameTimer = () => {
     gameTimerRef.current = setInterval(() => {
@@ -154,68 +152,59 @@ const GameScreen: React.FC = () => {
   };
 
   return (
-      <div className={`${isDarkTheme
-        ? "bg-dark-primary text-white"
-        : "bg-light-primary text-black"}`}
-        style={{ fontFamily: "Times New Roman, Times, serif" }}
-        >
-        <div className={`mx-32 ${isDarkTheme
-        ? "bg-dark-primary text-white"
-        : "bg-light-primary text-black"}`}>
-        
-        <div
-      className={`flex flex-col md:flex-row mx-4 `}
-      style={{ fontFamily: "Times New Roman, Times, serif" }}
-    >
-      <div className={`flex justify-between items-center gap-2 mt-2 gap-32`}>
-        {gameEnded && (
-          <div>
-            <button className="px-4 py-2 bg-blue-500 text-white font-bold rounded" onClick={resetGame}>
-              Reiniciar Juego
-            </button>
-          </div>
-        )}
-        <div>
-          <span className="text-lg font-bold">Palabra a buscar: </span>
-          <span className="text-lg">{targetWord}</span>
-        </div>
-        <div>
-          {initialTimer > 0 ? (
-            <>
-              <span className="text-lg font-bold">Tiempo de preparación: </span>
-              <span className="text-lg">{initialTimer} s</span>
-            </>
-          ) : (
-            <>
-              <span className="text-lg font-bold">Tiempo restante: </span>
-              <span className="text-lg">{gameTimer} s</span>
-            </>
-          )}
-        </div>
-        <div>
-          <span className="text-lg font-bold">Intentos restantes: </span>
-          <span className="text-lg">{attempts}</span>
-        </div>
-      </div>
-    </div><div className={`grid grid-cols-3 md:grid-cols-8 gap-2 h-full w-full max-h-screen ${isDarkTheme ? "bg-dark-primary text-white" : "bg-light-primary text-black"}`}>
-        {words.map((word, index) => (
-          <div key={index} className="relative w-32 h-32 cursor-pointer" onClick={() => handleCardClick(index)}>
-            <div
-              className={`absolute inset-0 w-full h-full rounded-lg ${word.flipped ? (word.correct ? 'bg-green-500' : 'bg-gray-300') : 'bg-blue-500'}`}
-              style={{ transition: 'transform 0.5s ease-in-out' }}
-            >
-              <span className={`absolute inset-0 flex items-center justify-center text-sm font-bold ${word.flipped ? (word.correct ? 'text-white' : 'text-red-500') : (isDarkTheme ? 'text-white' : 'text-black')}`}>
-                {word.flipped ? word.word : ''}
-              </span>
-              {selectedCardIndex !== null && index === selectedCardIndex && !word.correct && (
-                <div className="absolute inset-0 border-4 border-red-500 rounded-lg pointer-events-none"></div>
+    <div className={`${isDarkTheme ? "bg-dark-primary text-white" : "bg-light-primary text-black"}`}>
+      <div className="mx-32">
+        <div className="flex flex-col md:flex-row mx-4">
+          <div className="flex justify-between items-center gap-2 mt-2 gap-32">
+            {gameEnded && showModal && (
+              <div>
+                <button className="px-4 py-2 bg-blue-500 text-white font-bold rounded" onClick={resetGame}>
+                  Reiniciar Juego
+                </button>
+              </div>
+            )}
+            <div>
+              <span className="text-lg font-bold">Palabra a buscar: </span>
+              <span className="text-lg">{targetWord}</span>
+            </div>
+            <div>
+              {initialTimer > 0 ? (
+                <>
+                  <span className="text-lg font-bold">Tiempo de preparación: </span>
+                  <span className="text-lg">{initialTimer} s</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-lg font-bold">Tiempo restante: </span>
+                  <span className="text-lg">{gameTimer} s</span>
+                </>
               )}
             </div>
+            <div>
+              <span className="text-lg font-bold">Intentos restantes: </span>
+              <span className="text-lg">{attempts}</span>
+            </div>
           </div>
-        ))}
+        </div>
+        <div className="grid grid-cols-3 md:grid-cols-8 gap-2 h-full w-full max-h-screen">
+          {words.map((word, index) => (
+            <div key={index} className="relative w-32 h-32 cursor-pointer" onClick={() => handleCardClick(index)}>
+              <div
+                className={`absolute inset-0 w-full h-full rounded-lg ${word.flipped ? (word.correct ? 'bg-green-500' : 'bg-gray-300') : 'bg-blue-500'}`}
+                style={{ transition: 'transform 0.5s ease-in-out' }}
+              >
+                <span className={`absolute inset-0 flex items-center justify-center text-sm font-bold ${word.flipped ? (word.correct ? 'text-white' : 'text-red-500') : (isDarkTheme ? 'text-white' : 'text-black')}`}>
+                  {word.flipped ? word.word : ''}
+                </span>
+                {selectedCardIndex !== null && index === selectedCardIndex && !word.correct && (
+                  <div className="absolute inset-0 border-4 border-red-500 rounded-lg pointer-events-none"></div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-        </div>
-        </div>
+    </div>
   );
 };
 
