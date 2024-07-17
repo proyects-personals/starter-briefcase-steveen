@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTheme } from "../../../hook/theme";
 import personaImg from "../../../assets/dayana.jpeg";
-import dayana from "../../../assets/dayana1.jpeg"; // Asegúrate de tener la otra imagen lista
+import dayanaImg from "../../../assets/dayana1.jpeg"; // Asegúrate de tener la otra imagen lista
 import PageWrapperCustom from "../../../components/common/page/custom/PageWrapperCustom";
 import { useLanguage } from "../../../hook/lenguage";
 import "./styles.css"; // Archivo CSS para estilos y animaciones
@@ -13,7 +13,7 @@ const PresentationScreen: React.FC = () => {
   const [currentImg, setCurrentImg] = useState(personaImg);
 
   const handleMouseEnter = () => {
-    setCurrentImg(dayana);
+    setCurrentImg(dayanaImg);
   };
 
   const handleMouseLeave = () => {

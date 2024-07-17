@@ -3,44 +3,34 @@ import Slider from "react-slick";
 import { useTheme } from "../../../hook/theme";
 import { useLanguage } from "../../../hook/lenguage";
 import PageWrapperCustom from "../../../components/common/page/custom/PageWrapperCustom";
-import amautaImg from "../../../assets/amauta-tech-logo.png";
-import aterrizarImg from "../../../assets/aterrizar-global-logo.png";
-import tocImg from "../../../assets/toc-systems-logo.png";
+import yaviracImg from "../../../assets/yavirac-logo.png"; // Asegúrate de tener una imagen representativa
+import pomasquiImg from "../../../assets/pomasqui-logo.jpeg"; // Asegúrate de tener una imagen representativa
 import { FiArrowRight } from 'react-icons/fi';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-const WorkExperienceScreen: React.FC = () => {
+const MyStudiesScreen: React.FC = () => {
   const { isDarkTheme } = useTheme();
   const { translations } = useLanguage();
 
-  const experiences = [
+  const studies = [
     {
-      company: "AMAUTA TECH",
-      position: translations['experiences.amauta_tech.position'],
-      description: translations['experiences.amauta_tech.description'],
-      period: "07/2023 – 08/2023",
-      location: "Quito",
-      image: amautaImg,
-      pageUrl: "https://www.emis.com/php/company-profile/EC/Instituto_de_Capacitacion_y_Especializacion_Amauta_-_Tech_SAS_BIC_es_13291319.html"
+      institution: translations['studies.yavirac.institution'],
+      degree: translations['studies.yavirac.degree'],
+      description: translations['studies.yavirac.description'],
+      year: "2024",
+      location: "Quito, Ecuador",
+      image: yaviracImg,
+      pageUrl: "https://yavirac.edu.ec/"
     },
     {
-      company: "ATERRIZAR GLOBAL",
-      position: translations['experiences.aterrizar_global.position'],
-      description: translations['experiences.aterrizar_global.description'],
-      period: "05/2022 – 08/2022",
-      location: "Quito",
-      image: aterrizarImg,
-      pageUrl: "https://aterrizarglobal.com/"
-    },
-    {
-      company: "TOC SYSTEMS",
-      position: translations['experiences.toc_systems.position'],
-      description: translations['experiences.toc_systems.description'],
-      period: "07/2023 – 08/2023",
-      location: "Quito",
-      image: tocImg,
-      pageUrl: "https://toc.com.ec/"
+      institution: translations['studies.pomasqui.institution'],
+      degree: translations['studies.pomasqui.degree'],
+      description: translations['studies.pomasqui.description'],
+      year: "2020",
+      location: "Pomasqui, Quito",
+      image: pomasquiImg,
+      pageUrl: "https://iepomasqui.com/" // Cambia esto por la URL real de la institución si está disponible
     },
   ];
 
@@ -65,7 +55,7 @@ const WorkExperienceScreen: React.FC = () => {
         style={{ fontFamily: "Times New Roman, Times, serif" }}
       >
         <Slider {...settings}>
-          {experiences.map((experience, index) => (
+          {studies.map((study, index) => (
             <div
               key={index}
               className={`flex flex-col items-center gap-4 py-10 ${
@@ -74,19 +64,21 @@ const WorkExperienceScreen: React.FC = () => {
             >
               <div className="flex justify-center items-center w-48 h-48 mb-4">
                 <img
-                  src={experience.image}
-                  alt={`${experience.company} logo`}
+                  src={study.image}
+                  alt={`${study.institution} logo`}
                   className="object-contain w-full h-full"
                 />
               </div>
               <div className="text-center">
-                <h2 className="text-xl font-bold mb-2">{experience.company}</h2>
-                <p className="text-lg font-medium mb-2">{experience.position}</p>
-                <p className="text-base mb-2">{experience.description}</p>
-                <p className="text-sm mb-1">{experience.period}</p>
-                <p className="text-sm">{experience.location}</p>
+                <h2 className="text-xl font-bold mb-2">{study.institution}</h2>
+                <p className="text-lg font-medium mb-2">{study.degree}</p>
+                {study.description && (
+                  <p className="text-base mb-2">{study.description}</p>
+                )}
+                <p className="text-sm mb-1">{study.year}</p>
+                <p className="text-sm">{study.location}</p>
                 <a
-                  href={experience.pageUrl}
+                  href={study.pageUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center text-sm text-primary mt-2"
@@ -102,4 +94,4 @@ const WorkExperienceScreen: React.FC = () => {
   );
 };
 
-export default WorkExperienceScreen;
+export default MyStudiesScreen;

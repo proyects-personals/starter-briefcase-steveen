@@ -25,6 +25,10 @@ const BriefcaseScreen: React.FC<BriefcaseScreenProps> = () => {
     navigate("/experience");
   };
 
+  const handleNavigateToStudies = () => {
+    navigate("/studies");
+  };
+
   return (
     <PageWrapperAnimated>
       <div className={`flex flex-col items-center justify-center h-screen text-center`}>
@@ -47,10 +51,10 @@ const BriefcaseScreen: React.FC<BriefcaseScreenProps> = () => {
           <button className="custom-button mt-2" onClick={handleNavigateToWorkExperience}>
             {translations['briefcase.work_experience']}
           </button>
-          <button className="custom-button mt-2" onClick={handleNavigateToPresentation}>
+          {/* <button className="custom-button mt-2" onClick={handleNavigateToPresentation}>
             {translations['briefcase.see_projects']}
-          </button>
-          <button className="custom-button mt-2" onClick={handleNavigateToPresentation}>
+          </button> */}
+          <button className="custom-button mt-2" onClick={handleNavigateToStudies}>
             {translations['briefcase.studies']}
           </button>
         </div>

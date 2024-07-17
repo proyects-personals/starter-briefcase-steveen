@@ -15,24 +15,20 @@
     "presentation.second_stanza": "Además de mi experiencia técnica, soy una profesional colaborativa y orientada a resultados. Disfruto del trabajo en equipo, donde puedo aportar ideas innovadoras y resolver desafíos complejos de manera efectiva. Mi motivación radica en contribuir a proyectos que impacten positivamente en los usuarios finales, ofreciendo  soluciones que combinen funcionalidad robusta con una experiencia de usuario excepcional.",
     "presentation.download_cv": "Descargar cv",
 
-    "experiences.amauta_tech.company": "AMAUTA TECH",
     "experiences.amauta_tech.position": "Desarrollador full-stack",
-    "experiences.amauta_tech.description": "Ocupé el cargo de desarrollador de software especializado en Angular y Nest.js para el desarrollo de una aplicación web, creando un sistema automatizado para instituciones públicas. Asumí roles adicionales como Project Manager para lograr un mejor objetivo en el proyecto conjuntamente con el equipo.",
-    "experiences.amauta_tech.period": "07/2023 – 08/2023",
-    "experiences.amauta_tech.location": "Quito",
-    "experiences.amauta_tech.pageUrl": "https://www.emis.com/php/company-profile/EC/Instituto_de_Capacitacion_y_Especializacion_Amauta_-_Tech_SAS_BIC_es_13291319.html",
-
-    "experiences.aterrizar_global.company": "ATERRIZAR GLOBAL",
+    "experiences.amauta_tech.description": "En Amauta Tech, ocupé el cargo de desarrollador de software especializado en Angular y Nest.js para el desarrollo de una aplicación web destinada a la automatización de sistemas en instituciones públicas. Durante este proyecto, implementé soluciones complejas para mejorar la eficiencia y la funcionalidad del sistema, trabajando estrechamente con el equipo para asegurar una integración perfecta. Además, asumí roles adicionales como Project Manager, donde lideré un equipo multidisciplinario para alcanzar los objetivos del proyecto de manera efectiva y puntual. También participé en la planificación y ejecución de pruebas de calidad, asegurando que el producto final cumpliera con los más altos estándares.",
+   
     "experiences.aterrizar_global.position": "Desarrollador Web",
-    "experiences.aterrizar_global.description": "Desarrollamos una página web de una tienda virtual, utilizando diferentes tecnologías y diseñando una base de datos para la correcta implementación.",
-    "experiences.aterrizar_global.period": "05/2022 – 08/2022",
-    "experiences.aterrizar_global.location": "Quito",
-    "experiences.aterrizar_global.pageUrl": "https://aterrizarglobal.com/",
+    "experiences.aterrizar_global.description": "En Aterrizar Global, desarrollé una página web para una tienda virtual, utilizando diversas tecnologías web. Este proyecto incluyó la creación y diseño de una base de datos robusta para gestionar productos, usuarios y transacciones. Trabajé con herramientas como HTML, CSS, JavaScript, y frameworks como React para crear una interfaz de usuario atractiva y funcional. Además, implementé funcionalidades de comercio electrónico como carritos de compra, sistemas de pago y gestión de inventarios. Mi rol también involucró colaborar con diseñadores y otros desarrolladores para asegurar que el sitio web fuera intuitivo y fácil de usar, al mismo tiempo que cumplía con los requisitos del cliente y las mejores prácticas de SEO.",
 
-    "experiences.toc_systems.company": "TOC SYSTEMS",
     "experiences.toc_systems.position": "Desarrollador web",
-    "experiences.toc_systems.description": "Obtuve un total manejo de las herramientas de Vue, Nuxt, Node, Buefy, etc., leyendo las documentaciones y realizando prácticas para realizar cambios en el aplicativo. Además, realicé diagramas de flujo y de procesos para llevar un buen funcionamiento del sistema.",
-    "experiences.toc_systems.period": "Fecha de inicio – Fecha de fin",
-    "experiences.toc_systems.location": "Ubicación",
-    "experiences.toc_systems.pageUrl": "https://toc.com.ec/"
+    "experiences.toc_systems.description": "Durante mi tiempo en TOC Systems, adquirí un manejo exhaustivo de herramientas y tecnologías como Vue, Nuxt, Node, y Buefy. Mi trabajo involucró leer y comprender documentaciones técnicas, realizar prácticas constantes, y aplicar estos conocimientos para realizar mejoras y cambios en aplicaciones existentes. Además, diseñé y documenté diagramas de flujo y de procesos, lo que fue crucial para el buen funcionamiento del sistema y la gestión eficiente de proyectos. También participé en la creación de proyectos de desarrollo de juegos, aplicando mis conocimientos en desarrollo de software para crear experiencias interactivas y educativas. Mi trabajo contribuyó significativamente a la mejora continua del software y a la satisfacción del cliente.",
+
+    "studies.yavirac.institution": "Tecnólogia en Desarrollo de Software",
+    "studies.yavirac.degree": "Tecnólogia en Desarrollo de Software",
+    "studies.yavirac.description": "Durante mis estudios en el Instituto Yavirac, me especialicé en el desarrollo de software, adquiriendo habilidades en lenguajes de programación como C#, JavaScript y Python. Además, obtuve experiencia práctica en el uso de Unity para el desarrollo de juegos y aplicaciones interactivas. También trabajé en varios proyectos de desarrollo web utilizando tecnologías como React, React Native y Node.js, lo que me permitió desarrollar aplicaciones tanto para web como para dispositivos móviles. Mi formación incluyó cursos en bases de datos, estructuras de datos, y metodologías ágiles, preparando así una base sólida para mi carrera en tecnología.",
+ 
+    "studies.pomasqui.institution": "Institucion Educativa Pomasqui",
+    "studies.pomasqui.degree": "Bachillerato Técnico de Servicios",
+    "studies.pomasqui.description": "En la Institución Educativa Pomasqui, completé mi Bachillerato Técnico de Servicios, donde adquirí conocimientos en una variedad de áreas técnicas y prácticas. El programa incluyó formación en gestión de servicios, habilidades de comunicación efectiva, y principios básicos de administración y contabilidad. Participé en talleres y proyectos que me ayudaron a desarrollar competencias en trabajo en equipo y resolución de problemas, además de recibir una educación integral que abarcó tanto ciencias como humanidades."
 }

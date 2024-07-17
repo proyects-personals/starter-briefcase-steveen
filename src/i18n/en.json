@@ -16,11 +16,19 @@
     "presentation.download_cv": "Download cv",
 
     "experiences.amauta_tech.position": "Full-stack Developer",
-    "experiences.amauta_tech.description": "I held the position of software developer specializing in Angular and Nest.js for the development of a web application, creating an automated system for public institutions. I took on additional roles as Project Manager to achieve better project goals together with the team.",
+    "experiences.amauta_tech.description": "At Amauta Tech, I held the position of software developer specialized in Angular and Nest.js for the development of a web application aimed at automating systems in public institutions. During this project, I implemented complex solutions to improve system efficiency and functionality, working closely with the team to ensure seamless integration. Additionally, I took on additional roles as Project Manager, where I led a multidisciplinary team to achieve project objectives effectively and on time. I also participated in the planning and execution of quality tests, ensuring that the final product met the highest standards.",
 
     "experiences.aterrizar_global.position": "Web Developer",
-    "experiences.aterrizar_global.description": "We developed a virtual store website using different technologies and designing a database for proper implementation.",
-
+    "experiences.aterrizar_global.description": "At Aterrizar Global, I developed a website for a virtual store, using various web technologies. This project included the creation and design of a robust database to manage products, users and transactions. I worked with tools such as HTML, CSS, JavaScript, and frameworks such as React to create an attractive and functional user interface. Additionally, I implemented e-commerce functionalities such as shopping carts, payment systems and inventory management. My role also involved collaborating with designers and other developers to ensure the website was intuitive and easy to use, whilst meeting client requirements and SEO best practices.",
+   
     "experiences.toc_systems.position": "Web Developer",
-    "experiences.toc_systems.description": "I gained complete command of tools like Vue, Nuxt, Node, Buefy, etc., by reading the documentation and practicing to make changes to the application. Additionally, I created flow and process diagrams to ensure the system's smooth operation."
+    "experiences.toc_systems.description": "During my time at TOC Systems, I gained extensive knowledge of tools and technologies such as Vue, Nuxt, Node, and Buefy. My work involved reading and understanding technical documentation, performing constant practices, and applying this knowledge to make improvements and changes to existing applications. Additionally, I designed and documented flow and process diagrams, which was crucial for the proper functioning of the system and efficient project management. I also participated in the creation of game development projects, applying my knowledge in software development to create interactive and educational experiences. My work contributed significantly to continuous software improvement and customer satisfaction.",
+    
+    "studies.yavirac.institution": "Yavirac Higher Technological Institute of Heritage and Tourism",
+    "studies.yavirac.degree": "Technology in Software Development",
+    "studies.yavirac.description": "During my studies at the Yavirac Institute, I specialized in software development, acquiring skills in programming languages ​​​​such as C#, JavaScript and Python. Additionally, I gained hands-on experience using Unity for developing games and interactive applications. I also worked on several web development projects using technologies such as React, React Native and Node.js, which allowed me to develop applications for both web and mobile devices. My training included courses in databases, data structures, and agile methodologies, thus preparing a solid foundation for my career in technology.",
+
+    "studies.pomasqui.institution": "Pomasqui Educational Institution",
+     "studies.pomasqui.degree": "Technical Services Baccalaureate",
+    "studies.pomasqui.description": "At the Pomasqui Educational Institution, I completed my Technical Services Baccalaureate, where I acquired knowledge in a variety of technical and practical areas. The program included training in service management, effective communication skills, and basic principles of administration and accounting. I participated in workshops and projects that helped me develop skills in teamwork and problem solving, in addition to receiving a comprehensive education that covered both the sciences and humanities."
 }
