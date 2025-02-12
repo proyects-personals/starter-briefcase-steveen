@@ -1,9 +1,7 @@
 import React from "react";
 import { useLanguage } from "../../../hook/lenguage";
 import { useTheme } from "../../../hook/theme";
-import { useNavigate } from "react-router-dom";
-import './styles.css';
-import PageWrapperAnimated from "../../../components/common/page/animated/PageWrapperAnimated";
+import PageWrapperCustom from "../../../components/common/page/custom/PageWrapperCustom";
 
 interface BriefcaseScreenProps {}
 
@@ -11,45 +9,15 @@ const BriefcaseScreen: React.FC<BriefcaseScreenProps> = () => {
   const { translations } = useLanguage();
   const { isDarkTheme } = useTheme();
 
-  const navigate = useNavigate();
-
-  const handleNavigateToPresentation = () => {
-    navigate("/presentacion");
-  };
-
-  const handleNavigateToWorkExperience = () => {
-    navigate("/experience");
-  };
-
-  const handleNavigateToStudies = () => {
-    navigate("/studies");
-  };
-
   return (
-    <PageWrapperAnimated>
+    <PageWrapperCustom>
       <div className={`flex flex-col items-center justify-center h-screen text-center`}>
         <p className={`intro-id mt-4 text-2xl font-bold ${isDarkTheme ? 'text-white' : 'text-black'}`}>
           {translations['briefcase.hello']}, {translations['briefcase.name']}
         </p>
-        <p className={`intro-id text-2xl font-bold ${isDarkTheme ? 'text-white' : 'text-black'}`}>
-          {translations['briefcase.title']}
-        </p>
-        <p className={`intro-id mt-2 text-xl ${isDarkTheme ? 'text-white' : 'text-black'}`}>
-          {translations['briefcase.profession']}
-        </p>
-        <div className="mt-6 flex flex-col items-center">
-        <button className="custom-button mt-2" onClick={handleNavigateToPresentation}>
-            {translations['briefcase.learn_more']}
-          </button>
-          <button className="custom-button mt-2" onClick={handleNavigateToWorkExperience}>
-            {translations['briefcase.work_experience']}
-          </button>
-          <button className="custom-button mt-2" onClick={handleNavigateToStudies}>
-            {translations['briefcase.studies']}
-          </button>
-        </div>
+       
       </div>
-    </PageWrapperAnimated>
+    </PageWrapperCustom>
   );
 };
 
