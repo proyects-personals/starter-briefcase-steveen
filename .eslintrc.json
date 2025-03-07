@@ -1,0 +1,48 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": ["react", "@typescript-eslint", "prettier"],
+    "rules": {
+      "prettier/prettier": "error",
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+      "no-console": ["warn", { "allow": ["warn", "error"] }],
+      "no-debugger": "warn",
+      "no-var": "error",
+      "prefer-const": "warn",
+      "eqeqeq": "error",
+      "no-alert": "warn",
+      "no-shadow": "warn",
+      "no-unused-expressions": "warn",
+      "no-multi-spaces": "warn",
+      "no-trailing-spaces": "warn",
+      "no-multiple-empty-lines": "warn",
+      "no-magic-numbers": ["warn", { "ignore": [-1, 0, 1, 2] }],
+      "quotes": ["error", "single", { "avoidEscape": true }],
+      "no-unreachable": "error"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  }

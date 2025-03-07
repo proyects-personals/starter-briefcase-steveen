@@ -44,8 +44,8 @@ const ThemeController: React.FC = () => {
         type="checkbox"
         value="synthwave"
         className="toggle theme-controller"
-        checked={isDarkTheme} 
-        onChange={handleThemeToggle} 
+        checked={isDarkTheme}
+        onChange={handleThemeToggle}
       />
     </label>
   );

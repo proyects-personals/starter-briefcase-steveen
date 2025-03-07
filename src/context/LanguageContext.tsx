@@ -21,13 +21,17 @@ type LanguageContextType = {
   };
 };
 
-export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+export const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 type LanguageProviderProps = {
   children: ReactNode;
 };
 
-export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
+export const LanguageProvider: React.FC<LanguageProviderProps> = ({
+  children,
+}) => {
   const initialLanguage = localStorage.getItem('language') || 'en';
   const [language, setLanguageState] = useState(initialLanguage);
 

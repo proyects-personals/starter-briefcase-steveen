@@ -1,0 +1,42 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install 
+
+      - name: Run Prettier (Format Code)
+        run: npm run format
+
+      - name: Auto-fix ESLint issues
+        run: npm run lint:fix
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Verify no unstaged changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "⚠️ Se detectaron cambios después de ejecutar lint y format. Asegúrate de formatear tu código antes de hacer push."
+            exit 1
+          fi

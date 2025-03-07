@@ -1,7 +1,7 @@
 .header {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background-color: #15202B!important;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #15202b !important;
 }
