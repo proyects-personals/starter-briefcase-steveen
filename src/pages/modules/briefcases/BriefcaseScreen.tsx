@@ -5,6 +5,7 @@ import { useLanguage } from '../../../hook/lenguage';
 import { useTheme } from '../../../hook/theme';
 import manticoreImage from '../../../assets/jobs/manticorelabs.png';
 import madjsImage from '../../../assets/jobs/madjs.png';
+import jetmindImage from '../../../assets/jobs/jetmind.png';
 
 const BriefcaseScreen: React.FC = () => {
   const { translations } = useLanguage();
@@ -30,7 +31,7 @@ const BriefcaseScreen: React.FC = () => {
       title: 'Corporacion Jetmind',
       description:
         'En la corporación Jetmind, he desempeñado el rol de ingeniero de software durante más de un año y medio, donde he tenido la oportunidad de desarrollar aplicaciones web y móviles, llevándolas a producción de manera exitosa. En este tiempo, he trabajado con diversas tecnologías, como React, React Native, Angular, Laravel y AWS, entre otras. Mi experiencia en Jetmind me ha permitido aplicar un enfoque ágil y colaborativo, contribuyendo al éxito de proyectos y optimizando el rendimiento de las aplicaciones a través de soluciones innovadoras y escalables.',
-      image: 'https://via.placeholder.com/300',
+      image: jetmindImage,
       website: 'https://corporacionjetmind.com/',
     },
   ];
