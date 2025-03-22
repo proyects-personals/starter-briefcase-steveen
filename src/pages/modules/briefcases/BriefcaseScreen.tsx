@@ -45,7 +45,7 @@ const BriefcaseScreen: React.FC = () => {
           <div className="space-y-8">
             <AnimatedText
               text="Bienvenido a mi Portafolio"
-              className={isDarkTheme ? 'text-white' : 'text-black'}
+              className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-blue-500"
             />
             <p
               className={`text-2xl font-bold ${isDarkTheme ? 'text-white' : 'text-black'}`}
