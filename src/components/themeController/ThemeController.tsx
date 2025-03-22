@@ -17,7 +17,7 @@ const ThemeController: React.FC = () => {
           height="20"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#ffffff" /* Color del tema oscuro */
+          stroke="#ffffff"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -32,7 +32,7 @@ const ThemeController: React.FC = () => {
           height="20"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#000000" /* Color del tema claro */
+          stroke="#000000"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"

@@ -18,7 +18,7 @@ const LanguageController: React.FC = () => {
     <div className="flex items-center gap-2">
       <div className="relative">
         <select
-          className={`appearance-none bg-no-repeat pr-10 h-8 text-sm pl-3 rounded ${isDarkTheme ? 'bg-dark text-white' : 'bg-light text-black'}`}
+          className={`appearance-none bg-no-repeat pr-10 h-8 text-sm pl-3 rounded ${isDarkTheme ? 'bg-dark-primary text-white' : 'bg-light-primary text-black'}`}
           value={language}
           onChange={handleLanguageChange}
           style={{
@@ -28,40 +28,8 @@ const LanguageController: React.FC = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <option value="en">
-            <span className="block md:hidden">
-              <img
-                src={usFlag}
-                alt="English"
-                className="w-4 h-4 inline-block"
-              />
-            </span>
-            <span className="hidden md:inline-flex items-center gap-1">
-              <img
-                src={usFlag}
-                alt="English"
-                className="w-4 h-4 inline-block"
-              />
-              English
-            </span>
-          </option>
-          <option value="es">
-            <span className="block md:hidden">
-              <img
-                src={ecFlag}
-                alt="Español"
-                className="w-4 h-4 inline-block"
-              />
-            </span>
-            <span className="hidden md:inline-flex items-center gap-1">
-              <img
-                src={ecFlag}
-                alt="Español"
-                className="w-4 h-4 inline-block"
-              />
-              Español
-            </span>
-          </option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
         </select>
       </div>
     </div>

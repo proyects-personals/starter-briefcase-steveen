@@ -9,9 +9,7 @@ const Header: React.FC = () => {
   const { translations } = useLanguage();
 
   return (
-    <header
-      className={`flex items-center justify-between px-8 h-16 w-full ${isDarkTheme ? 'bg-dark' : 'bg-light'}`}
-    >
+    <header className={'flex items-center justify-between px-8 h-24 w-full'}>
       <div className="flex-2">
         <h1
           className={`hidden md:block ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl font-bold`}
@@ -21,16 +19,16 @@ const Header: React.FC = () => {
       </div>
       <div className="flex-1 flex justify-center items-center gap-4">
         <a
-          href="https://www.facebook.com"
+          href="https://github.com/hscordonez"
           target="_blank"
           rel="noopener noreferrer"
         >
           <i
-            className={`fab fa-facebook ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}
+            className={`fab fa-github ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}
           ></i>
         </a>
         <a
-          href="https://www.linkedin.com/in/dayana-carrera-2a617031a/"
+          href="https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -39,7 +37,7 @@ const Header: React.FC = () => {
           ></i>
         </a>
         <a
-          href="https://www.twitter.com"
+          href="https://x.com/steveencues"
           target="_blank"
           rel="noopener noreferrer"
         >
