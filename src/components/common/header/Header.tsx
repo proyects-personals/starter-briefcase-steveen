@@ -1,21 +1,20 @@
 import React from 'react';
 import { useTheme } from '../../../hook/theme';
-import ThemeController from '../../themeController/ThemeController';
-import { useLanguage } from '../../../hook/lenguage';
 import LanguageController from '../../lenguageController/LenguageController';
+import imageSteveen from '../../../assets/developer/steveen.jpg';
+import ThemeController from '../../themeController/ThemeController';
 
 const Header: React.FC = () => {
   const { isDarkTheme } = useTheme();
-  const { translations } = useLanguage();
 
   return (
     <header className={'flex items-center justify-between px-8 h-24 w-full'}>
       <div className="flex-2">
-        <h1
-          className={`hidden md:block ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl font-bold`}
-        >
-          {translations['header.title']}
-        </h1>
+        <img
+          src={imageSteveen}
+          alt=""
+          className="h-16 w-16 rounded-full object-cover"
+        />
       </div>
       <div className="flex-1 flex justify-center items-center gap-4">
         <a

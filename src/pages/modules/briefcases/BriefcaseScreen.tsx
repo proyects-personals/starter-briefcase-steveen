@@ -13,6 +13,8 @@ import reactImage from '../../../assets/technologies/React.png';
 import awsImage from '../../../assets/technologies/aws.png';
 import unibeImage from '../../../assets/education/unibe.png';
 import yaviracImage from '../../../assets/education/yavirac.png';
+import briefcaseImage from '../../../assets/projects/briefcase.jpeg';
+import neuroniandoImage from '../../../assets/projects/neuroniando.webp';
 
 const BriefcaseScreen: React.FC = () => {
   const { translations } = useLanguage();
@@ -46,10 +48,12 @@ const BriefcaseScreen: React.FC = () => {
   const projects = [
     {
       title: 'Portfolio',
-      description: 'A portfolio website showcasing my skills and projects.',
-      image: 'https://via.placeholder.com/300x200',
+      description:
+        'Mi portafolio personal fue realizado con varias tecnologias para mostrar mi experiencia con las mismas ademas que cuenta con un diseño responsive',
+      image: briefcaseImage,
       website: 'https://myportfolio.com',
-      github: 'https://github.com/myusername/portfolio',
+      github:
+        'https://github.com/proyects-personals/starter-briefcase-steveen.git',
       tags: [
         'React',
         'Tailwind CSS',
@@ -57,46 +61,49 @@ const BriefcaseScreen: React.FC = () => {
         'Netlify',
         'GitHub',
         'Figma',
-        'AWS S3', // Agregado para mostrar un uso general de AWS
       ],
     },
     {
       title: 'Neuroniando',
-      description: 'An online shopping app with a secure payment gateway.',
-      image: 'https://via.placeholder.com/300x200',
-      website: 'https://myecommerceapp.com',
-      github: 'https://github.com/myusername/e-commerce-app',
+      description:
+        'Neuroniando es una aplicacion movil educativa con juegos educativos, en este proyecto realice el frontend, devops y el despliegue en la play store',
+      image: neuroniandoImage,
+      website:
+        'https://play.google.com/store/apps/details?id=com.neuroniando.mobile',
       tags: [
         'React Native',
-        'AWS EC2', // AWS EC2 agregado como infraestructura
+        'AWS Amplify',
         'AWS S3',
-        'AWS Cognito', // Para autenticación de usuarios
-        'DynamoDB', // Base de datos para almacenamiento de productos
+        'AWS Cognito',
+        'AWS SES',
+        'AWS Lambda',
+        'AWS Route 53',
+        'AWS IAM',
+        'DynamoDB',
         'React Paper',
         'Unity',
         'Firebase',
         'GitHub',
         'Jira',
-        'Docker',
         'Typescript',
         'GraphQL',
         'Figma',
+        'Java',
       ],
     },
     {
       title: 'App Test Banco Pichincha',
-      description: 'A task management tool to organize your work efficiently.',
+      description:
+        'Esta app esta realizad para pruebas en el banco de pichincha usando apis de pruebas proporcionadas por la entidad, en la misma se realizaron pruebas unitarias y validaciones del sistema',
       image: 'https://via.placeholder.com/300x200',
-      website: 'https://mytaskmanager.com',
-      github: 'https://github.com/myusername/task-manager',
+      github:
+        'https://github.com/proyects-personals/starter-pichincha-test.git',
       tags: [
         'React Native',
         'Typescript',
         'CSS',
         'Unit Tests with Jest',
         'GitHub',
-        'AWS Lambda', // Funciones serverless para tareas
-        'AWS DynamoDB', // Base de datos no relacional
       ],
     },
     {
