@@ -1,150 +1,85 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import React from 'react';
+import { Project } from '../../interface/types';
 
-export interface Experience {
+interface CarruselProps {
+  projects: Project[];
   title: string;
-  description: string;
-  image: string;
-  website?: string;
-  github?: string;
 }
 
-interface CardsProps {
-  title: string;
-  experiences: Experience[];
-}
-
-const Cards: React.FC<CardsProps> = ({ experiences, title }) => {
-  const swiperRef = useRef<any>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.on('slideChange', () => {
-        setActiveIndex(swiperRef.current.swiper.realIndex);
-      });
-    }
-  }, []);
+const Cards: React.FC<CarruselProps> = ({ projects, title }) => {
+  const tagColors = [
+    'from-red-400 to-yellow-500',
+    'from-green-400 to-blue-500',
+    'from-purple-400 to-pink-500',
+    'from-teal-400 to-indigo-500',
+    'from-blue-400 to-cyan-500',
+  ];
 
   return (
-    <section className="py-12">
-      {/* Título con gradiente animado */}
-      <h1 className="text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 sm:mb-12">
-        {title}
-      </h1>
-
-      {/* Carrusel con Swiper */}
-      <div className="container mx-auto px-4 relative">
-        <Swiper
-          ref={swiperRef}
-          modules={[Autoplay, Navigation, Pagination]}
-          spaceBetween={30}
-          slidesPerView={1}
-          centeredSlides={true}
-          loop={true}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
-          pagination={{
-            el: '.swiper-pagination',
-            clickable: true,
-          }}
-          breakpoints={{
-            640: {
-              slidesPerView: 1.5,
-            },
-            1024: {
-              slidesPerView: 2.5,
-            },
-          }}
-          className="swiper-container"
-        >
-          {experiences.map((experience, index) => (
-            <SwiperSlide key={experience.title}>
-              <div
-                className={`relative bg-gray-800 rounded-lg shadow-2xl overflow-hidden transform transition-all duration-300 ${
-                  activeIndex === index
-                    ? 'scale-100 opacity-100'
-                    : 'scale-90 opacity-50'
-                }`}
-              >
-                {/* Imagen */}
-                <div className="relative w-full h-64 sm:h-72 lg:h-80 overflow-hidden p-4 flex items-center justify-center">
-                  <img
-                    src={experience.image}
-                    alt={experience.title}
-                    className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                </div>
-
-                {/* Contenido de la tarjeta */}
-                <div className="p-6">
-                  <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-                    {experience.title}
-                  </h2>
-                  <p className="mt-4 text-gray-300 text-sm sm:text-base">
-                    {experience.description}
-                  </p>
-                  {/* Enlaces (website y GitHub) */}
-                  <div className="mt-6 flex justify-start space-x-4">
-                    {experience.website && (
-                      <a
-                        href={experience.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 transition-colors duration-300"
-                      >
-                        <i
-                          className="fa fa-globe text-2xl"
-                          aria-hidden="true"
-                        ></i>
-                      </a>
-                    )}
-                    {experience.github && (
-                      <a
-                        href={experience.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-gray-300 transition-colors duration-300"
-                      >
-                        <i
-                          className="fa fa-github text-2xl"
-                          aria-hidden="true"
-                        ></i>
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        {/* Botones de navegación */}
-        <div className="swiper-button-prev text-blue-400 hover:text-blue-300 transition-colors duration-300"></div>
-        <div className="swiper-button-next text-blue-400 hover:text-blue-300 transition-colors duration-300"></div>
-
-        {/* Puntos indicadores */}
-        <div className="swiper-pagination mt-6 flex justify-center space-x-2">
-          {experiences.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => swiperRef.current.swiper.slideTo(index)}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                activeIndex === index ? 'bg-blue-400' : 'bg-gray-400'
-              }`}
-            ></button>
-          ))}
-        </div>
+    <div className="">
+      <div className="container mx-auto px-4 mb-16 relative z-10">
+        <h2 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient">
+            {title}
+          </span>
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
       </div>
-    </section>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="w-full bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl cursor-pointer flex flex-col"
+          >
+            <img
+              className="w-full h-48 object-cover"
+              src={project.image}
+              alt={project.title}
+            />
+            <div className="p-4 flex flex-col flex-grow">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {project.title}
+              </h3>
+              <p className="text-gray-600 text-base mb-4 flex-grow">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4 flex-grow">
+                {project.tags?.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className={`bg-gradient-to-r ${tagColors[idx % tagColors.length]} text-white text-sm py-1 px-3 rounded-full`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex justify-between items-center p-4 mt-auto">
+              {project.website && (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-all duration-300"
+                >
+                  <i className="fas fa-external-link-alt mr-2"></i> Visitar
+                </a>
+              )}
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white transition-all duration-300"
+                >
+                  <i className="fab fa-github mr-2"></i> Código
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

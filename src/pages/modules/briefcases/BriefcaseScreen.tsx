@@ -1,17 +1,24 @@
 import AnimatedBackground from '../../../components/briefcase/AnimatedBackground';
 import AnimatedText from '../../../components/briefcase/AnimatedText';
-import Cards, { Experience } from '../../../components/briefcase/Cards';
 import { useLanguage } from '../../../hook/lenguage';
 import { useTheme } from '../../../hook/theme';
 import manticoreImage from '../../../assets/jobs/manticorelabs.png';
 import madjsImage from '../../../assets/jobs/madjs.png';
 import jetmindImage from '../../../assets/jobs/jetmind.png';
+import Carrusel from '../../../components/briefcase/Carrusel';
+import { Project } from '../../../interface/types';
+import Cards from '../../../components/briefcase/Cards';
+import ImageCarousel from '../../../components/briefcase/ImageCarousel';
+import reactImage from '../../../assets/technologies/React.png';
+import awsImage from '../../../assets/technologies/aws.png';
+import unibeImage from '../../../assets/education/unibe.png';
+import yaviracImage from '../../../assets/education/yavirac.png';
 
 const BriefcaseScreen: React.FC = () => {
   const { translations } = useLanguage();
   const { isDarkTheme } = useTheme();
 
-  const experiences: Experience[] = [
+  const experiences: Project[] = [
     {
       title: 'Manticore Labs',
       description:
@@ -24,8 +31,8 @@ const BriefcaseScreen: React.FC = () => {
       description:
         'MADJS es una empresa de desarrollo de software que fundé junto con un equipo de expertos en el área. Nos especializamos en la creación de aplicaciones web y móviles, brindando soluciones innovadoras y personalizadas para cada cliente. Como fundador, he asumido múltiples roles dentro de la empresa, abarcando tanto el desarrollo de frontend como backend para aplicaciones web y móviles. Además, he liderado iniciativas en DevOps, garantizando procesos de integración continua eficientes y un ciclo de desarrollo ágil que optimiza el tiempo y la calidad en cada proyecto.',
       image: madjsImage,
-      // website: 'https://www.ejemplo.com',
-      // github: 'https://github.com/mi-perfil',
+      website: 'https://www.ejemplo.com',
+      github: 'https://github.com/mi-perfil',
     },
     {
       title: 'Corporacion Jetmind',
@@ -35,6 +42,144 @@ const BriefcaseScreen: React.FC = () => {
       website: 'https://corporacionjetmind.com/',
     },
   ];
+
+  const projects = [
+    {
+      title: 'Portfolio',
+      description: 'A portfolio website showcasing my skills and projects.',
+      image: 'https://via.placeholder.com/300x200',
+      website: 'https://myportfolio.com',
+      github: 'https://github.com/myusername/portfolio',
+      tags: [
+        'React',
+        'Tailwind CSS',
+        'Typescript',
+        'Netlify',
+        'GitHub',
+        'Figma',
+        'AWS S3', // Agregado para mostrar un uso general de AWS
+      ],
+    },
+    {
+      title: 'Neuroniando',
+      description: 'An online shopping app with a secure payment gateway.',
+      image: 'https://via.placeholder.com/300x200',
+      website: 'https://myecommerceapp.com',
+      github: 'https://github.com/myusername/e-commerce-app',
+      tags: [
+        'React Native',
+        'AWS EC2', // AWS EC2 agregado como infraestructura
+        'AWS S3',
+        'AWS Cognito', // Para autenticación de usuarios
+        'DynamoDB', // Base de datos para almacenamiento de productos
+        'React Paper',
+        'Unity',
+        'Firebase',
+        'GitHub',
+        'Jira',
+        'Docker',
+        'Typescript',
+        'GraphQL',
+        'Figma',
+      ],
+    },
+    {
+      title: 'App Test Banco Pichincha',
+      description: 'A task management tool to organize your work efficiently.',
+      image: 'https://via.placeholder.com/300x200',
+      website: 'https://mytaskmanager.com',
+      github: 'https://github.com/myusername/task-manager',
+      tags: [
+        'React Native',
+        'Typescript',
+        'CSS',
+        'Unit Tests with Jest',
+        'GitHub',
+        'AWS Lambda', // Funciones serverless para tareas
+        'AWS DynamoDB', // Base de datos no relacional
+      ],
+    },
+    {
+      title: 'Travel Ecuador',
+      description: 'A weather forecasting app using real-time data from APIs.',
+      image: 'https://via.placeholder.com/300x200',
+      website: 'https://myweatherapp.com',
+      github: 'https://github.com/myusername/weather-app',
+      tags: [
+        'React',
+        'Tailwind CSS',
+        'Typescript',
+        'Figma',
+        'AWS API Gateway', // Para la API
+        'AWS Lambda', // Funciones serverless para predicciones meteorológicas
+      ],
+    },
+    {
+      title: 'Imagenes for Travel',
+      description:
+        'An image-based weather forecasting app using real-time data from APIs.',
+      image: 'https://via.placeholder.com/300x200',
+      website: 'https://myweatherapp.com',
+      github: 'https://github.com/myusername/weather-app',
+      tags: [
+        'Python',
+        'AWS S3', // Almacenamiento de imágenes
+        'Imagga API', // API de análisis de imágenes
+        'Docker',
+        'GitHub',
+        'AWS Lambda', // Procesamiento de imágenes
+      ],
+    },
+    {
+      title: 'Veterinaria',
+      description:
+        'A veterinary app for managing appointments and patient information.',
+      image: 'https://via.placeholder.com/300x200',
+      website: 'https://myvetapp.com',
+      github: 'https://github.com/myusername/vet-app',
+      tags: [
+        'Laravel',
+        'AWS EC2', // Infraestructura en la nube
+        'AWS S3', // Almacenamiento de imágenes y documentos
+        'AWS Cognito', // Autenticación de usuarios
+        'Docker',
+      ],
+    },
+    {
+      title: 'Plantilla Banco Sudamericano',
+      description:
+        'A banking template designed to manage customer transactions.',
+      image: 'https://via.placeholder.com/300x200',
+      website: 'https://mybanktemplate.com',
+      github: 'https://github.com/myusername/bank-template',
+      tags: [
+        'HTML',
+        'CSS',
+        'Figma',
+        'AWS Cognito', // Para gestión de usuarios
+        'AWS S3', // Almacenamiento de datos estáticos
+      ],
+    },
+    {
+      title: 'Vinculación con la Sociedad',
+      description:
+        'A community engagement platform with user interaction features.',
+      image: 'https://via.placeholder.com/300x200',
+      website: 'https://communityengagement.com',
+      github: 'https://github.com/myusername/community-engagement',
+      tags: [
+        'Angular',
+        'Laravel',
+        'Tailwind CSS',
+        'API Integration',
+        'Firebase', // Para gestión de usuarios en tiempo real
+        'AWS DynamoDB', // Base de datos no relacional para almacenamiento de usuarios
+        'AWS S3', // Almacenamiento de archivos
+      ],
+    },
+  ];
+
+  const imagesEducacion = [unibeImage, yaviracImage];
 
   return (
     <div className="grid grid-cols-1 space-y-8 p-2">
@@ -65,7 +210,11 @@ const BriefcaseScreen: React.FC = () => {
           </div>
         </div>
       </section>
-      <Cards experiences={experiences} title="Mi Experiencia Laboral" />
+      <Carrusel projects={experiences} title="Mi Experiencia Laboral" />
+      <ImageCarousel images={imagesEducacion} title="Educación" />
+      <div className="container">
+        <Cards projects={projects} title="My Projects" />
+      </div>
     </div>
   );
 };
