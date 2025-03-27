@@ -15,6 +15,9 @@ import unibeImage from '../../../assets/education/unibe.png';
 import yaviracImage from '../../../assets/education/yavirac.png';
 import briefcaseImage from '../../../assets/projects/briefcase.jpeg';
 import neuroniandoImage from '../../../assets/projects/neuroniando.webp';
+import neuroniandoWebImage from '../../../assets/projects/neuroniandoWeb.jpeg';
+import pichinchaImage from '../../../assets/projects/pichincha.jpg';
+import travelEcuadorImage from '../../../assets/projects/travelEcuador.jpeg';
 
 const BriefcaseScreen: React.FC = () => {
   const { translations } = useLanguage();
@@ -92,10 +95,18 @@ const BriefcaseScreen: React.FC = () => {
       ],
     },
     {
+      title: 'Neuroniando web',
+      description:
+        'En esta landing page participe desplegando y realizando correciones en la misma para el despliegue se utilizo aws amplify y cloudflare ademas de tecnologias como react y tailwind',
+      image: neuroniandoWebImage,
+      website: 'https://www.neuroniando.com/',
+      tags: ['React', 'Tailwind Css', 'GitHub', 'AWS Amplify', 'Cloudflare'],
+    },
+    {
       title: 'App Test Banco Pichincha',
       description:
         'Esta app esta realizad para pruebas en el banco de pichincha usando apis de pruebas proporcionadas por la entidad, en la misma se realizaron pruebas unitarias y validaciones del sistema',
-      image: 'https://via.placeholder.com/300x200',
+      image: pichinchaImage,
       github:
         'https://github.com/proyects-personals/starter-pichincha-test.git',
       tags: [
@@ -108,33 +119,17 @@ const BriefcaseScreen: React.FC = () => {
     },
     {
       title: 'Travel Ecuador',
-      description: 'A weather forecasting app using real-time data from APIs.',
-      image: 'https://via.placeholder.com/300x200',
-      website: 'https://myweatherapp.com',
-      github: 'https://github.com/myusername/weather-app',
+      description:
+        'Para la creacion de esta pagina utilice react con librerias de estilos como tailwind y para su despliegue en pruebas Netlify, y en produccion aws amplify comprando el dominio en router 53',
+      image: travelEcuadorImage,
+      website: 'https://feriaecuadortravel.com/home',
       tags: [
         'React',
-        'Tailwind CSS',
-        'Typescript',
-        'Figma',
-        'AWS API Gateway', // Para la API
-        'AWS Lambda', // Funciones serverless para predicciones meteorológicas
-      ],
-    },
-    {
-      title: 'Imagenes for Travel',
-      description:
-        'An image-based weather forecasting app using real-time data from APIs.',
-      image: 'https://via.placeholder.com/300x200',
-      website: 'https://myweatherapp.com',
-      github: 'https://github.com/myusername/weather-app',
-      tags: [
-        'Python',
-        'AWS S3', // Almacenamiento de imágenes
-        'Imagga API', // API de análisis de imágenes
-        'Docker',
+        'Tailwind Css',
         'GitHub',
-        'AWS Lambda', // Procesamiento de imágenes
+        'AWS Amplify',
+        'AWS Router 53',
+        'Netlify',
       ],
     },
     {
@@ -144,13 +139,7 @@ const BriefcaseScreen: React.FC = () => {
       image: 'https://via.placeholder.com/300x200',
       website: 'https://myvetapp.com',
       github: 'https://github.com/myusername/vet-app',
-      tags: [
-        'Laravel',
-        'AWS EC2', // Infraestructura en la nube
-        'AWS S3', // Almacenamiento de imágenes y documentos
-        'AWS Cognito', // Autenticación de usuarios
-        'Docker',
-      ],
+      tags: ['Laravel', 'AWS EC2', 'AWS S3', 'AWS Cognito', 'Docker'],
     },
     {
       title: 'Plantilla Banco Sudamericano',
