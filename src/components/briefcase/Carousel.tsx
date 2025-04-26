@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Project } from '../../interface/types';
 import CarouselItem from './CarouselItem';
-import CarouselControls from './CarouselControls';
 import { Translations } from '../../interface/translations/translations.interface';
 
 interface CarouselProps {
@@ -19,6 +18,7 @@ const Carousel: React.FC<CarouselProps> = ({
     projects.slice(0, 3)
   );
 
+  // Cambiar las diapositivas
   const handleNext = () => {
     setCurrentSlides(([first, second, third]) => [second, third, first]);
   };
@@ -26,6 +26,15 @@ const Carousel: React.FC<CarouselProps> = ({
   const handlePrev = () => {
     setCurrentSlides(([first, second, third]) => [third, first, second]);
   };
+
+  // Rotación automática
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext(); // Cambia la diapositiva automáticamente
+    }, 3000); // Cambiar cada 3 segundos
+
+    return () => clearInterval(interval); // Limpiar el intervalo cuando el componente se desmonte
+  }, []);
 
   return (
     <section className="relative overflow-hidden p-5 sm:p-12">
