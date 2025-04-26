@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Project } from '../../interface/types';
 import { Translations } from '../../interface/translations/translations.interface';
 
@@ -7,6 +7,7 @@ interface CarouselItemProps {
   activeIndex: number;
   index: number;
   translate: Translations;
+  onExpandChange: (expanded: boolean) => void;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = ({
@@ -14,12 +15,25 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
   activeIndex,
   index,
   translate,
+  onExpandChange,
 }) => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState<boolean>(false);
 
-  const toggleDescription = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
+  const toggleDescription = () => {
+    setExpanded((prev) => {
+      const newState = !prev;
+      onExpandChange(newState);
+      return newState;
+    });
   };
+
+  useEffect(() => {
+    return () => {
+      if (expanded) {
+        onExpandChange(false);
+      }
+    };
+  }, [expanded, onExpandChange]);
 
   return (
     <div
@@ -27,7 +41,6 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
         activeIndex === index ? 'scale-105 z-10' : 'scale-95 opacity-90'
       }`}
     >
-      {/* Imagen con efecto de vidrio */}
       <div className="relative h-60 md:h-72 lg:h-80 overflow-hidden group">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 z-10" />
         <img
@@ -38,12 +51,12 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
         />
       </div>
 
-      {/* Contenido */}
       <div className="p-6 relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500" />
         <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
           {project.title}
         </h3>
+
         {project.tags && (
           <div className="flex flex-wrap gap-2 mb-3">
             {project.tags.map((tag, i) => (
@@ -58,19 +71,19 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
         )}
 
         <p
-          className={`text-gray-300 text-sm md:text-base mb-4 ${expandedIndex === index ? '' : 'line-clamp-3'}`}
+          className={`text-gray-300 text-sm md:text-base mb-4 ${
+            expanded ? '' : 'line-clamp-3'
+          }`}
         >
           {project.description}
         </p>
 
         {project.description.length > 100 && (
           <button
-            onClick={() => toggleDescription(index)}
+            onClick={toggleDescription}
             className="text-blue-400 hover:underline text-sm"
           >
-            {expandedIndex === index
-              ? translate.general.seeLess
-              : translate.general.seeMore}
+            {expanded ? translate.general.seeLess : translate.general.seeMore}
           </button>
         )}
 
@@ -82,7 +95,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
               rel="noopener noreferrer"
               className="flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-all duration-300"
             >
-              <i className="fas fa-external-link-alt mr-2"></i>{' '}
+              <i className="fas fa-external-link-alt mr-2"></i>
               {translate.general.visit}
             </a>
           )}
@@ -93,7 +106,8 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
               rel="noopener noreferrer"
               className="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white transition-all duration-300"
             >
-              <i className="fab fa-github mr-2"></i> {translate.general.code}
+              <i className="fab fa-github mr-2"></i>
+              {translate.general.code}
             </a>
           )}
         </div>

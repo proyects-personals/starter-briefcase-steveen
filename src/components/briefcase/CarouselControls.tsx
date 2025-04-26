@@ -20,9 +20,9 @@ const CarouselControls: React.FC<CarouselControlsProps> = ({
       >
         <button
           onClick={handlePrev}
-          className="text-3xl text-white bg-gray-800 bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition-colors"
+          className="text-3xl text-white bg-gray-800 bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition-colors w-12"
         >
-          ⬅
+          <i className="fas fa-chevron-left"></i>
         </button>
       </div>
       <div
@@ -32,9 +32,9 @@ const CarouselControls: React.FC<CarouselControlsProps> = ({
       >
         <button
           onClick={handleNext}
-          className="text-3xl text-white bg-gray-800 bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition-colors"
+          className="text-3xl text-white bg-gray-800 bg-opacity-50 p-2 w-12 rounded-full hover:bg-opacity-75 transition-colors"
         >
-          ➡
+          <i className="fas fa-chevron-right"></i>
         </button>
       </div>
     </>

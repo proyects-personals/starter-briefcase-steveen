@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Project } from '../../interface/types';
 import CarouselItem from './CarouselItem';
 import { Translations } from '../../interface/translations/translations.interface';
@@ -10,37 +10,63 @@ interface CarouselProps {
   translate: Translations;
 }
 
-const Carousel: React.FC<CarouselProps> = ({
-  projects,
-  title,
-  translate,
-}: CarouselProps) => {
+const AUTO_ROTATE_INTERVAL_MS = 30000;
+const SCALE_ACTIVE = 'scale-110';
+const SCALE_INACTIVE = 'scale-90 opacity-70';
+const TRANSITION_DURATION = 'duration-500';
+const INITIAL_PROJECTS_COUNT = 3;
+const SLICE_START = 0;
+
+const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
   const [currentSlides, setCurrentSlides] = useState<Project[]>(
-    projects.slice(0, 3)
+    projects.slice(SLICE_START, INITIAL_PROJECTS_COUNT)
   );
-  const [isHovering, setIsHovering] = useState<boolean>(false); // Estado para isHovering
+  const [isHovering, setIsHovering] = useState<boolean>(false);
+  const [isAnyExpanded, setIsAnyExpanded] = useState<boolean>(false);
 
-  // Cambiar las diapositivas
-  const handleNext = () => {
+  const lastSwitchTimeRef = useRef<number>(Date.now());
+  const animationFrameRef = useRef<number | null>(null);
+
+  const handleNext = useCallback((): void => {
     setCurrentSlides(([first, second, third]) => [second, third, first]);
-  };
-
-  const handlePrev = () => {
-    setCurrentSlides(([first, second, third]) => [third, first, second]);
-  };
-
-  // Rotación automática
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext(); // Cambia la diapositiva automáticamente
-    }, 3000); // Cambiar cada 3 segundos
-
-    return () => clearInterval(interval); // Limpiar el intervalo cuando el componente se desmonte
+    lastSwitchTimeRef.current = Date.now();
   }, []);
 
-  // Manejadores de hover
+  const handlePrev = useCallback((): void => {
+    setCurrentSlides(([first, second, third]) => [third, first, second]);
+    lastSwitchTimeRef.current = Date.now();
+  }, []);
+
+  const animate = useCallback((): void => {
+    const now = Date.now();
+
+    if (
+      !isAnyExpanded &&
+      now - lastSwitchTimeRef.current > AUTO_ROTATE_INTERVAL_MS
+    ) {
+      handleNext();
+      lastSwitchTimeRef.current = now;
+    }
+
+    animationFrameRef.current = requestAnimationFrame(animate);
+  }, [handleNext, isAnyExpanded]);
+
+  useEffect(() => {
+    animationFrameRef.current = requestAnimationFrame(animate);
+
+    return (): void => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [animate]);
+
   const handleMouseEnter = () => setIsHovering(true);
   const handleMouseLeave = () => setIsHovering(false);
+
+  const handleExpandChange = (expanded: boolean): void => {
+    setIsAnyExpanded(expanded);
+  };
 
   return (
     <section
@@ -48,10 +74,7 @@ const Carousel: React.FC<CarouselProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Fondo */}
       <div className="absolute inset-0 opacity-5 pattern-blue-500 pattern-size-4" />
-
-      {/* Título */}
       <div className="container mx-auto px-4 mb-16 relative z-10 space-y-4 sm:space-y-8">
         <h2 className="text-center text-xl sm:text-6xl font-bold">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient">
@@ -60,15 +83,12 @@ const Carousel: React.FC<CarouselProps> = ({
         </h2>
         <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
       </div>
-
-      {/* Carrusel */}
       <div className="container mx-auto px-4 relative z-10 flex justify-center items-center p-5 space-x-4">
-        {/* Slides */}
-        {currentSlides.map((project, index) => (
+        {currentSlides.map((project: Project, index: number) => (
           <div
             key={index}
-            className={`transition-all duration-500 ${
-              index === 1 ? 'scale-110' : 'scale-90 opacity-70'
+            className={`transition-all ${TRANSITION_DURATION} ${
+              index === 1 ? SCALE_ACTIVE : SCALE_INACTIVE
             }`}
           >
             <CarouselItem
@@ -76,15 +96,21 @@ const Carousel: React.FC<CarouselProps> = ({
               activeIndex={index}
               index={index}
               translate={translate}
+              onExpandChange={handleExpandChange}
             />
           </div>
         ))}
 
-        {/* Controles */}
         <CarouselControls
           isHovering={isHovering}
-          handleNext={handleNext}
-          handlePrev={handlePrev}
+          handleNext={(): void => {
+            handleNext();
+            setIsAnyExpanded(false);
+          }}
+          handlePrev={(): void => {
+            handlePrev();
+            setIsAnyExpanded(false);
+          }}
         />
       </div>
     </section>
