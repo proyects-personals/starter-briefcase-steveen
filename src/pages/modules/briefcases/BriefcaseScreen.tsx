@@ -2,7 +2,7 @@ import AnimatedBackground from '../../../components/briefcase/AnimatedBackground
 import AnimatedText from '../../../components/briefcase/AnimatedText';
 import { useLanguage } from '../../../hook/lenguage';
 import { useTheme } from '../../../hook/theme';
-import Carrusel from '../../../components/briefcase/Carrusel';
+import Carousel from '../../../components/briefcase/Carousel';
 import Cards from '../../../components/briefcase/Cards';
 import ImageCarousel from '../../../components/briefcase/ImageCarousel';
 import unibeImage from '../../../assets/education/unibe.png';
@@ -38,9 +38,9 @@ const BriefcaseScreen: React.FC = () => {
 
   return (
     <div className="grid grid-cols-1 space-y-2 sm:space-y-8 sm:p-2">
-      <section className="relative p-5 sm:p-12 h-full overflow-hidden font-sans">
+      <section className="relative p-5 sm:p-12 h-full overflow-hidden font-sans ">
         <AnimatedBackground isDarkTheme={isDarkTheme} />
-        <div className="grid grid-cols-1 h-full relative z-10 text-center p-2 ">
+        <div className="grid grid-cols-1 h-full relative z-10 text-center p-2 sm:p-0  ">
           <div className="space-y-4 sm:space-y-8">
             <AnimatedText
               text={translations.briefcase.welcome}
@@ -63,11 +63,11 @@ const BriefcaseScreen: React.FC = () => {
           </div>
         </div>
       </section>
-      {/*<Carrusel
+      <Carousel
         projects={experiences}
         title={translations.workExperience.title}
         translate={translations}
-      />*/}
+      />
       {/* <ImageCarousel images={imagesEducacion} title="Educación" />*/}
       {/* <div className="container">
         <Cards projects={projects} title="My Projects" />
