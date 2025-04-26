@@ -37,34 +37,32 @@ const BriefcaseScreen: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 space-y-8 p-2">
-      {/*<section className="relative p-12 h-96 overflow-hidden font-sans">
+    <div className="grid grid-cols-1 space-y-2 sm:space-y-8 sm:p-2">
+      <section className="relative p-5 sm:p-12 h-full overflow-hidden font-sans">
         <AnimatedBackground isDarkTheme={isDarkTheme} />
-
-         Contenido en Grid
-        <div className="grid grid-cols-1 h-full relative z-10 text-center">
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 h-full relative z-10 text-center p-2 ">
+          <div className="space-y-4 sm:space-y-8">
             <AnimatedText
               text={translations.briefcase.welcome}
-              className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-blue-500"
+              className="text-[38px] sm:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-blue-500"
             />
             <p
-              className={`text-2xl font-bold ${isDarkTheme ? 'text-white' : 'text-black'}`}
+              className={`text-xl sm:text-2xl font-bold ${isDarkTheme ? 'text-white' : 'text-black'}`}
             >
               {translations.briefcase.hello}, {translations.briefcase.name}
             </p>
-            <p className="text-gray-400 leading-relaxed text-justify">
+            <p className="text-sm sm:text-xl text-gray-400 leading-relaxed text-justify">
               {translations.briefcase.presentation}
             </p>
             <button
               onClick={downloadCv}
-              className="mt-6 inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+              className="mt-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-transform duration-300"
             >
               {languageState === 'en' ? 'Download CV' : 'Descargar CV'}
             </button>
           </div>
         </div>
-      </section>*/}
+      </section>
       {/*<Carrusel
         projects={experiences}
         title={translations.workExperience.title}
