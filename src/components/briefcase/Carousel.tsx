@@ -4,23 +4,31 @@ import CarouselItem from './CarouselItem';
 import { Translations } from '../../interface/translations/translations.interface';
 import CarouselControls from './CarouselControls';
 
+const AUTO_ROTATE_INTERVAL_MS = 30000;
+const SCALE_ACTIVE = 'scale-110';
+const SCALE_INACTIVE = 'scale-90 opacity-70';
+const TRANSITION_DURATION = 'duration-500';
+const BREAKPOINT = 768;
+const DEFAULT_PROJECTS_COUNT = 3;
+const MOBILE_PROJECTS_COUNT = 1;
+
 interface CarouselProps {
   projects: Project[];
   title: string;
   translate: Translations;
 }
 
-const AUTO_ROTATE_INTERVAL_MS = 30000;
-const SCALE_ACTIVE = 'scale-110';
-const SCALE_INACTIVE = 'scale-90 opacity-70';
-const TRANSITION_DURATION = 'duration-500';
-const INITIAL_PROJECTS_COUNT = 3;
-const SLICE_START = 0;
-
 const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
-  const [currentSlides, setCurrentSlides] = useState<Project[]>(
-    projects.slice(SLICE_START, INITIAL_PROJECTS_COUNT)
+  const [projectsCount, setProjectsCount] = useState<number>(
+    window.innerWidth < BREAKPOINT
+      ? MOBILE_PROJECTS_COUNT
+      : DEFAULT_PROJECTS_COUNT
   );
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [currentSlides, setCurrentSlides] = useState<Project[]>(
+    projects.slice(currentIndex, currentIndex + projectsCount)
+  );
+
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [isAnyExpanded, setIsAnyExpanded] = useState<boolean>(false);
 
@@ -28,14 +36,16 @@ const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
   const animationFrameRef = useRef<number | null>(null);
 
   const handleNext = useCallback((): void => {
-    setCurrentSlides(([first, second, third]) => [second, third, first]);
+    const nextIndex = (currentIndex + 1) % projects.length;
+    setCurrentIndex(nextIndex);
     lastSwitchTimeRef.current = Date.now();
-  }, []);
+  }, [currentIndex, projects.length]);
 
   const handlePrev = useCallback((): void => {
-    setCurrentSlides(([first, second, third]) => [third, first, second]);
+    const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+    setCurrentIndex(prevIndex);
     lastSwitchTimeRef.current = Date.now();
-  }, []);
+  }, [currentIndex, projects.length]);
 
   const animate = useCallback((): void => {
     const now = Date.now();
@@ -61,6 +71,33 @@ const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
     };
   }, [animate]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const newProjectsCount =
+        window.innerWidth < BREAKPOINT
+          ? MOBILE_PROJECTS_COUNT
+          : DEFAULT_PROJECTS_COUNT;
+      setProjectsCount(newProjectsCount);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (projectsCount === MOBILE_PROJECTS_COUNT) {
+      setCurrentSlides([projects[currentIndex]]);
+    } else {
+      const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+      const nextIndex = (currentIndex + 1) % projects.length;
+      setCurrentSlides([
+        projects[prevIndex],
+        projects[currentIndex],
+        projects[nextIndex],
+      ]);
+    }
+  }, [currentIndex, projects, projectsCount]);
+
   const handleMouseEnter = () => setIsHovering(true);
   const handleMouseLeave = () => setIsHovering(false);
 
@@ -83,12 +120,16 @@ const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
         </h2>
         <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
       </div>
-      <div className="container mx-auto px-4 relative z-10 flex justify-center items-center p-5 space-x-4">
+      <div className="container mx-auto px-4 relative z-10 flex justify-center items-center p-0 sm:p-5 space-x-2">
         {currentSlides.map((project: Project, index: number) => (
           <div
             key={index}
             className={`transition-all ${TRANSITION_DURATION} ${
-              index === 1 ? SCALE_ACTIVE : SCALE_INACTIVE
+              index === 1
+                ? SCALE_ACTIVE
+                : window.innerWidth < BREAKPOINT
+                  ? 'scale-100 opacity-100'
+                  : SCALE_INACTIVE
             }`}
           >
             <CarouselItem
@@ -100,7 +141,6 @@ const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
             />
           </div>
         ))}
-
         <CarouselControls
           isHovering={isHovering}
           handleNext={(): void => {
@@ -111,6 +151,11 @@ const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
             handlePrev();
             setIsAnyExpanded(false);
           }}
+          controlsClassName={`${
+            isHovering || window.innerWidth < BREAKPOINT
+              ? 'opacity-60'
+              : 'opacity-0'
+          } transition-opacity duration-500`}
         />
       </div>
     </section>

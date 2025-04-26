@@ -4,17 +4,19 @@ interface CarouselControlsProps {
   isHovering: boolean;
   handlePrev: () => void;
   handleNext: () => void;
+  controlsClassName: string; // Agrega esta línea
 }
 
 const CarouselControls: React.FC<CarouselControlsProps> = ({
   isHovering,
   handleNext,
   handlePrev,
+  controlsClassName, // Recibe la propiedad
 }) => {
   return (
     <>
       <div
-        className={`absolute left-0 top-1/2 transform -translate-y-1/2 transition-opacity duration-300 ${
+        className={`absolute left-0 top-1/2 transform -translate-y-1/2 transition-opacity duration-300 ${controlsClassName} ${
           isHovering ? 'opacity-100' : 'opacity-0'
         }`}
       >
@@ -26,7 +28,7 @@ const CarouselControls: React.FC<CarouselControlsProps> = ({
         </button>
       </div>
       <div
-        className={`absolute right-0 top-1/2 transform -translate-y-1/2 transition-opacity duration-300 ${
+        className={`absolute right-0 top-1/2 transform -translate-y-1/2 transition-opacity duration-300 ${controlsClassName} ${
           isHovering ? 'opacity-100' : 'opacity-0'
         }`}
       >
