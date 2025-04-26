@@ -5,12 +5,12 @@ import ecFlag from '../../assets/flags/ec.svg';
 import { useTheme } from '../../hook/theme';
 
 const LanguageController: React.FC = () => {
-  const { language, setLanguage } = useLanguage();
+  const { translations, languageState, setLanguage } = useLanguage();
   const { isDarkTheme } = useTheme();
 
   const handleLanguageChange = (
     event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  ): void => {
     setLanguage(event.target.value);
   };
 
@@ -19,17 +19,17 @@ const LanguageController: React.FC = () => {
       <div className="relative">
         <select
           className={`appearance-none bg-no-repeat pr-10 h-8 text-sm pl-3 rounded ${isDarkTheme ? 'bg-dark-primary text-white' : 'bg-light-primary text-black'}`}
-          value={language}
+          value={languageState}
           onChange={handleLanguageChange}
           style={{
-            backgroundImage: `url(${language === 'en' ? usFlag : ecFlag})`,
+            backgroundImage: `url(${languageState === 'en' ? usFlag : ecFlag})`,
             backgroundSize: '20px',
             backgroundPosition: 'right 10px center',
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <option value="en">English</option>
-          <option value="es">Español</option>
+          <option value="en">{translations.languages.english}</option>
+          <option value="es">{translations.languages.spanish}</option>
         </select>
       </div>
     </div>

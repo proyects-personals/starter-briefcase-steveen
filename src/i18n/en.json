@@ -1,6 +1,70 @@
 {
-  "header.title": "Header",
-  "header.toggleTheme": "Toggle Theme",
-  "briefcase.hello": "Hello",
-  "briefcase.name": "My name is Steveen Ordoñez"
+  "briefcase": {
+    "welcome": "Welcome to my Portfolio",
+    "hello": "Hello",
+    "name": "I'm Steveen Ordoñez",
+    "presentation": "A highly skilled Software Engineer and Technologist in Software Development, passionate about technology, music, and art. Experienced in exploring emerging trends, building innovative digital solutions, and blending creativity with code to deliver unique, engaging, and user-centered experiences. With a strong technical foundation and a creative mindset, I contribute to projects from both a functional and artistic perspective, driving impactful, scalable results across diverse development environments.",
+    "download": "download CV"
+  },
+  "languages": {
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "workExperience": {
+    "title": "My Work Experience"
+  },
+  "manticoreLabs": {
+    "title": "Manticore Labs",
+    "description": "At Manticore Labs, I served as a software developer in both frontend and backend areas for one year, actively participating in innovative projects. During this experience, I worked with technologies such as Angular and NestJS, and had the opportunity to work with microservices-based architectures. I was also part of agile teams, which allowed me to collaborate in dynamic environments and adopt modern development practices. Additionally, I took on QA responsibilities, especially in key projects like Bago and Mundo Venus, where I contributed to development and quality testing as a junior developer."
+  },
+  "jetmind": {
+    "title": "Jetmind Corporation",
+    "description": "At Jetmind Corporation, I have worked as a software engineer for over a year and a half, where I had the opportunity to develop web and mobile applications and successfully take them to production. During this time, I worked with various technologies such as React, React Native, Angular, Laravel, and AWS, among others. My experience at Jetmind has allowed me to apply an agile and collaborative approach, contributing to project success and optimizing application performance through innovative and scalable solutions."
+  },
+  "madJs": {
+    "title": "MADJS",
+    "description": "MADJS is a software development company I founded together with a team of experts in the field. We specialize in creating web and mobile applications, providing innovative and personalized solutions for each client. As a founder, I have taken on multiple roles within the company, covering both frontend and backend development for web and mobile apps. I have also led DevOps initiatives, ensuring efficient continuous integration processes and an agile development cycle that optimizes both time and quality in every project."
+  },
+  "general": {
+    "seeMore": "See more",
+    "visit": "Visit",
+    "code": "Code",
+    "seeLess": "See less"
+  },
+  "projects": {
+    "title": "My Projects"
+  },
+  "portfolio": {
+    "name": "Portfolio",
+    "description": "My personal portfolio was built using various technologies to showcase my experience with them. It also features a responsive design."
+  },
+  "neuroniando": {
+    "name": "Neuroniando",
+    "description": "Neuroniando is an educational mobile app focused on learning through interactive games. In this project, I took on an integral role, handling frontend development with modern technologies, implementing DevOps practices to facilitate continuous deployment and process automation, as well as publishing and managing the app on the Google Play Store."
+  },
+  "neuroniandoWeb": {
+    "name": "Neuroniando Landing Page",
+    "description": "I had the opportunity to participate in all stages of the project, from development to deployment, using technologies such as React and AWS to ensure its success. This active involvement allowed me to contribute to every phase, ensuring a smooth execution and achieving the expected results."
+  },
+  "pichinchaBank": {
+    "name": "Pichincha Bank Test App",
+    "description": "This application was developed as part of an internal testing environment for Banco Pichincha, using test APIs provided by the institution. During development, unit tests and system validations were implemented to ensure the application’s stability, functionality, and proper behavior across different scenarios. This experience strengthened my ability to work in regulated environments, ensuring quality and reliability in the delivered software."
+  },
+  "travelEcuador": {
+    "name": "Travel Ecuador",
+    "description": "I developed and deployed this project as part of an initiative driven by the Ecuador Travel Fair, in coordination with the Ministry of Tourism of Ecuador. The project was designed to meet specific event requirements, delivering a functional, attractive, and institutionally aligned tech solution. I was responsible for both development and production deployment, ensuring a timely and successful implementation."
+  },
+  "southAmericanBank": {
+    "name": "South American Bank Template",
+    "description": "This was a design created for the South American Bank, which was specified to be made using only HTML and CSS."
+  },
+  "linkage": {
+    "name": "Community Engagement",
+    "description": "I developed the institutional document management module as part of my graduation project at the Yavirac Institute. The system was built with Angular and PrimeNG, offering a modern and adaptable user interface focused on usability. Additional software tools were integrated to ensure a scalable and efficient architecture that met the institution's functional and technical requirements."
+  },
+  "docsUnibe": {
+    "name": "Unibe Institutional Documents",
+    "description": "This project was developed using React for the frontend and Tailwind CSS to offer a responsive and modern design. It incorporated several AWS services as part of the cloud infrastructure, enabling efficient resource management and seamless integration.\n\nThe application was deployed to a production environment with CS2 and to a testing environment with Netlify. Additionally, load and stress tests were conducted to ensure system stability, performance, and scalability under real-world conditions."
+  }
+
 }

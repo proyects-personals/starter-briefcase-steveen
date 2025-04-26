@@ -1,6 +1,69 @@
 {
-  "header.title": "Encabezado",
-  "header.toggleTheme": "Cambiar Tema",
-  "briefcase.hello": "Hola",
-  "briefcase.name": "soy Steveen Ordoñez"
+  "briefcase": {
+    "welcome": "Bienvenido a mi Portafolio",
+    "hello": "Hola",
+    "name": "soy Steveen Ordoñez",
+    "presentation": "Soy Ingeniero en Software y Tecnólogo en Desarrollo de Software, con una gran pasión por la tecnología, la música y el arte. Experto en explorar nuevas tendencias, crear soluciones digitales innovadoras y fusionar la creatividad con el código para desarrollar experiencias únicas, atractivas y centradas en el usuario. Con una sólida base técnica y una mentalidad creativa, aporto tanto desde una perspectiva funcional como artística, generando resultados escalables y de alto impacto en diversos entornos de desarrollo.",
+    "download": "Descargar CV"
+  },
+  "languages": {
+    "english": "Ingles",
+    "spanish": "Español"
+  },
+  "workExperience": {
+    "title": "Mi Experiencia Laboral"
+  },
+  "manticoreLabs": {
+    "title": "Manticore Labs",
+    "description": "En Manticore Labs, desempeñé el rol de desarrollador de software en las áreas de frontend y backend durante un año, participando activamente en proyectos innovadores. Durante esta experiencia, trabajé con tecnologías como Angular y NestJS, y tuve la oportunidad de trabajar con arquitecturas basadas en microservicios. Además, formé parte de equipos ágiles, lo que me permitió colaborar en entornos dinámicos y con prácticas de desarrollo modernas. También asumí responsabilidades como QA, especialmente en proyectos clave como Bago y Mundo Venus, donde contribuí en el desarrollo y pruebas de calidad como desarrollador junior."
+  },
+  "jetmind": {
+    "title": "Corporación Jetmind",
+    "description": "En la corporación Jetmind, he desempeñado el rol de ingeniero de software durante más de un año y medio, donde he tenido la oportunidad de desarrollar aplicaciones web y móviles, llevándolas a producción de manera exitosa. En este tiempo, he trabajado con diversas tecnologías, como React, React Native, Angular, Laravel y AWS, entre otras. Mi experiencia en Jetmind me ha permitido aplicar un enfoque ágil y colaborativo, contribuyendo al éxito de proyectos y optimizando el rendimiento de las aplicaciones a través de soluciones innovadoras y escalables."
+  },
+  "madJs": {
+    "title": "MADJS",
+    "description": "MADJS es una empresa de desarrollo de software que fundé junto con un equipo de expertos en el área. Nos especializamos en la creación de aplicaciones web y móviles, brindando soluciones innovadoras y personalizadas para cada cliente. Como fundador, he asumido múltiples roles dentro de la empresa, abarcando tanto el desarrollo de frontend como backend para aplicaciones web y móviles. Además, he liderado iniciativas en DevOps, garantizando procesos de integración continua eficientes y un ciclo de desarrollo ágil que optimiza el tiempo y la calidad en cada proyecto."
+  },
+  "general": {
+    "seeMore": "Ver más",
+    "visit": "Visitar",
+    "code": "Código",
+    "seeLess": "Ver menos"
+  },
+  "projects": {
+    "title": "Mis proyectos"
+  },
+  "portfolio": {
+    "name": "Portafolio",
+    "description": "Mi portafolio personal fue realizado con varias tecnologías para mostrar mi experiencia con las mismas, además de contar con un diseño responsive."
+  },
+  "neuroniando": {
+    "name": "Neuroniando",
+    "description": "Neuroniando es una aplicación móvil educativa enfocada en el aprendizaje mediante juegos interactivos. En este proyecto asumí un rol integral, encargándome del desarrollo del frontend con tecnologías modernas, la implementación de prácticas DevOps para facilitar el despliegue continuo y la automatización de procesos, así como la publicación y gestión de la aplicación en la Google Play Store."
+  },
+  "neuroniandoWeb": {
+    "name": "Neuroniando landing page",
+    "description": "Tuve la oportunidad de participar en todas las etapas del proyecto, desde el desarrollo hasta el despliegue, utilizando tecnologías como React y AWS para garantizar su éxito. Esta participación activa me permitió contribuir a cada fase, asegurando la ejecución fluida del proyecto y alcanzando los resultados esperados."
+  },
+  "pichinchaBank": {
+    "name": "App Test Banco Pichincha",
+    "description": "Esta aplicación fue desarrollada como parte de un entorno de pruebas internas para el Banco Pichincha, haciendo uso de APIs de prueba proporcionadas por la entidad. Durante el desarrollo, se implementaron pruebas unitarias y validaciones del sistema con el objetivo de asegurar la estabilidad, funcionalidad y correcto comportamiento de la aplicación en distintos escenarios. Esta experiencia fortaleció mi capacidad para trabajar en entornos regulados, garantizando calidad y confiabilidad en el software entregado."
+  },
+  "travelEcuador": {
+    "name": "Travel Ecuador",
+    "description": "Desarrollé y desplegué este proyecto como parte de una iniciativa impulsada por la Feria Ecuador Travel, en coordinación con el Ministerio de Turismo del Ecuador. El proyecto fue concebido para atender requerimientos específicos del evento, brindando una solución tecnológica funcional, atractiva y alineada con los objetivos institucionales. Me encargué tanto del desarrollo como del despliegue en producción, asegurando una implementación exitosa y oportuna."
+  },
+  "southAmericanBank": {
+    "name": "Plantilla Banco Sudamericano",
+    "description": "Este fue un diseño realizado para el Banco Sudamericano, el cual se especificó que debía ser solo con HTML y CSS."
+  },
+  "linkage": {
+    "name": "Vinculación con la Sociedad",
+    "description": "Desarrollé el módulo de gestión documental institucional como parte de mi proyecto de grado en el Instituto Yavirac. El sistema se construyó con Angular y PrimeNG, ofreciendo una interfaz de usuario moderna y adaptable, centrada en la usabilidad. Se integraron herramientas de software adicionales para garantizar una arquitectura escalable y eficiente que cumpliera con los requisitos funcionales y técnicos de la institución."
+  },
+  "docsUnibe": {
+    "name": "Documentos institucionales de Unibe",
+    "description": "Este proyecto se desarrolló con React para el frontend y Tailwind CSS para ofrecer un diseño responsivo y moderno. Incorporó varios servicios de AWS como parte de la infraestructura en la nube, lo que permitió una gestión eficiente de los recursos y una integración fluida.\n\nLa aplicación se implementó en un entorno de producción con CS2 y en un entorno de pruebas con Netlify. Además, se realizaron pruebas de carga y estrés para garantizar la estabilidad, el rendimiento y la escalabilidad del sistema en condiciones reales de uso."
+  }
 }

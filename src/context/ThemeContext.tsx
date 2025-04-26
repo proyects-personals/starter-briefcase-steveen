@@ -14,17 +14,17 @@ type ThemeProviderProps = {
 };
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const storedTheme = localStorage.getItem('theme');
-  const initialTheme = storedTheme === 'true';
+  const storedTheme: string | null = localStorage.getItem('theme');
+  const initialTheme: boolean = storedTheme === 'true';
 
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(initialTheme);
 
-  useEffect(() => {
+  useEffect((): void => {
     localStorage.setItem('theme', isDarkTheme.toString());
   }, [isDarkTheme]);
 
-  const toggleTheme = () => {
-    setIsDarkTheme((prevTheme) => !prevTheme);
+  const toggleTheme = (): void => {
+    setIsDarkTheme((prevTheme: boolean) => !prevTheme);
   };
 
   return (

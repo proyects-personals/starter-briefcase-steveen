@@ -1,24 +1,20 @@
-import React, { createContext, useState, ReactNode, useEffect } from 'react';
+import React, {
+  createContext,
+  useState,
+  ReactNode,
+  useEffect,
+  useMemo,
+} from 'react';
 import en from '../i18n/en.json';
 import es from '../i18n/es.json';
+import { Translations } from '../interface/translations/translations.interface';
 
-type Translations = {
-  [key: string]: {
-    [key: string]: string;
-  };
-};
-
-const translations: Translations = {
-  en,
-  es,
-};
+const translations: Record<string, Translations> = { es, en };
 
 type LanguageContextType = {
-  language: string;
+  languageState: string;
   setLanguage: (lang: string) => void;
-  translations: {
-    [key: string]: string;
-  };
+  translations: Translations;
 };
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -32,26 +28,29 @@ type LanguageProviderProps = {
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({
   children,
 }) => {
-  const initialLanguage = localStorage.getItem('language') || 'en';
-  const [language, setLanguageState] = useState(initialLanguage);
+  const initialLanguage: string = localStorage.getItem('language') ?? 'en';
+  const [languageState, setLanguageState] = useState(initialLanguage);
 
-  const setLanguage = (lang: string) => {
+  const setLanguage = (lang: string): void => {
     localStorage.setItem('language', lang);
     setLanguageState(lang);
   };
 
   useEffect(() => {
-    const storedLanguage = localStorage.getItem('language');
-    if (storedLanguage && storedLanguage !== language) {
+    const storedLanguage: string | null = localStorage.getItem('language');
+    if (storedLanguage && storedLanguage !== languageState) {
       setLanguageState(storedLanguage);
     }
-  }, [language]);
+  }, [languageState]);
 
-  const contextValue: LanguageContextType = {
-    language,
-    setLanguage,
-    translations: translations[language] || {},
-  };
+  const contextValue = useMemo(
+    () => ({
+      languageState,
+      setLanguage,
+      translations: translations[languageState] || ({} as Translations),
+    }),
+    [languageState]
+  );
 
   return (
     <LanguageContext.Provider value={contextValue}>

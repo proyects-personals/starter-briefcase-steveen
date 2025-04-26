@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { Project } from '../../interface/types';
+import { Translations } from '../../interface/translations/translations.interface';
 
 interface CarouselItemProps {
   project: Project;
   activeIndex: number;
   index: number;
+  translate: Translations;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = ({
   project,
   activeIndex,
   index,
+  translate,
 }) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
@@ -65,7 +68,9 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
             onClick={() => toggleDescription(index)}
             className="text-blue-400 hover:underline text-sm"
           >
-            {expandedIndex === index ? 'Ver menos' : 'Ver más'}
+            {expandedIndex === index
+              ? translate.general.seeLess
+              : translate.general.seeMore}
           </button>
         )}
 
@@ -77,7 +82,8 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
               rel="noopener noreferrer"
               className="flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-all duration-300"
             >
-              <i className="fas fa-external-link-alt mr-2"></i> Visitar
+              <i className="fas fa-external-link-alt mr-2"></i>{' '}
+              {translate.general.visit}
             </a>
           )}
           {project.github && (
@@ -87,7 +93,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
               rel="noopener noreferrer"
               className="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white transition-all duration-300"
             >
-              <i className="fab fa-github mr-2"></i> Código
+              <i className="fab fa-github mr-2"></i> {translate.general.code}
             </a>
           )}
         </div>

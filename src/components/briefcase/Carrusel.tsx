@@ -13,13 +13,15 @@ import 'swiper/css/effect-coverflow';
 import { Project } from '../../interface/types';
 import CarouselItem from './CarouselItem';
 import CarouselControls from './CarouselControls';
+import { Translations } from '../../interface/translations/translations.interface';
 
 interface CarruselProps {
   projects: Project[];
   title: string;
+  translate: Translations;
 }
 
-const Carousel: React.FC<CarruselProps> = ({ projects, title }) => {
+const Carousel: React.FC<CarruselProps> = ({ projects, title, translate }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -78,12 +80,13 @@ const Carousel: React.FC<CarruselProps> = ({ projects, title }) => {
           onSlideChange={handleSlideChange}
           className="py-10"
         >
-          {projects.map((project, index) => (
+          {projects.map((project, index: number) => (
             <SwiperSlide key={index}>
               <CarouselItem
                 project={project}
                 activeIndex={activeIndex}
                 index={index}
+                translate={translate}
               />
             </SwiperSlide>
           ))}
