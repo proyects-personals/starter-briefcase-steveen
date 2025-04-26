@@ -8,22 +8,25 @@ const Header: React.FC = () => {
   const { isDarkTheme } = useTheme();
 
   return (
-    <header className={'flex items-center justify-between px-8 h-24 w-full'}>
-      <div className="flex-2">
+    <header className="flex items-center justify-between px-4 py-2 w-full h-20 sm:h-24 sm:px-8">
+      {/* Imagen de perfil */}
+      <div className="flex-shrink-0">
         <img
           src={imageSteveen}
-          alt=""
-          className="h-16 w-16 rounded-full object-cover"
+          alt="Steveen Ordoñez"
+          className="h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover"
         />
       </div>
-      <div className="flex-1 flex justify-center items-center gap-4">
+
+      {/* Iconos de redes sociales - visibles solo en sm o mayor */}
+      <div className="hidden sm:flex flex-1 justify-center items-center gap-6">
         <a
           href="https://github.com/hscordonez"
           target="_blank"
           rel="noopener noreferrer"
         >
           <i
-            className={`fab fa-github ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}
+            className={`fab fa-github ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-2xl`}
           ></i>
         </a>
         <a
@@ -32,7 +35,7 @@ const Header: React.FC = () => {
           rel="noopener noreferrer"
         >
           <i
-            className={`fab fa-linkedin ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}
+            className={`fab fa-linkedin ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-2xl`}
           ></i>
         </a>
         <a
@@ -41,11 +44,13 @@ const Header: React.FC = () => {
           rel="noopener noreferrer"
         >
           <i
-            className={`fab fa-twitter ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}
+            className={`fab fa-twitter ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-2xl`}
           ></i>
         </a>
       </div>
-      <div className="flex items-center gap-4">
+
+      {/* Controles de idioma y tema */}
+      <div className="flex items-center gap-2 sm:gap-4">
         <LanguageController />
         <ThemeController />
       </div>

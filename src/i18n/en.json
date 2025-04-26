@@ -66,5 +66,4 @@
     "name": "Unibe Institutional Documents",
     "description": "This project was developed using React for the frontend and Tailwind CSS to offer a responsive and modern design. It incorporated several AWS services as part of the cloud infrastructure, enabling efficient resource management and seamless integration.\n\nThe application was deployed to a production environment with CS2 and to a testing environment with Netlify. Additionally, load and stress tests were conducted to ensure system stability, performance, and scalability under real-world conditions."
   }
-
 }
