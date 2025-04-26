@@ -2,25 +2,42 @@ import React from 'react';
 
 interface CarouselControlsProps {
   isHovering: boolean;
+  handlePrev: () => void;
+  handleNext: () => void;
 }
 
-const CarouselControls: React.FC<CarouselControlsProps> = ({ isHovering }) => {
+const CarouselControls: React.FC<CarouselControlsProps> = ({
+  isHovering,
+  handleNext,
+  handlePrev,
+}) => {
   return (
-    <div
-      className={`flex items-center p-10 justify-center mt-8 space-x-4 transition-opacity duration-300 ${isHovering ? 'opacity-100' : 'opacity-0'}`}
-    >
-      <button
-        className="swiper-button-prev w-8 h-8 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-        aria-label="Previous project"
-      ></button>
-
-      <div className="swiper-pagination !relative !w-auto !mx-4" />
-
-      <button
-        className="swiper-button-next w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-        aria-label="Next project"
-      ></button>
-    </div>
+    <>
+      <div
+        className={`absolute left-0 top-1/2 transform -translate-y-1/2 transition-opacity duration-300 ${
+          isHovering ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <button
+          onClick={handlePrev}
+          className="text-3xl text-white bg-gray-800 bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition-colors"
+        >
+          ⬅
+        </button>
+      </div>
+      <div
+        className={`absolute right-0 top-1/2 transform -translate-y-1/2 transition-opacity duration-300 ${
+          isHovering ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <button
+          onClick={handleNext}
+          className="text-3xl text-white bg-gray-800 bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition-colors"
+        >
+          ➡
+        </button>
+      </div>
+    </>
   );
 };
 

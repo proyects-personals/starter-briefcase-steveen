@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Project } from '../../interface/types';
 import CarouselItem from './CarouselItem';
 import { Translations } from '../../interface/translations/translations.interface';
+import CarouselControls from './CarouselControls';
 
 interface CarouselProps {
   projects: Project[];
@@ -17,6 +18,7 @@ const Carousel: React.FC<CarouselProps> = ({
   const [currentSlides, setCurrentSlides] = useState<Project[]>(
     projects.slice(0, 3)
   );
+  const [isHovering, setIsHovering] = useState<boolean>(false); // Estado para isHovering
 
   // Cambiar las diapositivas
   const handleNext = () => {
@@ -36,8 +38,16 @@ const Carousel: React.FC<CarouselProps> = ({
     return () => clearInterval(interval); // Limpiar el intervalo cuando el componente se desmonte
   }, []);
 
+  // Manejadores de hover
+  const handleMouseEnter = () => setIsHovering(true);
+  const handleMouseLeave = () => setIsHovering(false);
+
   return (
-    <section className="relative overflow-hidden p-5 sm:p-12">
+    <section
+      className="relative overflow-hidden p-5 sm:p-12"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {/* Fondo */}
       <div className="absolute inset-0 opacity-5 pattern-blue-500 pattern-size-4" />
 
@@ -71,16 +81,11 @@ const Carousel: React.FC<CarouselProps> = ({
         ))}
 
         {/* Controles */}
-        <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
-          <button onClick={handlePrev} className="text-3xl">
-            ⬅️
-          </button>
-        </div>
-        <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-          <button onClick={handleNext} className="text-3xl">
-            ➡️
-          </button>
-        </div>
+        <CarouselControls
+          isHovering={isHovering}
+          handleNext={handleNext}
+          handlePrev={handlePrev}
+        />
       </div>
     </section>
   );
