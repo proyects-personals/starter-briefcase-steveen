@@ -18,5 +18,17 @@
 }
 
 .animate-marquee {
+  display: flex;
   animation: marquee 20s linear infinite;
 }
+
+.animate-marquee > div {
+  flex: 0 0 auto;
+  width: 100%;
+  /* Aquí puedes ajustar el tamaño de las imágenes si lo necesitas */
+}
+
+
+
+
+

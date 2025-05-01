@@ -19,7 +19,7 @@ const BriefcaseScreen: React.FC = () => {
   const experiences: WorkExperienceInterface[] = WorkExperience(translations);
   const projects: ProjectsInterface[] = personalProjects(translations);
 
-  const imagesEducacion = [unibeImage, yaviracImage];
+  const imagesEducacion = [yaviracImage, unibeImage];
 
   const downloadCv = () => {
     const fileName =
@@ -68,10 +68,10 @@ const BriefcaseScreen: React.FC = () => {
         title={translations.workExperience.title}
         translate={translations}
       />
-      {/* <ImageCarousel images={imagesEducacion} title="Educación" />*/}
-      {/* <div className="container">
+      <ImageCarousel images={imagesEducacion} title="Educación" />
+      <div className="container">
         <Cards projects={projects} title="My Projects" />
-      </div>*/}
+      </div>
     </div>
   );
 };
