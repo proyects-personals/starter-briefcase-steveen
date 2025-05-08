@@ -8,27 +8,45 @@
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
 
-@keyframes marquee {
+@keyframes carouselSlide {
   0% {
     transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-100%);
+    opacity: 0;
   }
   100% {
     transform: translateX(-100%);
+    opacity: 1;
   }
 }
 
-.animate-marquee {
+.animate-carousel {
   display: flex;
-  animation: marquee 20s linear infinite;
+  animation: carouselSlide 15s ease-in-out infinite;
 }
 
-.animate-marquee > div {
-  flex: 0 0 auto;
-  width: 100%;
-  /* Aquí puedes ajustar el tamaño de las imágenes si lo necesitas */
+.animate-carousel > div {
+  animation: slideItem 15s ease-in-out infinite;
 }
 
-
-
-
-
+@keyframes slideItem {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
