@@ -6,6 +6,7 @@ interface ExpandableTextProps {
   maxLength?: number;
   onToggleExpand?: (expanded: boolean) => void;
   translations: Translations;
+  isDarkTheme: boolean;
 }
 
 const MAX_LENGTH_TEXT = 100;
@@ -15,6 +16,7 @@ const ExpandableTextComponent: React.FC<ExpandableTextProps> = ({
   maxLength = MAX_LENGTH_TEXT,
   onToggleExpand,
   translations,
+  isDarkTheme,
 }: ExpandableTextProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -36,7 +38,9 @@ const ExpandableTextComponent: React.FC<ExpandableTextProps> = ({
   }, []);
 
   return (
-    <p className="text-gray-600 text-base text-justify">
+    <p
+      className={`text-base text-justify ${isDarkTheme ? ' text-gray-200' : 'text-dark'}`}
+    >
       {displayText}
       {isLong && (
         <button

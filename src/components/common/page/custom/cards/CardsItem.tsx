@@ -4,6 +4,7 @@ import ProjectLinksComponent from '../../../../briefcase/ProjectLinksComponent';
 import ExpandableTextComponent from '../texts/ExpandableTextComponent';
 import { tagColors } from '../../../../../utils/tagColors';
 import { useLanguage } from '../../../../../hook/lenguage';
+import { useTheme } from '../../../../../hook/theme';
 
 interface CarouselItemProps {
   project: Project;
@@ -17,10 +18,13 @@ const CardsItem: React.FC<CarouselItemProps> = ({
   objectImage,
 }: CarouselItemProps) => {
   const { translations } = useLanguage();
+  const { isDarkTheme } = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="w-full h-[500px] bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl cursor-pointer flex flex-col">
+    <div
+      className={`w-full h-[500px]  rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl cursor-pointer flex flex-col ${isDarkTheme ? ' bg-dark-primary' : 'bg-white'}`}
+    >
       <img
         className={`${
           expandImageOnExpandText && isExpanded ? 'w-32' : 'w-full'
@@ -29,13 +33,18 @@ const CardsItem: React.FC<CarouselItemProps> = ({
         alt={project.title}
       />
       <div className="p-4 flex flex-col flex-grow gap-2 overflow-hidden">
-        <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
+        <h3
+          className={`text-xl font-bold ${isDarkTheme ? ' text-white' : 'text-dark'}`}
+        >
+          {project.title}
+        </h3>
         <div className="flex-grow overflow-auto">
           <ExpandableTextComponent
             text={project.description}
             maxLength={100}
             onToggleExpand={(expanded) => setIsExpanded(expanded)}
             translations={translations}
+            isDarkTheme={isDarkTheme}
           />
         </div>
         <div className="flex flex-wrap gap-2 mt-2">

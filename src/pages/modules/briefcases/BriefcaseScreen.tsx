@@ -51,7 +51,9 @@ const BriefcaseScreen: React.FC = () => {
             >
               {translations.briefcase.hello}, {translations.briefcase.name}
             </p>
-            <p className="text-sm sm:text-xl text-gray-400 leading-relaxed text-justify">
+            <p
+              className={`text-sm sm:text-xl  leading-relaxed text-justify ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}
+            >
               {translations.briefcase.presentation}
             </p>
             <button
