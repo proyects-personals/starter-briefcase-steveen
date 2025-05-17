@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Project } from '../../interface/types';
-import CarouselItem from './CarouselItem';
-import { Translations } from '../../interface/translations/translations.interface';
+import { Project } from '../../../../../interface/types';
+import { Translations } from '../../../../../interface/translations/translations.interface';
 import CarouselControls from './CarouselControls';
+import TitleComponent from '../texts/TitleComponent';
+import CardsItem from '../cards/CardsItem';
 
 const AUTO_ROTATE_INTERVAL_MS = 30000;
 const SCALE_ACTIVE = 'scale-110';
@@ -101,10 +102,6 @@ const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
   const handleMouseEnter = () => setIsHovering(true);
   const handleMouseLeave = () => setIsHovering(false);
 
-  const handleExpandChange = (expanded: boolean): void => {
-    setIsAnyExpanded(expanded);
-  };
-
   return (
     <section
       className="relative overflow-hidden p-5 sm:p-12"
@@ -112,15 +109,8 @@ const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
       onMouseLeave={handleMouseLeave}
     >
       <div className="absolute inset-0 opacity-5 pattern-blue-500 pattern-size-4" />
-      <div className="container mx-auto px-4 mb-16 relative z-10 space-y-4 sm:space-y-8">
-        <h2 className="text-center text-xl sm:text-6xl font-bold">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient">
-            {title}
-          </span>
-        </h2>
-        <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
-      </div>
-      <div className="container mx-auto px-4 relative z-10 flex justify-center items-center p-0 sm:p-5 space-x-2">
+      <TitleComponent title={title} />
+      <div className="container px-4 relative z-10 flex justify-center items-center p-0 sm:p-5 space-x-2">
         {currentSlides.map((project: Project, index: number) => (
           <div
             key={index}
@@ -132,12 +122,10 @@ const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
                   : SCALE_INACTIVE
             }`}
           >
-            <CarouselItem
+            <CardsItem
               project={project}
-              activeIndex={index}
-              index={index}
-              translate={translate}
-              onExpandChange={handleExpandChange}
+              expandImageOnExpandText={true}
+              objectImage={'object-contain'}
             />
           </div>
         ))}

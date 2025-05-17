@@ -1,9 +1,9 @@
 import AnimatedBackground from '../../../components/briefcase/AnimatedBackground';
-import AnimatedText from '../../../components/briefcase/AnimatedText';
+import AnimatedText from '../../../components/common/page/custom/texts/AnimatedText';
 import { useLanguage } from '../../../hook/lenguage';
 import { useTheme } from '../../../hook/theme';
-import Carousel from '../../../components/briefcase/Carousel';
-import Cards from '../../../components/briefcase/Cards';
+import Carousel from '../../../components/common/page/custom/carousel/Carousel';
+import Cards from '../../../components/common/page/custom/cards/Cards';
 import ImageCarousel from '../../../components/briefcase/ImageCarousel';
 import unibeImage from '../../../assets/education/unibe.png';
 import yaviracImage from '../../../assets/education/yavirac.png';
@@ -19,7 +19,7 @@ const BriefcaseScreen: React.FC = () => {
   const experiences: WorkExperienceInterface[] = WorkExperience(translations);
   const projects: ProjectsInterface[] = personalProjects(translations);
 
-  const imagesEducacion = [yaviracImage, unibeImage];
+  const imageEducation = [yaviracImage, unibeImage];
 
   const downloadCv = () => {
     const fileName =
@@ -68,10 +68,8 @@ const BriefcaseScreen: React.FC = () => {
         title={translations.workExperience.title}
         translate={translations}
       />
-      <ImageCarousel images={imagesEducacion} title="Educación" />
-      <div className="container">
-        <Cards projects={projects} title="My Projects" />
-      </div>
+      <Cards projects={projects} title="My Projects" />
+      <ImageCarousel images={imageEducation} title="Educación" />
     </div>
   );
 };

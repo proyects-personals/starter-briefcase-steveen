@@ -1,6 +1,7 @@
 import React from 'react';
 import { useKeenSlider, KeenSliderPlugin } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
+import TitleComponent from '../common/page/custom/texts/TitleComponent';
 
 interface CarouselProps {
   images: string[];
@@ -59,14 +60,7 @@ const ImageCarousel: React.FC<CarouselProps> = ({ images, title }) => {
 
   return (
     <div className="overflow-hidden relative w-full sm:p-12">
-      <div className="container mx-auto px-4 mb-16 relative z-10 space-y-4 sm:space-y-8">
-        <h2 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient">
-            {title}
-          </span>
-        </h2>
-        <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
-      </div>
+      <TitleComponent title={title} />
 
       <div ref={sliderRef} className="keen-slider h-auto">
         {images.map((image, index) => (
