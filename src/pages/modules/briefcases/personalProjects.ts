@@ -6,6 +6,7 @@ import bancoPichincha from '../../../assets/projects/pichincha.jpg';
 import travelEcuador from '../../../assets/projects/travel.jpg';
 import bancoSudamericano from '../../../assets/projects/bancoSudamericano.jpg';
 import vinculacion from '../../../assets/projects/vinculacion.jpg';
+import unibeDocs from '../../../assets/projects/unibeDocs.jpeg';
 import { ProjectsInterface } from '../../../interface/projects/projects.interface';
 
 export const personalProjects = (translate: Translations) => {
@@ -102,29 +103,34 @@ export const personalProjects = (translate: Translations) => {
       description: translate.linkage.description,
       image: vinculacion,
       website: 'https://myweatherapp.com',
-      github: 'https://github.com/myusername/weather-app',
+      github: 'https://github.com/vinculacion-yavirac/frontend',
       tags: [
-        'Python',
-        'AWS S3',
-        'Imagga API',
+        'Angular',
+        'PrimeNg',
+        'Typescript',
+        'Digitalocean',
         'Docker',
         'GitHub',
-        'AWS Lambda',
+        'Api',
+        'Figma',
+        'Scrum',
+        'Postgresql',
       ],
     },
     {
       title: translate.docsUnibe.name,
       description: translate.docsUnibe.description,
-      image: vinculacion,
-      website: 'https://myweatherapp.com',
-      github: 'https://github.com/myusername/weather-app',
+      image: unibeDocs,
+      website: 'https://unibe-docs.netlify.app/login',
+      github: 'https://github.com/unibe-projects/starter-unibe-docs',
       tags: [
-        'Python',
-        'AWS S3',
+        'React',
+        'AWS Amplify',
         'Imagga API',
         'Docker',
         'GitHub',
-        'AWS Lambda',
+        'AWS Services',
+        'Tailwind css',
       ],
     },
   ];
