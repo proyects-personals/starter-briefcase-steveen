@@ -3,6 +3,7 @@ import { Project } from '../../../../../interface/types';
 import ProjectLinksComponent from '../../../../briefcase/ProjectLinksComponent';
 import ExpandableTextComponent from '../texts/ExpandableTextComponent';
 import { tagColors } from '../../../../../utils/tagColors';
+import { useLanguage } from '../../../../../hook/lenguage';
 
 interface CarouselItemProps {
   project: Project;
@@ -14,7 +15,8 @@ const CardsItem: React.FC<CarouselItemProps> = ({
   project,
   expandImageOnExpandText = false,
   objectImage,
-}) => {
+}: CarouselItemProps) => {
+  const { translations } = useLanguage();
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -33,6 +35,7 @@ const CardsItem: React.FC<CarouselItemProps> = ({
             text={project.description}
             maxLength={100}
             onToggleExpand={(expanded) => setIsExpanded(expanded)}
+            translations={translations}
           />
         </div>
         <div className="flex flex-wrap gap-2 mt-2">
@@ -49,6 +52,7 @@ const CardsItem: React.FC<CarouselItemProps> = ({
       <ProjectLinksComponent
         website={project.website}
         github={project.github}
+        translations={translations}
       />
     </div>
   );

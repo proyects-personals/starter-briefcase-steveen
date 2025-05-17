@@ -66,10 +66,12 @@ const BriefcaseScreen: React.FC = () => {
       <Carousel
         projects={experiences}
         title={translations.workExperience.title}
-        translate={translations}
       />
-      <Cards projects={projects} title="My Projects" />
-      <ImageCarousel images={imageEducation} title="Educación" />
+      <Cards projects={projects} title={translations.projects.title} />
+      <ImageCarousel
+        images={imageEducation}
+        title={translations.education.title}
+      />
     </div>
   );
 };

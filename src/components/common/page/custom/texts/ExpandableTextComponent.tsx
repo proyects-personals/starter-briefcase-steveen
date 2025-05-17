@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Translations } from '../../../../../interface/translations/translations.interface';
 
 interface ExpandableTextProps {
   text: string;
   maxLength?: number;
   onToggleExpand?: (expanded: boolean) => void;
+  translations: Translations;
 }
 
 const MAX_LENGTH_TEXT = 100;
@@ -12,21 +14,22 @@ const ExpandableTextComponent: React.FC<ExpandableTextProps> = ({
   text,
   maxLength = MAX_LENGTH_TEXT,
   onToggleExpand,
-}) => {
+  translations,
+}: ExpandableTextProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const isLong = text.length > maxLength;
-  const displayText = isExpanded
+  const isLong: boolean = text.length > maxLength;
+  const displayText: string = isExpanded
     ? text
     : text.slice(0, maxLength) + (isLong ? '...' : '');
 
-  const toggleExpand = () => {
+  const toggleExpand = (): void => {
     const next = !isExpanded;
     setIsExpanded(next);
     onToggleExpand?.(next);
   };
 
-  useEffect(() => {
+  useEffect((): void => {
     if (onToggleExpand) {
       onToggleExpand(isExpanded);
     }
@@ -40,7 +43,9 @@ const ExpandableTextComponent: React.FC<ExpandableTextProps> = ({
           onClick={toggleExpand}
           className="ml-1 text-blue-700 hover:underline focus:outline-none"
         >
-          {isExpanded ? 'Ver menos' : 'Ver más'}
+          {isExpanded
+            ? translations.general.seeLess
+            : translations.general.seeMore}
         </button>
       )}
     </p>

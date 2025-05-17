@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Project } from '../../../../../interface/types';
-import { Translations } from '../../../../../interface/translations/translations.interface';
 import CarouselControls from './CarouselControls';
 import TitleComponent from '../texts/TitleComponent';
 import CardsItem from '../cards/CardsItem';
@@ -16,10 +15,12 @@ const MOBILE_PROJECTS_COUNT = 1;
 interface CarouselProps {
   projects: Project[];
   title: string;
-  translate: Translations;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ projects, title, translate }) => {
+const Carousel: React.FC<CarouselProps> = ({
+  projects,
+  title,
+}: CarouselProps) => {
   const [projectsCount, setProjectsCount] = useState<number>(
     window.innerWidth < BREAKPOINT
       ? MOBILE_PROJECTS_COUNT

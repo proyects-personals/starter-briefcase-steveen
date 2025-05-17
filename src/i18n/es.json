@@ -34,6 +34,9 @@
   "projects": {
     "title": "Mis proyectos"
   },
+  "education": {
+    "title": "Educacion"
+  },
   "portfolio": {
     "name": "Portafolio",
     "description": "Mi portafolio personal fue realizado con varias tecnologías para mostrar mi experiencia con las mismas, además de contar con un diseño responsive."

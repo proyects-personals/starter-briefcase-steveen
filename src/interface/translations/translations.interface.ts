@@ -34,6 +34,9 @@ export type Translations = {
   projects: {
     title: string;
   };
+  education: {
+    title: string;
+  };
   portfolio: {
     name: string;
     description: string;

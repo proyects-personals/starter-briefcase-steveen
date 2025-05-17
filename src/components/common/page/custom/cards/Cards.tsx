@@ -10,7 +10,7 @@ interface CardsProps {
 
 const Cards: React.FC<CardsProps> = ({ projects, title }: CardsProps) => {
   return (
-    <div className="p-2">
+    <div className="p-6">
       <TitleComponent title={title} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center">
         {projects.map((project: Project, index: number) => (
