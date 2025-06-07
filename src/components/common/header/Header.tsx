@@ -1,54 +1,56 @@
 import React from 'react';
 import { useTheme } from '../../../hook/theme';
-import ThemeController from '../../themeController/ThemeController';
-import { useLanguage } from '../../../hook/lenguage';
 import LanguageController from '../../lenguageController/LenguageController';
+import imageSteveen from '../../../assets/developer/steveen.jpg';
+import ThemeController from '../../themeController/ThemeController';
 
 const Header: React.FC = () => {
   const { isDarkTheme } = useTheme();
-  const { translations } = useLanguage();
 
   return (
-    <header
-      className={`flex items-center justify-between px-8 h-16 w-full ${isDarkTheme ? 'bg-dark' : 'bg-light'}`}
-    >
-      <div className="flex-2">
-        <h1
-          className={`hidden md:block ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl font-bold`}
-        >
-          {translations['header.title']}
-        </h1>
+    <header className="flex items-center justify-between px-4 py-2 w-full h-20 sm:h-24 sm:px-8">
+      {/* Imagen de perfil */}
+      <div className="flex-shrink-0">
+        <img
+          src={imageSteveen}
+          alt="Steveen Ordoñez"
+          className="h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover"
+        />
       </div>
-      <div className="flex-1 flex justify-center items-center gap-4">
+
+      {/* Iconos de redes sociales - visibles solo en sm o mayor */}
+      <div className="hidden sm:flex flex-1 justify-center items-center gap-6">
         <a
-          href="https://www.facebook.com"
+          href="https://github.com/hscordonez"
           target="_blank"
           rel="noopener noreferrer"
         >
           <i
-            className={`fab fa-facebook ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}
+            className={`fab fa-github ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-2xl`}
           ></i>
         </a>
         <a
-          href="https://www.linkedin.com/in/dayana-carrera-2a617031a/"
+          href="https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/"
           target="_blank"
           rel="noopener noreferrer"
         >
           <i
-            className={`fab fa-linkedin ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}
+            className={`fab fa-linkedin ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-2xl`}
           ></i>
         </a>
         <a
-          href="https://www.twitter.com"
+          href="https://x.com/steveencues"
           target="_blank"
           rel="noopener noreferrer"
         >
           <i
-            className={`fab fa-twitter ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-xl`}
+            className={`fab fa-twitter ${isDarkTheme ? 'text-dark-text' : 'text-light-text'} text-2xl`}
           ></i>
         </a>
       </div>
-      <div className="flex items-center gap-4">
+
+      {/* Controles de idioma y tema */}
+      <div className="flex items-center gap-2 sm:gap-4">
         <LanguageController />
         <ThemeController />
       </div>

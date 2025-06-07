@@ -15,7 +15,7 @@ type ThemeProviderProps = {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const storedTheme = localStorage.getItem('theme');
-  const initialTheme = storedTheme === 'true';
+  const initialTheme = storedTheme !== null ? storedTheme === 'true' : true;
 
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(initialTheme);
 

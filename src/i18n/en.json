@@ -1,6 +1,98 @@
 {
-  "header.title": "Header",
-  "header.toggleTheme": "Toggle Theme",
-  "briefcase.hello": "Hello",
-  "briefcase.name": "My name is Steveen Ordoñez"
+  "briefcase": {
+    "welcome": "Welcome to my portfolio",
+    "hello": "Hello",
+    "name": "I'm Steveen Ordoñez",
+    "presentation": "I am a Software Engineer and Software Development Technologist with a strong passion for technology, music, and art. I excel at exploring new trends, creating innovative digital solutions, and merging creativity with code to develop unique, engaging, and user-centered experiences. With a solid technical foundation and a creative mindset, I contribute from both functional and artistic perspectives, delivering scalable, high-impact results across diverse development environments.",
+    "download": "Download CV"
+  },
+  "languages": {
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "workExperience": {
+    "title": "Work Experience"
+  },
+  "manticoreLabs": {
+    "title": "Manticore Labs",
+    "description": "At Manticore Labs, I worked as a software developer in both frontend and backend for one year, actively contributing to innovative projects. I worked with technologies such as Angular and NestJS, and with microservice‑based architectures. I also participated in agile teams and handled QA responsibilities on key projects like Bago and Mundo Venus, ensuring quality as a junior developer."
+  },
+  "jetmind": {
+    "title": "Corporación Jetmind",
+    "description": "At Corporación Jetmind, I served as a software engineer for over one and a half years, developing web and mobile applications successfully deployed to production. I worked with technologies such as React, React Native, Angular, Laravel, and AWS. My experience at Jetmind allowed me to apply agile and collaborative approaches, contributing to project success and optimizing performance through innovative, scalable solutions."
+  },
+  "madJs": {
+    "title": "MAD‑JS",
+    "description": "MAD‑JS is a software company I co‑founded with a team of experts. We specialize in web and mobile applications, delivering innovative and customized solutions. As a founder, I took on multiple roles in both frontend and backend development, and led DevOps initiatives to ensure efficient CI/CD processes and an agile development cycle that optimizes time and quality in every project."
+  },
+  "general": {
+    "seeMore": "See more",
+    "visit": "Visit",
+    "code": "Code",
+    "seeLess": "See less"
+  },
+  "projects": {
+    "title": "My Projects"
+  },
+  "education": {
+    "title": "Education"
+  },
+  "portfolio": {
+    "name": "Portfolio",
+    "description": "My personal portfolio was built using various technologies to showcase my experience and features a responsive design."
+  },
+  "neuroniando": {
+    "name": "Neuroniando",
+    "description": "Neuroniando is an educational mobile application focused on learning through interactive games. On this project, I took an integral role, handling frontend development with modern technologies, implementing DevOps practices for continuous deployment and automation, and publishing and managing the app on the Google Play Store."
+  },
+  "neuroniandoWeb": {
+    "name": "Neuroniando Landing Page",
+    "description": "I participated in all phases of the project, from development to deployment, utilizing technologies like React and AWS to ensure its success. I contributed actively throughout to meet project objectives."
+  },
+  "pichinchaBank": {
+    "name": "Banco Pichincha Test App",
+    "description": "This application was developed as part of an internal testing environment for Banco Pichincha, using sandbox APIs. I implemented unit tests and system validations to ensure stability, functionality, and correct behavior across scenarios, reinforcing my ability to work in regulated environments."
+  },
+  "travelEcuador": {
+    "name": "Travel Ecuador",
+    "description": "I developed and deployed this project for the Ecuador Travel Fair, in coordination with the Ministry of Tourism of Ecuador. The solution was functional, attractive, and aligned with institutional objectives. I handled both development and production deployment, ensuring a timely and successful implementation."
+  },
+  "southAmericanBank": {
+    "name": "South American Bank Template",
+    "description": "This was a design created for Banco Sudamericano, specified solely by HTML and CSS."
+  },
+  "linkage": {
+    "name": "Institutional Linkage",
+    "description": "I developed the institutional document management module as part of my graduation project at Instituto Yavirac. The system was built with Angular and PrimeNG, offering a modern, adaptive user interface focused on usability. Additional tools were integrated to ensure a scalable and efficient architecture that met both functional and technical requirements."
+  },
+  "docsUnibe": {
+    "name": "Unibe Institutional Documents",
+    "description": "I developed this project using React for the frontend and Tailwind CSS for a modern, responsive design. It incorporated AWS services as part of its cloud infrastructure, enabling efficient resource management. It was deployed to production with CS2 and to testing environments with Netlify, and stress tests were conducted to ensure stability, performance, and scalability."
+  },
+  "contactUs": {
+    "title": "Let's Connect!",
+    "description": "I’m a passionate software development professional, deeply committed to creating innovative and efficient solutions. I’m driven by continuous learning, experimenting with new technologies, and overcoming challenges that foster the growth of digital products. If you're looking for a creative and visionary mind, let's talk!"
+  },
+  "contactMe": {
+    "title": "Contact Me",
+    "email": "Email",
+    "phone": "Phone",
+    "linkedin": "LinkedIn"
+  },
+  "form": {
+    "title": "Have any questions?",
+    "name": "Full Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email",
+    "emailPlaceholder": "example@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Write your message...",
+    "send": "Send Message",
+    "sending": "Sending message"
+  },
+  "footer": {
+    "title": "All rights reserved. Intellectual property of",
+    "description": "Steveen Ordoñez.",
+    "view": "View legal details"
+  }
 }

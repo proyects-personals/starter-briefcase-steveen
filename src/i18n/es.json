@@ -1,6 +1,98 @@
 {
-  "header.title": "Encabezado",
-  "header.toggleTheme": "Cambiar Tema",
-  "briefcase.hello": "Hola",
-  "briefcase.name": "soy Steveen Ordoñez"
+  "briefcase": {
+    "welcome": "Bienvenido a mi portafolio",
+    "hello": "Hola",
+    "name": "soy Steveen Ordoñez",
+    "presentation": "Soy Ingeniero en Software y Tecnólogo en Desarrollo de Software, con una gran pasión por la tecnología, la música y el arte. Experto en explorar nuevas tendencias, crear soluciones digitales innovadoras y fusionar creatividad y código para desarrollar experiencias únicas, atractivas y centradas en el usuario. Con una sólida base técnica y una mentalidad creativa, aporto desde perspectivas tanto funcionales como artísticas, generando resultados escalables y de alto impacto en diversos entornos de desarrollo.",
+    "download": "Descargar CV"
+  },
+  "languages": {
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "workExperience": {
+    "title": "Mi experiencia laboral"
+  },
+  "manticoreLabs": {
+    "title": "Manticore Labs",
+    "description": "En Manticore Labs, desempeñé el rol de desarrollador de software en frontend y backend durante un año, participando activamente en proyectos innovadores. Trabajé con tecnologías como Angular y NestJS, y con arquitecturas basadas en microservicios. También formé parte de equipos ágiles y asumí responsabilidades de QA en proyectos clave como Bago y Mundo Venus, contribuyendo al desarrollo y a la calidad como desarrollador junior."
+  },
+  "jetmind": {
+    "title": "Corporación Jetmind",
+    "description": "En la Corporación Jetmind, desempeñé el rol de ingeniero de software durante más de un año y medio, donde desarrollé aplicaciones web y móviles llevadas exitosamente a producción. Trabajé con tecnologías como React, React Native, Angular, Laravel y AWS. Mi experiencia en Jetmind me permitió aplicar un enfoque ágil y colaborativo, contribuyendo al éxito de proyectos y optimizando el rendimiento con soluciones innovadoras y escalables."
+  },
+  "madJs": {
+    "title": "MAD‑JS",
+    "description": "MAD‑JS es una empresa de software que fundé junto a un equipo de expertos. Nos especializamos en aplicaciones web y móviles, brindando soluciones innovadoras y personalizadas. Como fundador, asumí roles en frontend y backend, además de liderar iniciativas en DevOps para procesos de integración continua eficientes y un ciclo de desarrollo ágil, optimizando tiempo y calidad en cada proyecto."
+  },
+  "general": {
+    "seeMore": "Ver más",
+    "visit": "Visitar",
+    "code": "Código",
+    "seeLess": "Ver menos"
+  },
+  "projects": {
+    "title": "Mis proyectos"
+  },
+  "education": {
+    "title": "Educación"
+  },
+  "portfolio": {
+    "name": "Portafolio",
+    "description": "Mi portafolio personal fue realizado con diversas tecnologías para mostrar mi experiencia, además de contar con un diseño responsive."
+  },
+  "neuroniando": {
+    "name": "Neuroniando",
+    "description": "Neuroniando es una aplicación móvil educativa centrada en el aprendizaje mediante juegos interactivos. En este proyecto asumí un rol integral, desarrollando el frontend con tecnologías modernas, gestionando prácticas DevOps para despliegue continuo y automatización, además de publicar y gestionar la app en Google Play Store."
+  },
+  "neuroniandoWeb": {
+    "name": "Neuroniando landing page",
+    "description": "Participé en todas las etapas del proyecto, desde desarrollo hasta despliegue, utilizando tecnologías como React y AWS para garantizar su éxito. Contribuí activamente en cada fase del proceso para alcanzar los objetivos propuestos."
+  },
+  "pichinchaBank": {
+    "name": "App de prueba Banco Pichincha",
+    "description": "Esta aplicación se desarrolló como parte de un entorno de pruebas internas para el Banco Pichincha, usando APIs de prueba. Implementé pruebas unitarias y validaciones del sistema para asegurar estabilidad, funcionalidad y comportamiento adecuado en distintos escenarios, fortaleciendo mi capacidad para trabajar en entornos regulados."
+  },
+  "travelEcuador": {
+    "name": "Travel Ecuador",
+    "description": "Desarrollé y desplegué este proyecto para la Feria Ecuador Travel, en coordinación con el Ministerio de Turismo de Ecuador. La solución tecnológica fue funcional, atractiva y alineada con los objetivos institucionales. Me encargué del desarrollo y despliegue en producción, garantizando una implementación oportuna y exitosa."
+  },
+  "southAmericanBank": {
+    "name": "Plantilla Banco Sudamericano",
+    "description": "Este fue un diseño realizado para el Banco Sudamericano, especificado únicamente en HTML y CSS."
+  },
+  "linkage": {
+    "name": "Vinculación con la Sociedad",
+    "description": "Desarrollé el módulo de gestión documental institucional como parte de mi proyecto de grado en el Instituto Yavirac. El sistema se construyó con Angular y PrimeNG, ofreciendo una interfaz moderna y adaptativa, centrada en la usabilidad. Se integraron herramientas adicionales para garantizar una arquitectura escalable y eficiente, cumpliendo requisitos funcionales y técnicos."
+  },
+  "docsUnibe": {
+    "name": "Documentos institucionales de Unibe",
+    "description": "Desarrollé este proyecto con React en el frontend y Tailwind CSS para un diseño moderno y responsive. Incorporó servicios de AWS como parte de la infraestructura en la nube, permitiendo una gestión eficiente de recursos. Se implementó en producción con CS2 y en pruebas con Netlify, y se realizaron pruebas de carga para asegurar estabilidad, rendimiento y escalabilidad."
+  },
+  "contactUs": {
+    "title": "¡Conectemos!",
+    "description": "Soy una profesional apasionada por el desarrollo de software, con un firme compromiso con la creación de soluciones innovadoras y eficientes. Me motiva aprender constantemente, experimentar con nuevas tecnologías y superar desafíos que impulsen el crecimiento de productos digitales. Si buscas una mente creativa y con visión, ¡hablemos!"
+  },
+  "contactMe": {
+    "title": "Contáctame",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "linkedin": "LinkedIn"
+  },
+  "form": {
+    "title": "¿Tienes alguna consulta?",
+    "name": "Nombres completos",
+    "namePlaceholder": "Escribe tu nombre",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "ejemplo@email.com",
+    "message": "Mensaje",
+    "messagePlaceholder": "Escribe tu mensaje...",
+    "send": "Enviar mensaje",
+    "sending": "Enviando mensaje"
+  },
+  "footer": {
+    "title": "Todos los derechos reservados. Propiedad intelectual de",
+    "description": "Steveen Ordoñez.",
+    "view": "Ver detalles legales"
+  }
 }
