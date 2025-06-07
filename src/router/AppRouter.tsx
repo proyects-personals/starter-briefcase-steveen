@@ -4,6 +4,7 @@ import BriefcaseScreen from '../pages/modules/briefcases/BriefcaseScreen';
 import Header from '../components/common/header/Header';
 import PageWrapperCustom from '../components/common/page/custom/PageWrapperCustom';
 import MainWrapperCustom from '../components/common/page/custom/MainWrapperCustom';
+import Footer from '../components/common/layout/Footer';
 
 const AppRouter: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const AppRouter: React.FC = () => {
             </Routes>
           </main>
         </PageWrapperCustom>
+        <Footer />
         {/* <Footer /> */}
       </MainWrapperCustom>
     </Router>

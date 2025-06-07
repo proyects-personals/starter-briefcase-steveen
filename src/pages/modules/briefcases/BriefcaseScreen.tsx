@@ -12,6 +12,7 @@ import { WorkExperienceInterface } from '../../../interface/workExperience/workE
 import { personalProjects } from './personalProjects';
 import React from 'react';
 import { ProjectsInterface } from '../../../interface/projects/projects.interface';
+import ContactComponent from '../../../components/briefcase/ContactComponent';
 
 const BriefcaseScreen: React.FC = () => {
   const { translations, languageState } = useLanguage();
@@ -74,6 +75,7 @@ const BriefcaseScreen: React.FC = () => {
         images={imageEducation}
         title={translations.education.title}
       />
+      <ContactComponent />
     </div>
   );
 };
