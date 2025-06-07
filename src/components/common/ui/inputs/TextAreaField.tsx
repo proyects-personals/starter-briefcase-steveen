@@ -1,5 +1,7 @@
 import React from 'react';
 
+const TextAreaFieldRows = 4;
+
 interface TextAreaFieldProps {
   label: string;
   name: string;
@@ -17,7 +19,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
   label,
   name,
   placeholder = '',
-  rows = 4,
+  rows = TextAreaFieldRows,
   value,
   onChange,
   onBlur,
