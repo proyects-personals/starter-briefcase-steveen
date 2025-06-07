@@ -14,7 +14,6 @@ const AppRouter: React.FC = () => {
         v7_relativeSplatPath: true,
       }}
     >
-      {/* <ScrollToTop /> */}
       <MainWrapperCustom>
         <Header />
         <PageWrapperCustom>
@@ -25,7 +24,6 @@ const AppRouter: React.FC = () => {
           </main>
         </PageWrapperCustom>
         <Footer />
-        {/* <Footer /> */}
       </MainWrapperCustom>
     </Router>
   );

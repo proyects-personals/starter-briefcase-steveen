@@ -50,3 +50,7 @@
     opacity: 1;
   }
 }
+
+body {
+  @apply font-sans;
+}

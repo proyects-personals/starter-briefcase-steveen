@@ -10,6 +10,7 @@ interface TextAreaFieldProps {
   onBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
   error?: string;
   touched?: boolean;
+  isDarkTheme?: boolean;
 }
 
 const TextAreaField: React.FC<TextAreaFieldProps> = ({
@@ -22,18 +23,27 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
   onBlur,
   error,
   touched,
+  isDarkTheme = false,
 }) => {
   return (
     <div className="flex flex-col">
-      <label htmlFor={name} className="text-sm font-semibold mb-1">
+      <label
+        htmlFor={name}
+        className={`text-sm font-semibold mb-1 ${
+          isDarkTheme ? 'text-white' : 'text-gray-800'
+        }`}
+      >
         {label}
       </label>
+
       <textarea
         id={name}
         name={name}
         placeholder={placeholder}
         rows={rows}
         className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 ${
+          isDarkTheme ? 'bg-dark-primary text-white' : 'bg-white text-gray-800'
+        } ${
           touched && error
             ? 'border-red-500 focus:ring-red-400'
             : 'focus:ring-orange-500'
@@ -42,6 +52,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
         onChange={onChange}
         onBlur={onBlur}
       />
+
       {touched && error && <p className="text-red-500 text-sm mt-1">{error}</p>}
     </div>
   );

@@ -1,29 +1,29 @@
 {
   "briefcase": {
-    "welcome": "Welcome to my Portfolio",
+    "welcome": "Welcome to my portfolio",
     "hello": "Hello",
     "name": "I'm Steveen Ordoñez",
-    "presentation": "A highly skilled Software Engineer and Technologist in Software Development, passionate about technology, music, and art. Experienced in exploring emerging trends, building innovative digital solutions, and blending creativity with code to deliver unique, engaging, and user-centered experiences. With a strong technical foundation and a creative mindset, I contribute to projects from both a functional and artistic perspective, driving impactful, scalable results across diverse development environments.",
-    "download": "download CV"
+    "presentation": "I am a Software Engineer and Software Development Technologist with a strong passion for technology, music, and art. I excel at exploring new trends, creating innovative digital solutions, and merging creativity with code to develop unique, engaging, and user-centered experiences. With a solid technical foundation and a creative mindset, I contribute from both functional and artistic perspectives, delivering scalable, high-impact results across diverse development environments.",
+    "download": "Download CV"
   },
   "languages": {
     "english": "English",
     "spanish": "Spanish"
   },
   "workExperience": {
-    "title": "My Work Experience"
+    "title": "Work Experience"
   },
   "manticoreLabs": {
     "title": "Manticore Labs",
-    "description": "At Manticore Labs, I served as a software developer in both frontend and backend areas for one year, actively participating in innovative projects. During this experience, I worked with technologies such as Angular and NestJS, and had the opportunity to work with microservices-based architectures. I was also part of agile teams, which allowed me to collaborate in dynamic environments and adopt modern development practices. Additionally, I took on QA responsibilities, especially in key projects like Bago and Mundo Venus, where I contributed to development and quality testing as a junior developer."
+    "description": "At Manticore Labs, I worked as a software developer in both frontend and backend for one year, actively contributing to innovative projects. I worked with technologies such as Angular and NestJS, and with microservice‑based architectures. I also participated in agile teams and handled QA responsibilities on key projects like Bago and Mundo Venus, ensuring quality as a junior developer."
   },
   "jetmind": {
-    "title": "Jetmind Corporation",
-    "description": "At Jetmind Corporation, I have worked as a software engineer for over a year and a half, where I had the opportunity to develop web and mobile applications and successfully take them to production. During this time, I worked with various technologies such as React, React Native, Angular, Laravel, and AWS, among others. My experience at Jetmind has allowed me to apply an agile and collaborative approach, contributing to project success and optimizing application performance through innovative and scalable solutions."
+    "title": "Corporación Jetmind",
+    "description": "At Corporación Jetmind, I served as a software engineer for over one and a half years, developing web and mobile applications successfully deployed to production. I worked with technologies such as React, React Native, Angular, Laravel, and AWS. My experience at Jetmind allowed me to apply agile and collaborative approaches, contributing to project success and optimizing performance through innovative, scalable solutions."
   },
   "madJs": {
-    "title": "MAD-JS",
-    "description": "MAD-JS is a software development company I founded together with a team of experts in the field. We specialize in creating web and mobile applications, providing innovative and personalized solutions for each client. As a founder, I have taken on multiple roles within the company, covering both frontend and backend development for web and mobile apps. I have also led DevOps initiatives, ensuring efficient continuous integration processes and an agile development cycle that optimizes both time and quality in every project."
+    "title": "MAD‑JS",
+    "description": "MAD‑JS is a software company I co‑founded with a team of experts. We specialize in web and mobile applications, delivering innovative and customized solutions. As a founder, I took on multiple roles in both frontend and backend development, and led DevOps initiatives to ensure efficient CI/CD processes and an agile development cycle that optimizes time and quality in every project."
   },
   "general": {
     "seeMore": "See more",
@@ -39,34 +39,60 @@
   },
   "portfolio": {
     "name": "Portfolio",
-    "description": "My personal portfolio was built using various technologies to showcase my experience with them. It also features a responsive design."
+    "description": "My personal portfolio was built using various technologies to showcase my experience and features a responsive design."
   },
   "neuroniando": {
     "name": "Neuroniando",
-    "description": "Neuroniando is an educational mobile app focused on learning through interactive games. In this project, I took on an integral role, handling frontend development with modern technologies, implementing DevOps practices to facilitate continuous deployment and process automation, as well as publishing and managing the app on the Google Play Store."
+    "description": "Neuroniando is an educational mobile application focused on learning through interactive games. On this project, I took an integral role, handling frontend development with modern technologies, implementing DevOps practices for continuous deployment and automation, and publishing and managing the app on the Google Play Store."
   },
   "neuroniandoWeb": {
     "name": "Neuroniando Landing Page",
-    "description": "I had the opportunity to participate in all stages of the project, from development to deployment, using technologies such as React and AWS to ensure its success. This active involvement allowed me to contribute to every phase, ensuring a smooth execution and achieving the expected results."
+    "description": "I participated in all phases of the project, from development to deployment, utilizing technologies like React and AWS to ensure its success. I contributed actively throughout to meet project objectives."
   },
   "pichinchaBank": {
-    "name": "Pichincha Bank Test App",
-    "description": "This application was developed as part of an internal testing environment for Banco Pichincha, using test APIs provided by the institution. During development, unit tests and system validations were implemented to ensure the application’s stability, functionality, and proper behavior across different scenarios. This experience strengthened my ability to work in regulated environments, ensuring quality and reliability in the delivered software."
+    "name": "Banco Pichincha Test App",
+    "description": "This application was developed as part of an internal testing environment for Banco Pichincha, using sandbox APIs. I implemented unit tests and system validations to ensure stability, functionality, and correct behavior across scenarios, reinforcing my ability to work in regulated environments."
   },
   "travelEcuador": {
     "name": "Travel Ecuador",
-    "description": "I developed and deployed this project as part of an initiative driven by the Ecuador Travel Fair, in coordination with the Ministry of Tourism of Ecuador. The project was designed to meet specific event requirements, delivering a functional, attractive, and institutionally aligned tech solution. I was responsible for both development and production deployment, ensuring a timely and successful implementation."
+    "description": "I developed and deployed this project for the Ecuador Travel Fair, in coordination with the Ministry of Tourism of Ecuador. The solution was functional, attractive, and aligned with institutional objectives. I handled both development and production deployment, ensuring a timely and successful implementation."
   },
   "southAmericanBank": {
     "name": "South American Bank Template",
-    "description": "This was a design created for the South American Bank, which was specified to be made using only HTML and CSS."
+    "description": "This was a design created for Banco Sudamericano, specified solely by HTML and CSS."
   },
   "linkage": {
-    "name": "Community Engagement",
-    "description": "I developed the institutional document management module as part of my graduation project at the Yavirac Institute. The system was built with Angular and PrimeNG, offering a modern and adaptable user interface focused on usability. Additional software tools were integrated to ensure a scalable and efficient architecture that met the institution's functional and technical requirements."
+    "name": "Institutional Linkage",
+    "description": "I developed the institutional document management module as part of my graduation project at Instituto Yavirac. The system was built with Angular and PrimeNG, offering a modern, adaptive user interface focused on usability. Additional tools were integrated to ensure a scalable and efficient architecture that met both functional and technical requirements."
   },
   "docsUnibe": {
     "name": "Unibe Institutional Documents",
-    "description": "This project was developed using React for the frontend and Tailwind CSS to offer a responsive and modern design. It incorporated several AWS services as part of the cloud infrastructure, enabling efficient resource management and seamless integration.\n\nThe application was deployed to a production environment with CS2 and to a testing environment with Netlify. Additionally, load and stress tests were conducted to ensure system stability, performance, and scalability under real-world conditions."
+    "description": "I developed this project using React for the frontend and Tailwind CSS for a modern, responsive design. It incorporated AWS services as part of its cloud infrastructure, enabling efficient resource management. It was deployed to production with CS2 and to testing environments with Netlify, and stress tests were conducted to ensure stability, performance, and scalability."
+  },
+  "contactUs": {
+    "title": "Let's Connect!",
+    "description": "I’m a passionate software development professional, deeply committed to creating innovative and efficient solutions. I’m driven by continuous learning, experimenting with new technologies, and overcoming challenges that foster the growth of digital products. If you're looking for a creative and visionary mind, let's talk!"
+  },
+  "contactMe": {
+    "title": "Contact Me",
+    "email": "Email",
+    "phone": "Phone",
+    "linkedin": "LinkedIn"
+  },
+  "form": {
+    "title": "Have any questions?",
+    "name": "Full Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email",
+    "emailPlaceholder": "example@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Write your message...",
+    "send": "Send Message",
+    "sending": "Sending message"
+  },
+  "footer": {
+    "title": "All rights reserved. Intellectual property of",
+    "description": "Steveen Ordoñez.",
+    "view": "View legal details"
   }
 }

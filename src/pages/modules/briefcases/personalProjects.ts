@@ -15,7 +15,7 @@ export const personalProjects = (translate: Translations) => {
       title: translate.portfolio.name,
       description: translate.portfolio.description,
       image: briefcaseImage,
-      website: 'https://myportfolio.com',
+      website: 'https://steveencues.netlify.app/',
       github:
         'https://github.com/proyects-personals/starter-briefcase-steveen.git',
       tags: [
@@ -38,13 +38,9 @@ export const personalProjects = (translate: Translations) => {
         'AWS Amplify',
         'AWS Services',
         'DynamoDB',
-        'React Paper',
         'Firebase',
-        'GitHub',
         'Jira',
         'Typescript',
-        'GraphQL',
-        'Figma',
         'Java',
       ],
     },

@@ -25,8 +25,8 @@ const BriefcaseScreen: React.FC = () => {
   const downloadCv = () => {
     const fileName =
       languageState === 'en'
-        ? 'Steveen-Ordoñez-en.pdf'
-        : 'Steveen-Ordoñez-es.pdf';
+        ? 'steveen-Ordoñez-en.pdf'
+        : 'steveen-Ordoñez-es.pdf';
     const filePath = `/cv/${fileName}`;
 
     const link = document.createElement('a');
@@ -75,7 +75,7 @@ const BriefcaseScreen: React.FC = () => {
         images={imageEducation}
         title={translations.education.title}
       />
-      <ContactComponent />
+      <ContactComponent isDarkTheme={isDarkTheme} translations={translations} />
     </div>
   );
 };

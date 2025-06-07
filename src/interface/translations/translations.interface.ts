@@ -69,4 +69,30 @@ export type Translations = {
     name: string;
     description: string;
   };
+  contactUs: {
+    title: string;
+    description: string;
+  };
+  contactMe: {
+    title: string;
+    email: string;
+    phone: string;
+    linkedin: string;
+  };
+  form: {
+    title: string;
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    send: string;
+    sending: string;
+  };
+  footer: {
+    title: string;
+    description: string;
+    view: string;
+  };
 };

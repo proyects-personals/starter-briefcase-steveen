@@ -8,6 +8,7 @@ interface CustomInputProps {
   type?: string;
   required?: boolean;
   disabled?: boolean;
+  isDarkTheme?: boolean;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
@@ -17,13 +18,19 @@ const CustomInput: React.FC<CustomInputProps> = ({
   type = 'text',
   required = false,
   disabled = false,
+  isDarkTheme = false,
 }) => {
   const [field, meta] = useField(name);
 
   return (
     <div className="relative mb-4">
       {label && (
-        <label htmlFor={name} className="block mb-1 font-medium">
+        <label
+          htmlFor={name}
+          className={`block mb-1 font-medium ${
+            isDarkTheme ? 'text-white' : 'text-gray-800'
+          }`}
+        >
           {label} {required && <span className="text-red-500">*</span>}
         </label>
       )}
@@ -34,7 +41,9 @@ const CustomInput: React.FC<CustomInputProps> = ({
         type={type}
         placeholder={placeholder}
         disabled={disabled}
-        className={`w-full px-4 py-3 text-gray-700 bg-transparent border-b-2 focus:outline-none ${
+        className={`w-full px-4 py-3 ${
+          isDarkTheme ? 'text-white' : 'text-gray-700'
+        } bg-transparent border-b-2 focus:outline-none ${
           disabled
             ? 'border-gray-200 bg-gray-100 cursor-not-allowed'
             : meta.touched && meta.error

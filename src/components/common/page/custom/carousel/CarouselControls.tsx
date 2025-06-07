@@ -4,14 +4,14 @@ interface CarouselControlsProps {
   isHovering: boolean;
   handlePrev: () => void;
   handleNext: () => void;
-  controlsClassName: string; // Agrega esta línea
+  controlsClassName: string;
 }
 
 const CarouselControls: React.FC<CarouselControlsProps> = ({
   isHovering,
   handleNext,
   handlePrev,
-  controlsClassName, // Recibe la propiedad
+  controlsClassName,
 }) => {
   return (
     <>

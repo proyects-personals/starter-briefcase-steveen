@@ -10,8 +10,17 @@ import TextAreaField from '../common/ui/inputs/TextAreaField';
 import MessageError from '../common/ui/messages/MessageError';
 import useMessages from '../../hook/errors/useMessages';
 import { MessageType } from '../../types/MessageType';
+import { Translations } from '../../interface/translations/translations.interface';
 
-const ContactComponent: React.FC = () => {
+type ContactComponentProps = {
+  isDarkTheme: boolean;
+  translations: Translations;
+};
+
+const ContactComponent: React.FC<ContactComponentProps> = ({
+  isDarkTheme,
+  translations,
+}) => {
   const [typeMessage, setTypeMessage] = useState<MessageType>('error');
   const { handleError, handleSuccess, errorMessage, successMessage } =
     useMessages();
@@ -40,36 +49,43 @@ const ContactComponent: React.FC = () => {
     }
   };
 
+  const containerBg = isDarkTheme ? 'bg-dark-primary' : 'bg-white';
+  const textPrimary = isDarkTheme ? 'text-white' : 'text-gray-800';
+  const textSecondary = isDarkTheme ? 'text-gray-300' : 'text-gray-600';
+
   return (
     <div className="container mx-auto px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Columna 1 */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-bold text-gray-800">¡Conectemos!</h2>
-          <p className="mt-2 text-gray-600">
-            Soy una profesional apasionada por el desarrollo de software, con un
-            fuerte compromiso hacia la creación de soluciones innovadoras y
-            eficientes. Me motiva aprender constantemente, experimentar con
-            nuevas tecnologías y superar desafíos que impulsen el crecimiento de
-            productos digitales. Si buscas una mente creativa y con visión,
-            ¡hablemos!
+        <div className={`${containerBg} p-6 rounded-lg shadow-md`}>
+          <h2 className={`text-xl font-bold ${textPrimary}`}>
+            {translations.contactUs.title}
+          </h2>
+          <p className={`mt-2 ${textSecondary}`}>
+            {translations.contactUs.description}
           </p>
         </div>
 
         {/* Columna 2 */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-bold text-gray-800">Contáctame</h2>
-          <p className="mt-2 text-gray-600">
-            <span className="font-bold">Correo:</span> zh31505@gmail.com
+        <div className={`${containerBg} p-6 rounded-lg shadow-md`}>
+          <h2 className={`text-xl font-bold ${textPrimary}`}>
+            {translations.contactMe.title}
+          </h2>
+          <p className={`mt-2 ${textSecondary}`}>
+            <span className="font-bold">{translations.contactMe.email}:</span>{' '}
+            zh31505@gmail.com
           </p>
-          <p className="mt-2 text-gray-600">
-            <span className="font-bold">Teléfono:</span> +593 096 263 9779
+          <p className={`mt-2 ${textSecondary}`}>
+            <span className="font-bold">{translations.contactMe.phone}:</span>{' '}
+            +593 096 263 9779
           </p>
-          <p className="mt-2 text-gray-600">
-            <span className="font-bold">LinkedIn:</span>{' '}
+          <p className={`mt-2 ${textSecondary}`}>
+            <span className="font-bold">
+              {translations.contactMe.linkedin}:
+            </span>{' '}
             <a
               href="https://www.linkedin.com/in/steveen-ordoñez-244b0a227"
-              className="text-orange-500 hover:underline"
+              className="text-primary hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -79,9 +95,9 @@ const ContactComponent: React.FC = () => {
         </div>
 
         {/* Columna 3: Formulario */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-bold text-gray-800 mb-6">
-            ¿Tienes alguna consulta?
+        <div className={`${containerBg} p-6 rounded-lg shadow-md`}>
+          <h2 className={`text-xl font-bold ${textPrimary} mb-6`}>
+            {translations.form.title}
           </h2>
 
           {(errorMessage || successMessage) && (
@@ -108,37 +124,42 @@ const ContactComponent: React.FC = () => {
                 <Field
                   name="name"
                   as={CustomInput}
-                  label="Nombres completos"
+                  label={translations.form.name}
                   type="text"
-                  placeholder="Escribe tu nombre"
+                  placeholder={translations.form.namePlaceholder}
+                  isDarkTheme={isDarkTheme}
                   required
                 />
                 <Field
                   name="email"
                   as={CustomInput}
-                  label="Correo electrónico"
+                  label={translations.form.email}
                   type="email"
-                  placeholder="ejemplo@email.com"
+                  placeholder={translations.form.emailPlaceholder}
+                  isDarkTheme={isDarkTheme}
                   required
                 />
 
                 <TextAreaField
                   label="Mensaje"
-                  name="message"
-                  placeholder="Escribe tu mensaje..."
+                  name={translations.form.message}
+                  placeholder={translations.form.messagePlaceholder}
                   value={values.message}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   error={touched.message ? errors.message : ''}
                   touched={touched.message}
+                  isDarkTheme={isDarkTheme}
                 />
 
                 <button
                   type="submit"
-                  className="w-full bg-orange-500 text-white font-semibold py-3 rounded-lg hover:bg-orange-600 transition duration-300"
+                  className="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-blue-950 transition duration-300"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+                  {isSubmitting
+                    ? translations.form.send
+                    : translations.form.sending}
                 </button>
               </Form>
             )}
