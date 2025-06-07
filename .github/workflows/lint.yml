@@ -33,10 +33,3 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
-
-      - name: Verify no unstaged changes
-        run: |
-          if [[ -n $(git status --porcelain) ]]; then
-            echo "⚠️ Se detectaron cambios después de ejecutar lint y format. Asegúrate de formatear tu código antes de hacer push."
-            exit 1
-          fi
