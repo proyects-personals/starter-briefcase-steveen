@@ -71,7 +71,7 @@
   },
   "contactUs": {
     "title": "¡Conectemos!",
-    "description": "Soy una profesional apasionada por el desarrollo de software, con un firme compromiso con la creación de soluciones innovadoras y eficientes. Me motiva aprender constantemente, experimentar con nuevas tecnologías y superar desafíos que impulsen el crecimiento de productos digitales. Si buscas una mente creativa y con visión, ¡hablemos!"
+    "description": "Soy un profesional apasionado por el desarrollo de software, con un firme compromiso con la creación de soluciones innovadoras y eficientes. Me motiva aprender constantemente, experimentar con nuevas tecnologías y superar desafíos que impulsen el crecimiento de productos digitales. Si buscas una mente creativa y con visión, ¡hablemos!"
   },
   "contactMe": {
     "title": "Contáctame",
@@ -92,7 +92,7 @@
   },
   "footer": {
     "title": "Todos los derechos reservados. Propiedad intelectual de",
-    "description": "Steveen Ordoñez.",
+    "description": "Steveen Ordoñez",
     "view": "Ver detalles legales"
   }
 }

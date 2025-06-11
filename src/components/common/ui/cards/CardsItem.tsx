@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Project } from '../../../../../interface/types';
-import ProjectLinksComponent from '../../../../briefcase/ProjectLinksComponent';
+import { Project } from '../../../../interface/types';
+import ProjectLinksComponent from '../../../briefcase/ProjectLinksComponent';
 import ExpandableTextComponent from '../texts/ExpandableTextComponent';
-import { tagColors } from '../../../../../utils/tagColors';
-import { useLanguage } from '../../../../../hook/lenguage';
-import { useTheme } from '../../../../../hook/theme';
+import { tagColors } from '../../../../utils/tagColors';
+import { useLanguage } from '../../../../hook/lenguage';
+import { useTheme } from '../../../../hook/theme';
 
 interface CarouselItemProps {
   project: Project;

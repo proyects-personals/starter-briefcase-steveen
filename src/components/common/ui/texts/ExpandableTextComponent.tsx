@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Translations } from '../../../../../interface/translations/translations.interface';
+import { Translations } from '../../../../interface/translations/translations.interface';
 
 interface ExpandableTextProps {
   text: string;

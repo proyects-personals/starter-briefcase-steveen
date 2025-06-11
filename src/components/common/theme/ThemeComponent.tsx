@@ -1,7 +1,7 @@
 import React from 'react';
-import { useTheme } from '../../hook/theme';
+import { useTheme } from '../../../hook/theme';
 
-const ThemeController: React.FC = () => {
+const ThemeComponent: React.FC = () => {
   const { isDarkTheme, toggleTheme } = useTheme();
 
   const handleThemeToggle = () => {
@@ -51,4 +51,4 @@ const ThemeController: React.FC = () => {
   );
 };
 
-export default ThemeController;
+export default ThemeComponent;

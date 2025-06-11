@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BriefcaseScreen from '../pages/modules/briefcases/BriefcaseScreen';
-import Header from '../components/common/header/Header';
+import Header from '../layout/header/Header';
 import PageWrapperCustom from '../components/common/page/custom/PageWrapperCustom';
 import MainWrapperCustom from '../components/common/page/custom/MainWrapperCustom';
-import Footer from '../components/common/layout/Footer';
+import Footer from '../layout/footer/Footer';
 
 const AppRouter: React.FC = () => {
   return (
