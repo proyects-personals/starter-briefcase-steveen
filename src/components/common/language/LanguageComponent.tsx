@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLanguage } from '../../hook/lenguage';
-import usFlag from '../../assets/flags/usa.png';
-import ecFlag from '../../assets/flags/ec.svg';
-import { useTheme } from '../../hook/theme';
+import { useLanguage } from '../../../hook/lenguage';
+import usFlag from '../../../assets/flags/usa.png';
+import ecFlag from '../../../assets/flags/ec.svg';
+import { useTheme } from '../../../hook/theme';
 
-const LanguageController: React.FC = () => {
+const LanguageComponent: React.FC = () => {
   const { translations, languageState, setLanguage } = useLanguage();
   const { isDarkTheme } = useTheme();
 
@@ -36,4 +36,4 @@ const LanguageController: React.FC = () => {
   );
 };
 
-export default LanguageController;
+export default LanguageComponent;

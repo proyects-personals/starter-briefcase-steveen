@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Project } from '../../../../../interface/types';
+import { Project } from '../../../../interface/types';
 import CarouselControls from './CarouselControls';
 import TitleComponent from '../texts/TitleComponent';
 import CardsItem from '../cards/CardsItem';

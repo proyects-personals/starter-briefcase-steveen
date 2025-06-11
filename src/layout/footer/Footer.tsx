@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTheme } from '../../../hook/theme';
-import { useLanguage } from '../../../hook/lenguage';
+import { useTheme } from '../../hook/theme';
+import { useLanguage } from '../../hook/lenguage';
 
 const Footer: React.FC = () => {
   const { isDarkTheme } = useTheme();

@@ -77,7 +77,7 @@ const ContactComponent: React.FC<ContactComponentProps> = ({
           </p>
           <p className={`mt-2 ${textSecondary}`}>
             <span className="font-bold">{translations.contactMe.phone}:</span>{' '}
-            +593 096 263 9779
+            +593 96 263 9779
           </p>
           <p className={`mt-2 ${textSecondary}`}>
             <span className="font-bold">

@@ -1,10 +1,10 @@
 import AnimatedBackground from '../../../components/briefcase/AnimatedBackground';
-import AnimatedText from '../../../components/common/page/custom/texts/AnimatedText';
+import AnimatedText from '../../../components/common/ui/texts/AnimatedText';
 import { useLanguage } from '../../../hook/lenguage';
 import { useTheme } from '../../../hook/theme';
-import Carousel from '../../../components/common/page/custom/carousel/Carousel';
-import Cards from '../../../components/common/page/custom/cards/Cards';
-import ImageCarousel from '../../../components/briefcase/ImageCarousel';
+import Carousel from '../../../components/common/ui/carousel/Carousel';
+import Cards from '../../../components/common/ui/cards/Cards';
+import ImageCarousel from '../../../components/common/ui/carousel/ImageCarousel';
 import unibeImage from '../../../assets/education/unibe.png';
 import yaviracImage from '../../../assets/education/yavirac.png';
 import { WorkExperience } from './workExperience';

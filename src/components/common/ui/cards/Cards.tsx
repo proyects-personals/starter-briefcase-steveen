@@ -1,5 +1,5 @@
 import React from 'react';
-import { Project } from '../../../../../interface/types';
+import { Project } from '../../../../interface/types';
 import TitleComponent from '../texts/TitleComponent';
 import CardsItem from './CardsItem';
 

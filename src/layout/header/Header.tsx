@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTheme } from '../../../hook/theme';
-import LanguageController from '../../lenguageController/LenguageController';
-import imageSteveen from '../../../assets/developer/steveen.jpg';
-import ThemeController from '../../themeController/ThemeController';
+import { useTheme } from '../../hook/theme';
+import imageSteveen from '../../assets/developer/steveen.jpg';
+import ThemeComponent from '../../components/common/theme/ThemeComponent';
+import LanguageComponent from '../../components/common/language/LanguageComponent';
 
 const Header: React.FC = () => {
   const { isDarkTheme } = useTheme();
@@ -51,8 +51,8 @@ const Header: React.FC = () => {
 
       {/* Controles de idioma y tema */}
       <div className="flex items-center gap-2 sm:gap-4">
-        <LanguageController />
-        <ThemeController />
+        <LanguageComponent />
+        <ThemeComponent />
       </div>
     </header>
   );

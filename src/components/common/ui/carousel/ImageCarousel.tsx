@@ -1,7 +1,7 @@
 import React from 'react';
 import { useKeenSlider, KeenSliderPlugin } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-import TitleComponent from '../common/page/custom/texts/TitleComponent';
+import TitleComponent from '../texts/TitleComponent';
 
 interface CarouselProps {
   images: string[];
