@@ -1,9 +1,9 @@
-import './style.css'
-import { setupCounter } from './counter.ts'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
+import "./style.css";
+import { setupCounter } from "./counter.ts";
+import typescriptLogo from "./typescript.svg";
+import viteLogo from "/vite.svg";
 
-const app = document.querySelector<HTMLDivElement>('#app');
+const app = document.querySelector<HTMLDivElement>("#app");
 if (app) {
   app.innerHTML = `
     <div>
@@ -24,7 +24,7 @@ if (app) {
   `;
 }
 
-const counterButton = document.querySelector<HTMLButtonElement>('#counter');
+const counterButton = document.querySelector<HTMLButtonElement>("#counter");
 if (counterButton) {
   setupCounter(counterButton);
 }
