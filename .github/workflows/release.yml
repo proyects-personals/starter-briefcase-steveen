@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   release:
@@ -18,9 +21,21 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Generate Release
+      - name: Audit NPM packages
+        run: |
+          mkdir -p reports
+          npm audit --json > reports/npm-audit.json
+          cat reports/npm-audit.json
+
+      - name: Upload security report
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-report
+          path: reports/npm-audit.json
+
+      - name: Run Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
