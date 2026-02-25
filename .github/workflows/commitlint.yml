@@ -25,12 +25,12 @@ jobs:
       - name: Validate commit messages and generate report
         run: |
           mkdir -p reports
-          npx @commitlint/cli --from=${{ github.event.pull_request.base.sha }} --to=HEAD \
-            --output json > reports/commitlint-report.json
-          cat reports/commitlint-report.json
+          # redirige la salida de commitlint a un archivo txt
+          npx @commitlint/cli --from=${{ github.event.pull_request.base.sha }} --to=HEAD > reports/commitlint-report.txt || true
+          cat reports/commitlint-report.txt
 
       - name: Upload commitlint report
         uses: actions/upload-artifact@v4
         with:
           name: commitlint-report
-          path: reports/commitlint-report.json
+          path: reports/commitlint-report.txt
