@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -22,4 +24,5 @@ jobs:
 
       - name: Validate commit messages
         run: |
-          npx @commitlint/cli --from=origin/main --to=HEAD
+          # Revisa commits desde la base del PR hasta HEAD
+          npx @commitlint/cli --from=main --to=HEAD
