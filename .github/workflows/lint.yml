@@ -35,7 +35,7 @@ jobs:
           npx prettier --write "src/**/*.{ts,tsx,js,jsx,json,css,scss,md}"
 
       - name: Upload ESLint report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: eslint-report
           path: reports/eslint-report.html
