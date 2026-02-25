@@ -28,5 +28,11 @@
     "husky": "^8.0.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"
-  }
+  },
+  "lint-staged": {
+  "src/**/*.{ts,tsx,js,jsx}": [
+    "eslint --fix",
+    "prettier --write"
+  ]
+}
 }
