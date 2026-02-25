@@ -19,6 +19,7 @@ export default defineConfig([
   // =======================
   {
     files: ["**/*.{ts,tsx}"],
+     ignores: ["**/*.test.ts", "**/*.test.tsx"],
 
     languageOptions: {
       parser: tsParser,
