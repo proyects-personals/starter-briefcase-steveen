@@ -1,0 +1,37 @@
+name: Security & Dependencies
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:      
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit NPM packages
+        run: |
+          mkdir -p reports
+          npm audit --json > reports/npm-audit.json
+          cat reports/npm-audit.json
+
+      - name: Check outdated packages
+        run: |
+          npm outdated || true
+
+      - name: Upload security report
+        uses: actions/upload-artifact@v3
+        with:
+          name: security-report
+          path: reports/npm-audit.json

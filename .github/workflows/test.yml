@@ -1,0 +1,20 @@
+name: Test
+
+on:
+  push:
+    branches: [main, feature/**]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Run type-check
+        run: npm run type-check
+      - name: Run lint + prettier
+        run: npm run lint:check && prettier --check "src/**/*.{ts,tsx,js,jsx,json,css,scss,md}"
