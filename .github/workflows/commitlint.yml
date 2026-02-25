@@ -1,0 +1,19 @@
+name: Commitlint
+
+on:
+  pull_request:
+    paths-ignore:
+      - "README.md"
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Validate commit messages
+        run: |
+          npx @commitlint/cli --from=origin/main --to=HEAD
