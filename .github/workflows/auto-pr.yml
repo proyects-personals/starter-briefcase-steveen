@@ -16,14 +16,17 @@ permissions:
 
 jobs:
   ci:
+    name: CI
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -31,8 +34,7 @@ jobs:
         run: npm install
 
       - name: Commitlint
-        run: |
-          npx commitlint --from=origin/main --to=HEAD
+        run: npx commitlint --from=origin/main --to=HEAD
 
       - name: Lint
         run: npm run lint
@@ -44,26 +46,34 @@ jobs:
         run: npm audit --audit-level=high
 
   create-pr:
+    name: Create PR
     needs: ci
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Generate commit summary
         id: commits
         run: |
-          echo "summary<<EOF" >> $GITHUB_OUTPUT
-          git log origin/main..HEAD --pretty=format:"- %s" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          {
+            echo "summary<<EOF"
+            git log origin/main..HEAD --pretty=format:"- %s"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Detect commit types
         id: types
         run: |
-          TYPES=$(git log origin/main..HEAD --pretty=format:"%s" | cut -d: -f1 | sort -u | tr '\n' ', ')
-          echo "types=$TYPES" >> $GITHUB_OUTPUT
+          TYPES=$(git log origin/main..HEAD --pretty=format:"%s" \
+            | cut -d: -f1 \
+            | sort -u \
+            | tr '\n' ',' \
+            | sed 's/,$//')
+          echo "types=$TYPES" >> "$GITHUB_OUTPUT"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -86,5 +96,5 @@ jobs:
             - [x] Tests
             - [x] Security audit
 
-            ## Seguridad
-            Este PR solo existe porque **todas las validaciones pasaron**.
+            ## 🔒 Seguridad
+            Este PR fue creado **solo porque todas las validaciones pasaron correctamente**.
