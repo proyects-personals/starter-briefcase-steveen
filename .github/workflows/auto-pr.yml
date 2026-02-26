@@ -16,17 +16,14 @@ permissions:
 
 jobs:
   ci:
-    name: CI
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -46,35 +43,37 @@ jobs:
         run: npm audit --audit-level=high
 
   create-pr:
-    name: Create PR
     needs: ci
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      # =============================
+      # COMMIT SUMMARY (FIX DEFINITIVO)
+      # =============================
       - name: Generate commit summary
         id: commits
+        shell: bash
         run: |
-          {
-            echo "summary<<EOF"
-            git log origin/main..HEAD --pretty=format:"- %s"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
+          SUMMARY="$(git log origin/main..HEAD --pretty=format:'- %s' | sed ':a;N;$!ba;s/\n/\\n/g')"
+          echo "summary=$SUMMARY" >> "$GITHUB_OUTPUT"
 
+      # =============================
+      # DETECT COMMIT TYPES
+      # =============================
       - name: Detect commit types
         id: types
+        shell: bash
         run: |
-          TYPES=$(git log origin/main..HEAD --pretty=format:"%s" \
-            | cut -d: -f1 \
-            | sort -u \
-            | tr '\n' ',' \
-            | sed 's/,$//')
+          TYPES="$(git log origin/main..HEAD --pretty=format:'%s' | cut -d: -f1 | sort -u | tr '\n' ', ' | sed 's/, $//')"
           echo "types=$TYPES" >> "$GITHUB_OUTPUT"
 
+      # =============================
+      # CREATE PULL REQUEST
+      # =============================
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
@@ -90,11 +89,11 @@ jobs:
             ## Tipos de cambio detectados
             `${{ steps.types.outputs.types }}`
 
-            ## ✅ Checklist automático (CI)
+            ## Checklist automático (CI)
             - [x] Commitlint
             - [x] Lint
             - [x] Tests
             - [x] Security audit
 
-            ## 🔒 Seguridad
-            Este PR fue creado **solo porque todas las validaciones pasaron correctamente**.
+            ## Seguridad
+            Este PR solo se crea si **todas las validaciones pasan correctamente**.
