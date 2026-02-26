@@ -1,0 +1,90 @@
+name: Auto PR after CI
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'fix/**'
+      - 'chore/**'
+      - 'ci/**'
+      - 'test/**'
+      - 'style/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: npm install
+
+      - name: Commitlint
+        run: |
+          npx commitlint --from=origin/main --to=HEAD
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Tests
+        run: npm test -- --ci
+
+      - name: Security audit
+        run: npm audit --audit-level=high
+
+  create-pr:
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate commit summary
+        id: commits
+        run: |
+          echo "summary<<EOF" >> $GITHUB_OUTPUT
+          git log origin/main..HEAD --pretty=format:"- %s" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Detect commit types
+        id: types
+        run: |
+          TYPES=$(git log origin/main..HEAD --pretty=format:"%s" | cut -d: -f1 | sort -u | tr '\n' ', ')
+          echo "types=$TYPES" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          title: "${{ steps.types.outputs.types }} → ${{ github.ref_name }}"
+          body: |
+            ## 📌 Descripción
+            Cambios incluidos en este PR:
+
+            ${{ steps.commits.outputs.summary }}
+
+            ## 🚨 Tipos de cambio detectados
+            `${{ steps.types.outputs.types }}`
+
+            ## ✅ Checklist automático (CI)
+            - [x] Commitlint
+            - [x] Lint
+            - [x] Tests
+            - [x] Security audit
+
+            ## 🔒 Seguridad
+            Este PR solo existe porque **todas las validaciones pasaron**.
