@@ -50,6 +50,11 @@ jobs:
           COMMITS=$(git log origin/${{ github.base_ref }}..HEAD --pretty=format:'- %s' | sed ':a;N;$!ba;s/\n/\\n/g')
           echo "COMMITS=$COMMITS" >> $GITHUB_ENV
 
+      - name: Collect first commit title
+        run: |
+          FIRST_COMMIT=$(git log origin/${{ github.base_ref }}..HEAD --pretty=format:'%s' | tail -n 1)
+          echo "FIRST_COMMIT=$FIRST_COMMIT" >> $GITHUB_ENV
+
       - name: Collect changed files
         run: |
           FILES=$(git diff --name-only origin/${{ github.base_ref }}..HEAD | sed ':a;N;$!ba;s/\n/\\n/g')
@@ -68,9 +73,10 @@ jobs:
 
             const commits = (process.env.COMMITS || '- Sin commits').replace(/\\n/g, '\n')
             const files = (process.env.FILES || '- Sin cambios').replace(/\\n/g, '\n')
+            const firstCommit = process.env.FIRST_COMMIT || pr.head.ref
             const types = process.env.TYPES || 'chore'
 
-            const title = `[${types}] ${pr.head.ref}`
+            const title = firstCommit
 
             const body =
               '## 🧾 Descripción\n' +
