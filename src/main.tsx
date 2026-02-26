@@ -1,12 +1,21 @@
+import React from "react";
 import ReactDOM from "react-dom/client";
 
+import "@assets/i18n";
+import { TranslateProvider } from "@application";
 import { App } from "@presentation";
 import "./style.css";
 
-const rootElement = document.getElementById("app");
+const container = document.getElementById("root");
 
-if (!rootElement) {
-  throw new Error("No se encontró el elemento #app");
+if (!container) {
+  throw new Error("Root container not found");
 }
 
-ReactDOM.createRoot(rootElement).render(<App />);
+ReactDOM.createRoot(container).render(
+  <React.StrictMode>
+    <TranslateProvider>
+      <App />
+    </TranslateProvider>
+  </React.StrictMode>,
+);
