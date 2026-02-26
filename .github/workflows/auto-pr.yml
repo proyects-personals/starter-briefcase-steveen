@@ -72,12 +72,12 @@ jobs:
           base: main
           title: "${{ steps.types.outputs.types }} → ${{ github.ref_name }}"
           body: |
-            ## 📌 Descripción
+            ## Descripción
             Cambios incluidos en este PR:
 
             ${{ steps.commits.outputs.summary }}
 
-            ## 🚨 Tipos de cambio detectados
+            ## Tipos de cambio detectados
             `${{ steps.types.outputs.types }}`
 
             ## ✅ Checklist automático (CI)
@@ -86,5 +86,5 @@ jobs:
             - [x] Tests
             - [x] Security audit
 
-            ## 🔒 Seguridad
+            ## Seguridad
             Este PR solo existe porque **todas las validaciones pasaron**.
