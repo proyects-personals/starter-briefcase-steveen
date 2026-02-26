@@ -1,17 +1,11 @@
-name: Auto PR after CI
+name: PR CI & Auto Update
 
 on:
-  push:
-    branches:
-      - 'feature/**'
-      - 'fix/**'
-      - 'chore/**'
-      - 'ci/**'
-      - 'test/**'
-      - 'style/**'
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
-  contents: write
+  contents: read
   pull-requests: write
 
 jobs:
@@ -20,8 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -31,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Commitlint
-        run: npx commitlint --from=origin/main --to=HEAD
+        run: npx commitlint --from=origin/${{ github.base_ref }} --to=HEAD
 
       - name: Lint
         run: npm run lint
@@ -42,7 +34,7 @@ jobs:
       - name: Security audit
         run: npm audit --audit-level=high
 
-  create-pr:
+  update-pr:
     needs: ci
     runs-on: ubuntu-latest
 
@@ -52,48 +44,69 @@ jobs:
           fetch-depth: 0
 
       # =============================
-      # COMMIT SUMMARY (FIX DEFINITIVO)
+      # COMMITS SUMMARY
       # =============================
-      - name: Generate commit summary
-        id: commits
-        shell: bash
+      - name: Collect commits
         run: |
-          SUMMARY="$(git log origin/main..HEAD --pretty=format:'- %s' | sed ':a;N;$!ba;s/\n/\\n/g')"
-          echo "summary=$SUMMARY" >> "$GITHUB_OUTPUT"
+          COMMITS=$(git log origin/${{ github.base_ref }}..HEAD --pretty=format:'- %s' | sed ':a;N;$!ba;s/\n/\\n/g')
+          echo "COMMITS=$COMMITS" >> $GITHUB_ENV
+
+      # =============================
+      # FILES CHANGED
+      # =============================
+      - name: Collect changed files
+        run: |
+          FILES=$(git diff --name-only origin/${{ github.base_ref }}..HEAD | sed ':a;N;$!ba;s/\n/\\n/g')
+          echo "FILES=$FILES" >> $GITHUB_ENV
 
       # =============================
       # DETECT COMMIT TYPES
       # =============================
       - name: Detect commit types
-        id: types
-        shell: bash
         run: |
-          TYPES="$(git log origin/main..HEAD --pretty=format:'%s' | cut -d: -f1 | sort -u | tr '\n' ', ' | sed 's/, $//')"
-          echo "types=$TYPES" >> "$GITHUB_OUTPUT"
+          TYPES=$(git log origin/${{ github.base_ref }}..HEAD --pretty=format:'%s' | cut -d: -f1 | sort -u | tr '\n' ',' | sed 's/,$//')
+          echo "TYPES=$TYPES" >> $GITHUB_ENV
 
       # =============================
-      # CREATE PULL REQUEST
+      # UPDATE PR
       # =============================
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+      - name: Update PR title & body
+        uses: actions/github-script@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          base: main
-          title: "${{ steps.types.outputs.types }} → ${{ github.ref_name }}"
-          body: |
-            ## Descripción
-            Cambios incluidos en este PR:
+          script: |
+            const pr = context.payload.pull_request
 
-            ${{ steps.commits.outputs.summary }}
+            const commits = (process.env.COMMITS || '- Sin commits').replace(/\\n/g, '\n')
+            const files = (process.env.FILES || '- Sin cambios').replace(/\\n/g, '\n')
+            const types = process.env.TYPES || 'chore'
 
-            ## Tipos de cambio detectados
-            `${{ steps.types.outputs.types }}`
+            const title = `[${types}] ${pr.head.ref}`
 
-            ## Checklist automático (CI)
-            - [x] Commitlint
-            - [x] Lint
-            - [x] Tests
-            - [x] Security audit
+            const body =
+              '## 🧾 Descripción\n' +
+              'Este PR incluye los siguientes cambios:\n\n' +
 
-            ## Seguridad
-            Este PR solo se crea si **todas las validaciones pasan correctamente**.
+              '## 🔄 Cambios realizados\n' +
+              commits + '\n\n' +
+
+              '## 📂 Archivos modificados\n' +
+              files.split('\n').map(f => `- \`${f}\``).join('\n') + '\n\n' +
+
+              '## 🏷️ Tipo de cambio\n' +
+              `\`${types}\`\n\n` +
+
+              '## ☑️ Checklist CI\n' +
+              '- [x] Commitlint\n' +
+              '- [x] Lint\n' +
+              '- [x] Tests\n' +
+              '- [x] Security audit\n\n' +
+
+              '_PR actualizado automáticamente por CI_ 🤖'
+
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              title,
+              body
+            })
