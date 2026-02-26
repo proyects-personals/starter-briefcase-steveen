@@ -1,4 +1,4 @@
-name: PR CI & Auto Update
+name: PR CI & Auto Pull request
 
 on:
   pull_request:
@@ -14,6 +14,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -43,33 +45,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      # =============================
-      # COMMITS SUMMARY
-      # =============================
       - name: Collect commits
         run: |
           COMMITS=$(git log origin/${{ github.base_ref }}..HEAD --pretty=format:'- %s' | sed ':a;N;$!ba;s/\n/\\n/g')
           echo "COMMITS=$COMMITS" >> $GITHUB_ENV
 
-      # =============================
-      # FILES CHANGED
-      # =============================
       - name: Collect changed files
         run: |
           FILES=$(git diff --name-only origin/${{ github.base_ref }}..HEAD | sed ':a;N;$!ba;s/\n/\\n/g')
           echo "FILES=$FILES" >> $GITHUB_ENV
 
-      # =============================
-      # DETECT COMMIT TYPES
-      # =============================
       - name: Detect commit types
         run: |
           TYPES=$(git log origin/${{ github.base_ref }}..HEAD --pretty=format:'%s' | cut -d: -f1 | sort -u | tr '\n' ',' | sed 's/,$//')
           echo "TYPES=$TYPES" >> $GITHUB_ENV
 
-      # =============================
-      # UPDATE PR
-      # =============================
       - name: Update PR title & body
         uses: actions/github-script@v7
         with:
@@ -85,22 +75,17 @@ jobs:
             const body =
               '## 🧾 Descripción\n' +
               'Este PR incluye los siguientes cambios:\n\n' +
-
               '## 🔄 Cambios realizados\n' +
               commits + '\n\n' +
-
               '## 📂 Archivos modificados\n' +
               files.split('\n').map(f => `- \`${f}\``).join('\n') + '\n\n' +
-
               '## 🏷️ Tipo de cambio\n' +
               `\`${types}\`\n\n` +
-
               '## ☑️ Checklist CI\n' +
               '- [x] Commitlint\n' +
               '- [x] Lint\n' +
               '- [x] Tests\n' +
               '- [x] Security audit\n\n' +
-
               '_PR actualizado automáticamente por CI_ 🤖'
 
             await github.rest.pulls.update({
