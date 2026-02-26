@@ -2,61 +2,50 @@
   "compilerOptions": {
     "target": "ES2022",
     "useDefineForClassFields": true,
+
     "module": "ESNext",
-    "lib": [
-      "ES2022",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "moduleResolution": "Bundler",
+
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    "jsx": "react-jsx",
+
     "types": [
-      "vite/client"
+      "vite/client",
+      "react",
+      "react-dom"
     ],
-    "skipLibCheck": true,
-    /* Bundler mode */
-    "moduleResolution": "bundler",
+
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
+
     "esModuleInterop": true,
     "strict": true,
+
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
+
+    "skipLibCheck": true,
+
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@domain": [
-        "src/app/domain/index.ts"
-      ],
-      "@domain/*": [
-        "src/app/domain/*"
-      ],
-      "@application": [
-        "src/app/application/index.ts"
-      ],
-      "@application/*": [
-        "src/app/application/*"
-      ],
-      "@infrastructure": [
-        "src/app/infrastructure/index.ts"
-      ],
-      "@infrastructure/*": [
-        "src/app/infrastructure/*"
-      ],
-      "@presentation": [
-        "src/app/presentation/index.ts"
-      ],
-      "@presentation/*": [
-        "src/app/presentation/*"
-      ]
+      "@/*": ["src/*"],
+
+      "@domain": ["src/app/domain/index.ts"],
+      "@domain/*": ["src/app/domain/*"],
+
+      "@application": ["src/app/application/index.ts"],
+      "@application/*": ["src/app/application/*"],
+
+      "@infrastructure": ["src/app/infrastructure/index.ts"],
+      "@infrastructure/*": ["src/app/infrastructure/*"],
+
+      "@presentation": ["src/app/presentation/index.ts"],
+      "@presentation/*": ["src/app/presentation/*"]
     }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
