@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "@assets/i18n";
-import { TranslateProvider } from "@application";
+import { ThemeProvider, TranslateProvider } from "@application";
 import { App } from "@presentation";
 import "./style.css";
 
@@ -15,7 +15,9 @@ if (!container) {
 ReactDOM.createRoot(container).render(
   <React.StrictMode>
     <TranslateProvider>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </TranslateProvider>
   </React.StrictMode>,
 );
