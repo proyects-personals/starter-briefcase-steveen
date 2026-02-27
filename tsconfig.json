@@ -44,7 +44,13 @@
       "@infrastructure/*": ["src/app/infrastructure/*"],
 
       "@presentation": ["src/app/presentation/index.ts"],
-      "@presentation/*": ["src/app/presentation/*"]
+      "@presentation/*": ["src/app/presentation/*"],
+
+      "@assets": ["src/assets/index.ts"],
+      "@assets/*": ["src/assets/*"],
+
+      "@i18n": ["src/assets/i18n/index.ts"],
+      "@i18n/*": ["src/assets/i18n/*"]
     }
   },
   "include": ["src"]
