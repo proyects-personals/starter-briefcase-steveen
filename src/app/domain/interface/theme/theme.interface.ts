@@ -29,9 +29,57 @@ export interface ThemeProviderProps {
  */
 export interface AppTheme {
   name: ThemeName;
+
   colors: {
     background: string;
+    surface: string;
     text: string;
+    textSecondary: string;
     primary: string;
+    primaryHover: string;
+    secondary: string;
+    secondaryHover: string;
+    accent: string;
+    muted: string;
+    border: string;
+    shadow: string;
+    error: string;
+    warning: string;
+    success: string;
+    info: string;
+    hover: string;
+    focus: string;
+    disabled: string;
+  };
+  font: {
+    family: string;
+    sizes: {
+      xs: string;
+      sm: string;
+      base: string;
+      lg: string;
+      xl: string;
+      "2xl": string;
+      "3xl": string;
+    };
+    weights: {
+      normal: number;
+      medium: number;
+      bold: number;
+    };
+  };
+  borderRadius: {
+    sm: string;
+    md: string;
+    lg: string;
+    full: string;
+  };
+
+  /** Sombras */
+  shadow: {
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
   };
 }
