@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { useLoading } from "@application";
+import { logoMadjs } from "@assets";
 
 import { LayoutComponent } from "../component";
 
@@ -14,7 +15,7 @@ const AppRouter: React.FC = () => {
 
   useEffect(() => {
     const checkAuth = async (): Promise<void> => {
-      show();
+      show({ logo: logoMadjs, size: 200, color: "#00f" });
       try {
         setIsAuthenticated(false);
       } finally {

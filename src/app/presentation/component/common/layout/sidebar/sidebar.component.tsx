@@ -10,7 +10,6 @@ const SidebarComponent: React.FC<SidebarInterface> = ({ isOpen, onClose }) => {
 
   return (
     <>
-      {/* Overlay SOLO en mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/30 z-40 lg:hidden"
@@ -22,7 +21,6 @@ const SidebarComponent: React.FC<SidebarInterface> = ({ isOpen, onClose }) => {
         className={clsx(
           "fixed top-0 left-0 z-50 h-screen bg-white shadow-xl",
           "pt-24 transition-all duration-300",
-          // Desktop
           "hidden lg:block",
           isCollapsed ? "w-16" : "w-64",
         )}

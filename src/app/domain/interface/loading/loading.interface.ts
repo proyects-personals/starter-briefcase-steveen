@@ -1,5 +1,13 @@
+export interface LoadingOptionsInterface {
+  logo?: string;
+  color?: string;
+  size?: number;
+}
+
 export interface LoadingInferface {
-  show: () => void;
+  show: (options?: LoadingOptionsInterface) => void;
   hide: () => void;
-  isVisible: boolean;
+  logo?: string;
+  color?: string;
+  size?: number;
 }

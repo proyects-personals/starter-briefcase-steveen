@@ -22,6 +22,11 @@
     "button": "Register"
   },
   "welcome": {
-    "buttom": "Welcome"
+    "button": "Welcome"
+  },
+  "header": {
+    "home": "Home",
+    "logo_ccm": "Chamber of Commerce Logo",
+    "logo_ecuador": "Ecuador Fest Logo"
   }
 }
