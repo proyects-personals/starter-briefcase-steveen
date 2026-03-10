@@ -18,10 +18,9 @@ export interface StorageResult<T> {
 export class StorageUtil extends ParseValueUtil {
   private safeCall = new SafeCallUtil();
 
-  set<T>(key: string, value: T): StorageResult<void> {
+  remove(key: string): StorageResult<void> {
     return this.safeCall.execute(() => {
-      const raw = typeof value === "string" ? value : JSON.stringify(value);
-      localStorage.setItem(key, raw);
+      localStorage.removeItem(key);
     });
   }
 
@@ -32,9 +31,10 @@ export class StorageUtil extends ParseValueUtil {
     }, fallback);
   }
 
-  remove(key: string): StorageResult<void> {
+  set<T>(key: string, value: T): StorageResult<void> {
     return this.safeCall.execute(() => {
-      localStorage.removeItem(key);
+      const raw = typeof value === "string" ? value : JSON.stringify(value);
+      localStorage.setItem(key, raw);
     });
   }
 
