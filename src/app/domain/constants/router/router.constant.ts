@@ -9,6 +9,8 @@
 export const APP_ROUTES = {
   ROOT: "/",
   LOGIN: "/login",
+  WELCOME: "/bienvenidos",
+  REGISTER: "/registro",
   HOME: "/home",
   NOT_FOUND: "*",
 };

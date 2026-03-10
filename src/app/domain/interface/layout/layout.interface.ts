@@ -1,6 +1,6 @@
 import type { RoleEnum } from "../../enums";
 import type { UserModel } from "../../models";
-import type { ReactNode } from "react";
+import type { ChildrenInterface } from "../base.interface";
 
 /**
  * @interface HeaderInterface
@@ -9,8 +9,9 @@ import type { ReactNode } from "react";
  *              para alternar la visibilidad del sidebar.
  */
 export interface HeaderInterface {
-  user?: UserModel;
+  user?: UserModel | null;
   onToggleSidebar?: () => void;
+  isAutentificated: boolean;
 }
 
 /**
@@ -19,15 +20,11 @@ export interface HeaderInterface {
  *              Controla visibilidad y permisos según rol.
  */
 export interface SidebarInterface {
-  role?: RoleEnum;
+  role?: RoleEnum | null;
   isOpen: boolean;
   onClose: () => void;
 }
 
-/**
- * @interface ChildrenInterface
- * @description Props genéricas para componentes que reciben children.
- */
-export interface ChildrenInterface {
-  children: ReactNode;
+export interface LayoutInterface extends ChildrenInterface {
+  isAutentificated: boolean;
 }

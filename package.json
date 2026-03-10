@@ -51,8 +51,11 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
+    "clsx": "^2.1.1",
     "i18next": "^25.8.13",
     "react-i18next": "^16.5.4",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.13.1",
     "tailwindcss": "^4.2.1"
   }
 }

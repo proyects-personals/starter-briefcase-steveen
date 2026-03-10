@@ -4,5 +4,24 @@
       "title": "page",
       "description": "page initial"
     }
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Sorry, the page you are looking for does not exist or was moved.",
+    "back": "Back to home"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "description": "Sample text to modify later"
+  },
+  "login": {
+    "button": "Login",
+    "logout": "Logout"
+  },
+  "register": {
+    "button": "Register"
+  },
+  "welcome": {
+    "buttom": "Welcome"
   }
 }

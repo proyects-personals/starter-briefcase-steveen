@@ -4,5 +4,24 @@
       "title": "pagina",
       "description": "pagina de inicial"
     }
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Lo sentimos, la página que buscas no existe o fue movida.",
+    "back": "Volver al inicio"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "description": "Texto de ejemplo para modificar más adelante"
+  },
+  "login": {
+    "button": "Iniciar sesión",
+    "logout": "Salir"
+  },
+  "register": {
+    "button": "Registrarse"
+  },
+  "welcome": {
+    "buttom": "Bienvenido"
   }
 }

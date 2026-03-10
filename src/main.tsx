@@ -1,9 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 
 import "@assets/i18n";
-import { ThemeProvider, TranslateProvider } from "@application";
-import { App } from "@presentation";
+import {
+  LoadingProvider,
+  ThemeProvider,
+  TranslateProvider,
+} from "@application";
+import { RoutesMain } from "@presentation";
 import "./style.css";
 
 const container = document.getElementById("root");
@@ -14,10 +19,14 @@ if (!container) {
 
 ReactDOM.createRoot(container).render(
   <React.StrictMode>
-    <TranslateProvider>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </TranslateProvider>
+    <BrowserRouter>
+      <LoadingProvider>
+        <TranslateProvider>
+          <ThemeProvider>
+            <RoutesMain data-testid="app-router" />
+          </ThemeProvider>
+        </TranslateProvider>
+      </LoadingProvider>
+    </BrowserRouter>
   </React.StrictMode>,
 );

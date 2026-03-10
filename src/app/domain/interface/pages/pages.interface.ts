@@ -1,13 +1,4 @@
-import type { ReactNode } from "react";
-
-/**
- * @interface ChildrenInterface
- * @description Props genéricas para componentes que reciben contenido hijo.
- *              Ideal para wrappers, layouts o cualquier contenedor estructural.
- */
-export interface ChildrenInterface {
-  children: ReactNode;
-}
+import type { ChildrenInterface } from "../base.interface";
 
 /**
  * @interface PageWrapperInterface
@@ -18,4 +9,5 @@ export interface ChildrenInterface {
 export interface PageWrapperInterface extends ChildrenInterface {
   className?: string;
   isBackground?: boolean;
+  padding?: string;
 }
