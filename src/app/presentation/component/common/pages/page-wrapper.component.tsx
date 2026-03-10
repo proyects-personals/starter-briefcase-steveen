@@ -25,12 +25,12 @@ const PageWrapperComponent: React.FC<PageWrapperInterface> = ({
 
   return (
     <section
-      className={clsx("w-full", padding, className)}
+      className={clsx("w-full h-full", padding, className)}
       style={{
         backgroundColor: isBackground ? theme.colors.background : "transparent",
       }}
     >
-      <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4">
+      <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 h-full w-full gap-4">
         {children}
       </div>
     </section>
