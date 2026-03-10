@@ -13,7 +13,7 @@ export interface StorageResult<T> {
 /**
  * @description Clase para interactuar con localStorage de forma segura
  * Hereda la capacidad de parseo de ParseValueUtil
- * @version 2.0.0
+ * @version 2.1.0
  */
 export class StorageUtil extends ParseValueUtil {
   private safeCall = new SafeCallUtil();
