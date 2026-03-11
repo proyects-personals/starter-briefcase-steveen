@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 import { useTheme, useLanguage } from "@application";
 import { logoMadjs } from "@assets";
-import { VideoUtils, YoutubeEmbedURL, type IHeaderLogos } from "@domain";
+import {
+  StringUtils,
+  VideoUtils,
+  YoutubeEmbedURL,
+  type IHeaderLogos,
+} from "@domain";
 
 import { LanguageSwitcherComponent } from "../../lenguage";
 import { ThemeSwitcherComponent } from "../../theme";
@@ -23,10 +28,6 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
   const { theme } = useTheme();
   const { t } = useLanguage();
 
-  // Función auxiliar para validar strings no nulas ni vacías
-  const hasValue = (value?: string | null): value is string =>
-    typeof value === "string" && value.trim() !== "";
-
   return (
     <div
       className={`relative w-full transition-all duration-500 ease-in-out ${
@@ -40,20 +41,19 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
         boxShadow: theme.shadow.sm,
       }}
     >
-      {/* Background Video */}
-      {hasValue(backgroundVideo) && !hasValue(backgroundYoutube) && (
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover -z-10"
-          src={backgroundVideo}
-        />
-      )}
+      {StringUtils.hasValue(backgroundVideo) &&
+        !StringUtils.hasValue(backgroundYoutube) && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover -z-10"
+            src={backgroundVideo}
+          />
+        )}
 
-      {/* Background YouTube */}
-      {hasValue(backgroundYoutube) && (
+      {StringUtils.hasValue(backgroundYoutube) && (
         <div className="absolute inset-0 w-full h-full -z-10">
           <iframe
             className="w-full h-full object-cover"
@@ -69,17 +69,15 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
         </div>
       )}
 
-      {/* Background Image */}
-      {hasValue(backgroundImage) &&
-        !hasValue(backgroundVideo) &&
-        !hasValue(backgroundYoutube) && (
+      {StringUtils.hasValue(backgroundImage) &&
+        !StringUtils.hasValue(backgroundVideo) &&
+        !StringUtils.hasValue(backgroundYoutube) && (
           <div
             className="absolute inset-0 w-full h-full bg-cover bg-center -z-10"
             style={{ backgroundImage: `url(${backgroundImage})` }}
           />
         )}
 
-      {/* Overlay de blur */}
       <div
         className="absolute inset-0"
         style={{
@@ -87,8 +85,6 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
           backdropFilter: "blur(6px)",
         }}
       />
-
-      {/* Contenido */}
       <div className="relative z-10 flex items-center justify-between h-full px-4 sm:px-14">
         <div className="flex items-center gap-4">
           <Link to="/" title={t("header.home")}>
