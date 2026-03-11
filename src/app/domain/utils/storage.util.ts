@@ -29,7 +29,7 @@ export class StorageUtil extends ParseValueUtil {
   remove(key: string): IStorageResult<void> {
     return this.safeCall.execute(() => {
       localStorage.removeItem(key);
-    });
+    }, undefined);
   }
 
   /**
@@ -60,7 +60,7 @@ export class StorageUtil extends ParseValueUtil {
     return this.safeCall.execute(() => {
       const raw = typeof value === "string" ? value : JSON.stringify(value);
       localStorage.setItem(key, raw);
-    });
+    }, undefined);
   }
 
   /**
