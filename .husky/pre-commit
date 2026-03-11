@@ -1,2 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+
+# Formatear los archivos antes de hacer lint-staged
+npx prettier --write "src/**/*.{ts,tsx,js,jsx,json,css,scss,md}"
+
+# Ejecutar lint-staged normalmente
+npx lint-staged
