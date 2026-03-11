@@ -1,5 +1,4 @@
-import type { ThemeName } from "../../type";
-import type { ReactNode } from "react";
+import type { ThemeNameType } from "../../type";
 
 /**
  * @description Valor expuesto por el ThemeContext.
@@ -7,19 +6,21 @@ import type { ReactNode } from "react";
  * @author Steveen Cues
  * @version 1.0.0
  */
-export interface ThemeContextValue {
-  theme: AppTheme;
-  themeName: ThemeName;
-  setTheme: (theme: ThemeName) => void;
+export interface IThemeContextValue {
+  theme: IAppTheme;
+  themeName: ThemeNameType;
+  setTheme: (theme: ThemeNameType) => void;
 }
 
 /**
- * @description Props del ThemeProvider
- * @author Steveen Cues
- * @version 1.0.0
+ * @interface IThemeSwitcher
+ * @description Props para el componente ThemeSwitcher.
+ *              Permite personalizar el estilo externo del componente
+ *              encargado de cambiar entre los temas de la aplicación
+ *              (por ejemplo: claro y oscuro).
  */
-export interface ThemeProviderProps {
-  children: ReactNode;
+export interface IThemeSwitcher {
+  className?: string;
 }
 
 /**
@@ -27,8 +28,8 @@ export interface ThemeProviderProps {
  * @author Steveen Cues
  * @version 1.0.0
  */
-export interface AppTheme {
-  name: ThemeName;
+export interface IAppTheme {
+  name: ThemeNameType;
 
   colors: {
     background: string;

@@ -1,4 +1,4 @@
-import type { AppTheme } from "@domain";
+import type { IAppTheme } from "@domain";
 
 /**
  * @file dark.theme
@@ -8,7 +8,7 @@ import type { AppTheme } from "@domain";
  * @author Steveen Cues
  * @version 1.1.0
  */
-export const darkTheme: AppTheme = {
+export const darkTheme: IAppTheme = {
   name: "dark",
   colors: {
     background: "oklch(25.33% 0.016 252.42)", // base-100

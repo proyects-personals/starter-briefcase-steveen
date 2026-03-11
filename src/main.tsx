@@ -17,6 +17,16 @@ if (!container) {
   throw new Error("Root container not found");
 }
 
+/**
+ * Punto de Entrada Principal de la Aplicación.
+ * * @description
+ * Inicializa el renderizado de React y establece los proveedores globales:
+ * 1. **Navegación:** `BrowserRouter` para el manejo de rutas.
+ * 2. **Estado Global:** Capas de carga (`Loading`), Idiomas (`Translate`) y Estilos (`Theme`).
+ * 3. **Internacionalización:** Importación de la configuración base de i18n.
+ * * @module Main
+ * @version 1.0.0
+ */
 ReactDOM.createRoot(container).render(
   <React.StrictMode>
     <BrowserRouter>

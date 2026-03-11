@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 
 import { useTranslateContext } from "./translate.hook";
 
-import type { Language } from "@domain";
-import type { TFunction } from "i18next"; // ⚠ import type
+import type { LanguageType } from "@domain";
+import type { TFunction } from "i18next";
 
 /**
  * @description Hook para obtener funciones y valores relacionados con la traducción.
@@ -12,16 +12,16 @@ import type { TFunction } from "i18next"; // ⚠ import type
  *              - Obtener el idioma actual
  *              - Cambiar el idioma usando `changeTranslate`
  * @version 1.0.0
- * @returns {object} { t, language, changeTranslate }
+ * @returns {object} { t, LanguageType, changeTranslate }
  * @example
- * const { t, language, changeTranslate } = useLanguage()
+ * const { t, LanguageType, changeTranslate } = useLanguage()
  * t('key.path')
  * changeTranslate('en')
  */
 export const useLanguage = (): {
   t: TFunction;
-  language: Language;
-  changeTranslate: (lang: Language) => void;
+  language: LanguageType;
+  changeTranslate: (lang: LanguageType) => void;
 } => {
   const { t } = useTranslation();
   const { language, changeTranslate } = useTranslateContext();

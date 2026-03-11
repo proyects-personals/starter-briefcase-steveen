@@ -3,13 +3,22 @@ import { FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import { useLanguage, useTheme } from "@application";
-import { APP_ROUTES, getInitials, type UserModel } from "@domain";
+import { APP_ROUTES, NameUtil, type IHeaderUserMenu } from "@domain";
 
-interface HeaderUserMenuProps {
-  user: UserModel | null;
-}
-
-const HeaderUserMenuComponent: React.FC<HeaderUserMenuProps> = ({
+/**
+ * Componente de menú de usuario para el encabezado.
+ * * @description
+ * Muestra la información del usuario autenticado (nombre y rol) y un avatar
+ * generado con sus iniciales. Incluye un menú desplegable (dropdown) para
+ * realizar el cierre de sesión. Gestiona el cierre automático al hacer clic
+ * fuera del componente mediante un `useRef`.
+ * * @component
+ * @param {IHeaderUserMenu} props - Propiedades del componente.
+ * @param {UserInterface} props.user - Objeto con los datos del usuario.
+ * * @version 1.0.0
+ * @returns {JSX.Element | null} El menú de usuario o null si no hay sesión activa.
+ */
+const HeaderUserMenuComponent: React.FC<IHeaderUserMenu> = ({
   user,
 }): JSX.Element | null => {
   const navigate = useNavigate();
@@ -19,6 +28,15 @@ const HeaderUserMenuComponent: React.FC<HeaderUserMenuProps> = ({
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
+  /**
+   * Finaliza la sesión del usuario y redirige al login.
+   * * @description
+   * 1. Limpia el almacenamiento local (`localStorage`).
+   * Nota: Esto elimina tokens de sesión, pero también preferencias (tema/idioma).
+   * 2. Utiliza `Maps` con `replace: true` para limpiar el historial de
+   * navegación y evitar que el usuario regrese con el botón "atrás".
+   * * @returns {void}
+   */
   const handleLogout = (): void => {
     localStorage.clear();
     navigate(APP_ROUTES.LOGIN, { replace: true });
@@ -28,8 +46,19 @@ const HeaderUserMenuComponent: React.FC<HeaderUserMenuProps> = ({
     ? `${user.nombre} ${user.apellido}`.toUpperCase()
     : t("user.undefined");
   const role = user ? user.role.toUpperCase() : t("user.undefined");
-  const initials = user ? getInitials(user.nombre, user.apellido) : "?";
+  const initials = user
+    ? NameUtil.getInitials(user.nombre, user.apellido)
+    : "?";
 
+  /**
+   * Hook de efecto para gestionar el cierre del menú al hacer clic fuera.
+   * * @listens MouseEvent - Escucha el evento 'mousedown' en todo el documento.
+   * * @description
+   * Compara el target del clic con la referencia del contenedor (`menuRef`).
+   * Si el clic no ocurrió dentro del menú, cambia el estado `open` a false.
+   * * @cleanup
+   * Elimina el event listener al desmontar el componente para prevenir memory leaks.
+   */
   useEffect((): (() => void) => {
     const handleClickOutside = (event: MouseEvent): void => {
       if (

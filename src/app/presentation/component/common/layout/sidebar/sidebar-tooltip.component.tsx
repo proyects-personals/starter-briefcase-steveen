@@ -1,10 +1,20 @@
 import React from "react";
 
-interface Props {
-  label: string;
-}
+import type { ISidebarTooltip } from "@domain";
 
-const SidebarTooltipComponent: React.FC<Props> = ({ label }) => (
+/**
+ * Componente de etiqueta flotante (Tooltip) para el Sidebar colapsado.
+ * * @description
+ * Se posiciona de forma absoluta a la derecha del ítem del menú.
+ * Aprovecha la clase `group` del elemento padre para activarse únicamente
+ * cuando el usuario pasa el cursor sobre el contenedor del icono.
+ * * @component
+ * @param {Object} props - Propiedades del componente.
+ * @param {string} props.label - Texto descriptivo que se mostrará al hacer hover.
+ * * @version 1.0.0
+ * @returns {JSX.Element} Un elemento span posicionado con transiciones de opacidad.
+ */
+const SidebarTooltipComponent: React.FC<ISidebarTooltip> = ({ label }) => (
   <span
     className="
       absolute left-full ml-3

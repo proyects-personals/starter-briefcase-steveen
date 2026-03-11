@@ -28,5 +28,9 @@
     "home": "Home",
     "logo_ccm": "Chamber of Commerce Logo",
     "logo_ecuador": "Ecuador Fest Logo"
+  },
+  "user": {
+    "role": "Role",
+    "undefined": "Unknown User"
   }
 }

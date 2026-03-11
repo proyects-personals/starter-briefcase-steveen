@@ -3,7 +3,7 @@ import React from "react";
 
 import { useTheme } from "@application";
 
-import type { PageWrapperInterface } from "@domain";
+import type { IPageWrapper } from "@domain";
 
 /**
  * @description Contenedor base de página.
@@ -15,7 +15,7 @@ import type { PageWrapperInterface } from "@domain";
  *              - Tablet: 8 columnas
  *              - Desktop: 12 columnas
  */
-const PageWrapperComponent: React.FC<PageWrapperInterface> = ({
+const PageWrapperComponent: React.FC<IPageWrapper> = ({
   children,
   className,
   isBackground = false,

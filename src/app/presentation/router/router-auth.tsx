@@ -8,6 +8,18 @@ import {
   HomeScreen,
 } from "@presentation";
 
+/**
+ * Enrutador de secciones autenticadas (AuthRoutes).
+ * * @description
+ * Define las rutas accesibles únicamente para usuarios con sesión activa.
+ * - **Redirección:** Mapea la ruta raíz (`/`) hacia la Home para evitar una página vacía.
+ * - **Composición:** Utiliza `PageWrapperComponent` como un Higher-Order Component (HOC)
+ * visual para inyectar comportamientos comunes como fondos y espaciado.
+ * - **Seguridad:** Centraliza las rutas protegidas en un único árbol de renderizado.
+ * * @component
+ * @version 1.0.0
+ * @returns {JSX.Element} El switch de rutas con `react-router-dom`.
+ */
 const AuthRoutes: React.FC = () => {
   return (
     <Routes>

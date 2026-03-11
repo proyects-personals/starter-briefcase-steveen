@@ -3,18 +3,29 @@ import { FaGlobe } from "react-icons/fa";
 
 import { useLanguage, useTheme } from "@application";
 
-import type { Language } from "@domain";
+import type { ILanguageSwitcher, LanguageType } from "@domain";
 
-interface Props {
-  className?: string;
-}
-
-const LanguageSwitcherComponent: React.FC<Props> = ({ className }) => {
+/**
+ * Selector de idioma con soporte para temas dinámicos.
+ * * @description
+ * Permite al usuario alternar entre los idiomas disponibles ("es", "en").
+ * - **Estética:** Utiliza `backdrop-blur` y `color-mix` de CSS para lograr un efecto
+ * de cristal translúcido que se adapta al fondo tanto en modo claro como oscuro.
+ * - **UX:** Cierra automáticamente el menú desplegable tras seleccionar una opción.
+ * * @component
+ * @param {Object} props - Propiedades del componente.
+ * @param {string} [props.className] - Clases adicionales de Tailwind para posicionamiento.
+ * * @version 1.0.0
+ * @returns {JSX.Element} Un botón con menú desplegable posicionado de forma absoluta.
+ */
+const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
+  className,
+}) => {
   const { language, changeTranslate } = useLanguage();
   const { theme } = useTheme();
   const [open, setOpen] = useState(false);
 
-  const languages: Language[] = ["es", "en"];
+  const languages: LanguageType[] = ["es", "en"];
 
   return (
     <div className={`relative ${className ?? ""}`}>

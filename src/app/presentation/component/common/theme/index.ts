@@ -1,1 +1,1 @@
-export { default as ThemeSwitcherComponent } from "./theme.component";
+export { default as ThemeSwitcherComponent } from "./theme-switcher.component";

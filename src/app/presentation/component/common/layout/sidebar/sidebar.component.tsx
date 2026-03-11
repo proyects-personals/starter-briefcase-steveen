@@ -1,11 +1,25 @@
 import clsx from "clsx";
 import React from "react";
 
-import { SIDEBAR_ITEMS, type SidebarInterface } from "@domain";
+import { SIDEBAR_ITEMS, type ISidebar } from "@domain";
 
 import SidebarItemComponent from "./sidebar-item.component";
 
-const SidebarComponent: React.FC<SidebarInterface> = ({ isOpen, onClose }) => {
+/**
+ * Componente de Barra Lateral (Sidebar).
+ * * @description
+ * Administra el menú de navegación principal del panel administrativo.
+ * - **Responsividad:** En dispositivos móviles (`lg:hidden`), muestra un overlay oscuro al abrirse.
+ * - **Estados:** Cambia su ancho entre 64px (`w-16`) y 256px (`w-64`) mediante la propiedad `isOpen`.
+ * - **Organización:** Incluye una sección de encabezado ("Admin") que solo es visible en modo expandido.
+ * * @component
+ * @param {ISidebar} props - Propiedades del componente.
+ * @param {boolean} props.isOpen - Define si el sidebar está expandido o contraído.
+ * @param {() => void} props.onClose - Callback para cerrar el sidebar (especialmente útil en móviles).
+ * * @version 1.0.0
+ * @returns {JSX.Element} La estructura lateral con navegación y soporte de capas (overlay).
+ */
+const SidebarComponent: React.FC<ISidebar> = ({ isOpen, onClose }) => {
   const isCollapsed = !isOpen;
 
   return (

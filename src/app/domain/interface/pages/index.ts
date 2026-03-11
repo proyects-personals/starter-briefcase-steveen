@@ -1,1 +1,1 @@
-export * from "./pages.interface";
+export * from "./ipages.interface";

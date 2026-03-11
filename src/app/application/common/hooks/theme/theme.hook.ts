@@ -1,16 +1,16 @@
 import { useContext } from "react";
 
-import { ThemeContext, type ThemeContextValue } from "@domain";
+import { ThemeContext, type IThemeContextValue } from "@domain";
 
 /**
  * @description Hook que expone el contexto de tema.
  * @throws {Error} Si se usa fuera de ThemeProvider
  *
- * @returns {ThemeContextValue} Contexto del tema actual
+ * @returns {IChildren} Contexto del tema actual
  * @author Steveen Cues
  * @version 1.0.0
  */
-export function useTheme(): ThemeContextValue {
+export function useTheme(): IThemeContextValue {
   const context = useContext(ThemeContext);
 
   if (context === null) {

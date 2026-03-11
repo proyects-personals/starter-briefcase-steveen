@@ -1,1 +1,1 @@
-export * from "./loading.interface";
+export * from "./iloading.interface";

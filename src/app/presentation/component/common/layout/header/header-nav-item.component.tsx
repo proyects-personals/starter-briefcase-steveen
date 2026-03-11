@@ -2,17 +2,31 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { useTheme, useLanguage } from "@application";
+import {
+  FONT_WEIGHT_ACTIVE,
+  FONT_WEIGHT_DEFAULT,
+  type IHeaderNavItem,
+} from "@domain";
 
-interface Props {
-  to: string;
-  icon: React.ElementType;
-  text: string;
-}
-
-const FONT_WEIGHT_ACTIVE = 600;
-const FONT_WEIGHT_DEFAULT = 500;
-
-const HeaderNavItemComponent: React.FC<Props> = ({ to, icon: Icon, text }) => {
+/**
+ * Item individual de navegación para el encabezado.
+ * * @description
+ * Representa un enlace de navegación que detecta automáticamente si su ruta
+ * coincide con la ubicación actual (`useLocation`). Cambia dinámicamente su
+ * estilo (peso de fuente, color y borde inferior) para dar feedback visual de "Estado Activo".
+ * * @component
+ * @param {IHeaderNavItem} props - Propiedades del ítem.
+ * @param {string} props.to - Ruta de destino del enlace.
+ * @param {React.ElementType} props.icon - Componente de icono (React Icon) a renderizar.
+ * @param {string} props.text - Clave de traducción para el texto del enlace.
+ * * @version 1.0.0
+ * @returns {JSX.Element} Un enlace `Link` estilizado con soporte para hover y estados activos.
+ */
+const HeaderNavItemComponent: React.FC<IHeaderNavItem> = ({
+  to,
+  icon: Icon,
+  text,
+}) => {
   const location = useLocation();
   const { theme } = useTheme();
   const { t } = useLanguage();

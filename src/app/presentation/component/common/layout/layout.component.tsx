@@ -2,31 +2,23 @@ import clsx from "clsx";
 import React, { useState, useEffect, useCallback } from "react";
 
 import { useTheme } from "@application";
-import { type LayoutInterface, type UserModel, StorageUtil } from "@domain";
+import {
+  SIDEBAR_STORAGE_KEY,
+  storageUtil,
+  type ILayout,
+  type UserModel,
+} from "@domain";
 
 import { FooterComponent } from "./footer";
 import { HeaderComponent } from "./header";
 import { SidebarComponent } from "./sidebar";
 
 /**
- * @description Clave por defecto para persistir el estado del sidebar
- */
-const SIDEBAR_STORAGE_KEY = "sidebar_open";
-
-/**
- * @description Instancia global de StorageUtil
- */
-const storage = new StorageUtil();
-
-/**
  * @description Layout principal de la aplicación, con sidebar, header y footer.
  * Gestiona el estado del sidebar y lo persiste en StorageUtil.
  * @version 2.0.0
  */
-const LayoutComponent: React.FC<LayoutInterface> = ({
-  children,
-  isAutentificated,
-}) => {
+const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
   const { theme } = useTheme();
   const user: UserModel | null = null;
 
@@ -43,7 +35,7 @@ const LayoutComponent: React.FC<LayoutInterface> = ({
       return;
     }
 
-    const result = storage.get<boolean>(SIDEBAR_STORAGE_KEY, true);
+    const result = storageUtil.get<boolean>(SIDEBAR_STORAGE_KEY, true);
     const initialSidebar =
       result.success && typeof result.value === "boolean" ? result.value : true;
 
@@ -60,9 +52,9 @@ const LayoutComponent: React.FC<LayoutInterface> = ({
    */
   useEffect(() => {
     if (loaded && isAutentificated) {
-      storage.set(SIDEBAR_STORAGE_KEY, isSidebarOpen);
+      storageUtil.set(SIDEBAR_STORAGE_KEY, isSidebarOpen);
     }
-  }, [isSidebarOpen, isAutentificated, loaded]); // storage ya no va en dependencias
+  }, [isSidebarOpen, isAutentificated, loaded]);
 
   const handleToggleSidebar = (): void => setIsSidebarOpen((prev) => !prev);
   const handleCloseSidebar = (): void => setIsSidebarOpen(false);
