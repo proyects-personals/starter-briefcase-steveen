@@ -22,6 +22,7 @@ export interface ISidebarItem {
  */
 export interface ISidebarTooltip {
   label: string;
+  isActive: boolean;
 }
 
 /**

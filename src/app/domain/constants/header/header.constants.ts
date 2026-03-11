@@ -8,6 +8,8 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 
+import type { IHeaderNavItem } from "../../interface";
+
 export const FONT_WEIGHT_ACTIVE = 600;
 export const FONT_WEIGHT_DEFAULT = 500;
 
@@ -22,53 +24,53 @@ export const FONT_WEIGHT_DEFAULT = 500;
  * * @type {Array<{to: string, icon: import("react-icons").IconType, text: string, auth: boolean | null}>}
  * @version 1.0.0
  */
-export const NAV_ITEMS = [
+export const NAV_ITEMS_BASE: IHeaderNavItem[] = [
   {
     to: "/bienvenidos",
     icon: FaHome,
-    text: "bienvenidos",
+    text: "nav.bienvenidos",
     auth: null,
   },
   {
     to: "/",
     icon: FaHome,
-    text: "Home",
-    auth: null,
+    text: "nav.home",
+    auth: true,
   },
   {
     to: "/agenda-activities",
     icon: FaCalendarAlt,
-    text: "Agenda de actividades",
+    text: "nav.agenda-activities",
     auth: true,
   },
   {
     to: "/discover-Ecuador-travel",
     icon: FaInfoCircle,
-    text: "Conoce Ecuador Travel",
+    text: "nav.discover-ecuador-travel",
     auth: true,
   },
   {
     to: "/catalog",
     icon: FaBook,
-    text: "Catálogo",
+    text: "nav.catalog",
     auth: true,
   },
   {
     to: "/commercial-proposal",
     icon: FaHandshake,
-    text: "Propuesta Comercial",
+    text: "nav.commercial-proposal",
     auth: true,
   },
   {
     to: "/packages",
     icon: FaTag,
-    text: "Paquetes",
+    text: "nav.packages",
     auth: true,
   },
   {
     to: "/contact",
     icon: FaEnvelope,
-    text: "Contáctanos",
+    text: "nav.contact",
     auth: true,
   },
 ];

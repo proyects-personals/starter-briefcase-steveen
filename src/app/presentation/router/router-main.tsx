@@ -36,7 +36,6 @@ const AppRouter: React.FC = () => {
    * @returns {Promise<void>}
    */
   const checkAuth = useCallback(async (): Promise<void> => {
-    // 2. Envolver la función
     show({ logo: logoMadjs, size: 200, color: "#00f" });
     try {
       setIsAuthenticated(false);

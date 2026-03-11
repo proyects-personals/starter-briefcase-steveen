@@ -88,7 +88,7 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
         <div
           className={clsx(
             "shrink-0",
-            isAutentificated ? "h-14 md:h-14" : "h-26 md:h-32",
+            isAutentificated ? "h-14 md:h-14" : "h-30 md:h-36",
           )}
           style={{ backgroundColor: theme.colors.background }}
         >

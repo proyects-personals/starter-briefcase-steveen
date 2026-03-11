@@ -20,6 +20,9 @@ export interface IHeaderAuthBar {
  */
 export interface IHeaderLogos {
   scrolled: boolean;
+  backgroundVideo?: string;
+  backgroundYoutube?: string;
+  backgroundImage?: string;
 }
 
 /**
@@ -31,6 +34,7 @@ export interface IHeaderNavItem {
   to: string;
   icon: React.ElementType;
   text: string;
+  auth: boolean | null;
 }
 
 /**

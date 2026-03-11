@@ -11,7 +11,7 @@ import type { IAppTheme } from "@domain";
 export const lightTheme: IAppTheme = {
   name: "light",
   colors: {
-    background: "oklch(100% 0 0)", // base-100
+    background: "oklch(100% 0 0)",
     surface: "oklch(98% 0 0)", // base-200
     text: "oklch(21% 0.006 285.885)", // base-content
     textSecondary: "oklch(60% 0.005 285.823)",

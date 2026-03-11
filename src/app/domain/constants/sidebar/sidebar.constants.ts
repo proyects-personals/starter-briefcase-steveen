@@ -18,7 +18,7 @@ import { FaHome } from "react-icons/fa";
  */
 export const SIDEBAR_ITEMS = [
   {
-    label: "Panel Admin",
+    label: "Home",
     path: "/home",
     icon: FaHome,
   },

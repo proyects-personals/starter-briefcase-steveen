@@ -3,66 +3,114 @@ import { Link } from "react-router-dom";
 
 import { useTheme, useLanguage } from "@application";
 import { logoMadjs } from "@assets";
+import { VideoUtils, YoutubeEmbedURL, type IHeaderLogos } from "@domain";
 
 import { LanguageSwitcherComponent } from "../../lenguage";
 import { ThemeSwitcherComponent } from "../../theme";
 
-import type { IHeaderLogos } from "@domain";
-
 /**
- * Componente de cabecera que muestra los logos principales y selectores globales.
- * @description
- * Este componente es dinámico y reacciona al desplazamiento de la página:
- * - Se oculta suavemente cuando el usuario hace scroll hacia abajo para ahorrar espacio.
- * - Incluye accesos directos al inicio, el selector de idiomas y el switch de tema.
- * * @component
- * @param {IHeaderLogos} props - Propiedades del componente.
- * @param {boolean} props.scrolled - Estado que determina si el componente debe colapsar y ocultarse.
- * * @version 1.0.0
- * @returns {JSX.Element} Una barra de identidad visual con soporte para temas y i18n.
+ * Header con soporte de fondo: video local, YouTube o imagen.
+ * - Overlay de blur con colores del theme
+ * - Logos centrados y responsive
+ * - Transiciones suaves al hacer scroll
  */
-const HeaderLogosComponent: React.FC<IHeaderLogos> = ({ scrolled }) => {
+const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
+  scrolled,
+  backgroundVideo,
+  backgroundYoutube,
+  backgroundImage,
+}) => {
   const { theme } = useTheme();
   const { t } = useLanguage();
 
-  /**
-   * @description Estilos calculados del tema.
-   * Se aplican mediante el atributo 'style' para permitir cambios de color en tiempo real.
-   */
-  const containerStyles = {
-    background: theme.colors.surface,
-    color: theme.colors.text,
-    borderBottom: `1px solid ${theme.colors.border}`,
-    boxShadow: theme.shadow.sm,
-  };
+  // Función auxiliar para validar strings no nulas ni vacías
+  const hasValue = (value?: string | null): value is string =>
+    typeof value === "string" && value.trim() !== "";
 
   return (
     <div
-      className={`grid grid-cols-2 px-4 sm:px-14 transition-all duration-500 ease-in-out ${
-        scrolled ? "opacity-0 h-0 overflow-hidden" : "opacity-100 h-auto py-2"
+      className={`relative w-full transition-all duration-500 ease-in-out ${
+        scrolled
+          ? "opacity-0 h-0 overflow-hidden"
+          : "opacity-100 h-auto py-2 sm:py-3"
       }`}
-      style={containerStyles}
+      style={{
+        color: theme.colors.text,
+        borderBottom: `1px solid ${theme.colors.border}`,
+        boxShadow: theme.shadow.sm,
+      }}
     >
-      <div className="flex items-center">
-        <Link to="/" title={t("header.home")}>
-          <img
-            src={logoMadjs}
-            alt={t("header.logo_ccm")}
-            className="h-16 sm:h-20 w-auto cursor-pointer object-contain hover:scale-105 transition-transform"
-          />
-        </Link>
-      </div>
+      {/* Background Video */}
+      {hasValue(backgroundVideo) && !hasValue(backgroundYoutube) && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover -z-10"
+          src={backgroundVideo}
+        />
+      )}
 
-      <div className="flex items-center justify-between">
-        <Link to="/" title={t("header.home")}>
-          <img
-            src={logoMadjs}
-            alt={t("header.logo_ecuador")}
-            className="hidden sm:block h-16 sm:h-20 w-auto cursor-pointer object-contain"
+      {/* Background YouTube */}
+      {hasValue(backgroundYoutube) && (
+        <div className="absolute inset-0 w-full h-full -z-10">
+          <iframe
+            className="w-full h-full object-cover"
+            src={`${YoutubeEmbedURL.BASE}${VideoUtils.getYoutubeID(
+              backgroundYoutube,
+            )}?autoplay=1&mute=1&loop=1&playlist=${VideoUtils.getYoutubeID(
+              backgroundYoutube,
+            )}`}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title="YouTube Background"
           />
-        </Link>
+        </div>
+      )}
 
-        <div className="flex items-center gap-2 ml-3">
+      {/* Background Image */}
+      {hasValue(backgroundImage) &&
+        !hasValue(backgroundVideo) &&
+        !hasValue(backgroundYoutube) && (
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center -z-10"
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+        )}
+
+      {/* Overlay de blur */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundColor: `${theme.colors.surface}aa`,
+          backdropFilter: "blur(6px)",
+        }}
+      />
+
+      {/* Contenido */}
+      <div className="relative z-10 flex items-center justify-between h-full px-4 sm:px-14">
+        <div className="flex items-center gap-4">
+          <Link to="/" title={t("header.home")}>
+            <img
+              src={logoMadjs}
+              alt={t("header.logo_ccm")}
+              className="h-16 sm:h-20 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+            />
+          </Link>
+        </div>
+
+        <div className="flex-1 flex justify-center">
+          <Link to="/" title={t("header.home")} className="hidden sm:block">
+            <img
+              src={logoMadjs}
+              alt={t("header.logo_ecuador")}
+              className="h-16 sm:h-20 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+            />
+          </Link>
+        </div>
+
+        <div className="flex items-center gap-2">
           <LanguageSwitcherComponent />
           <ThemeSwitcherComponent />
         </div>
