@@ -1,0 +1,67 @@
+import clsx from "clsx";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+
+import { useTheme } from "@application";
+
+import SidebarTooltipComponent from "./sidebar-tooltip.component";
+
+import type { ISidebarItem } from "@domain";
+
+/**
+ * Item individual de la barra lateral (Sidebar).
+ * * @description
+ * Gestiona la visualización de un enlace de navegación dentro del Sidebar.
+ * - **Estado Activo:** Resalta automáticamente si la ruta coincide con la actual.
+ * - **Estado Colapsado:** Oculta el texto y activa un Tooltip flotante para mantener la usabilidad.
+ * - **Estilos Dinámicos:** Aplica colores y bordes basados en el objeto `theme`.
+ * * @component
+ * @param {ISidebarItem} props - Propiedades del ítem.
+ * @param {string} props.path - Ruta de destino (React Router).
+ * @param {string} props.label - Etiqueta de texto (o clave i18n) a mostrar.
+ * @param {React.ElementType} props.icon - Icono a renderizar (componente de React Icons).
+ * @param {boolean} props.isCollapsed - Indica si el Sidebar está en modo reducido.
+ * * @version 1.1.0
+ * @returns {JSX.Element} Un elemento de lista `<li>` que contiene el enlace estilizado.
+ */
+const SidebarItemComponent: React.FC<ISidebarItem> = ({
+  path,
+  label,
+  icon: Icon,
+  isCollapsed,
+}) => {
+  const { pathname } = useLocation();
+  const { theme } = useTheme();
+
+  const isActive = pathname === path;
+
+  return (
+    <li>
+      <Link
+        to={path}
+        className={clsx(
+          "group relative flex items-center gap-3 p-2 transition-colors",
+          isCollapsed && "justify-center",
+        )}
+        style={{
+          borderRadius: theme.borderRadius.md,
+          backgroundColor: isActive ? theme.colors.primary : "transparent",
+          color: isActive ? theme.colors.background : theme.colors.text,
+        }}
+      >
+        <Icon
+          className="text-lg shrink-0"
+          style={{
+            color: isActive ? theme.colors.background : theme.colors.text,
+          }}
+        />
+
+        {!isCollapsed && <span>{label}</span>}
+
+        {isCollapsed && <SidebarTooltipComponent label={label} />}
+      </Link>
+    </li>
+  );
+};
+
+export default SidebarItemComponent;

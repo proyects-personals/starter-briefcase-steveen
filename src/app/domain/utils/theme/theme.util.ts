@@ -1,51 +1,72 @@
 import { darkTheme, lightTheme } from "@/assets";
 
-import { STORAGE_KEY } from "../../constants";
+import { THEME_STORAGE_KEY } from "../../constants";
+import { ThemeEnum } from "../../enums";
 
-import type { AppTheme } from "../../interface";
-import type { ThemeName } from "../../type";
-
-/**
- * @description Detecta el tema preferido del sistema operativo.
- * @returns {ThemeName} Tema del sistema ("light" | "dark")
- */
-function getSystemTheme(): ThemeName {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
+import type { ThemeNameType } from "../../type";
 
 /**
- * @description Obtiene el tema almacenado en localStorage si es válido.
- * @returns {ThemeName | null} Tema almacenado o null si no existe o es inválido
+ * Utilidad para la gestión y resolución del tema visual (Light/Dark).
+ * * @description
+ * Esta clase centraliza la lógica de detección de preferencias del sistema,
+ * persistencia en almacenamiento local y resolución de objetos de estilo.
+ * * @version 1.1.0
  */
-function getStoredTheme(): ThemeName | null {
-  const storedTheme = localStorage.getItem(STORAGE_KEY);
-
-  if (storedTheme === "light" || storedTheme === "dark") {
-    return storedTheme;
+export class ThemeUtil {
+  /**
+   * Detecta el tema preferido configurado en el sistema operativo del usuario.
+   * * @private
+   * @returns {ThemeNameType} "dark" si el sistema está en modo oscuro, de lo contrario "light".
+   */
+  private getSystemTheme(): ThemeNameType {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? ThemeEnum.DARK
+      : ThemeEnum.LIGHT;
   }
 
-  return null;
+  /**
+   * Recupera el tema guardado en el almacenamiento local.
+   * * @private
+   * @returns {ThemeNameType | null} El tema guardado o null si no existe o no es válido.
+   */
+  private getStoredTheme(): ThemeNameType | null {
+    const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    return storedTheme === ThemeEnum.LIGHT || storedTheme === ThemeEnum.DARK
+      ? storedTheme
+      : null;
+  }
+
+  /**
+   * Resuelve el tema inicial que debe aplicar la aplicación al cargar.
+   * * @description
+   * Aplica la siguiente prioridad:
+   * 1. Preferencia guardada por el usuario en `localStorage`.
+   * 2. Preferencia del sistema operativo mediante `matchMedia`.
+   * * @returns {ThemeNameType} Nombre del tema resultante.
+   * @example
+   * const initialThemeName = themeUtil.resolveInitialTheme();
+   */
+  public resolveInitialTheme(): ThemeNameType {
+    return this.getStoredTheme() ?? this.getSystemTheme();
+  }
+
+  /**
+   * Retorna el objeto de configuración del tema basado en su nombre.
+   * * @param {ThemeNameType} themeName - Nombre del tema ("light" | "dark").
+   * @returns {typeof darkTheme} Objeto de tema importado de los assets.
+   */
+  public resolveThemeConfig(themeName: ThemeNameType): typeof darkTheme {
+    // <--- Tipo de retorno añadido
+    return themeName === ThemeEnum.DARK ? darkTheme : lightTheme;
+  }
+
+  /**
+   * Persiste la elección del tema en el almacenamiento local.
+   * * @param {ThemeNameType} themeName - El tema a guardar.
+   */
+  public saveTheme(themeName: ThemeNameType): void {
+    localStorage.setItem(THEME_STORAGE_KEY, themeName);
+  }
 }
 
-/**
- * @description Resuelve el tema inicial de la aplicación.
- *              Prioridad:
- *              1. Tema almacenado en localStorage
- *              2. Tema del sistema operativo
- *
- * @returns {ThemeName} Tema inicial
- */
-export function resolveInitialTheme(): ThemeName {
-  return getStoredTheme() ?? getSystemTheme();
-}
-
-/**
- * @description Devuelve el objeto de tema correspondiente al nombre del tema.
- * @param {ThemeName} themeName Nombre del tema
- * @returns {AppTheme} Tema de la aplicación
- */
-export function resolveTheme(themeName: ThemeName): AppTheme {
-  return themeName === "dark" ? darkTheme : lightTheme;
-}
+export const themeUtil = new ThemeUtil();
