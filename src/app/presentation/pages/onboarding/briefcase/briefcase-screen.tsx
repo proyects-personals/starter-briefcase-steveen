@@ -67,7 +67,7 @@ const WelcomePortfolio: React.FC = () => {
 
       <div className="w-full h-px bg-gray-300 dark:bg-zinc-700 mb-8" />
 
-      <div className="w-full py-16 bg-transparent text-center">
+      <div className="w-full py-3 md:py-16 bg-transparent text-center">
         <motion.h2
           className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6"
           initial={{ opacity: 0, y: 40 }}

@@ -25,7 +25,6 @@ import type { ICarousel } from "@domain";
  */
 const CarouselComponent: React.FC<ICarousel> = ({
   items,
-  height = "450px",
   autoPlayInterval = 4000,
   theme,
   translate,
@@ -95,7 +94,7 @@ const CarouselComponent: React.FC<ICarousel> = ({
       <div
         {...handlers}
         className="relative w-full overflow-hidden rounded-xl"
-        style={{ height }}
+        style={{ height: "500px" }}
       >
         <AnimatePresence initial={false} custom={direction}>
           <SlideComponent

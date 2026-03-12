@@ -67,7 +67,7 @@ const SlideComponent = ({
         x: { type: "spring", stiffness: 300, damping: 30 },
         opacity: { duration: 0.3 },
       }}
-      className="absolute inset-0 w-full min-h-[400px] md:min-h-[300px] flex flex-col md:flex-row items-center justify-center gap-6 p-6 md:p-12"
+      className="absolute inset-0 w-full min-h-[400px] md:min-h-[300px] flex flex-col md:flex-row items-center justify-center gap-6"
     >
       <div className="w-full md:w-1/2 flex justify-center">
         <img
@@ -86,7 +86,7 @@ const SlideComponent = ({
         </h3>
 
         <p
-          className="text-base md:text-lg opacity-90 break-words leading-relaxed text-justify"
+          className="text-sm sm:text-base md:text-lg text-justify leading-relaxed"
           style={{ color: theme.colors.textSecondary }}
         >
           {translate(item.description)}
