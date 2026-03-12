@@ -12,7 +12,6 @@ permissions:
 
 jobs:
   release:
-    if: github.repository == 'proyects-personals/starter-scaffolding-react-layout'
     runs-on: ubuntu-latest
 
     steps:
