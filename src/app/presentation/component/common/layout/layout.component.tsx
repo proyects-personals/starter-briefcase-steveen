@@ -25,7 +25,6 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [loaded, setLoaded] = useState<boolean>(false);
-  const MOBILE_BREAKPOINT = 768;
 
   /**
    * @description Carga el estado inicial del sidebar desde StorageUtil
