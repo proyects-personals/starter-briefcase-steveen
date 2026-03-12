@@ -1,12 +1,12 @@
 import { useContext } from "react";
 
-import { TranslateContext, type TranslateContextType } from "@domain";
+import { TranslateContext, type ITranslateContext } from "@domain";
 
 /**
  * @description Hook para acceder al contexto de traducción.
  *              Lanza un error si se usa fuera del TranslateProvider.
  * @version 1.0.0
- * @returns {TranslateContextType} Objeto con:
+ * @returns {ITranslateContext} Objeto con:
  *  - language: Idioma actual
  *  - changeTranslate: Función para cambiar el idioma
  * @throws {Error} Si se usa fuera de TranslateProvider
@@ -14,7 +14,7 @@ import { TranslateContext, type TranslateContextType } from "@domain";
  * const { language, changeTranslate } = useTranslateContext()
  * changeTranslate('en')
  */
-export const useTranslateContext = (): TranslateContextType => {
+export const useTranslateContext = (): ITranslateContext => {
   const context = useContext(TranslateContext);
   if (!context) {
     throw new Error(

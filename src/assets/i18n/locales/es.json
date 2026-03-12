@@ -4,5 +4,43 @@
       "title": "pagina",
       "description": "pagina de inicial"
     }
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Lo sentimos, la página que buscas no existe o fue movida.",
+    "back": "Volver al inicio"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "description": "Texto de ejemplo para modificar más adelante"
+  },
+  "login": {
+    "button": "Iniciar sesión",
+    "logout": "Salir"
+  },
+  "register": {
+    "button": "Registrarse"
+  },
+  "welcome": {
+    "button": "Bienvenido"
+  },
+  "header": {
+    "home": "Inicio",
+    "logo_ccm": "Logo Cámara de Comercio",
+    "logo_ecuador": "Logo Ecuador Fest"
+  },
+  "user": {
+    "role": "Rol",
+    "undefined": "Usuario Desconocido"
+  },
+  "nav": {
+    "bienvenidos": "Bienvenidos",
+    "home": "Inicio",
+    "agenda-activities": "Agenda de Actividades",
+    "discover-ecuador-travel": "Conoce Ecuador Travel",
+    "catalog": "Catálogo",
+    "commercial-proposal": "Propuesta Comercial",
+    "packages": "Paquetes",
+    "contact": "Contáctanos"
   }
 }

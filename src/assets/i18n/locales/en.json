@@ -4,5 +4,43 @@
       "title": "page",
       "description": "page initial"
     }
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Sorry, the page you are looking for does not exist or was moved.",
+    "back": "Back to home"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "description": "Sample text to modify later"
+  },
+  "login": {
+    "button": "Login",
+    "logout": "Logout"
+  },
+  "register": {
+    "button": "Register"
+  },
+  "welcome": {
+    "button": "Welcome"
+  },
+  "header": {
+    "home": "Home",
+    "logo_ccm": "Chamber of Commerce Logo",
+    "logo_ecuador": "Ecuador Fest Logo"
+  },
+  "user": {
+    "role": "Role",
+    "undefined": "Unknown User"
+  },
+  "nav": {
+    "bienvenidos": "Welcome",
+    "home": "Home",
+    "agenda-activities": "Agenda of Activities",
+    "discover-ecuador-travel": "Discover Ecuador Travel",
+    "catalog": "Catalog",
+    "commercial-proposal": "Commercial Proposal",
+    "packages": "Packages",
+    "contact": "Contact Us"
   }
 }

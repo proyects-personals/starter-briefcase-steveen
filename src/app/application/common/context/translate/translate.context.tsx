@@ -2,10 +2,11 @@ import { useState, useEffect, type JSX } from "react";
 
 import i18n from "@assets/i18n";
 import {
+  LANGUAGE_STORAGE_KEY,
   SUPPORTED_LANGUAGES,
   TranslateContext,
-  type Language,
-  type TranslateProviderProps,
+  type IChildren,
+  type LanguageType,
 } from "@domain";
 
 /**
@@ -14,17 +15,15 @@ import {
  * @version 1.0.1
  * @author Steveen Cues
  */
-export const TranslateProvider = ({
-  children,
-}: TranslateProviderProps): JSX.Element => {
+export const TranslateProvider = ({ children }: IChildren): JSX.Element => {
   const LANGUAGE_CODE_LENGTH = 2;
 
   /**
    * @description Type guard que verifica si una cadena es un idioma soportado.
    * @param {string} lang
-   * @returns {lang is Language}
+   * @returns {lang is LanguageType}
    */
-  function isLanguage(lang: string): lang is Language {
+  function isLanguage(lang: string): lang is LanguageType {
     return SUPPORTED_LANGUAGES.some((supported) => supported === lang);
   }
 
@@ -33,10 +32,10 @@ export const TranslateProvider = ({
    *              1. Revisa localStorage.
    *              2. Detecta el idioma del navegador.
    *              3. Si no está soportado, devuelve 'es' por defecto.
-   * @returns {Language} Idioma inicial
+   * @returns {LanguageType} Idioma inicial
    */
-  const getInitialLanguage = (): Language => {
-    const stored = localStorage.getItem("app_language");
+  const getInitialLanguage = (): LanguageType => {
+    const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
     if (stored !== null && isLanguage(stored)) {
       return stored;
     }
@@ -49,11 +48,11 @@ export const TranslateProvider = ({
     return "es";
   };
 
-  const [language, setLanguage] = useState<Language>(getInitialLanguage);
+  const [language, setLanguage] = useState<LanguageType>(getInitialLanguage);
 
   useEffect(() => {
     i18n.changeLanguage(language);
-    localStorage.setItem("app_language", language);
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
   }, [language]);
 
   /**

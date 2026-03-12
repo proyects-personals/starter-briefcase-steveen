@@ -1,1 +1,1 @@
-export * from "./translate.interface";
+export * from "./itranslate.interface";
