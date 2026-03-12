@@ -35,6 +35,10 @@
   },
   "nav": {
     "bienvenidos": "Welcome",
+    "briefcase": "Briefcase",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
     "home": "Home",
     "agenda-activities": "Agenda of Activities",
     "discover-ecuador-travel": "Discover Ecuador Travel",

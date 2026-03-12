@@ -35,6 +35,7 @@ export interface IHeaderNavItem {
   icon: React.ElementType;
   text: string;
   auth: boolean | null;
+  target?: "_self" | "_blank";
 }
 
 /**

@@ -6,6 +6,9 @@ import {
   FaHandshake,
   FaTag,
   FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
 } from "react-icons/fa";
 
 import type { IHeaderNavItem } from "../../interface";
@@ -26,10 +29,31 @@ export const FONT_WEIGHT_DEFAULT = 500;
  */
 export const NAV_ITEMS_BASE: IHeaderNavItem[] = [
   {
-    to: "/bienvenidos",
+    to: "/portafolio",
     icon: FaHome,
-    text: "nav.bienvenidos",
+    text: "nav.briefcase",
     auth: null,
+  },
+  {
+    to: "https://github.com/proyects-personals",
+    icon: FaGithub,
+    text: "nav.github",
+    auth: null,
+    target: "_blank",
+  },
+  {
+    to: "https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/",
+    icon: FaLinkedin,
+    text: "nav.linkedin",
+    auth: null,
+    target: "_blank",
+  },
+  {
+    to: "https://www.instagram.com/steveen_cues/?hl=es-la",
+    icon: FaInstagram,
+    text: "nav.instagram",
+    auth: null,
+    target: "_blank",
   },
   {
     to: "/",

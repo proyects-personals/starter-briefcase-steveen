@@ -10,6 +10,7 @@ export const APP_ROUTES = {
   ROOT: "/",
   LOGIN: "/login",
   WELCOME: "/bienvenidos",
+  BRIEFCASE: "/portafolio",
   REGISTER: "/registro",
   HOME: "/home",
   NOT_FOUND: "*",
