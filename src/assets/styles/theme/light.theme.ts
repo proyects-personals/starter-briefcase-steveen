@@ -12,6 +12,10 @@ export const lightTheme: IAppTheme = {
   name: "light",
   colors: {
     background: "oklch(100% 0 0)",
+    backgroundGlass: "oklch(100% 0 252.42 / 0.65)",
+    borderGlass: "oklch(90% 0.02 252.42 / 0.4)",
+    black: "oklch(0% 0 252.42)",
+    white: "oklch(100% 0 252.42)",
     surface: "oklch(98% 0 0)", // base-200
     text: "oklch(21% 0.006 285.885)", // base-content
     textSecondary: "oklch(60% 0.005 285.823)",

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { useEffect, useState, type JSX } from "react";
 
 import { useTheme } from "@application";
@@ -27,12 +28,12 @@ const HeaderComponent: React.FC<IHeader> = ({
   isAutentificated,
 }): JSX.Element => {
   const [scrolled, setScrolled] = useState<boolean>(false);
-  const SCROLL_THRESHOLD = 50;
   const { theme } = useTheme();
+  const HEADER_SCROLL_OFFSET = 40;
 
-  useEffect((): (() => void) => {
+  useEffect(() => {
     const handleScroll = (): void => {
-      setScrolled(window.scrollY > SCROLL_THRESHOLD);
+      setScrolled(window.scrollY > HEADER_SCROLL_OFFSET);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -41,10 +42,14 @@ const HeaderComponent: React.FC<IHeader> = ({
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-50 transition-all duration-500"
+      className={clsx(
+        "top-0 left-0 w-full z-50 backdrop-blur-xl transition-all duration-500",
+        isAutentificated ? "sticky" : "fixed",
+      )}
       style={{
-        backgroundColor: scrolled ? theme.colors.background : "bg-transparent",
+        backgroundColor: theme.colors.backgroundGlass,
         boxShadow: scrolled ? theme.shadow.md : "none",
+        borderBottom: `1px solid ${theme.colors.border}`,
         color: theme.colors.text,
         fontFamily: theme.font.family,
       }}
@@ -53,13 +58,10 @@ const HeaderComponent: React.FC<IHeader> = ({
         <HeaderAuthBarComponent user={null} onToggleSidebar={onToggleSidebar} />
       ) : (
         <>
-          <HeaderLogosComponent
-            scrolled={scrolled}
-            backgroundYoutube="https://www.youtube.com/watch?v=NxkYp6Y-wbU&list=RDNxkYp6Y-wbU&start_radio=1"
-          />
+          <HeaderLogosComponent scrolled={scrolled} />
           <HeaderNavComponent
-            scrolled={scrolled}
             isAutentificated={isAutentificated}
+            scrolled={scrolled}
           />
         </>
       )}

@@ -36,3 +36,12 @@ export interface ISidebar {
   isOpen: boolean;
   onClose: () => void;
 }
+
+/**
+ * @interface IMobileMenu
+ * @description Props para el componente de menú móvil.
+ */
+export interface IMobileMenu {
+  isOpen: boolean;
+  onClose: () => void;
+}

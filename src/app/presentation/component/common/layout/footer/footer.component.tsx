@@ -15,13 +15,13 @@ const FooterComponent: React.FC = () => {
 
   return (
     <footer
-      className="w-full mt-auto py-8 sm:py-10 transition-colors duration-500"
+      className="w-full mt-auto py-4 md:py-8 px-4 md:px-8 transition-colors duration-500"
       style={{
         backgroundColor: theme.colors.surface,
         color: theme.colors.text,
       }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-2 sm:space-y-3">
+      <div className="mx-auto max-w-7xl text-center space-y-2 sm:space-y-3">
         <p
           className="text-sm sm:text-base opacity-80"
           style={{ color: theme.colors.textSecondary }}

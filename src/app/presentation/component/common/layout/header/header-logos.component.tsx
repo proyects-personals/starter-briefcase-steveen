@@ -31,14 +31,13 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
   return (
     <div
       className={`relative w-full transition-all duration-500 ease-in-out ${
-        scrolled
-          ? "opacity-0 h-0 overflow-hidden"
-          : "opacity-100 h-auto py-2 sm:py-3"
+        scrolled ? "opacity-0 h-0 overflow-hidden" : "opacity-100 h-auto"
       }`}
       style={{
         color: theme.colors.text,
         borderBottom: `1px solid ${theme.colors.border}`,
         boxShadow: theme.shadow.sm,
+        backgroundColor: scrolled ? "bg-transparent" : theme.colors.black,
       }}
     >
       {StringUtils.hasValue(backgroundVideo) &&
@@ -85,13 +84,13 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
           backdropFilter: "blur(6px)",
         }}
       />
-      <div className="relative z-10 flex items-center justify-between h-full px-4 sm:px-14">
+      <div className="relative z-10 flex items-center justify-between  px-4 sm:px-8 py-1">
         <div className="flex items-center gap-4">
           <Link to="/" title={t("header.home")}>
             <img
               src={logoMadjs}
               alt={t("header.logo_ccm")}
-              className="h-16 sm:h-20 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+              className="h-16 sm:h-16 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
             />
           </Link>
         </div>
@@ -101,7 +100,7 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
             <img
               src={logoMadjs}
               alt={t("header.logo_ecuador")}
-              className="h-16 sm:h-20 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+              className="h-16 sm:h-16 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
             />
           </Link>
         </div>

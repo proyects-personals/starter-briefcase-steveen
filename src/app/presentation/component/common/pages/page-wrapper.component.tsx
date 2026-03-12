@@ -22,7 +22,7 @@ const PageWrapperComponent: React.FC<IPageWrapper> = ({
   children,
   className,
   isBackground = false,
-  padding = "px-4 py-6 md:px-6 md:py-8 lg:px-8 lg:py-10",
+  padding = "px-4 sm:px-8 py-4 md:py-8",
 }) => {
   const { theme } = useTheme();
 
