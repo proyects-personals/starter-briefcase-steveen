@@ -6,3 +6,4 @@ export * from "./header";
 export * from "./sidebar";
 export * from "./store";
 export * from "./breakpoints.constant";
+export * from "./work-experience";

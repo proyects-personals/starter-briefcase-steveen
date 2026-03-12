@@ -22,7 +22,12 @@
     "button": "Registrarse"
   },
   "welcome": {
-    "button": "Bienvenido"
+    "button": "Bienvenido",
+    "title": "Bienvenido a mi portafolio",
+    "subtitle": "Hola, soy Steveen Ordoñez",
+    "description": "Soy Ingeniero en Software y Tecnólogo en Desarrollo de Software, con una gran pasión por la tecnología, la música y el arte. Experto en explorar nuevas tendencias, crear soluciones digitales innovadoras y fusionar creatividad y código para desarrollar experiencias únicas, atractivas y centradas en el usuario. Con una sólida base técnica y una mentalidad creativa, aporto desde perspectivas tanto funcionales como artísticas, generando resultados escalables y de alto impacto en diversos entornos de desarrollo.",
+    "buttonDownloadCV": "Descargar CV",
+    "work_experience": "Experiencia Laboral"
   },
   "header": {
     "home": "Inicio",
@@ -46,5 +51,32 @@
     "commercial-proposal": "Propuesta Comercial",
     "packages": "Paquetes",
     "contact": "Contáctanos"
+  },
+  "components": {
+    "ui": {
+      "carousel": {
+        "previous_slide": "Slide anterior",
+        "next_slide": "Siguiente slide",
+        "go_to_slide": "Ir al slide"
+      }
+    }
+  },
+  "work_experience": {
+    "jetmind": {
+      "title": "Corporacion Jetmind",
+      "description": "En la Corporacion Jetmind, desempeñe el rol de ingeniero de software durante más de un año y medio, desarrollando aplicaciones web y móviles llevadas exitosamente a producción. Trabaje con tecnologías como React, React Native, Angular, Laravel y AWS. Mi experiencia en Jetmind me permitió aplicar un enfoque ágil y colaborativo, contribuyendo al éxito de proyectos y optimizando el rendimiento con soluciones innovadoras y escalables."
+    },
+    "madjs": {
+      "title": "MAD‑JS",
+      "description": "MAD‑JS es una empresa de software que fundé junto a un equipo de expertos. Nos especializamos en aplicaciones web y móviles, brindando soluciones innovadoras y personalizadas. Como fundador, asumí roles en frontend y backend, además de liderar iniciativas en DevOps para procesos de integración continua eficientes y un ciclo de desarrollo ágil, optimizando tiempo y calidad en cada proyecto."
+    },
+    "manticorelabs": {
+      "title": "Manticore Labs",
+      "description": "En Manticore Labs, desempeñé el rol de desarrollador de software en frontend y backend durante un año, participando activamente en proyectos innovadores. Trabajé con Angular y NestJS, usando arquitecturas basadas en microservicios. Formé parte de equipos ágiles y asumí responsabilidades de QA en proyectos clave como Bago y Mundo Venus, contribuyendo al desarrollo y a la calidad como desarrollador junior."
+    },
+    "tcs": {
+      "title": "TCS Consultancy Service",
+      "description": "En TCS Consultancy Service, trabajé en el desarrollo de aplicaciones basadas en microservicios utilizando .NET y Angular, con bases de datos MySQL. Diseñé arquitecturas hexagonales por capas, integrando componentes con Tailwind CSS y PrimeNG. Trabajé con Azure y participé activamente en equipos ágiles bajo metodología Scrum, optimizando el ciclo de desarrollo y asegurando calidad en cada proyecto."
+    }
   }
 }
