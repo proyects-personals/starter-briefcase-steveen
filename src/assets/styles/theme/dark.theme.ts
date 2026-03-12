@@ -11,7 +11,11 @@ import type { IAppTheme } from "@domain";
 export const darkTheme: IAppTheme = {
   name: "dark",
   colors: {
-    background: "oklch(25.33% 0.016 252.42)", // base-100
+    background: "oklch(25.33% 0.016 252.42)",
+    backgroundGlass: "oklch(18% 0.02 252.42 / 0.65)",
+    borderGlass: "oklch(40% 0.02 252.42 / 0.35)",
+    black: "oklch(0% 0 252.42)",
+    white: "oklch(100% 0 252.42)",
     surface: "oklch(23.26% 0.014 253.1)", // base-200
     text: "oklch(97.807% 0.029 256.847)", // base-content
     textSecondary: "oklch(60% 0.005 285.823)",

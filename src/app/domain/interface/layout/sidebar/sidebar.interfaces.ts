@@ -22,6 +22,7 @@ export interface ISidebarItem {
  */
 export interface ISidebarTooltip {
   label: string;
+  isActive: boolean;
 }
 
 /**
@@ -32,6 +33,15 @@ export interface ISidebarTooltip {
  */
 export interface ISidebar {
   role?: RoleEnum | null;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+/**
+ * @interface IMobileMenu
+ * @description Props para el componente de menú móvil.
+ */
+export interface IMobileMenu {
   isOpen: boolean;
   onClose: () => void;
 }

@@ -3,14 +3,11 @@ import React from "react";
 import { useLanguage, useTheme } from "@application";
 
 /**
- * Componente funcional para el pie de página (Footer) de la aplicación.
- * * @description
- * Renderiza la sección final de la página incluyendo el copyright dinámico,
- * derechos reservados y una descripción breve. Adapta sus colores
- * automáticamente según el tema activo y soporta internacionalización (i18n).
- * * @component
- * @version 1.0.0
- * @returns {JSX.Element} Footer con estilos dinámicos y textos traducidos.
+ * Footer dinámico, responsive y adaptado al theme activo.
+ * - Soporta internacionalización (i18n)
+ * - Colores y bordes del theme
+ * - Transiciones suaves al cambiar de tema
+ * - Diseño moderno y centrado
  */
 const FooterComponent: React.FC = () => {
   const { t } = useLanguage();
@@ -18,19 +15,26 @@ const FooterComponent: React.FC = () => {
 
   return (
     <footer
-      className="w-full py-10 mt-auto"
+      className="w-full mt-auto py-4 md:py-8 px-4 md:px-8 transition-colors duration-500"
       style={{
-        backgroundColor: theme.colors.background,
+        backgroundColor: theme.colors.surface,
         color: theme.colors.text,
-        borderColor: `${theme.colors.text}1A`,
       }}
     >
-      <div className="mx-auto max-w-7xl px-4 text-center space-y-2">
-        <p className="text-sm opacity-80">
+      <div className="mx-auto max-w-7xl text-center space-y-2 sm:space-y-3">
+        <p
+          className="text-sm sm:text-base opacity-80"
+          style={{ color: theme.colors.textSecondary }}
+        >
           © {new Date().getFullYear()} SteveenCues Insights ·{" "}
           {t("footer.rights")}
         </p>
-        <p className="text-xs opacity-60">{t("footer.description")}</p>
+        <p
+          className="text-xs sm:text-sm opacity-60"
+          style={{ color: theme.colors.textSecondary }}
+        >
+          {t("footer.description")}
+        </p>
       </div>
     </footer>
   );

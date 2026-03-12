@@ -1,49 +1,41 @@
-import React, { useMemo } from "react";
+import React from "react";
 
-import { NAV_ITEMS, type IHeaderNav } from "@domain";
+import { useNavItems, useTheme } from "@application";
+import { type IHeaderNav } from "@domain";
 
 import HeaderNavItemComponent from "./header-nav-item.component";
 
 /**
  * Componente de navegación principal del encabezado.
  * * @description
- * Renderiza una barra de navegación dinámica que filtra los elementos
- * basándose en el estado de autenticación del usuario. Utiliza un efecto
- * de desenfoque y cambio de color de fondo basado en el desplazamiento (scroll).
- * * @param {IHeaderNav} props - Propiedades del componente.
+ * Barra de navegación responsive y theme-aware:
+ * - Filtra los elementos según autenticación y traduce automáticamente.
+ * - Fondo sólido con blur visible (`backdrop-blur-md`) y transición suave al hacer scroll.
+ * - Espaciado y padding adaptativo según breakpoints (`sm`, `lg`).
+ * - Efecto de sombra que cambia al hacer scroll.
+ *
+ * * @param {IHeaderNav} props
  * @param {boolean} [props.isAutentificated=false] - Indica si el usuario está autenticado.
- * @param {boolean} [props.scrolled] - Estado que indica si el usuario ha desplazado la página.
- * * @returns {JSX.Element} El componente de navegación renderizado.
- * @version 1.1.0
+ * @param {boolean} [props.scrolled] - Estado de scroll para ajustar fondo y sombra.
+ * * @returns {JSX.Element} Barra de navegación lista para renderizar.
+ * * @version 1.5.0
  */
 const HeaderNavComponent: React.FC<IHeaderNav> = ({
   isAutentificated = false,
-  scrolled,
 }) => {
-  /**
-   * Filtrado memorizado de los elementos de navegación.
-   * * @description
-   * Se recalcula únicamente cuando cambia el estado de autenticación.
-   * Previene ejecuciones costosas durante el re-renderizado por scroll.
-   */
-  const filteredItems = useMemo(() => {
-    return NAV_ITEMS.filter((item) => {
-      if (item.auth === null) {
-        return true;
-      }
-
-      return item.auth === isAutentificated;
-    });
-  }, [isAutentificated]);
+  const { theme } = useTheme();
+  const navItems = useNavItems(isAutentificated);
 
   return (
     <nav
-      className={`w-full p-3 flex justify-center transition-colors duration-500 ${
-        scrolled ? "bg-[#121212]" : "bg-black/30 backdrop-blur-sm"
-      }`}
+      className="w-full flex justify-center py-3 md:py-2 px-4 md:px-8 backdrop-blur-xl"
+      style={{
+        backgroundColor: theme.colors.backgroundGlass,
+        borderBottom: `1px solid ${theme.colors.border}`,
+      }}
     >
-      <div className="flex space-x-4 sm:space-x-8 lg:space-x-12 items-center">
-        {filteredItems.map((item) => (
+      <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-10 px-4">
+        {navItems.map((item) => (
           <HeaderNavItemComponent key={item.to} {...item} />
         ))}
       </div>

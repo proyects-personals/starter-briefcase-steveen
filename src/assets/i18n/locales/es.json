@@ -32,5 +32,15 @@
   "user": {
     "role": "Rol",
     "undefined": "Usuario Desconocido"
+  },
+  "nav": {
+    "bienvenidos": "Bienvenidos",
+    "home": "Inicio",
+    "agenda-activities": "Agenda de Actividades",
+    "discover-ecuador-travel": "Conoce Ecuador Travel",
+    "catalog": "Catálogo",
+    "commercial-proposal": "Propuesta Comercial",
+    "packages": "Paquetes",
+    "contact": "Contáctanos"
   }
 }

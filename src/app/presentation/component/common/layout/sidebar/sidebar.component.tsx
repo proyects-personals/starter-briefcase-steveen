@@ -1,68 +1,72 @@
 import clsx from "clsx";
 import React from "react";
 
+import { useTheme } from "@application";
 import { SIDEBAR_ITEMS, type ISidebar } from "@domain";
 
 import SidebarItemComponent from "./sidebar-item.component";
 
 /**
  * Componente de Barra Lateral (Sidebar).
- * * @description
- * Administra el menú de navegación principal del panel administrativo.
- * - **Responsividad:** En dispositivos móviles (`lg:hidden`), muestra un overlay oscuro al abrirse.
- * - **Estados:** Cambia su ancho entre 64px (`w-16`) y 256px (`w-64`) mediante la propiedad `isOpen`.
- * - **Organización:** Incluye una sección de encabezado ("Admin") que solo es visible en modo expandido.
- * * @component
- * @param {ISidebar} props - Propiedades del componente.
- * @param {boolean} props.isOpen - Define si el sidebar está expandido o contraído.
- * @param {() => void} props.onClose - Callback para cerrar el sidebar (especialmente útil en móviles).
- * * @version 1.0.0
- * @returns {JSX.Element} La estructura lateral con navegación y soporte de capas (overlay).
+ * - Responsividad: Solo visible en pantallas grandes (`lg`).
+ * - Estados: Cambia su ancho entre 64px (`w-16`) y 256px (`w-64`) mediante `isOpen`.
+ * - Animaciones: Transiciones suaves para ancho, padding y visibilidad del contenido.
+ * - Organización: Sección de encabezado ("Admin") solo visible en modo expandido.
+ * - Theming: Utiliza el sistema de temas (`light` / `dark`).
  */
-const SidebarComponent: React.FC<ISidebar> = ({ isOpen, onClose }) => {
+const SidebarComponent: React.FC<ISidebar> = ({ isOpen }) => {
+  const { theme } = useTheme();
   const isCollapsed = !isOpen;
 
   return (
-    <>
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/30 z-40 lg:hidden"
-          onClick={onClose}
-        />
+    <aside
+      className={clsx(
+        "fixed top-0 left-0 z-50 h-screen",
+        "pt-24 hidden lg:block",
+        "transition-all duration-500 ease-in-out",
+        isCollapsed ? "w-16" : "w-64",
       )}
-
-      <aside
+      style={{
+        backgroundColor: theme.colors.surface,
+        borderRight: `1px solid ${theme.colors.border}`,
+        boxShadow: theme.shadow.lg,
+        fontFamily: theme.font.family,
+      }}
+    >
+      <nav
         className={clsx(
-          "fixed top-0 left-0 z-50 h-screen bg-white shadow-xl",
-          "pt-24 transition-all duration-300",
-          "hidden lg:block",
-          isCollapsed ? "w-16" : "w-64",
+          "h-full flex flex-col transition-all duration-300 ease-in-out",
+          isCollapsed ? "pt-4" : "pt-6",
         )}
       >
-        <nav
-          className={clsx(
-            "h-full flex flex-col",
-            isCollapsed ? "pt-4" : "pt-6",
+        <ul className="space-y-2 px-2">
+          {!isCollapsed && (
+            <li
+              className={clsx(
+                "uppercase px-2 transition-all duration-300 ease-in-out",
+                "opacity-100 translate-x-0",
+              )}
+              style={{
+                fontSize: theme.font.sizes.xs,
+                fontWeight: theme.font.weights.medium,
+                color: theme.colors.textSecondary,
+                letterSpacing: "0.05em",
+              }}
+            >
+              Admin
+            </li>
           )}
-        >
-          <ul className="space-y-2 px-2">
-            {!isCollapsed && (
-              <li className="text-xs font-semibold text-gray-400 uppercase px-2">
-                Admin
-              </li>
-            )}
 
-            {SIDEBAR_ITEMS.map((item) => (
-              <SidebarItemComponent
-                key={item.path}
-                {...item}
-                isCollapsed={isCollapsed}
-              />
-            ))}
-          </ul>
-        </nav>
-      </aside>
-    </>
+          {SIDEBAR_ITEMS.map((item) => (
+            <SidebarItemComponent
+              key={item.path}
+              {...item}
+              isCollapsed={isCollapsed}
+            />
+          ))}
+        </ul>
+      </nav>
+    </aside>
   );
 };
 

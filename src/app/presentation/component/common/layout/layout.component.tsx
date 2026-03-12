@@ -3,15 +3,16 @@ import React, { useState, useEffect, useCallback } from "react";
 
 import { useTheme } from "@application";
 import {
+  BREAKPOINTS,
   SIDEBAR_STORAGE_KEY,
   storageUtil,
   type ILayout,
-  type UserModel,
 } from "@domain";
 
 import { FooterComponent } from "./footer";
 import { HeaderComponent } from "./header";
 import { SidebarComponent } from "./sidebar";
+import MobileMenuComponent from "./sidebar/mobile-menu.component";
 
 /**
  * @description Layout principal de la aplicación, con sidebar, header y footer.
@@ -20,9 +21,9 @@ import { SidebarComponent } from "./sidebar";
  */
 const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
   const { theme } = useTheme();
-  const user: UserModel | null = null;
 
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [loaded, setLoaded] = useState<boolean>(false);
 
   /**
@@ -36,6 +37,7 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
     }
 
     const result = storageUtil.get<boolean>(SIDEBAR_STORAGE_KEY, true);
+
     const initialSidebar =
       result.success && typeof result.value === "boolean" ? result.value : true;
 
@@ -56,8 +58,38 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
     }
   }, [isSidebarOpen, isAutentificated, loaded]);
 
-  const handleToggleSidebar = (): void => setIsSidebarOpen((prev) => !prev);
-  const handleCloseSidebar = (): void => setIsSidebarOpen(false);
+  /**
+   * SIDEBAR DESKTOP
+   */
+  const handleToggleSidebar = (): void => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
+  const handleCloseSidebar = (): void => {
+    setIsSidebarOpen(false);
+  };
+
+  /**
+   * MOBILE MENU
+   */
+  const toggleMobileMenu = (): void => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  const closeMobileMenu = (): void => {
+    setIsMobileMenuOpen(false);
+  };
+
+  /**
+   * HAMBURGER (mobile vs desktop)
+   */
+  const handleHamburger = (): void => {
+    if (window.innerWidth < BREAKPOINTS.MOBILE) {
+      toggleMobileMenu();
+    } else {
+      handleToggleSidebar();
+    }
+  };
 
   if (!loaded) {
     return null;
@@ -65,13 +97,13 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
 
   return (
     <div
-      className="flex h-screen w-full overflow-hidden"
+      className="flex min-h-screen w-full"
       style={{ backgroundColor: theme.colors.background }}
     >
       {isAutentificated && (
         <aside
           className={clsx(
-            "shrink-0 transition-all duration-300",
+            "hidden md:block shrink-0 transition-all duration-300",
             isSidebarOpen ? "w-64" : "w-16",
           )}
           style={{ backgroundColor: theme.colors.surface }}
@@ -83,27 +115,28 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
           />
         </aside>
       )}
+      {isAutentificated && (
+        <MobileMenuComponent
+          isOpen={isMobileMenuOpen}
+          onClose={closeMobileMenu}
+        />
+      )}
 
       <div className="flex flex-col flex-1 min-h-0">
-        <div
+        <HeaderComponent
+          isAutentificated={isAutentificated}
+          onToggleSidebar={handleHamburger}
+        />
+
+        <main
           className={clsx(
-            "shrink-0",
-            isAutentificated ? "h-14 md:h-14" : "h-26 md:h-32",
+            "flex-1 overflow-auto flex flex-col",
+            !isAutentificated && "pt-28",
           )}
           style={{ backgroundColor: theme.colors.background }}
         >
-          <HeaderComponent
-            user={user}
-            isAutentificated={isAutentificated}
-            onToggleSidebar={handleToggleSidebar}
-          />
-        </div>
-
-        <main
-          className="flex-1 overflow-auto flex flex-col"
-          style={{ backgroundColor: theme.colors.background }}
-        >
           <div className="flex-1">{children}</div>
+
           {!isAutentificated && <FooterComponent />}
         </main>
       </div>

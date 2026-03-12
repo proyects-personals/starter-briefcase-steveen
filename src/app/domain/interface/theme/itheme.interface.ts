@@ -33,6 +33,10 @@ export interface IAppTheme {
 
   colors: {
     background: string;
+    backgroundGlass: string;
+    borderGlass: string;
+    black: string;
+    white: string;
     surface: string;
     text: string;
     textSecondary: string;

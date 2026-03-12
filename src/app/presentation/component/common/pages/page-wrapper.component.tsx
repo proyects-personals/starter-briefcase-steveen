@@ -14,23 +14,46 @@ import type { IPageWrapper } from "@domain";
  *              - Mobile: 4 columnas
  *              - Tablet: 8 columnas
  *              - Desktop: 12 columnas
+ *
+ *              Usa el sistema de Theme para colores,
+ *              tipografía y consistencia visual.
  */
 const PageWrapperComponent: React.FC<IPageWrapper> = ({
   children,
   className,
   isBackground = false,
-  padding = "p-8",
+  padding = "px-4 sm:px-8 py-4 md:py-8",
 }) => {
   const { theme } = useTheme();
 
   return (
     <section
-      className={clsx("w-full h-full", padding, className)}
+      className={clsx(
+        "w-full h-full",
+        "transition-colors duration-300 ease-in-out",
+        padding,
+        className,
+      )}
       style={{
         backgroundColor: isBackground ? theme.colors.background : "transparent",
+        fontFamily: theme.font.family,
       }}
     >
-      <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 h-full w-full gap-4">
+      <div
+        className="
+          grid
+          grid-cols-4
+          md:grid-cols-8
+          lg:grid-cols-12
+          gap-4 md:gap-5 lg:gap-6
+          w-full
+          h-full
+          mx-auto
+        "
+        style={{
+          maxWidth: "1600px",
+        }}
+      >
         {children}
       </div>
     </section>

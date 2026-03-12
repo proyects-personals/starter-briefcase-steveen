@@ -1,5 +1,7 @@
+import clsx from "clsx";
 import React, { useEffect, useState, type JSX } from "react";
 
+import { useTheme } from "@application";
 import { type IHeader } from "@domain";
 
 import HeaderAuthBarComponent from "./header-auth-bar.component";
@@ -13,11 +15,12 @@ import HeaderNavComponent from "./header-nav.component";
  * 1. El estado de desplazamiento (`scrolled`) para aplicar efectos visuales.
  * 2. La alternancia entre la barra de usuario autenticado y la navegación pública.
  * 3. La fijación del elemento en la parte superior de la ventana (`fixed top-0`).
+ * 4. Mantiene el diseño original y responsive, aplicando colores y sombras del theme.
  * * @component
  * @param {IHeader} props - Propiedades del componente.
  * @param {() => void} props.onToggleSidebar - Función para controlar el estado del menú lateral.
  * @param {boolean} props.isAutentificated - Estado de sesión del usuario.
- * * @version 1.0.0
+ * * @version 1.1.1
  * @returns {JSX.Element} La estructura del encabezado con z-index prioritario (z-50).
  */
 const HeaderComponent: React.FC<IHeader> = ({
@@ -25,34 +28,40 @@ const HeaderComponent: React.FC<IHeader> = ({
   isAutentificated,
 }): JSX.Element => {
   const [scrolled, setScrolled] = useState<boolean>(false);
-  const SCROLL_THRESHOLD = 50;
+  const { theme } = useTheme();
+  const HEADER_SCROLL_OFFSET = 40;
 
-  /**
-   * Efecto para registrar y limpiar el evento de scroll global.
-   * * @listens ScrollEvent - Escucha el desplazamiento en el objeto `window`.
-   * @cleanup Elimina el listener al desmontar el componente para optimizar memoria.
-   */
-  useEffect((): (() => void) => {
+  useEffect(() => {
     const handleScroll = (): void => {
-      setScrolled(window.scrollY > SCROLL_THRESHOLD);
+      setScrolled(window.scrollY > HEADER_SCROLL_OFFSET);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return (): void => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <header
+      className={clsx(
+        "top-0 left-0 w-full z-50 backdrop-blur-xl transition-all duration-500",
+        isAutentificated ? "sticky" : "fixed",
+      )}
+      style={{
+        backgroundColor: theme.colors.backgroundGlass,
+        boxShadow: scrolled ? theme.shadow.md : "none",
+        borderBottom: `1px solid ${theme.colors.border}`,
+        color: theme.colors.text,
+        fontFamily: theme.font.family,
+      }}
+    >
       {isAutentificated ? (
         <HeaderAuthBarComponent user={null} onToggleSidebar={onToggleSidebar} />
       ) : (
         <>
           <HeaderLogosComponent scrolled={scrolled} />
-
           <HeaderNavComponent
-            scrolled={scrolled}
             isAutentificated={isAutentificated}
+            scrolled={scrolled}
           />
         </>
       )}

@@ -15,13 +15,14 @@ import type { ISidebarItem } from "@domain";
  * - **Estado Activo:** Resalta automáticamente si la ruta coincide con la actual.
  * - **Estado Colapsado:** Oculta el texto y activa un Tooltip flotante para mantener la usabilidad.
  * - **Estilos Dinámicos:** Aplica colores y bordes basados en el objeto `theme`.
+ * - **Animaciones:** Incluye transiciones suaves para hover, iconos y visibilidad del texto.
  * * @component
  * @param {ISidebarItem} props - Propiedades del ítem.
  * @param {string} props.path - Ruta de destino (React Router).
  * @param {string} props.label - Etiqueta de texto (o clave i18n) a mostrar.
  * @param {React.ElementType} props.icon - Icono a renderizar (componente de React Icons).
  * @param {boolean} props.isCollapsed - Indica si el Sidebar está en modo reducido.
- * * @version 1.1.0
+ * * @version 1.3.0
  * @returns {JSX.Element} Un elemento de lista `<li>` que contiene el enlace estilizado.
  */
 const SidebarItemComponent: React.FC<ISidebarItem> = ({
@@ -40,7 +41,8 @@ const SidebarItemComponent: React.FC<ISidebarItem> = ({
       <Link
         to={path}
         className={clsx(
-          "group relative flex items-center gap-3 p-2 transition-colors",
+          "group relative flex items-center gap-3 p-2",
+          "transition-all duration-300 ease-out",
           isCollapsed && "justify-center",
         )}
         style={{
@@ -48,17 +50,46 @@ const SidebarItemComponent: React.FC<ISidebarItem> = ({
           backgroundColor: isActive ? theme.colors.primary : "transparent",
           color: isActive ? theme.colors.background : theme.colors.text,
         }}
+        onMouseEnter={(e) => {
+          if (!isActive) {
+            e.currentTarget.style.backgroundColor = theme.colors.hover;
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!isActive) {
+            e.currentTarget.style.backgroundColor = "transparent";
+          }
+        }}
       >
         <Icon
-          className="text-lg shrink-0"
+          className={clsx(
+            "text-lg shrink-0",
+            "transition-transform duration-300 ease-out",
+            "group-hover:scale-110",
+          )}
           style={{
             color: isActive ? theme.colors.background : theme.colors.text,
           }}
         />
 
-        {!isCollapsed && <span>{label}</span>}
+        {!isCollapsed && (
+          <span
+            className="
+              transition-all duration-300 ease-out
+              opacity-100 translate-x-0
+            "
+            style={{
+              fontSize: theme.font.sizes.sm,
+              fontWeight: theme.font.weights.medium,
+            }}
+          >
+            {label}
+          </span>
+        )}
 
-        {isCollapsed && <SidebarTooltipComponent label={label} />}
+        {isCollapsed && (
+          <SidebarTooltipComponent label={label} isActive={isActive} />
+        )}
       </Link>
     </li>
   );
