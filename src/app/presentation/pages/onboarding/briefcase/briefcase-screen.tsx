@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-import { AnimatedBackgroundComponent, CarouselComponent } from "@/app";
+import {
+  AnimatedBackgroundComponent,
+  BannerComponent,
+  CardComponent,
+  CarouselComponent,
+  GitHubMetric,
+} from "@/app";
 import { useTheme, useLanguage } from "@/app/application";
-import { WORKEXPERIENCE } from "@domain";
+import { BANNER_ITEM, PROJECTS_PERSONAL, WORK_EXPERIENCE } from "@domain";
 
 const WelcomePortfolio: React.FC = () => {
   const { theme } = useTheme();
@@ -15,7 +21,7 @@ const WelcomePortfolio: React.FC = () => {
         theme={theme}
         width="100%"
         height="100%"
-        opacity={4}
+        opacity={0.1}
       />
 
       <div className="relative z-10 flex flex-col items-center justify-center text-center w-full">
@@ -64,9 +70,7 @@ const WelcomePortfolio: React.FC = () => {
           {t("welcome.buttonDownloadCV")}
         </motion.button>
       </div>
-
       <div className="w-full h-px bg-gray-300 dark:bg-zinc-700 mb-8" />
-
       <div className="w-full py-3 md:py-16 bg-transparent text-center">
         <motion.h2
           className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6"
@@ -79,11 +83,53 @@ const WelcomePortfolio: React.FC = () => {
         </motion.h2>
 
         <CarouselComponent
-          items={WORKEXPERIENCE}
+          items={WORK_EXPERIENCE}
           height="450px"
           theme={theme}
           translate={t}
         />
+      </div>
+      <div className="w-full h-px bg-gray-300 dark:bg-zinc-700 mb-8" />
+      <div className="w-full py-3 md:py-16 bg-transparent text-center">
+        <motion.h2
+          className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          style={{ color: theme.colors.text }}
+        >
+          {t("welcome.work_experience")}
+        </motion.h2>
+
+        <CardComponent items={PROJECTS_PERSONAL} theme={theme} translate={t} />
+      </div>
+      <div className="w-full h-px bg-gray-300 dark:bg-zinc-700 mb-8" />
+      <div className="w-full py-3 md:py-16 bg-transparent text-center">
+        <motion.h2
+          className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          style={{ color: theme.colors.text }}
+        >
+          {t("welcome.work_experience")}
+        </motion.h2>
+
+        <BannerComponent theme={theme} items={BANNER_ITEM} translate={t} />
+      </div>
+      <div className="w-full h-px bg-gray-300 dark:bg-zinc-700 mb-8" />
+      <div className="w-full py-3 md:py-16 bg-transparent text-center">
+        <motion.h2
+          className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          style={{ color: theme.colors.text }}
+        >
+          {t("welcome.work_experience")}
+        </motion.h2>
+
+        <GitHubMetric theme={theme} />
       </div>
     </div>
   );

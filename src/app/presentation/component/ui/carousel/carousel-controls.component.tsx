@@ -41,7 +41,7 @@ const CarouselControlsComponent: React.FC<IControls> = ({
 
   return (
     <div
-      className="absolute inset-0 flex items-center justify-between px-2 md:px-4"
+      className="absolute inset-0 flex items-center justify-between"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

@@ -17,7 +17,7 @@ const FooterComponent: React.FC = () => {
     <footer
       className="w-full mt-auto py-4 md:py-8 px-4 md:px-8 transition-colors duration-500"
       style={{
-        backgroundColor: theme.colors.surface,
+        backgroundColor: theme.colors.backgroundGlass,
         color: theme.colors.text,
       }}
     >

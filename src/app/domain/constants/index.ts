@@ -7,3 +7,5 @@ export * from "./sidebar";
 export * from "./store";
 export * from "./breakpoints.constant";
 export * from "./work-experience";
+export * from "./project-personal";
+export * from "./education";

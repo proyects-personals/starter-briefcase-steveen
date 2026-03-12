@@ -5,7 +5,17 @@ import {
   TcsImage,
 } from "@assets";
 
-export const WORKEXPERIENCE = [
+/**
+ * @description Lista de experiencias laborales.
+ * Cada elemento contiene información sobre la empresa, descripción de la experiencia
+ * y la imagen representativa de la compañía.
+ *
+ * @property id - Identificador único de la experiencia laboral
+ * @property title - Clave de traducción del título o nombre de la empresa
+ * @property description - Clave de traducción de la descripción de la experiencia
+ * @property image - Imagen representativa de la empresa
+ */
+export const WORK_EXPERIENCE = [
   {
     id: 1,
     title: "work_experience.jetmind.title",

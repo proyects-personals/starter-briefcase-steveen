@@ -6,3 +6,4 @@ export * from "./ibase.interface";
 export * from "./loading";
 export * from "./storage";
 export * from "./ui";
+export * from "./component";

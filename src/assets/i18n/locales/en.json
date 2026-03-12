@@ -58,6 +58,9 @@
         "previous_slide": "Previous Slide",
         "next_slide": "Next Slide",
         "go_to_slide": "Go to Slide"
+      },
+      "banner": {
+        "view_page": "View Page"
       }
     }
   },
@@ -77,6 +80,95 @@
     "tcs": {
       "title": "TCS Consultancy Service",
       "description": "At TCS Consulty Service, I worked on developing microservices-based applications using .NET and Angular, with MySQL databases. I designed layered hexagonal architectures, integrating components with Tailwind CSS and PrimeNG. I worked with Azure and actively participated in agile teams using Scrum methodology, optimizing the development cycle and ensuring quality in every project."
+    }
+  },
+  "my_projects": {
+    "portfolio": {
+      "name": "Portfolio",
+      "description": "My personal portfolio was built using various technologies to showcase my experience and features a responsive design."
+    },
+    "neuroniando": {
+      "name": "Neuroniando",
+      "description": "Neuroniando is an educational mobile application focused on learning through interactive games. On this project, I took an integral role, handling frontend development with modern technologies, implementing DevOps practices for continuous deployment and automation, and publishing and managing the app on the Google Play Store."
+    },
+    "neuroniandoWeb": {
+      "name": "Neuroniando Landing Page",
+      "description": "I participated in all phases of the project, from development to deployment, utilizing technologies like React and AWS to ensure its success. I contributed actively throughout to meet project objectives."
+    },
+    "pichinchaBank": {
+      "name": "Banco Pichincha Test App",
+      "description": "This application was developed as part of an internal testing environment for Banco Pichincha, using sandbox APIs. I implemented unit tests and system validations to ensure stability, functionality, and correct behavior across scenarios, reinforcing my ability to work in regulated environments."
+    },
+    "travelEcuador": {
+      "name": "Travel Ecuador",
+      "description": "I developed and deployed this project for the Ecuador Travel Fair, in coordination with the Ministry of Tourism of Ecuador. The solution was functional, attractive, and aligned with institutional objectives. I handled both development and production deployment, ensuring a timely and successful implementation."
+    },
+    "southAmericanBank": {
+      "name": "South American Bank Template",
+      "description": "This was a design created for Banco Sudamericano, specified solely by HTML and CSS."
+    },
+    "linkage": {
+      "name": "Institutional Linkage",
+      "description": "I developed the institutional document management module as part of my graduation project at Instituto Yavirac. The system was built with Angular and PrimeNG, offering a modern, adaptive user interface focused on usability. Additional tools were integrated to ensure a scalable and efficient architecture that met both functional and technical requirements."
+    },
+    "docsUnibe": {
+      "name": "Unibe Institutional Documents",
+      "description": "I developed this project using React for the frontend and Tailwind CSS for a modern, responsive design. It incorporated AWS services as part of its cloud infrastructure, enabling efficient resource management. It was deployed to production with CS2 and to testing environments with Netlify, and stress tests were conducted to ensure stability, performance, and scalability."
+    }
+  },
+  "my_education": {
+    "unibe": {
+      "ing": {
+        "title": "Ibero-American University of Ecuador",
+        "description": "Software Engineering: Comprehensive training in application development, system analysis, and agile methodologies.",
+        "finalized": "Completed in May 2025"
+      },
+      "maestria": {
+        "title": "Ibero-American University of Ecuador",
+        "description": "Master in Data Science and Big Data: Specialization in advanced analytics, predictive modeling, and machine learning.",
+        "finalized": "Ongoing"
+      }
+    },
+    "unir": {
+      "maestria_devops": {
+        "title": "Unir",
+        "description": "Master in Software Development and Operations (DevOps): Automation, CI/CD, security, and pipeline optimization.",
+        "finalized": "Ongoing"
+      }
+    },
+    "yavirac": {
+      "tec": {
+        "title": "Yavirac Higher Technological Institute, Quito",
+        "description": "Technology in Software Development: Solid foundation in programming, databases, and agile software development.",
+        "finalized": "Completed in May 2023"
+      }
+    },
+    "udemy": {
+      "angular_complete": {
+        "title": "Udemy",
+        "description": "Angular - The Complete Guide: Development of modern web applications using Angular.",
+        "finalized": "Completed in May 2026"
+      },
+      "csharp_oop": {
+        "title": "Udemy",
+        "description": "Beginning Object-Oriented Programming with C#: Fundamentals of object-oriented programming with C#.",
+        "finalized": "Completed in May 2025"
+      },
+      "angular_basics": {
+        "title": "Udemy",
+        "description": "Angular Course: Learning component, service, and routing development.",
+        "finalized": "Completed in May 2025"
+      },
+      "devops_ci_cd": {
+        "title": "Udemy",
+        "description": "DevOps CI/CD for Beginners: Continuous integration, automated deployment, and pipeline management.",
+        "finalized": "Completed in May 2025"
+      },
+      "aws_solutions": {
+        "title": "Udemy",
+        "description": "AWS Certified Solutions Architect - Professional: Cloud solution architecture in AWS and best practices.",
+        "finalized": "Completed in May 2025"
+      }
     }
   }
 }

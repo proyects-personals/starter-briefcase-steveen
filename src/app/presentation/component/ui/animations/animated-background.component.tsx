@@ -18,11 +18,11 @@ const AnimatedBackgroundComponent: React.FC<IAnimatedBackground> = ({
   width = "100%",
   height = "100%",
   opacity = 0.5,
-  circleCount = 50,
+  circleCount = 80,
   theme,
 }): JSX.Element => {
-  const MIN_SIZE = 2;
-  const MAX_SIZE_VARIATION = 3;
+  const MIN_SIZE = 8;
+  const MAX_SIZE_VARIATION = 10;
   const MIN_DURATION = 1;
   const MAX_DURATION_VARIATION = 2;
   const MAX_PERCENT = 100;
