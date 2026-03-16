@@ -27,7 +27,10 @@
     "subtitle": "Hola, soy Steveen Ordoñez",
     "description": "Soy Ingeniero en Software y Tecnólogo en Desarrollo de Software, con una gran pasión por la tecnología, la música y el arte. Experto en explorar nuevas tendencias, crear soluciones digitales innovadoras y fusionar creatividad y código para desarrollar experiencias únicas, atractivas y centradas en el usuario. Con una sólida base técnica y una mentalidad creativa, aporto desde perspectivas tanto funcionales como artísticas, generando resultados escalables y de alto impacto en diversos entornos de desarrollo.",
     "buttonDownloadCV": "Descargar CV",
-    "work_experience": "Experiencia Laboral"
+    "work_experience": "Experiencia Laboral",
+    "my_projects": "Mis Proyectos",
+    "my_studies": "Mis estudios y certificados",
+    "github_nuances": "Métricas de Github"
   },
   "header": {
     "home": "Inicio",
@@ -55,12 +58,32 @@
   "components": {
     "ui": {
       "carousel": {
-        "previous_slide": "Slide anterior",
+        "previous_slide": "Anterior slide",
         "next_slide": "Siguiente slide",
         "go_to_slide": "Ir al slide"
       },
       "banner": {
-        "view_page": "View Page"
+        "view_page": "Ver página"
+      },
+      "card": {
+        "card-action": {
+          "visit": "Visitar",
+          "view_code": "Ver código"
+        }
+      }
+    }
+  },
+  "pages": {
+    "component": {
+      "matrics": {
+        "subtitle": "Métricas de GitHub para",
+        "commits": "Commits",
+        "prs": "Pull Requests",
+        "repos": "Repositorios",
+        "issues": "Issues",
+        "stars": "Estrellas",
+        "top-repos": "Los 5 mejores repositorio",
+        "top_languages": "Los 3 lenguajes de programación más populares"
       }
     }
   },

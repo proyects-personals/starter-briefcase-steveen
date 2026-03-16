@@ -1,73 +1,149 @@
-import type { IAppTheme } from "@/app/domain";
-import type React from "react";
+import type { IAppTheme, LanguageStatType } from "@domain";
+import type { TFunction } from "i18next";
 
 /**
- * @description Representa una métrica individual que se mostrará en una tarjeta.
- * Contiene la información necesaria para visualizar un indicador con su valor,
- * etiqueta descriptiva, ícono y color representativo.
+ * @description Propiedades del componente principal que renderiza
+ * el panel completo de métricas de GitHub.
  *
- * @property label - Etiqueta descriptiva de la métrica (ej: Stars, Followers, Commits)
- * @property value - Valor de la métrica que se mostrará en la interfaz
- * @property icon - Ícono visual asociado a la métrica
- * @property color - Color representativo utilizado en estilos visuales
+ * Este componente utiliza el tema global para estilos dinámicos
+ * y la función de traducción para internacionalización.
+ *
+ * @property theme - Tema global de la aplicación
+ * @property translate - Función de traducción de i18next
  */
-export interface IMetric {
+export interface IGitHubMetric {
+  theme: IAppTheme;
+  translate: TFunction<"translation", undefined>;
+}
+
+/**
+ * @description Métricas generales obtenidas desde la API de GitHub.
+ *
+ * Estas métricas representan un resumen del estado de los repositorios
+ * del usuario y/o organización.
+ *
+ * @property repos - Número total de repositorios
+ * @property stars - Número total de estrellas acumuladas
+ * @property issues - Número total de issues abiertas
+ * @property commits - Número total de commits
+ */
+export interface IGitHubStats {
+  repos: number;
+  stars: number;
+  issues: number;
+  commits: number;
+}
+
+/**
+ * @description Propiedades del componente que renderiza la cuadrícula
+ * de estadísticas principales.
+ *
+ * @property metrics - Métricas generales de GitHub
+ * @property translate - Función de traducción
+ * @property theme - Tema global para estilos dinámicos
+ */
+export interface IGitHubStatsGrid {
+  metrics: IGitHubStats;
+  translate: TFunction<"translation", undefined>;
+  theme: IAppTheme;
+}
+
+/**
+ * @description Propiedades de la tarjeta individual de estadística.
+ *
+ * Este componente representa un único indicador (ej: repositorios, estrellas).
+ *
+ * @property label - Etiqueta de la métrica
+ * @property value - Valor numérico de la métrica
+ * @property theme - Tema global para estilos
+ */
+export interface IStatCard {
   label: string;
-  value: number | string;
-  icon: React.ReactNode;
-  color: string;
-}
-
-/**
- * @description Define las propiedades necesarias para renderizar una tarjeta
- * de métricas de GitHub dentro de la interfaz.
- *
- * @property metric - Información de la métrica que será mostrada en la tarjeta
- * @property theme - Tema global de la aplicación utilizado para estilos dinámicos
- * @property index - Índice del elemento dentro de la lista, usado para animaciones o control de orden
- */
-export interface IGitHubMetricCard {
-  metric: IMetric;
-  theme: IAppTheme;
-  index: number;
-}
-
-/**
- * @description Propiedades necesarias para el componente que renderiza
- * un panel de métricas de GitHub.
- *
- * @property theme - Tema global de la aplicación utilizado para estilos dinámicos
- */
-export interface IGitHubMetricsPanel {
+  value: number;
   theme: IAppTheme;
 }
 
 /**
- * @description Representa un repositorio destacado en GitHub con información clave.
+ * @description Propiedades del componente que muestra
+ * los lenguajes de programación más utilizados.
  *
+ * @property languages - Lista de lenguajes con su cantidad de repositorios
+ * @property translate - Función de traducción
+ * @property theme - Tema global
+ */
+export interface IGitHubTopLanguages {
+  languages: LanguageStatType[];
+  translate: TFunction<"translation", undefined>;
+  theme: IAppTheme;
+}
+
+/**
+ * @description Representa un repositorio obtenido desde la API de GitHub.
+ *
+ * Contiene la información básica necesaria para mostrar estadísticas
+ * y enlaces a los repositorios.
+ *
+ * @property id - Identificador único del repositorio
  * @property name - Nombre del repositorio
  * @property language - Lenguaje principal del repositorio
- * @property langColor - Color representativo del lenguaje
- * @property stars - Número de estrellas del repositorio
- * @property lastCommit - Fecha del último commit
- * @property description - Breve descripción del repositorio
+ * @property stargazers_count - Número de estrellas del repositorio
+ * @property open_issues_count - Número de issues abiertas
+ * @property commits_url - URL base para obtener commits del repositorio
+ * @property html_url - URL pública del repositorio en GitHub
  */
-interface IHighlightRepo {
+export interface IGitHubRepo {
+  id: number;
   name: string;
-  language: string;
-  langColor: string;
-  stars: number;
-  lastCommit: string;
-  description: string;
+  language: string | null;
+  stargazers_count: number;
+  open_issues_count: number;
+  commits_url: string;
+  html_url: string;
 }
 
 /**
- * @description Propiedades para un componente que muestra un repositorio destacado de GitHub.
+ * @description Propiedades del componente que renderiza
+ * los repositorios más destacados.
  *
- * @property repo - Información del repositorio destacado (IHighlightRepo)
- * @property theme - Tema global de la aplicación
+ * @property repos - Lista de repositorios ordenados por relevancia (ej: estrellas)
+ * @property translate - Función de traducción
+ * @property theme - Tema global
  */
-export interface IGitHubFeaturedRepo {
-  repo: IHighlightRepo;
+export interface IGitHubTopRepos {
+  repos: IGitHubRepo[];
+  translate: TFunction<"translation", undefined>;
+  theme: IAppTheme;
+}
+
+/**
+ * @description Métricas completas utilizadas por el panel de GitHub.
+ *
+ * Incluye estadísticas generales, lenguajes más utilizados
+ * y repositorios destacados.
+ *
+ * @property repos - Número total de repositorios
+ * @property stars - Total de estrellas acumuladas
+ * @property issues - Total de issues abiertas
+ * @property commits - Total de commits
+ * @property topLanguages - Lenguajes más utilizados
+ * @property topRepos - Repositorios destacados
+ */
+export interface IGitHubMetrics {
+  repos: number;
+  stars: number;
+  issues: number;
+  commits: number;
+  topLanguages: LanguageStatType[];
+  topRepos: IGitHubRepo[];
+}
+
+/**
+ * @description Skeleton para las metricas.
+ *
+ * Incluye skeleton para todas las partes del skeleton de github
+ *
+ * @property theme - Tema global
+ */
+export interface ISkeletonMetric {
   theme: IAppTheme;
 }

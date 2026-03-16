@@ -90,3 +90,18 @@ export interface CardItem {
   visitLink?: string;
   codeLink?: string;
 }
+
+/**
+ * Props para el componente CardActions.
+ *
+ * @property {string} [visitLink] - URL para visitar el proyecto.
+ * @property {string} [codeLink] - URL para ver el código fuente.
+ * @property {IAppTheme} theme - Tema de la aplicación para aplicar estilos dinámicos.
+ * @property translate - Función de traducción i18next
+ */
+export interface CardActionsProps {
+  visitLink?: string;
+  codeLink?: string;
+  theme: IAppTheme;
+  translate: TFunction<"translation", undefined>;
+}

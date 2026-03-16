@@ -26,7 +26,7 @@ const CardContentComponent: React.FC<ICardContent> = ({
   codeLink,
   translate,
 }) => (
-  <div className="flex flex-col h-full">
+  <div className="flex flex-col h-full py-4 px-4">
     <div className="flex flex-col flex-1 gap-2 justify-between">
       <h2
         style={{ color: theme.colors.text }}
@@ -52,6 +52,7 @@ const CardContentComponent: React.FC<ICardContent> = ({
         visitLink={visitLink}
         codeLink={codeLink}
         theme={theme}
+        translate={translate}
       />
     </div>
   </div>

@@ -1,20 +1,6 @@
+import type { CardActionsProps } from "@domain";
 import { motion } from "framer-motion";
 import React from "react";
-
-import type { IAppTheme } from "@domain";
-
-/**
- * Props para el componente CardActions.
- *
- * @property {string} [visitLink] - URL para visitar el proyecto.
- * @property {string} [codeLink] - URL para ver el código fuente.
- * @property {IAppTheme} theme - Tema de la aplicación para aplicar estilos dinámicos.
- */
-interface CardActionsProps {
-  visitLink?: string;
-  codeLink?: string;
-  theme: IAppTheme;
-}
 
 /**
  * Componente que renderiza botones de acción de un proyecto (Visitar y Ver Código).
@@ -27,6 +13,7 @@ const CardActionsComponent: React.FC<CardActionsProps> = ({
   visitLink,
   codeLink,
   theme,
+  translate,
 }) => {
   const hasVisitLink = typeof visitLink === "string" && visitLink.trim() !== "";
   const hasCodeLink = typeof codeLink === "string" && codeLink.trim() !== "";
@@ -51,7 +38,7 @@ const CardActionsComponent: React.FC<CardActionsProps> = ({
           }}
           className="px-3 py-1 text-sm font-medium text-center flex-1"
         >
-          Visitar
+          {translate("components.ui.card.card-action.visit")}
         </motion.a>
       )}
 
@@ -69,7 +56,7 @@ const CardActionsComponent: React.FC<CardActionsProps> = ({
           }}
           className="px-3 py-1 text-sm font-medium text-center flex-1"
         >
-          Ver código
+          {translate("components.ui.card.card-action.view_code")}
         </motion.a>
       )}
     </div>

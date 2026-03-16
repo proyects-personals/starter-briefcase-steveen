@@ -1,87 +1,72 @@
-import React, { type JSX } from "react";
+import React from "react";
+
 import {
-  FaGithub,
-  FaCodeBranch,
-  FaProjectDiagram,
-  FaExclamationCircle,
-  FaStar,
-} from "react-icons/fa";
+  GitHubSkeletonComponent,
+  GitHubStartsGridComponent,
+  GitHubTopLanguagesComponent,
+  GitHubTopReposComponent,
+  useGithubMetrics,
+} from "@/app";
 
-import { GitHubFeaturedRepo, GitHubMetricCard } from "@/app";
-
-import type { IGitHubMetricsPanel } from "@domain";
+import {
+  GITHUB_ORGANIZATION,
+  GITHUB_USERNAME,
+  type IGitHubMetric,
+} from "@domain";
 
 /**
- * @description Componente que renderiza un panel de métricas de GitHub.
- * Incluye un repositorio destacado y varias tarjetas de métricas como commits, PRs, repos, issues y estrellas.
+ * @description
+ * Componente encargado de renderizar el panel de métricas
+ * de GitHub dentro de la aplicación.
  *
- * @param {IGitHubMetricsPanel} props - Propiedades del componente.
- * @property theme - Tema global de la aplicación para estilos dinámicos.
+ * Este componente utiliza el hook `useGithubMetrics`
+ * para obtener estadísticas de la API de GitHub como:
  *
- * @returns {JSX.Element} Panel con métricas y repositorio destacado.
+ * - número total de repositorios
+ * - estrellas acumuladas
+ * - issues abiertas
+ * - lenguajes más utilizados
+ * - repositorios destacados
+ *
+ * Mientras los datos se cargan se muestra un
+ * `GitHubSkeletonComponent`.
  */
-const GitHubMetric: React.FC<IGitHubMetricsPanel> = ({
+const GitHubMetricComponent: React.FC<IGitHubMetric> = ({
+  translate,
   theme,
-}): JSX.Element => {
-  const username = "steveencues";
+}) => {
+  const metrics = useGithubMetrics(GITHUB_USERNAME, GITHUB_ORGANIZATION);
 
-  const metrics = [
-    {
-      label: "Commits",
-      value: 142,
-      icon: <FaCodeBranch />,
-      color: theme.colors.primary,
-    },
-    {
-      label: "PRs",
-      value: 38,
-      icon: <FaGithub />,
-      color: theme.colors.secondary,
-    },
-    {
-      label: "Repos",
-      value: 12,
-      icon: <FaProjectDiagram />,
-      color: theme.colors.accent,
-    },
-    {
-      label: "Issues",
-      value: 7,
-      icon: <FaExclamationCircle />,
-      color: theme.colors.warning,
-    },
-    { label: "Stars", value: 56, icon: <FaStar />, color: theme.colors.info },
-  ];
-
-  const highlightRepo = {
-    name: "neuroniando-storage",
-    language: "TypeScript",
-    langColor: "#3178c6",
-    stars: 15,
-    lastCommit: "2026-03-10",
-    description: "High-performance decentralized storage logic.",
-  };
+  /**
+   * @description
+   * Renderiza un skeleton mientras las métricas
+   * se encuentran en proceso de carga.
+   */
+  if (!metrics) {
+    return <GitHubSkeletonComponent theme={theme} />;
+  }
 
   return (
-    <section className="w-full p-4 flex flex-col gap-6">
-      <div className="text-center font-bold text-sm sm:text-base opacity-70">
-        GitHub Metrics of {username}
-      </div>
+    <div className="w-full flex flex-col gap-6">
+      <GitHubStartsGridComponent
+        metrics={metrics}
+        translate={translate}
+        theme={theme}
+      />
 
-      <GitHubFeaturedRepo repo={highlightRepo} theme={theme} />
+      <GitHubTopLanguagesComponent
+        languages={metrics.topLanguages}
+        translate={translate}
+        theme={theme}
+      />
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-        {metrics.map((metric) => (
-          <GitHubMetricCard
-            key={metric.label}
-            metric={metric}
-            theme={theme}
-            index={metrics.indexOf(metric)}
-          />
-        ))}
-      </div>
-    </section>
+      <GitHubTopReposComponent
+        repos={metrics.topRepos}
+        translate={translate}
+        theme={theme}
+      />
+    </div>
   );
 };
 
-export default GitHubMetric;
+export default GitHubMetricComponent;

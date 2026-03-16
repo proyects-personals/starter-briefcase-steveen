@@ -9,3 +9,6 @@ export * from "./breakpoints.constant";
 export * from "./work-experience";
 export * from "./project-personal";
 export * from "./education";
+export * from "./metrics";
+export * from "./cache";
+export * from "./skeleton";

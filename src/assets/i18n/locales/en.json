@@ -27,7 +27,10 @@
     "subtitle": "Hello, I'm Steveen Ordoñez",
     "description": "I am a Software Engineer and Software Development Technologist with a strong passion for technology, music, and art. I excel at exploring new trends, creating innovative digital solutions, and merging creativity with code to develop unique, engaging, and user-centered experiences. With a solid technical foundation and a creative mindset, I contribute from both functional and artistic perspectives, delivering scalable, high-impact results across diverse development environments.",
     "buttonDownloadCV": "Download CV",
-    "work_experience": "Work Experience"
+    "work_experience": "Work Experience",
+    "my_projects": "My projects",
+    "my_studies": "My studies and certificates",
+    "github_nuances": "Github nuances"
   },
   "header": {
     "home": "Home",
@@ -61,6 +64,26 @@
       },
       "banner": {
         "view_page": "View Page"
+      },
+      "card": {
+        "card-action": {
+          "visit": "Visit",
+          "view_code": "View code"
+        }
+      }
+    }
+  },
+  "pages": {
+    "component": {
+      "matrics": {
+        "subtitle": "GitHub metrics for",
+        "commits": "Commits",
+        "prs": "Pull Requests",
+        "repos": "Repositories",
+        "issues": "Issues",
+        "stars": "Stars",
+        "top-repos": "Top 5 repositories",
+        "top_languages": "The 3 most popular programming languages"
       }
     }
   },

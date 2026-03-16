@@ -6,7 +6,7 @@ import {
   BannerComponent,
   CardComponent,
   CarouselComponent,
-  GitHubMetric,
+  GitHubMetricComponent,
 } from "@/app";
 import { useTheme, useLanguage } from "@/app/application";
 import { BANNER_ITEM, PROJECTS_PERSONAL, WORK_EXPERIENCE } from "@domain";
@@ -98,7 +98,7 @@ const WelcomePortfolio: React.FC = () => {
           transition={{ duration: 1 }}
           style={{ color: theme.colors.text }}
         >
-          {t("welcome.work_experience")}
+          {t("welcome.my_projects")}
         </motion.h2>
 
         <CardComponent items={PROJECTS_PERSONAL} theme={theme} translate={t} />
@@ -112,7 +112,7 @@ const WelcomePortfolio: React.FC = () => {
           transition={{ duration: 1 }}
           style={{ color: theme.colors.text }}
         >
-          {t("welcome.work_experience")}
+          {t("welcome.my_studies")}
         </motion.h2>
 
         <BannerComponent theme={theme} items={BANNER_ITEM} translate={t} />
@@ -126,10 +126,10 @@ const WelcomePortfolio: React.FC = () => {
           transition={{ duration: 1 }}
           style={{ color: theme.colors.text }}
         >
-          {t("welcome.work_experience")}
+          {t("welcome.github_nuances")}
         </motion.h2>
 
-        <GitHubMetric theme={theme} />
+        <GitHubMetricComponent theme={theme} translate={t} />
       </div>
     </div>
   );
