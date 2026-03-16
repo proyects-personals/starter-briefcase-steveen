@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import React from "react";
 
 import {
@@ -7,12 +6,60 @@ import {
   CardComponent,
   CarouselComponent,
   GitHubMetricComponent,
+  HeroSectionComponent,
+  SectionComponent,
 } from "@/app";
+
 import { useTheme, useLanguage } from "@/app/application";
+
 import { BANNER_ITEM, PROJECTS_PERSONAL, WORK_EXPERIENCE } from "@domain";
 
-const WelcomePortfolio: React.FC = () => {
+/**
+ * BriefcaseScreen
+ *
+ * @description
+ * Pantalla principal del portafolio que muestra información
+ * profesional organizada en diferentes secciones.
+ *
+ * Esta pantalla funciona como contenedor de múltiples
+ * componentes reutilizables que representan diferentes
+ * áreas del portafolio.
+ *
+ * Secciones incluidas:
+ *
+ * - Hero principal con introducción
+ * - Experiencia laboral
+ * - Proyectos personales
+ * - Estudios / formación
+ * - Métricas de GitHub
+ *
+ * Además, incluye un fondo animado utilizando
+ * `AnimatedBackgroundComponent` para mejorar la
+ * experiencia visual del usuario.
+ *
+ * Hooks utilizados:
+ *
+ * - `useTheme` para obtener el tema actual de la aplicación
+ * - `useLanguage` para gestionar las traducciones
+ *
+ * @component
+ *
+ * @returns React.JSX.Element
+ * Pantalla completa del portafolio con todas sus secciones.
+ */
+const BriefcaseScreen: React.FC = (): React.JSX.Element => {
+  /**
+   * @description
+   * Tema visual de la aplicación
+   * (colores, bordes, sombras, etc).
+   */
   const { theme } = useTheme();
+
+  /**
+   * @description
+   * Función de traducción utilizada para
+   * internacionalización (i18n).
+   */
   const { t } = useLanguage();
 
   return (
@@ -23,116 +70,30 @@ const WelcomePortfolio: React.FC = () => {
         height="100%"
         opacity={0.1}
       />
+      <HeroSectionComponent theme={theme} translate={t} />
 
-      <div className="relative z-10 flex flex-col items-center justify-center text-center w-full">
-        <motion.h1
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          style={{ color: theme.colors.text }}
-        >
-          {t("welcome.title")}
-        </motion.h1>
-        <motion.p
-          className="text-lg sm:text-xl md:text-2xl font-semibold mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          style={{ color: theme.colors.primary, lineHeight: 1.4 }}
-        >
-          {t("welcome.subtitle")}
-        </motion.p>
-
-        <motion.p
-          className="text-sm sm:text-base md:text-lg text-justify mb-6 leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7 }}
-          style={{ color: theme.colors.textSecondary, lineHeight: 1.7 }}
-        >
-          {t("welcome.description")}
-        </motion.p>
-
-        <motion.button
-          className="px-6 py-3 rounded-lg font-medium shadow-md transition-all mb-8"
-          style={{
-            backgroundColor: theme.colors.primary,
-            color: theme.colors.white,
-          }}
-          whileHover={{
-            backgroundColor: theme.colors.primaryHover,
-            scale: 1.05,
-            boxShadow: `0 8px 20px ${theme.shadow.md}`,
-          }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {t("welcome.buttonDownloadCV")}
-        </motion.button>
-      </div>
-      <div className="w-full h-px bg-gray-300 dark:bg-zinc-700 mb-8" />
-      <div className="w-full py-3 md:py-16 bg-transparent text-center">
-        <motion.h2
-          className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          style={{ color: theme.colors.text }}
-        >
-          {t("welcome.work_experience")}
-        </motion.h2>
-
+      <SectionComponent title={t("welcome.work_experience")} theme={theme}>
         <CarouselComponent
           items={WORK_EXPERIENCE}
-          height="450px"
+          height="500px"
           theme={theme}
           translate={t}
         />
-      </div>
-      <div className="w-full h-px bg-gray-300 dark:bg-zinc-700 mb-8" />
-      <div className="w-full py-3 md:py-16 bg-transparent text-center">
-        <motion.h2
-          className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          style={{ color: theme.colors.text }}
-        >
-          {t("welcome.my_projects")}
-        </motion.h2>
+      </SectionComponent>
 
+      <SectionComponent title={t("welcome.my_projects")} theme={theme}>
         <CardComponent items={PROJECTS_PERSONAL} theme={theme} translate={t} />
-      </div>
-      <div className="w-full h-px bg-gray-300 dark:bg-zinc-700 mb-8" />
-      <div className="w-full py-3 md:py-16 bg-transparent text-center">
-        <motion.h2
-          className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          style={{ color: theme.colors.text }}
-        >
-          {t("welcome.my_studies")}
-        </motion.h2>
+      </SectionComponent>
 
+      <SectionComponent title={t("welcome.my_studies")} theme={theme}>
         <BannerComponent theme={theme} items={BANNER_ITEM} translate={t} />
-      </div>
-      <div className="w-full h-px bg-gray-300 dark:bg-zinc-700 mb-8" />
-      <div className="w-full py-3 md:py-16 bg-transparent text-center">
-        <motion.h2
-          className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          style={{ color: theme.colors.text }}
-        >
-          {t("welcome.github_nuances")}
-        </motion.h2>
+      </SectionComponent>
 
+      <SectionComponent title={t("welcome.github_nuances")} theme={theme}>
         <GitHubMetricComponent theme={theme} translate={t} />
-      </div>
+      </SectionComponent>
     </div>
   );
 };
 
-export default WelcomePortfolio;
+export default BriefcaseScreen;

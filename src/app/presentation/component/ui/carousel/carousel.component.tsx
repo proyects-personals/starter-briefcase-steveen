@@ -28,6 +28,7 @@ const CarouselComponent: React.FC<ICarousel> = ({
   autoPlayInterval = 4000,
   theme,
   translate,
+  height,
 }: ICarousel): JSX.Element => {
   const [current, setCurrent] = useState<number>(0);
   const [direction, setDirection] = useState<number>(0);
@@ -94,7 +95,7 @@ const CarouselComponent: React.FC<ICarousel> = ({
       <div
         {...handlers}
         className="relative w-full overflow-hidden rounded-xl"
-        style={{ height: "500px" }}
+        style={{ height }}
       >
         <AnimatePresence initial={false} custom={direction}>
           <SlideComponent
