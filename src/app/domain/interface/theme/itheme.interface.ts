@@ -1,4 +1,4 @@
-import type { ThemeNameType } from "../../type";
+import type { ThemeNameType } from "@/app/domain";
 
 /**
  * @description Valor expuesto por el ThemeContext.
@@ -80,7 +80,6 @@ export interface IAppTheme {
     full: string;
   };
 
-  /** Sombras */
   shadow: {
     sm: string;
     md: string;

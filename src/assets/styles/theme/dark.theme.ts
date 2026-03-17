@@ -2,66 +2,71 @@ import type { IAppTheme } from "@domain";
 
 /**
  * @file dark.theme
- * @description Tema oscuro profesional para la aplicación.
- *              Contiene todos los colores, tipografía, bordes y sombras
- *              según la interfaz AppTheme, listo para usar con PageWrapper, Layout y componentes.
+ * @description Tema oscuro premium con estética Deep Midnight.
+ * Optimizado para OLED, con mejor contraste y efectos de cristal realistas.
  * @author Steveen Cues
- * @version 1.1.0
+ * @version 1.2.0
  */
 export const darkTheme: IAppTheme = {
   name: "dark",
   colors: {
-    background: "oklch(25.33% 0.016 252.42)",
-    backgroundGlass: "oklch(18% 0.02 252.42 / 0.65)",
-    borderGlass: "oklch(40% 0.02 252.42 / 0.35)",
-    black: "oklch(0% 0 252.42)",
-    white: "oklch(100% 0 252.42)",
-    surface: "oklch(23.26% 0.014 253.1)", // base-200
-    text: "oklch(97.807% 0.029 256.847)", // base-content
-    textSecondary: "oklch(60% 0.005 285.823)",
-    primary: "oklch(58% 0.233 277.117)",
-    primaryHover: "oklch(52% 0.233 277.117)",
-    secondary: "oklch(65% 0.241 354.308)",
-    secondaryHover: "oklch(60% 0.241 354.308)",
-    accent: "oklch(77% 0.152 181.912)",
-    muted: "oklch(21.15% 0.012 254.09)",
-    border: "oklch(30% 0.01 250.0)",
-    shadow: "rgba(0,0,0,0.5)",
-    error: "oklch(71% 0.194 13.428)",
-    warning: "oklch(82% 0.189 84.429)",
-    success: "oklch(76% 0.177 163.223)",
-    info: "oklch(74% 0.16 232.661)",
-    hover: "oklch(27% 0.01 250.0)",
-    focus: "oklch(28% 0.01 250.0)",
-    disabled: "oklch(20% 0 0)",
+    background: "oklch(12% 0.02 258.89)",
+    backgroundGlass: "oklch(14% 0.03 258.89 / 0.7)",
+    borderGlass: "oklch(25% 0.04 258.89 / 0.4)",
+
+    black: "oklch(0% 0 0)",
+    white: "oklch(100% 0 0)",
+
+    surface: "oklch(18% 0.02 258.89)",
+    text: "oklch(95% 0.01 258.89)",
+    textSecondary: "oklch(70% 0.02 258.89)",
+
+    primary: "oklch(65% 0.2 258.89)",
+    primaryHover: "oklch(70% 0.2 258.89)",
+
+    secondary: "oklch(70% 0.18 354.3)",
+    secondaryHover: "oklch(75% 0.18 354.3)",
+    accent: "oklch(85% 0.14 185)",
+
+    muted: "oklch(22% 0.02 258.89)",
+    border: "oklch(28% 0.03 258.89)",
+    shadow: "rgba(0, 0, 0, 0.4)",
+
+    error: "oklch(65% 0.22 28)",
+    warning: "oklch(85% 0.18 85)",
+    success: "oklch(75% 0.16 150)",
+    info: "oklch(72% 0.14 240)",
+    hover: "oklch(24% 0.03 258.89)",
+    focus: "oklch(30% 0.04 258.89)",
+    disabled: "oklch(20% 0.01 258.89 / 0.5)",
   },
   font: {
-    family: "'Inter', sans-serif",
+    family: "'Inter', system-ui, -apple-system, sans-serif",
     sizes: {
       xs: "0.75rem",
       sm: "0.875rem",
       base: "1rem",
       lg: "1.125rem",
       xl: "1.25rem",
-      "2xl": "1.5rem",
-      "3xl": "1.875rem",
+      "2xl": "1.625rem",
+      "3xl": "2.125rem",
     },
     weights: {
       normal: 400,
-      medium: 500,
+      medium: 550,
       bold: 700,
     },
   },
   borderRadius: {
-    sm: "0.25rem",
-    md: "0.5rem",
-    lg: "0.75rem",
+    sm: "0.375rem",
+    md: "0.75rem",
+    lg: "1.25rem",
     full: "9999px",
   },
   shadow: {
-    sm: "0 1px 2px rgba(0,0,0,0.2)",
-    md: "0 4px 6px rgba(0,0,0,0.3)",
-    lg: "0 10px 15px rgba(0,0,0,0.35)",
-    xl: "0 20px 25px rgba(0,0,0,0.4)",
+    sm: "0 1px 2px rgba(0, 0, 0, 0.5)",
+    md: "0 8px 20px rgba(0, 0, 0, 0.4)",
+    lg: "0 15px 30px rgba(0, 0, 0, 0.5)",
+    xl: "0 25px 50px rgba(0, 0, 0, 0.6)",
   },
 };
