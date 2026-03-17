@@ -8,6 +8,7 @@ import {
   SouthAmericanBankImage,
   TravelEcuadorImage,
 } from "@/assets";
+import { UrlEnum } from "@/app/domain";
 
 /**
  * @description Lista de proyectos personales y profesionales.
@@ -35,9 +36,8 @@ export const PROJECTS_PERSONAL = [
       "GitHub",
       "Figma",
     ],
-    visitLink: "https://steveencues.netlify.app/",
-    codeLink:
-      "https://github.com/proyects-personals/starter-briefcase-steveen.git",
+    visitLink: UrlEnum.PORTFOLIO,
+    codeLink: UrlEnum.GIT_PORTFOLIO,
   },
   {
     name: "my_projects.neuroniando.name",
@@ -53,8 +53,7 @@ export const PROJECTS_PERSONAL = [
       "Typescript",
       "Java",
     ],
-    visitLink:
-      "https://play.google.com/store/apps/details?id=com.neuroniando.mobile",
+    visitLink: UrlEnum.NEURONIANDO_MOBILE,
   },
   {
     name: "my_projects.neuroniandoWeb.name",
@@ -68,7 +67,7 @@ export const PROJECTS_PERSONAL = [
       "AWS Router 53",
       "Cloudfire",
     ],
-    visitLink: "https://www.neuroniando.com/",
+    visitLink: UrlEnum.NEURONIANDO_WEB,
   },
   {
     name: "my_projects.pichinchaBank.name",
@@ -81,8 +80,7 @@ export const PROJECTS_PERSONAL = [
       "Unit Tests with Jest",
       "GitHub",
     ],
-    codeLink:
-      "https://github.com/proyects-personals/starter-pichincha-test.git",
+    codeLink: UrlEnum.GIT_PICHINCHA_BANK,
   },
   {
     name: "my_projects.travelEcuador.name",
@@ -97,14 +95,14 @@ export const PROJECTS_PERSONAL = [
       "Netfify",
       "Github",
     ],
-    visitLink: "https://feriaecuadortravel.com/home",
+    visitLink: UrlEnum.TRAVEL_ECUADOR,
   },
   {
     name: "my_projects.southAmericanBank.name",
     description: "my_projects.southAmericanBank.description",
     image: SouthAmericanBankImage,
     kills: ["HTML", "CSS", "Figma", "Github"],
-    codeLink: "https://github.com/proyects-personals/banco-sudamericano.git",
+    codeLink: UrlEnum.SOUTK_AMERICAN_BANK,
   },
   {
     name: "my_projects.linkage.name",
@@ -122,7 +120,7 @@ export const PROJECTS_PERSONAL = [
       "Scrum",
       "Postgresql",
     ],
-    codeLink: "https://github.com/vinculacion-yavirac/frontend",
+    codeLink: UrlEnum.LINKAGE,
   },
   {
     name: "my_projects.docsUnibe.name",
@@ -137,6 +135,6 @@ export const PROJECTS_PERSONAL = [
       "AWS Services",
       "Tailwind css",
     ],
-    codeLink: "https://github.com/unibe-projects/starter-unibe-docs",
+    codeLink: UrlEnum.DOCS_UNIBE,
   },
 ];

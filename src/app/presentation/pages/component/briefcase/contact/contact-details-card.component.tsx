@@ -4,7 +4,7 @@ import { FaEnvelope, FaPhoneAlt, FaLinkedin } from "react-icons/fa";
 
 import { ContactItemComponent } from "@/app";
 
-import type { IContactComponent } from "@domain";
+import { UrlEnum, type IContactComponent } from "@domain";
 
 /**
  * @description
@@ -94,7 +94,7 @@ const ContactDetailsCard: React.FC<IContactComponent> = ({
           icon={FaPhoneAlt}
           label={translate("contactMe.phone")}
           value="+593 96 263 9779"
-          href="https://wa.me/593962639779"
+          href={UrlEnum.WHATSAPP}
           theme={theme}
         />
 
@@ -102,7 +102,7 @@ const ContactDetailsCard: React.FC<IContactComponent> = ({
           icon={FaLinkedin}
           label="LinkedIn"
           value="steveen-ordoñez"
-          href="https://www.linkedin.com/in/steveen-ordoñez-244b0a227"
+          href={UrlEnum.LINKEDIN}
           theme={theme}
         />
       </div>

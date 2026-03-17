@@ -11,7 +11,8 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
-import type { IHeaderNavItem } from "../../interface";
+import { type IHeaderNavItem } from "@domain";
+import { UrlEnum } from "@/app/domain/enums";
 
 export const FONT_WEIGHT_ACTIVE = 600;
 export const FONT_WEIGHT_DEFAULT = 500;
@@ -35,21 +36,21 @@ export const NAV_ITEMS_BASE: IHeaderNavItem[] = [
     auth: null,
   },
   {
-    to: "https://github.com/proyects-personals",
+    to: UrlEnum.PROJECTS_PERSONALS,
     icon: FaGithub,
     text: "nav.github",
     auth: null,
     target: "_blank",
   },
   {
-    to: "https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/",
+    to: UrlEnum.LINKEDIN,
     icon: FaLinkedin,
     text: "nav.linkedin",
     auth: null,
     target: "_blank",
   },
   {
-    to: "https://www.instagram.com/steveen_cues/?hl=es-la",
+    to: UrlEnum.INSTAGRAM,
     icon: FaInstagram,
     text: "nav.instagram",
     auth: null,

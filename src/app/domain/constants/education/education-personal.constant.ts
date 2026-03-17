@@ -1,6 +1,6 @@
 import { UdemyImage, UnibeImage, UnirImage, YaviracImage } from "@/assets";
 
-import type { IBannerItem } from "@/app/domain";
+import { UrlEnum, type IBannerItem } from "@domain";
 
 /**
  * @description Lista de elementos que representan los banners de educación.
@@ -16,56 +16,56 @@ export const BANNER_ITEM: IBannerItem[] = [
   {
     title: "my_education.unibe.ing.title",
     image: UnibeImage,
-    link: "https://unibe.edu.ec/",
+    link: UrlEnum.UNIBE,
     description: "my_education.unibe.ing.description",
     finalized: "my_education.unibe.ing.finalized",
   },
   {
     title: "my_education.unibe.maestria.title",
     image: UnibeImage,
-    link: "https://unibe.edu.ec/",
+    link: UrlEnum.UNIBE,
     description: "my_education.unibe.maestria.description",
     finalized: "my_education.unibe.maestria.finalized",
   },
   {
     title: "my_education.unir.maestria_devops.title",
     image: UnirImage,
-    link: "https://usa.unir.net/",
+    link: UrlEnum.UNIR,
     description: "my_education.unir.maestria_devops.description",
     finalized: "my_education.unir.maestria_devops.finalized",
   },
   {
     title: "my_education.yavirac.tec.title",
     image: YaviracImage,
-    link: "https://yavirac.edu.ec/carreras-vigentes/",
+    link: UrlEnum.YAVIRAC,
     description: "my_education.yavirac.tec.description",
     finalized: "my_education.yavirac.tec.finalized",
   },
   {
     title: "my_education.udemy.angular_complete.title",
     image: UdemyImage,
-    link: "https://www.udemy.com/certificate/UC-f31d1b76-f1e8-4414-8065-fab15e694282/",
+    link: UrlEnum.ANGULAR_COMPLETE,
     description: "my_education.udemy.angular_complete.description",
     finalized: "my_education.udemy.angular_complete.finalized",
   },
   {
     title: "my_education.udemy.csharp_oop.title",
     image: UdemyImage,
-    link: "https://www.udemy.com/certificate/UC-26b68d2c-7052-4dde-a635-59a6c9f3cc69/",
+    link: UrlEnum.CSHARP_OOP,
     description: "my_education.udemy.csharp_oop.description",
     finalized: "my_education.udemy.csharp_oop.finalized",
   },
   {
     title: "my_education.udemy.angular_basics.title",
     image: UdemyImage,
-    link: "https://www.udemy.com/certificate/UC-c319a8c8-fa76-42f7-bffc-1294b527b841/",
+    link: UrlEnum.ANGULAR_BASICS,
     description: "my_education.udemy.angular_basics.description",
     finalized: "my_education.udemy.angular_basics.finalized",
   },
   {
     title: "my_education.udemy.aws_solutions.title",
     image: UdemyImage,
-    link: "https://www.udemy.com/certificate/UC-a4378285-58d7-4719-985d-290244bbf224/",
+    link: UrlEnum.AWS_SOLUTIONS,
     description: "my_education.udemy.aws_solutions.description",
     finalized: "my_education.udemy.aws_solutions.finalized",
   },

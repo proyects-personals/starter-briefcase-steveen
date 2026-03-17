@@ -1,9 +1,9 @@
 import {
   RegexEnum,
+  UrlEnum,
   VideoType,
   YoutubeEmbedParams,
-  YoutubeEmbedURL,
-} from "../enums";
+} from "@/app/domain";
 
 /**
  * @description Class de utilidades para manejo de videos, especialmente YouTube.
@@ -71,6 +71,6 @@ export class VideoUtils {
       showinfo: YoutubeEmbedParams.SHOWINFO,
     });
 
-    return `${YoutubeEmbedURL.BASE}${id}?${params.toString()}`;
+    return `${UrlEnum.YOUTUBE_BASE}${id}?${params.toString()}`;
   }
 }

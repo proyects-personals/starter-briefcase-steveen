@@ -1,7 +1,7 @@
 import {
   CACHE_TTL_MS,
   CONNECTION_CONFIG,
-  GITHUB_API_BASE_URL,
+  endpointEnum,
   MAX_REPOSITORIES_PER_REQUEST,
   type GitHubResponseType,
   type ICacheEntry,
@@ -163,7 +163,7 @@ const request = async <T>(url: string): Promise<T[]> => {
  * @returns URL completa de la petición
  */
 const buildUserReposUrl = (username: string): string =>
-  `${GITHUB_API_BASE_URL}/users/${username}/repos?per_page=${MAX_REPOSITORIES_PER_REQUEST}`;
+  `${endpointEnum.GITHUB_API_BASE_URL}/users/${username}/repos?per_page=${MAX_REPOSITORIES_PER_REQUEST}`;
 
 /**
  * Construye la URL para obtener repositorios de una organización.
@@ -173,7 +173,7 @@ const buildUserReposUrl = (username: string): string =>
  * @returns URL completa de la petición
  */
 const buildOrgReposUrl = (organization: string): string =>
-  `${GITHUB_API_BASE_URL}/orgs/${organization}/repos?per_page=${MAX_REPOSITORIES_PER_REQUEST}`;
+  `${endpointEnum.GITHUB_API_BASE_URL}/orgs/${organization}/repos?per_page=${MAX_REPOSITORIES_PER_REQUEST}`;
 
 /**
  * Construye la URL para obtener commits de un repositorio.

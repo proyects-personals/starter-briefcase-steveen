@@ -14,16 +14,6 @@ export enum YoutubeEmbedParams {
 }
 
 /**
- * @description Enum con la base de la URL de embed de YouTube.
- * Permite construir la URL completa para el iframe de fondo.
- * @type {YoutubeEmbedURL}
- * @enum {string}
- */
-export enum YoutubeEmbedURL {
-  BASE = "https://www.youtube.com/embed/",
-}
-
-/**
  * @description Enum que define los tipos de video soportados.
  * Permite categorizar entre videos locales, de YouTube u otros tipos.
  * @type {VideoType}

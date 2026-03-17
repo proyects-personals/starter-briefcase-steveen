@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useTheme, useLanguage } from "@application";
 import { SteveenImage } from "@assets";
-import {
-  StringUtils,
-  VideoUtils,
-  YoutubeEmbedURL,
-  type IHeaderLogos,
-} from "@domain";
+import { StringUtils, UrlEnum, VideoUtils, type IHeaderLogos } from "@domain";
 
 import { LanguageSwitcherComponent } from "../../lenguage";
 import { ThemeSwitcherComponent } from "../../theme";
@@ -56,7 +51,7 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
         <div className="absolute inset-0 w-full h-full -z-10">
           <iframe
             className="w-full h-full object-cover"
-            src={`${YoutubeEmbedURL.BASE}${VideoUtils.getYoutubeID(
+            src={`${UrlEnum.YOUTUBE_BASE}${VideoUtils.getYoutubeID(
               backgroundYoutube,
             )}?autoplay=1&mute=1&loop=1&playlist=${VideoUtils.getYoutubeID(
               backgroundYoutube,

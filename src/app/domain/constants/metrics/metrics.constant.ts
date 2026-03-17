@@ -27,12 +27,6 @@ export const EMPTY_METRICS: IGitHubMetrics = {
 
 /**
  * @description
- * URL base de la API de GitHub.
- */
-export const GITHUB_API_BASE_URL = "https://api.github.com";
-
-/**
- * @description
  * Número máximo de repositorios a solicitar por petición.
  */
 export const MAX_REPOSITORIES_PER_REQUEST = 100;

@@ -1,8 +1,8 @@
 {
-  "scaffolding": {
+  "briefcase": {
     "page": {
-      "title": "pagina",
-      "description": "pagina de inicial"
+      "title": "Portafolio Steveen Ordoñez",
+      "description": "page initial"
     }
   },
   "notFound": {
@@ -11,8 +11,11 @@
     "back": "Volver al inicio"
   },
   "footer": {
-    "rights": "Todos los derechos reservados",
-    "description": "Texto de ejemplo para modificar más adelante"
+    "rights": "Todos los derechos reservados.",
+    "description": "Desarrollado por Steveen Cues.",
+    "privacyPolicy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "cookies": "Política de Cookies"
   },
   "login": {
     "button": "Iniciar sesión",

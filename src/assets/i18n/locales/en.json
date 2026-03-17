@@ -1,7 +1,7 @@
 {
-  "scaffolding": {
+  "briefcase": {
     "page": {
-      "title": "page",
+      "title": "Steveen Ordoñez Portfolio",
       "description": "page initial"
     }
   },
@@ -11,8 +11,11 @@
     "back": "Back to home"
   },
   "footer": {
-    "rights": "All rights reserved",
-    "description": "Sample text to modify later"
+    "rights": "All rights reserved.",
+    "description": "Desarrollada por Steveen Cues.",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
   },
   "login": {
     "button": "Login",

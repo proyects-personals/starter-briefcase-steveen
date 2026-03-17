@@ -1,26 +1,53 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { useLanguage } from "@application"; // Importamos el hook de lenguaje
 
-import type { IHeroSectionComponent } from "@domain";
+import { TranslateEnum, type IHeroSectionComponent } from "@domain";
+import { CVSTEVEENORDOLEZEN, CVSTEVEENORDOLEZES } from "@/assets";
 
 /**
  * HeroSectionComponent
  *
  * @description
- * Sección principal del portfolio que muestra:
- *
- * - título principal
- * - subtítulo
- * - descripción
- * - botón de acción (descargar CV)
- *
- * Incluye animaciones de entrada utilizando Framer Motion
- * para mejorar la experiencia visual del usuario.
+ * Sección principal del portfolio con descarga de CV dinámica por idioma.
  */
 const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
   theme,
   translate,
 }): React.JSX.Element => {
+  const { language } = useLanguage();
+
+  /**
+   * @description
+   * Determina qué archivo descargar según el idioma activo.
+   */
+  const handleDownloadCV = (): void => {
+    let selectedCV: string;
+
+    switch (language) {
+      case TranslateEnum.ES:
+        selectedCV = CVSTEVEENORDOLEZES;
+        break;
+      case TranslateEnum.EN:
+        selectedCV = CVSTEVEENORDOLEZEN;
+        break;
+      default:
+        selectedCV = CVSTEVEENORDOLEZEN;
+        break;
+    }
+
+    // Crear un enlace temporal para forzar la descarga
+    const link = document.createElement("a");
+    link.href = selectedCV;
+    link.download =
+      language === "es"
+        ? "CV_Steveen_Ordoñez_ES.pdf"
+        : "CV_Steveen_Ordoñez_EN.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="relative z-10 flex flex-col items-center justify-center text-center w-full">
       <motion.h1
@@ -57,6 +84,7 @@ const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
       </motion.p>
 
       <motion.button
+        onClick={handleDownloadCV} // Agregamos la función de descarga
         className="px-6 py-3 rounded-lg font-medium shadow-md transition-all mb-8"
         style={{
           backgroundColor: theme.colors.primary,
