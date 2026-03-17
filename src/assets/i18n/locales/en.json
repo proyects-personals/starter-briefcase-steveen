@@ -5,6 +5,11 @@
       "description": "Explora mi trayectoria profesional, proyectos innovadores y soluciones digitales."
     }
   },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "emerald": "Emerald"
+  },
   "notFound": {
     "title": "404 - Page Not Found",
     "message": "Ops! The page you are looking for doesn't exist or has been moved to a new galaxy.",

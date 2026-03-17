@@ -5,6 +5,11 @@
       "description": "Entdecken Sie meinen Werdegang als Software-Ingenieur, meine herausragenden Projekte und meine Spezialisierung auf Data Science und DevOps."
     }
   },
+  "theme": {
+    "light": "Hell",
+    "dark": "Dunkel",
+    "emerald": "Smaragd"
+  },
   "notFound": {
     "title": "404 - Seite nicht gefunden",
     "message": "Entschuldigung, die von Ihnen gesuchte Seite existiert nicht oder wurde verschoben.",

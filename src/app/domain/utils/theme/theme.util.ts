@@ -1,5 +1,6 @@
-import { darkTheme, lightTheme, emeraldTheme } from "@/assets";
 import { THEME_STORAGE_KEY, ThemeEnum } from "@/app/domain";
+import { darkTheme, lightTheme, emeraldTheme } from "@/assets";
+
 import type { ThemeNameType } from "@/app/domain";
 
 /**
@@ -15,7 +16,9 @@ export class ThemeUtil {
    * @private
    */
   private isThemeName(value: string | null): value is ThemeNameType {
-    if (value === null) return false;
+    if (value === null) {
+      return false;
+    }
     const validThemes: string[] = Object.values(ThemeEnum);
     return validThemes.includes(value);
   }
@@ -26,9 +29,13 @@ export class ThemeUtil {
    * @private
    */
   private getSystemTheme(): ThemeNameType {
-    if (typeof window === "undefined") return ThemeEnum.LIGHT;
-    
-    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (typeof window === "undefined") {
+      return ThemeEnum.LIGHT;
+    }
+
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
     return isDarkMode ? ThemeEnum.DARK : ThemeEnum.LIGHT;
   }
 
@@ -38,10 +45,12 @@ export class ThemeUtil {
    * @private
    */
   private getStoredTheme(): ThemeNameType | null {
-    if (typeof window === "undefined") return null;
+    if (typeof window === "undefined") {
+      return null;
+    }
 
     const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-    
+
     if (this.isThemeName(storedTheme)) {
       return storedTheme;
     }

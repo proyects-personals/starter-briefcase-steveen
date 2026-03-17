@@ -5,6 +5,11 @@
       "description": "Esplora la mia carriera come Ingegnere del Software, i miei progetti principali e la mia specializzazione in Data Science e DevOps."
     }
   },
+  "theme": {
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "emerald": "Smeraldo"
+  },
   "notFound": {
     "title": "404 - Pagina non trovata",
     "message": "Spiacenti, la pagina che stai cercando non esiste o è stata spostata.",

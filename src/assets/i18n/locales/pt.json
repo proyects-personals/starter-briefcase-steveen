@@ -5,6 +5,11 @@
       "description": "Explore minha trajetória como Engenheiro de Software, meus projetos de destaque e minha especialização em Data Science e DevOps."
     }
   },
+  "theme": {
+    "light": "Claro",
+    "dark": "Escuro",
+    "emerald": "Esmeralda"
+  },
   "notFound": {
     "title": "404 - Página não encontrada",
     "message": "Desculpe, a página que você procura não existe ou foi movida.",
