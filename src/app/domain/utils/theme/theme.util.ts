@@ -1,71 +1,102 @@
-import { darkTheme, lightTheme } from "@/assets";
+import { THEME_STORAGE_KEY, ThemeEnum } from "@/app/domain";
+import { darkTheme, lightTheme, emeraldTheme } from "@/assets";
 
-import { THEME_STORAGE_KEY } from "../../constants";
-import { ThemeEnum } from "../../enums";
-
-import type { ThemeNameType } from "../../type";
+import type { ThemeNameType } from "@/app/domain";
 
 /**
- * Utilidad para la gestión y resolución del tema visual (Light/Dark).
- * * @description
- * Esta clase centraliza la lógica de detección de preferencias del sistema,
- * persistencia en almacenamiento local y resolución de objetos de estilo.
- * * @version 1.1.0
+ * @class ThemeUtil
+ * @description Utilidad para la gestión de temas cumpliendo reglas estrictas de ESLint.
+ * @version 1.2.2
  */
 export class ThemeUtil {
   /**
-   * Detecta el tema preferido configurado en el sistema operativo del usuario.
-   * * @private
-   * @returns {ThemeNameType} "dark" si el sistema está en modo oscuro, de lo contrario "light".
+   * @description
+   * Type Guard para verificar si un string es un ThemeNameType válido.
+   * Esto elimina la necesidad de usar 'as' (Type Assertion).
+   * @private
+   */
+  private isThemeName(value: string | null): value is ThemeNameType {
+    if (value === null) {
+      return false;
+    }
+    const validThemes: string[] = Object.values(ThemeEnum);
+    return validThemes.includes(value);
+  }
+
+  /**
+   * @description
+   * Detecta la preferencia de color del sistema operativo.
+   * @private
    */
   private getSystemTheme(): ThemeNameType {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? ThemeEnum.DARK
-      : ThemeEnum.LIGHT;
+    if (typeof window === "undefined") {
+      return ThemeEnum.LIGHT;
+    }
+
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    return isDarkMode ? ThemeEnum.DARK : ThemeEnum.LIGHT;
   }
 
   /**
-   * Recupera el tema guardado en el almacenamiento local.
-   * * @private
-   * @returns {ThemeNameType | null} El tema guardado o null si no existe o no es válido.
+   * @description
+   * Recupera el tema almacenado validando explícitamente casos nullish.
+   * @private
    */
   private getStoredTheme(): ThemeNameType | null {
+    if (typeof window === "undefined") {
+      return null;
+    }
+
     const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-    return storedTheme === ThemeEnum.LIGHT || storedTheme === ThemeEnum.DARK
-      ? storedTheme
-      : null;
+
+    if (this.isThemeName(storedTheme)) {
+      return storedTheme;
+    }
+
+    return null;
   }
 
   /**
-   * Resuelve el tema inicial que debe aplicar la aplicación al cargar.
-   * * @description
-   * Aplica la siguiente prioridad:
-   * 1. Preferencia guardada por el usuario en `localStorage`.
-   * 2. Preferencia del sistema operativo mediante `matchMedia`.
-   * * @returns {ThemeNameType} Nombre del tema resultante.
-   * @example
-   * const initialThemeName = themeUtil.resolveInitialTheme();
+   * @description
+   * Determina el tema inicial.
    */
   public resolveInitialTheme(): ThemeNameType {
-    return this.getStoredTheme() ?? this.getSystemTheme();
+    const stored = this.getStoredTheme();
+    return stored !== null ? stored : this.getSystemTheme();
   }
 
   /**
-   * Retorna el objeto de configuración del tema basado en su nombre.
-   * * @param {ThemeNameType} themeName - Nombre del tema ("light" | "dark").
-   * @returns {typeof darkTheme} Objeto de tema importado de los assets.
+   * @description
+   * Resuelve el objeto de configuración basado en el nombre del tema.
    */
   public resolveThemeConfig(themeName: ThemeNameType): typeof darkTheme {
-    // <--- Tipo de retorno añadido
-    return themeName === ThemeEnum.DARK ? darkTheme : lightTheme;
+    const configMap: Record<ThemeNameType, typeof darkTheme> = {
+      [ThemeEnum.LIGHT]: lightTheme,
+      [ThemeEnum.DARK]: darkTheme,
+      [ThemeEnum.EMERALD]: emeraldTheme,
+    };
+
+    return configMap[themeName];
   }
 
   /**
-   * Persiste la elección del tema en el almacenamiento local.
-   * * @param {ThemeNameType} themeName - El tema a guardar.
+   * @description
+   * Guarda la elección del tema.
    */
   public saveTheme(themeName: ThemeNameType): void {
-    localStorage.setItem(THEME_STORAGE_KEY, themeName);
+    if (typeof window !== "undefined") {
+      localStorage.setItem(THEME_STORAGE_KEY, themeName);
+    }
+  }
+
+  /**
+   * @description
+   * Retorna la llave para internacionalización.
+   */
+  public getThemeLabelKey(themeName: ThemeNameType): string {
+    return `theme.${themeName}`;
   }
 }
 

@@ -21,6 +21,7 @@ import type { JSX } from "react";
  * @param {object} props.theme Tema actual / Current theme
  * @param {(text: string) => string} props.translate Función de traducción / Translation function
  * @returns {JSX.Element} Slide del carrusel / Carousel slide
+ * @version 1.0.1
  */
 const SlideComponent = ({
   item,
@@ -34,26 +35,21 @@ const SlideComponent = ({
    * @returns {object} Objetos con propiedades de animación
    */
   const variants = {
-    enter: (dir: number): { x: string; opacity: number } => ({
-      x: dir > 0 ? "100%" : "-100%",
+    enter: (dir: number): { x: string; opacity: number; filter: string } => ({
+      x: dir > 0 ? "15%" : "-15%",
       opacity: 0,
+      filter: "blur(5px)",
     }),
     center: {
       x: 0,
       opacity: 1,
+      filter: "blur(0px)",
     },
-    exit: (dir: number): { x: string; opacity: number } => ({
-      x: dir > 0 ? "-100%" : "100%",
+    exit: (dir: number): { x: string; opacity: number; filter: string } => ({
+      x: dir > 0 ? "-15%" : "15%",
       opacity: 0,
+      filter: "blur(5px)",
     }),
-  };
-
-  /**
-   * @description Calcula la altura de la imagen, manejando valores null o undefined
-   * @returns {string} Altura de la imagen
-   */
-  const getImageHeight = (): string => {
-    return item.imageHeight ?? "auto";
   };
 
   return (
@@ -64,33 +60,50 @@ const SlideComponent = ({
       animate="center"
       exit="exit"
       transition={{
-        x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.3 },
+        x: { type: "spring", stiffness: 200, damping: 25 },
+        opacity: { duration: 0.4 },
       }}
-      className="absolute inset-0 w-full min-h-[400px] md:min-h-[300px] flex flex-col md:flex-row items-center justify-center gap-6"
+      className="absolute inset-0 w-full h-full flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 px-6 md:px-20 py-8 md:py-10 overflow-hidden"
     >
-      <div className="w-full md:w-1/2 flex justify-center">
-        <img
-          src={item.image}
-          alt={translate(item.title)}
-          className="w-full max-w-md h-auto object-cover rounded-lg shadow-lg"
-          style={{ height: getImageHeight() }}
-        />
+      <div className="w-full md:w-1/2 flex items-center justify-center flex-shrink-1">
+        <div className="relative w-full flex items-center justify-center">
+          <img
+            src={item.image}
+            alt={translate(item.title)}
+            className="max-w-full h-auto object-contain rounded-xl drop-shadow-2xl"
+            style={{
+              maxHeight: item.imageHeight ?? "250px",
+              filter: `drop-shadow(0 10px 20px ${theme.colors.primary}22)`,
+            }}
+          />
+        </div>
       </div>
-      <div className="w-full md:w-1/2 text-center md:text-left flex flex-col">
+
+      <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
         <h3
-          className="text-2xl md:text-3xl font-bold mb-4 break-words"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 leading-tight tracking-tight"
           style={{ color: theme.colors.text }}
         >
           {translate(item.title)}
         </h3>
 
         <p
-          className="text-sm sm:text-base md:text-lg text-justify leading-relaxed"
-          style={{ color: theme.colors.textSecondary }}
+          className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed opacity-90"
+          style={{
+            color: theme.colors.textSecondary,
+            textAlign: "justify",
+            hyphens: "auto",
+          }}
         >
           {translate(item.description)}
         </p>
+
+        <div className="mt-6 flex justify-center md:justify-start">
+          <div
+            className="h-1.5 w-16 rounded-full"
+            style={{ backgroundColor: theme.colors.primary }}
+          />
+        </div>
       </div>
     </motion.div>
   );

@@ -20,7 +20,6 @@ const BannerImageComponent: React.FC<IBannerImage> = ({
 }) => {
   const imageWidthMobile = "14rem";
   const imageHeightMobile = "14rem";
-  const shadowStyle = "0 20px 50px rgba(0,0,0,0.3)";
   const blurBackgroundInset = "-1rem";
   const animationDistance = 10;
   const animationDuration = 6;
@@ -51,7 +50,6 @@ const BannerImageComponent: React.FC<IBannerImage> = ({
             height: imageHeightMobile,
             maxWidth: "100%",
             objectFit: "contain",
-            boxShadow: shadowStyle,
           }}
           className="md:w-[18rem] md:h-[18rem] group-hover:scale-110 transition-transform duration-500"
         />

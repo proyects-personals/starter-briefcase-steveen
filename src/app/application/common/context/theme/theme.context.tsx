@@ -1,7 +1,6 @@
 import { useEffect, useState, type JSX } from "react";
 
 import {
-  THEME_STORAGE_KEY,
   ThemeContext,
   themeUtil,
   type IChildren,
@@ -9,38 +8,54 @@ import {
 } from "@domain";
 
 /**
- * @description Proveedor de contexto de tema.
- *              Expone el tema actual, su nombre y una función para cambiarlo.
- *
- * @param {ThemeProviderProps} props Props del proveedor
- * @returns {JSX.Element} Proveedor de contexto de tema
+ * @component ThemeProvider
+ * @description Proveedor de contexto que gestiona el estado global del tema visual.
+ * Soporta múltiples temas (Light, Dark, Emerald, etc.) y persiste la elección en LocalStorage.
+ * @param {IChildren} props - Componentes hijos.
+ * @returns {JSX.Element} Provider con el estado del tema sincronizado.
+ * @version 1.2.1
+ * @author Steveen Cues
  */
 export function ThemeProvider({ children }: IChildren): JSX.Element {
-  const [ThemeNameType, setThemeNameType] = useState<ThemeNameType>(
+  /**
+   * @description
+   * Inicializa el estado recuperando la preferencia guardada o detectando el sistema.
+   * La lógica de resolución reside en themeUtil para mantener el componente limpio.
+   */
+  const [themeName, setThemeName] = useState<ThemeNameType>(() =>
     themeUtil.resolveInitialTheme(),
   );
 
   /**
-   * @description Persiste el tema seleccionado en localStorage
-   *              cada vez que cambia.
+   * @description Sincronización con el almacenamiento local.
+   * Cada vez que el usuario cambia el tema, se actualiza automáticamente la Storage.
    */
-  useEffect(() => {
-    localStorage.setItem(THEME_STORAGE_KEY, ThemeNameType);
-  }, [ThemeNameType]);
+  useEffect((): void => {
+    themeUtil.saveTheme(themeName);
+    document.body.setAttribute("data-theme", themeName);
+  }, [themeName]);
 
   /**
-   * @description Cambia el tema de la aplicación.
-   * @param {ThemeNameType} newTheme Nuevo tema a aplicar
+   * @description Actualiza el nombre del tema activo.
+   * @param {ThemeNameType} newTheme - Identificador del nuevo tema.
    */
   const setTheme = (newTheme: ThemeNameType): void => {
-    setThemeNameType(newTheme);
+    setThemeName(newTheme);
   };
 
-  const theme = themeUtil.resolveThemeConfig(ThemeNameType);
+  /**
+   * @description
+   * Obtiene el objeto de configuración (colores, sombras, etc.) basado en el nombre actual.
+   */
+  const theme = themeUtil.resolveThemeConfig(themeName);
 
   return (
     <ThemeContext.Provider
-      value={{ theme, themeName: ThemeNameType, setTheme }}
+      value={{
+        theme,
+        themeName,
+        setTheme,
+      }}
     >
       {children}
     </ThemeContext.Provider>

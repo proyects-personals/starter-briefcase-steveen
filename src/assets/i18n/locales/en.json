@@ -1,78 +1,83 @@
 {
   "briefcase": {
     "page": {
-      "title": "Steveen Ordoñez Portfolio",
-      "description": "page initial"
+      "title": "Steveen Ordoñez | Software Engineer Portfolio",
+      "description": "Explora mi trayectoria profesional, proyectos innovadores y soluciones digitales."
     }
   },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "emerald": "Emerald"
+  },
   "notFound": {
-    "title": "404",
-    "message": "Sorry, the page you are looking for does not exist or was moved.",
-    "back": "Back to home"
+    "title": "404 - Page Not Found",
+    "message": "Ops! The page you are looking for doesn't exist or has been moved to a new galaxy.",
+    "back": "Return to Safety"
   },
   "footer": {
     "rights": "All rights reserved.",
-    "description": "Desarrollada por Steveen Cues.",
+    "description": "Crafted with passion and code by Steveen Cues.",
     "privacyPolicy": "Privacy Policy",
     "terms": "Terms of Service",
     "cookies": "Cookie Policy"
   },
   "login": {
-    "button": "Login",
-    "logout": "Logout"
+    "button": "Sign In",
+    "logout": "Sign Out"
   },
   "register": {
-    "button": "Register"
+    "button": "Create Account"
   },
   "welcome": {
-    "button": "Welcome",
+    "button": "Get Started",
     "title": "Welcome to my portfolio",
-    "subtitle": "Hello, I'm Steveen Ordoñez",
-    "description": "I am a Software Engineer and Software Development Technologist with a strong passion for technology, music, and art. I excel at exploring new trends, creating innovative digital solutions, and merging creativity with code to develop unique, engaging, and user-centered experiences. With a solid technical foundation and a creative mindset, I contribute from both functional and artistic perspectives, delivering scalable, high-impact results across diverse development environments.",
-    "buttonDownloadCV": "Download CV",
-    "work_experience": "Work Experience",
-    "my_projects": "My projects",
-    "my_studies": "My studies and certificates",
-    "github_nuances": "Github nuances",
-    "contact_me": "Contact me"
+    "subtitle": "Hi, I'm Steveen Ordoñez",
+    "description": "Software Engineer & Tech Enthusiast. I specialize in bridging the gap between complex technical requirements and intuitive user experiences. With a background in Software Engineering and a deep passion for Data Science and DevOps, I build scalable, high-impact digital products. My approach combines clean architecture, creative problem-solving, and a focus on delivering measurable results.",
+    "buttonDownloadCV": "Download Resume",
+    "work_experience": "Professional Journey",
+    "my_projects": "Featured Projects",
+    "my_studies": "Education & Certifications",
+    "github_nuances": "Development Insights",
+    "contact_me": "Let's Connect"
   },
   "header": {
     "home": "Home",
-    "logo_ccm": "Chamber of Commerce Logo",
-    "logo_ecuador": "Ecuador Fest Logo"
+    "logo_ccm": "Chamber of Commerce",
+    "logo_ecuador": "Ecuador Fest"
   },
   "user": {
-    "role": "Role",
-    "undefined": "Unknown User"
+    "role": "Position",
+    "undefined": "Guest User"
   },
   "nav": {
     "bienvenidos": "Welcome",
-    "briefcase": "Briefcase",
+    "briefcase": "Portfolio",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "instagram": "Instagram",
     "home": "Home",
-    "agenda-activities": "Agenda of Activities",
-    "discover-ecuador-travel": "Discover Ecuador Travel",
+    "agenda-activities": "Agenda",
+    "discover-ecuador-travel": "Travel Ecuador",
     "catalog": "Catalog",
-    "commercial-proposal": "Commercial Proposal",
-    "packages": "Packages",
-    "contact": "Contact Us"
+    "commercial-proposal": "Proposal",
+    "packages": "Services",
+    "contact": "Contact"
   },
   "components": {
     "ui": {
       "carousel": {
-        "previous_slide": "Previous Slide",
-        "next_slide": "Next Slide",
-        "go_to_slide": "Go to Slide"
+        "previous_slide": "Previous",
+        "next_slide": "Next",
+        "go_to_slide": "Slide"
       },
       "banner": {
-        "view_page": "View Page"
+        "view_page": "Explore Now"
       },
       "card": {
         "card-action": {
-          "visit": "Visit",
-          "view_code": "View code"
+          "visit": "Live Demo",
+          "view_code": "Source Code"
         }
       }
     }
@@ -80,154 +85,149 @@
   "pages": {
     "component": {
       "matrics": {
-        "subtitle": "GitHub metrics for",
-        "commits": "Commits",
+        "subtitle": "Open Source Contributions for",
+        "commits": "Total Commits",
         "prs": "Pull Requests",
-        "repos": "Repositories",
-        "issues": "Issues",
-        "stars": "Stars",
-        "top-repos": "Top 5 repositories",
-        "top_languages": "The 3 most popular programming languages"
+        "repos": "Public Projects",
+        "issues": "Solved Issues",
+        "stars": "Stars Earned",
+        "top-repos": "Top 5 Repositories",
+        "top_languages": "Core Tech Stack"
       }
     }
   },
   "work_experience": {
     "jetmind": {
       "title": "Jetmind Corporation",
-      "description": "At Jetmind Corporation, I worked as a software engineer for over a year and a half, developing web and mobile applications successfully deployed to production. I worked with technologies such as React, React Native, Angular, Laravel, and AWS. My experience at Jetmind allowed me to apply an agile and collaborative approach, contributing to project success and optimizing performance with innovative and scalable solutions."
+      "description": "Led the development of high-performance web and mobile applications using React, React Native, and Angular. Integrated cloud solutions with AWS and optimized backend processes using Laravel. Focused on delivering production-ready features under agile methodologies, ensuring scalability and seamless user interfaces."
     },
     "madjs": {
-      "title": "MAD‑JS",
-      "description": "MAD‑JS is a software company I co-founded with a team of experts. We specialize in web and mobile applications, providing innovative and customized solutions. As a founder, I took roles in both frontend and backend, and led DevOps initiatives for efficient continuous integration processes and agile development cycles, optimizing time and quality in every project."
+      "title": "MAD‑JS (Co-Founder)",
+      "description": "Co-founded a software boutique focused on tailored digital solutions. I lead the full-stack architecture and DevOps strategies, implementing CI/CD pipelines to accelerate delivery cycles. My role involves transforming business ideas into robust technical products while mentoring the team on best practices."
     },
     "manticorelabs": {
       "title": "Manticore Labs",
-      "description": "At Manticore Labs, I worked as a frontend and backend software developer for one year, actively participating in innovative projects. I worked with technologies such as Angular and NestJS, using microservices-based architectures. I was part of agile teams and took on QA responsibilities in key projects like Bago and Mundo Venus, contributing to development and quality as a junior developer."
+      "description": "Full-stack developer focused on microservices architectures using Angular and NestJS. Contributed to the quality assurance and development of key platforms like Bago and Mundo Venus, ensuring high standards of performance and code reliability in a fast-paced environment."
     },
     "tcs": {
       "title": "TCS Consultancy Service",
-      "description": "At TCS Consulty Service, I worked on developing microservices-based applications using .NET and Angular, with MySQL databases. I designed layered hexagonal architectures, integrating components with Tailwind CSS and PrimeNG. I worked with Azure and actively participated in agile teams using Scrum methodology, optimizing the development cycle and ensuring quality in every project."
+      "description": "Developed enterprise-level applications using .NET and Angular with a focus on Hexagonal Architecture and Domain-Driven Design (DDD). Leveraged Azure cloud services and modern UI frameworks like Tailwind CSS and PrimeNG to build modular and maintainable systems under Scrum frameworks."
     }
   },
   "my_projects": {
     "portfolio": {
-      "name": "Portfolio",
-      "description": "My personal portfolio was built using various technologies to showcase my experience and features a responsive design."
+      "name": "Personal Portfolio",
+      "description": "A high-end showcase of my work, built with a focus on performance, OKLCH color spaces, and responsive design patterns."
     },
     "neuroniando": {
-      "name": "Neuroniando",
-      "description": "Neuroniando is an educational mobile application focused on learning through interactive games. On this project, I took an integral role, handling frontend development with modern technologies, implementing DevOps practices for continuous deployment and automation, and publishing and managing the app on the Google Play Store."
+      "name": "Neuroniando App",
+      "description": "An interactive educational platform designed to enhance learning through gamification. Managed the full lifecycle from frontend development to Google Play Store deployment, including automated DevOps workflows."
     },
     "neuroniandoWeb": {
-      "name": "Neuroniando Landing Page",
-      "description": "I participated in all phases of the project, from development to deployment, utilizing technologies like React and AWS to ensure its success. I contributed actively throughout to meet project objectives."
+      "name": "Neuroniando Ecosystem",
+      "description": "A comprehensive landing page built with React and AWS, designed to support the educational app with high availability and optimized SEO."
     },
     "pichinchaBank": {
-      "name": "Banco Pichincha Test App",
-      "description": "This application was developed as part of an internal testing environment for Banco Pichincha, using sandbox APIs. I implemented unit tests and system validations to ensure stability, functionality, and correct behavior across scenarios, reinforcing my ability to work in regulated environments."
+      "name": "Banking Fintech Sandbox",
+      "description": "An internal validation environment for Banco Pichincha. Implemented rigorous unit testing and security protocols to simulate real-world banking transactions using sandbox APIs."
     },
     "travelEcuador": {
-      "name": "Travel Ecuador",
-      "description": "I developed and deployed this project for the Ecuador Travel Fair, in coordination with the Ministry of Tourism of Ecuador. The solution was functional, attractive, and aligned with institutional objectives. I handled both development and production deployment, ensuring a timely and successful implementation."
+      "name": "Ecuador Travel Portal",
+      "description": "Official project for the Ecuador Travel Fair in collaboration with the Ministry of Tourism. Delivered a high-traffic, visually stunning solution to promote national tourism."
     },
     "southAmericanBank": {
-      "name": "South American Bank Template",
-      "description": "This was a design created for Banco Sudamericano, specified solely by HTML and CSS."
+      "name": "Banking Interface Concept",
+      "description": "A pixel-perfect UI/UX prototype for Banco Sudamericano, focusing on accessibility and modern CSS standards."
     },
     "linkage": {
-      "name": "Institutional Linkage",
-      "description": "I developed the institutional document management module as part of my graduation project at Instituto Yavirac. The system was built with Angular and PrimeNG, offering a modern, adaptive user interface focused on usability. Additional tools were integrated to ensure a scalable and efficient architecture that met both functional and technical requirements."
+      "name": "Institutional Management System",
+      "description": "A document management solution for Instituto Yavirac. Built with Angular and PrimeNG, it streamlined administrative workflows through an intuitive dashboard and scalable architecture."
     },
     "docsUnibe": {
-      "name": "Unibe Institutional Documents",
-      "description": "I developed this project using React for the frontend and Tailwind CSS for a modern, responsive design. It incorporated AWS services as part of its cloud infrastructure, enabling efficient resource management. It was deployed to production with CS2 and to testing environments with Netlify, and stress tests were conducted to ensure stability, performance, and scalability."
+      "name": "Unibe Cloud Docs",
+      "description": "Enterprise document management system featuring AWS infrastructure. Conducted extensive stress testing and performance tuning to ensure stability during peak usage."
     }
   },
   "my_education": {
     "unibe": {
       "ing": {
         "title": "Ibero-American University of Ecuador",
-        "description": "Software Engineering: Comprehensive training in application development, system analysis, and agile methodologies.",
-        "finalized": "Completed in May 2025"
+        "description": "Bachelor of Science in Software Engineering: Advanced training in system architecture, agile management, and full-stack development.",
+        "finalized": "May 2025"
       },
       "maestria": {
         "title": "Ibero-American University of Ecuador",
-        "description": "Master in Data Science and Big Data: Specialization in advanced analytics, predictive modeling, and machine learning.",
-        "finalized": "Ongoing"
+        "description": "Master in Data Science and Big Data: Specialized in predictive analytics, machine learning, and data-driven decision making.",
+        "finalized": "Currently Pursuing"
       }
     },
     "unir": {
       "maestria_devops": {
-        "title": "Unir",
-        "description": "Master in Software Development and Operations (DevOps): Automation, CI/CD, security, and pipeline optimization.",
-        "finalized": "Ongoing"
+        "title": "UNIR - Universidad en Internet",
+        "description": "Master in Software Development and Operations (DevOps): Expertise in automation, CI/CD, Infrastructure as Code (IaC), and cloud security.",
+        "finalized": "Currently Pursuing"
       }
     },
     "yavirac": {
       "tec": {
-        "title": "Yavirac Higher Technological Institute, Quito",
-        "description": "Technology in Software Development: Solid foundation in programming, databases, and agile software development.",
-        "finalized": "Completed in May 2023"
+        "title": "Yavirac Institute of Technology",
+        "description": "Associate Degree in Software Development: Fundamental training in database management and agile programming.",
+        "finalized": "May 2023"
       }
     },
     "udemy": {
       "angular_complete": {
-        "title": "Udemy",
-        "description": "Angular - The Complete Guide: Development of modern web applications using Angular.",
-        "finalized": "Completed in May 2026"
+        "title": "Professional Certifications",
+        "description": "Angular Masterclass: Advanced state management, RxJS, and performance optimization.",
+        "finalized": "May 2026"
       },
       "csharp_oop": {
-        "title": "Udemy",
-        "description": "Beginning Object-Oriented Programming with C#: Fundamentals of object-oriented programming with C#.",
-        "finalized": "Completed in May 2025"
-      },
-      "angular_basics": {
-        "title": "Udemy",
-        "description": "Angular Course: Learning component, service, and routing development.",
-        "finalized": "Completed in May 2025"
+        "title": "Professional Certifications",
+        "description": "Mastering Object-Oriented Programming with C# and .NET Core.",
+        "finalized": "May 2025"
       },
       "devops_ci_cd": {
-        "title": "Udemy",
-        "description": "DevOps CI/CD for Beginners: Continuous integration, automated deployment, and pipeline management.",
-        "finalized": "Completed in May 2025"
+        "title": "Professional Certifications",
+        "description": "DevOps Engineering: Automation, Jenkins, Docker, and Kubernetes pipelines.",
+        "finalized": "May 2025"
       },
       "aws_solutions": {
-        "title": "Udemy",
-        "description": "AWS Certified Solutions Architect - Professional: Cloud solution architecture in AWS and best practices.",
-        "finalized": "Completed in May 2025"
+        "title": "Professional Certifications",
+        "description": "AWS Certified Solutions Architect: Cloud infrastructure design and cost optimization.",
+        "finalized": "May 2025"
       }
     }
   },
   "form": {
-    "title": "Send me a message",
-    "subtitle": "Please fill out the form to get in touch.",
-    "name": "Name",
-    "namePlaceholder": "Enter your name...",
+    "title": "Get in Touch",
+    "subtitle": "Have a project in mind? Let's build something amazing together.",
+    "name": "Full Name",
+    "namePlaceholder": "e.g. John Doe",
     "email": "Email Address",
-    "emailPlaceholder": "you@email.com",
-    "message": "Message",
-    "messagePlaceholder": "How can I help you?",
+    "emailPlaceholder": "john@example.com",
+    "message": "Project Details",
+    "messagePlaceholder": "Tell me about your project or just say hi...",
     "send": "Send Message",
-    "sending": "Sending...",
-    "success_msg": "Message sent successfully!",
-    "error_msg": "Something went wrong. Please try again.",
+    "sending": "Deploying Message...",
+    "success_msg": "Message sent! I'll get back to you shortly.",
+    "error_msg": "Oops! Something went wrong. Please try again.",
     "errors": {
       "name_min": "Name must be at least 3 characters",
-      "name_required": "Name is required",
-      "email_invalid": "Enter a valid email address",
-      "email_required": "Email is required",
-      "message_min": "Message must be at least 10 characters",
-      "message_required": "Message cannot be empty"
+      "name_required": "Please let me know your name",
+      "email_invalid": "Please provide a valid email address",
+      "email_required": "Email is required to reply",
+      "message_min": "Tell me a bit more (min. 10 characters)",
+      "message_required": "Don't leave the message empty!"
     }
   },
   "contactUs": {
-    "title": "Let's Talk",
-    "description": "If you have a project in mind or just want to say hi, my inbox is always open."
+    "title": "Let's Talk Business",
+    "description": "Whether you have a question or a proposal, I'm just a message away."
   },
   "contactMe": {
-    "title": "Contact Information",
+    "title": "Contact Details",
     "email": "Email",
-    "phone": "Phone",
-    "linkedin": "LinkedIn"
+    "phone": "WhatsApp / Phone",
+    "linkedin": "LinkedIn Profile"
   }
 }
