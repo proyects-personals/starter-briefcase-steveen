@@ -1,78 +1,78 @@
 {
   "briefcase": {
     "page": {
-      "title": "Portafolio Steveen Ordoñez",
-      "description": "page initial"
+      "title": "Steveen Ordoñez | Portafolio Profesional",
+      "description": "Explora mi trayectoria como Ingeniero de Software, mis proyectos destacados y mi especialización en Data Science y DevOps."
     }
   },
   "notFound": {
-    "title": "404",
-    "message": "Lo sentimos, la página que buscas no existe o fue movida.",
+    "title": "404 - Página no encontrada",
+    "message": "Lo sentimos, la página que buscas no existe o ha sido movida a otra ruta.",
     "back": "Volver al inicio"
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
-    "description": "Desarrollado por Steveen Cues.",
+    "description": "Diseñado y desarrollado con pasión por Steveen Cues.",
     "privacyPolicy": "Política de Privacidad",
     "terms": "Términos de Servicio",
     "cookies": "Política de Cookies"
   },
   "login": {
-    "button": "Iniciar sesión",
-    "logout": "Salir"
+    "button": "Iniciar Sesión",
+    "logout": "Cerrar Sesión"
   },
   "register": {
     "button": "Registrarse"
   },
   "welcome": {
-    "button": "Bienvenido",
+    "button": "Comenzar",
     "title": "Bienvenido a mi portafolio",
     "subtitle": "Hola, soy Steveen Ordoñez",
-    "description": "Soy Ingeniero en Software y Tecnólogo en Desarrollo de Software, con una gran pasión por la tecnología, la música y el arte. Experto en explorar nuevas tendencias, crear soluciones digitales innovadoras y fusionar creatividad y código para desarrollar experiencias únicas, atractivas y centradas en el usuario. Con una sólida base técnica y una mentalidad creativa, aporto desde perspectivas tanto funcionales como artísticas, generando resultados escalables y de alto impacto en diversos entornos de desarrollo.",
+    "description": "Ingeniero de Software apasionado por transformar ideas complejas en soluciones digitales de alto impacto. Mi enfoque fusiona la rigurosidad técnica con la creatividad artística, permitiéndome desarrollar experiencias de usuario únicas y escalables. Actualmente especializado en Ciencia de Datos y DevOps, busco optimizar procesos y generar valor a través de código limpio, arquitectura sólida y tecnologías de vanguardia.",
     "buttonDownloadCV": "Descargar CV",
-    "work_experience": "Experiencia Laboral",
-    "my_projects": "Mis Proyectos",
-    "my_studies": "Mis estudios y certificados",
-    "github_nuances": "Métricas de Github",
+    "work_experience": "Experiencia Profesional",
+    "my_projects": "Proyectos Destacados",
+    "my_studies": "Formación y Certificaciones",
+    "github_nuances": "Actividad en GitHub",
     "contact_me": "Contáctame"
   },
   "header": {
     "home": "Inicio",
-    "logo_ccm": "Logo Cámara de Comercio",
-    "logo_ecuador": "Logo Ecuador Fest"
+    "logo_ccm": "Cámara de Comercio",
+    "logo_ecuador": "Ecuador Fest"
   },
   "user": {
-    "role": "Rol",
-    "undefined": "Usuario Desconocido"
+    "role": "Cargo",
+    "undefined": "Usuario Invitado"
   },
   "nav": {
-    "bienvenidos": "Bienvenidos",
+    "bienvenidos": "Inicio",
     "briefcase": "Portafolio",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "instagram": "Instagram",
     "home": "Inicio",
-    "agenda-activities": "Agenda de Actividades",
-    "discover-ecuador-travel": "Conoce Ecuador Travel",
+    "agenda-activities": "Agenda",
+    "discover-ecuador-travel": "Travel Ecuador",
     "catalog": "Catálogo",
-    "commercial-proposal": "Propuesta Comercial",
-    "packages": "Paquetes",
-    "contact": "Contáctanos"
+    "commercial-proposal": "Propuesta",
+    "packages": "Servicios",
+    "contact": "Contacto"
   },
   "components": {
     "ui": {
       "carousel": {
-        "previous_slide": "Anterior slide",
-        "next_slide": "Siguiente slide",
-        "go_to_slide": "Ir al slide"
+        "previous_slide": "Anterior",
+        "next_slide": "Siguiente",
+        "go_to_slide": "Ir a slide"
       },
       "banner": {
-        "view_page": "Ver página"
+        "view_page": "Explorar"
       },
       "card": {
         "card-action": {
-          "visit": "Visitar",
-          "view_code": "Ver código"
+          "visit": "Ver Demo",
+          "view_code": "Repositorio"
         }
       }
     }
@@ -80,154 +80,149 @@
   "pages": {
     "component": {
       "matrics": {
-        "subtitle": "Métricas de GitHub para",
+        "subtitle": "Contribuciones y métricas en",
         "commits": "Commits",
         "prs": "Pull Requests",
         "repos": "Repositorios",
-        "issues": "Issues",
+        "issues": "Issues Resueltos",
         "stars": "Estrellas",
-        "top-repos": "Los 5 mejores repositorio",
-        "top_languages": "Los 3 lenguajes de programación más populares"
+        "top-repos": "Proyectos con mayor impacto",
+        "top_languages": "Tecnologías predominantes"
       }
     }
   },
   "work_experience": {
     "jetmind": {
-      "title": "Corporacion Jetmind",
-      "description": "En la Corporacion Jetmind, desempeñe el rol de ingeniero de software durante más de un año y medio, desarrollando aplicaciones web y móviles llevadas exitosamente a producción. Trabaje con tecnologías como React, React Native, Angular, Laravel y AWS. Mi experiencia en Jetmind me permitió aplicar un enfoque ágil y colaborativo, contribuyendo al éxito de proyectos y optimizando el rendimiento con soluciones innovadoras y escalables."
+      "title": "Jetmind Corporation",
+      "description": "Lideré el desarrollo de soluciones web y móviles de alto rendimiento utilizando React y Angular. Implementé arquitecturas escalables en la nube con AWS y optimicé el backend mediante Laravel. Mi enfoque se centró en la entrega continua bajo metodologías ágiles, garantizando productos estables y exitosos en entornos de producción."
     },
     "madjs": {
-      "title": "MAD‑JS",
-      "description": "MAD‑JS es una empresa de software que fundé junto a un equipo de expertos. Nos especializamos en aplicaciones web y móviles, brindando soluciones innovadoras y personalizadas. Como fundador, asumí roles en frontend y backend, además de liderar iniciativas en DevOps para procesos de integración continua eficientes y un ciclo de desarrollo ágil, optimizando tiempo y calidad en cada proyecto."
+      "title": "MAD‑JS (Co-Fundador)",
+      "description": "Como co-fundador, dirijo la arquitectura técnica de proyectos full-stack y lidero las estrategias de DevOps. Implemento procesos de CI/CD para optimizar los ciclos de desarrollo y asegurar la máxima calidad en soluciones personalizadas para nuestros clientes, fusionando innovación tecnológica con visión de negocio."
     },
     "manticorelabs": {
       "title": "Manticore Labs",
-      "description": "En Manticore Labs, desempeñé el rol de desarrollador de software en frontend y backend durante un año, participando activamente en proyectos innovadores. Trabajé con Angular y NestJS, usando arquitecturas basadas en microservicios. Formé parte de equipos ágiles y asumí responsabilidades de QA en proyectos clave como Bago y Mundo Venus, contribuyendo al desarrollo y a la calidad como desarrollador junior."
+      "description": "Desarrollador Full-stack especializado en arquitecturas de microservicios con Angular y NestJS. Participé activamente en la implementación de plataformas clave y asumí responsabilidades de QA, asegurando la robustez y calidad de software en proyectos de gran escala."
     },
     "tcs": {
       "title": "TCS Consultancy Service",
-      "description": "En TCS Consultancy Service, trabajé en el desarrollo de aplicaciones basadas en microservicios utilizando .NET y Angular, con bases de datos MySQL. Diseñé arquitecturas hexagonales por capas, integrando componentes con Tailwind CSS y PrimeNG. Trabajé con Azure y participé activamente en equipos ágiles bajo metodología Scrum, optimizando el ciclo de desarrollo y asegurando calidad en cada proyecto."
+      "description": "Diseñé e implementé aplicaciones empresariales bajo Arquitectura Hexagonal utilizando .NET y Angular. Integré servicios de Azure y utilicé Tailwind CSS con PrimeNG para crear interfaces modulares. Trabajé en equipos Scrum de alto desempeño, optimizando el ciclo de vida del software."
     }
   },
   "my_projects": {
     "portfolio": {
-      "name": "Portafolio",
-      "description": "Mi portafolio personal fue realizado con diversas tecnologías para mostrar mi experiencia, además de contar con un diseño responsive."
+      "name": "Portafolio Personal",
+      "description": "Plataforma diseñada para exhibir mi trayectoria, optimizada para rendimiento y accesibilidad, utilizando estándares modernos de diseño."
     },
     "neuroniando": {
-      "name": "Neuroniando",
-      "description": "Neuroniando es una aplicación móvil educativa centrada en el aprendizaje mediante juegos interactivos. En este proyecto asumí un rol integral, desarrollando el frontend con tecnologías modernas, gestionando prácticas DevOps para despliegue continuo y automatización, además de publicar y gestionar la app en Google Play Store."
+      "name": "Neuroniando App",
+      "description": "Ecosistema educativo móvil basado en gamificación. Lideré el desarrollo frontend y la automatización de despliegues (DevOps) hasta su publicación exitosa en Google Play Store."
     },
     "neuroniandoWeb": {
-      "name": "Neuroniando landing page",
-      "description": "Participé en todas las etapas del proyecto, desde desarrollo hasta despliegue, utilizando tecnologías como React y AWS para garantizar su éxito. Contribuí activamente en cada fase del proceso para alcanzar los objetivos propuestos."
+      "name": "Neuroniando Landing",
+      "description": "Sitio web corporativo desarrollado con React y AWS, enfocado en la conversión de usuarios y alta disponibilidad de servicios."
     },
     "pichinchaBank": {
-      "name": "App de prueba Banco Pichincha",
-      "description": "Esta aplicación se desarrolló como parte de un entorno de pruebas internas para el Banco Pichincha, usando APIs de prueba. Implementé pruebas unitarias y validaciones del sistema para asegurar estabilidad, funcionalidad y comportamiento adecuado en distintos escenarios, fortaleciendo mi capacidad para trabajar en entornos regulados."
+      "name": "Sandbox Financiero",
+      "description": "Entorno de pruebas bancarias para validación de flujos financieros y seguridad. Implementé pruebas unitarias rigurosas y simulaciones de APIs en entornos regulados."
     },
     "travelEcuador": {
-      "name": "Travel Ecuador",
-      "description": "Desarrollé y desplegué este proyecto para la Feria Ecuador Travel, en coordinación con el Ministerio de Turismo de Ecuador. La solución tecnológica fue funcional, atractiva y alineada con los objetivos institucionales. Me encargué del desarrollo y despliegue en producción, garantizando una implementación oportuna y exitosa."
+      "name": "Portal Ecuador Travel",
+      "description": "Desarrollo tecnológico para la Feria Ecuador Travel en colaboración con el Ministerio de Turismo, logrando una interfaz atractiva y funcional para la promoción turística nacional."
     },
     "southAmericanBank": {
-      "name": "Plantilla Banco Sudamericano",
-      "description": "Este fue un diseño realizado para el Banco Sudamericano, especificado únicamente en HTML y CSS."
+      "name": "Banking Design Concept",
+      "description": "Prototipo de interfaz bancaria moderna, enfocada en la experiencia de usuario y maquetación avanzada con CSS puro."
     },
     "linkage": {
-      "name": "Vinculación con la Sociedad",
-      "description": "Desarrollé el módulo de gestión documental institucional como parte de mi proyecto de grado en el Instituto Yavirac. El sistema se construyó con Angular y PrimeNG, ofreciendo una interfaz moderna y adaptativa, centrada en la usabilidad. Se integraron herramientas adicionales para garantizar una arquitectura escalable y eficiente, cumpliendo requisitos funcionales y técnicos."
+      "name": "Gestión Documental I.Y.",
+      "description": "Sistema administrativo para la gestión de documentos institucionales. Desarrollado con Angular, centrado en la usabilidad y la escalabilidad de procesos internos."
     },
     "docsUnibe": {
-      "name": "Documentos institucionales de Unibe",
-      "description": "Desarrollé este proyecto con React en el frontend y Tailwind CSS para un diseño moderno y responsive. Incorporó servicios de AWS como parte de la infraestructura en la nube, permitiendo una gestión eficiente de recursos. Se implementó en producción con CS2 y en pruebas con Netlify, y se realizaron pruebas de carga para asegurar estabilidad, rendimiento y escalabilidad."
+      "name": "Cloud Docs Unibe",
+      "description": "Plataforma de gestión de documentos en la nube integrada con AWS. Realicé pruebas de carga y estrés para garantizar la estabilidad del sistema bajo alta demanda."
     }
   },
   "my_education": {
     "unibe": {
       "ing": {
         "title": "Universidad Iberoamericana del Ecuador",
-        "description": "Ingeniería en Software: Formación integral en desarrollo de aplicaciones, análisis de sistemas y metodologías ágiles.",
+        "description": "Ingeniería en Software: Especialización en arquitectura de sistemas, gestión ágil y desarrollo full-stack.",
         "finalized": "Finalizado en Mayo 2025"
       },
       "maestria": {
         "title": "Universidad Iberoamericana del Ecuador",
-        "description": "Maestría en Ciencia de Datos y Big Data: Especialización en análisis avanzado, modelado predictivo y machine learning.",
-        "finalized": "Cursando"
+        "description": "Maestría en Ciencia de Datos y Big Data: Análisis predictivo, modelos de Machine Learning y procesamiento de datos masivos.",
+        "finalized": "Actualmente Cursando"
       }
     },
     "unir": {
       "maestria_devops": {
-        "title": "Unir",
-        "description": "Maestría en Desarrollo y Operaciones de Software (DevOps): Automatización, CI/CD, seguridad y optimización de pipelines.",
-        "finalized": "Cursando"
+        "title": "UNIR - Universidad Internacional de La Rioja",
+        "description": "Maestría en Desarrollo y Operaciones (DevOps): Automatización total, infraestructura como código (IaC) y seguridad en la nube.",
+        "finalized": "Actualmente Cursando"
       }
     },
     "yavirac": {
       "tec": {
-        "title": "Instituto Superior Tecnológico Yavirac Quito",
-        "description": "Tecnología en Desarrollo de Software: Bases sólidas en programación, bases de datos, y desarrollo de software ágil.",
+        "title": "Instituto Superior Tecnológico Yavirac",
+        "description": "Tecnología en Desarrollo de Software: Bases técnicas sólidas en algoritmos, bases de datos y metodologías de desarrollo.",
         "finalized": "Finalizado en Mayo 2023"
       }
     },
     "udemy": {
       "angular_complete": {
-        "title": "Udemy",
-        "description": "Angular - The Complete Guide: Desarrollo de aplicaciones web modernas con Angular.",
+        "title": "Especialización Angular",
+        "description": "Guía completa de Angular: Gestión de estado, RxJS y optimización de rendimiento frontend.",
         "finalized": "Finalizado en Mayo 2026"
       },
       "csharp_oop": {
-        "title": "Udemy",
-        "description": "Beginning Object-oriented Programming with C#: Fundamentos de programación orientada a objetos con C#.",
-        "finalized": "Finalizado en Mayo 2025"
-      },
-      "angular_basics": {
-        "title": "Udemy",
-        "description": "Curso de Angular: Aprendizaje de desarrollo de componentes, servicios y rutas.",
+        "title": "POO con C#",
+        "description": "Dominio de Programación Orientada a Objetos y patrones de diseño en el ecosistema .NET.",
         "finalized": "Finalizado en Mayo 2025"
       },
       "devops_ci_cd": {
-        "title": "Udemy",
-        "description": "DevOps CI/CD for Beginners: Integración continua, despliegue automatizado y gestión de pipelines.",
+        "title": "DevOps & CI/CD",
+        "description": "Implementación de pipelines automatizados, contenedores con Docker y orquestación.",
         "finalized": "Finalizado en Mayo 2025"
       },
       "aws_solutions": {
-        "title": "Udemy",
-        "description": "AWS Certified Solutions Architect - Professional: Arquitectura de soluciones cloud en AWS y mejores prácticas.",
+        "title": "AWS Solutions Architect",
+        "description": "Arquitectura profesional en la nube de Amazon y mejores prácticas de seguridad y costos.",
         "finalized": "Finalizado en Mayo 2025"
       }
     }
   },
   "form": {
-    "title": "Envíame un mensaje",
-    "subtitle": "Complete el formulario para ponernos en contacto.",
-    "name": "Nombre",
-    "namePlaceholder": "Escribe tu nombre...",
-    "email": "Correo Electrónico",
+    "title": "¿Tienes un proyecto en mente?",
+    "subtitle": "Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos tecnológicos.",
+    "name": "Nombre completo",
+    "namePlaceholder": "Ej. Steveen Ordoñez",
+    "email": "Correo electrónico",
     "emailPlaceholder": "tu@correo.com",
-    "message": "Mensaje",
-    "messagePlaceholder": "¿En qué puedo ayudarte?",
+    "message": "Detalles del proyecto",
+    "messagePlaceholder": "Cuéntame brevemente qué necesitas...",
     "send": "Enviar Mensaje",
-    "sending": "Enviando...",
-    "success_msg": "¡Mensaje enviado con éxito!",
-    "error_msg": "Hubo un error al enviar el mensaje.",
+    "sending": "Desplegando mensaje...",
+    "success_msg": "¡Mensaje enviado! Te responderé lo antes posible.",
+    "error_msg": "Lo siento, hubo un error. Por favor, intenta de nuevo.",
     "errors": {
-      "name_min": "El nombre debe tener al menos 3 caracteres",
-      "name_required": "El nombre es obligatorio",
-      "email_invalid": "Ingresa un correo electrónico válido",
-      "email_required": "El correo es obligatorio",
-      "message_min": "El mensaje debe tener al menos 10 caracteres",
+      "name_min": "El nombre es demasiado corto",
+      "name_required": "Por favor, dime quién escribe",
+      "email_invalid": "Introduce un correo válido",
+      "email_required": "Necesito tu correo para responderte",
+      "message_min": "Cuéntame un poco más (mínimo 10 caracteres)",
       "message_required": "El mensaje no puede estar vacío"
     }
   },
   "contactUs": {
-    "title": "Hablemos",
-    "description": "Si tienes un proyecto en mente o simplemente quieres saludar, mi bandeja de entrada siempre está abierta."
+    "title": "Conectemos",
+    "description": "Estoy disponible para nuevos proyectos, colaboraciones o consultas técnicas."
   },
   "contactMe": {
     "title": "Información de contacto",
-    "email": "Email",
-    "phone": "Teléfono",
-    "linkedin": "LinkedIn"
+    "email": "Correo",
+    "phone": "WhatsApp / Celular",
+    "linkedin": "Perfil Profesional"
   }
 }

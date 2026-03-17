@@ -1,32 +1,44 @@
-import React, { useState, useRef, useEffect } from "react";
-import { FaGlobe } from "react-icons/fa";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  useMemo,
+} from "react";
+import { FaGlobe, FaChevronDown } from "react-icons/fa";
 
 import { useLanguage, useTheme } from "@application";
-
-import type { ILanguageSwitcher, LanguageType } from "@domain";
+import { languages, type ILanguageSwitcher, type LanguageType } from "@domain";
 
 /**
- * Selector de idioma usando completamente el theme.
- * - Responsive y moderno.
- * - Hover y opción activa con colores del theme.
- * - Cierra al hacer clic afuera.
- * - Transiciones suaves y blur.
+ * @component LanguageSwitcherComponent
+ * @description Componente selector de idiomas de alto rendimiento.
+ * Ofrece una interfaz moderna con desenfoque de fondo (backdrop-blur),
+ * soporte para temas dinámicos y animaciones fluidas.
+ * @param {ILanguageSwitcher} props - Propiedades del componente.
+ * @param {string} [props.className] - Clases adicionales de Tailwind para posicionamiento.
+ * @returns {React.JSX.Element} Un selector de idiomas desplegable optimizado.
+ * @version 1.2.1
+ * @author Steveen Cues
  */
 const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
   className,
-}) => {
+}): React.JSX.Element => {
   const { language, changeTranslate } = useLanguage();
   const { theme } = useTheme();
 
   const [open, setOpen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const languages: LanguageType[] = ["es", "en"];
-
+  /**
+   * @method handleClickOutside
+   * @description Cierra el menú desplegable si el usuario hace clic fuera del contenedor.
+   * Se evita la aserción de tipo 'as Node' mediante validación directa de instancia.
+   * @returns {void}
+   */
   useEffect((): (() => void) => {
     const handleClickOutside = (event: MouseEvent): void => {
       const target = event.target;
-
       if (
         containerRef.current &&
         target instanceof Node &&
@@ -35,84 +47,117 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
         setOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-
     return (): void => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
-  const buttonStyle: React.CSSProperties = {
-    backgroundColor: `color-mix(in oklch, ${theme.colors.surface} 70%, transparent)`,
-    border: `1px solid ${theme.colors.border}`,
-    color: theme.colors.text,
-  };
+  /**
+   * @method handleLanguageChange
+   * @description Gestiona el cambio de idioma y cierra el menú.
+   * @param {LanguageType} lang - El código del idioma seleccionado (ISO 639-1).
+   * @returns {void}
+   */
+  const handleLanguageChange = useCallback(
+    (lang: LanguageType): void => {
+      if (lang !== language) {
+        changeTranslate(lang);
+      }
+      setOpen(false);
+    },
+    [language, changeTranslate],
+  );
 
-  const menuStyle: React.CSSProperties = {
-    backgroundColor: theme.colors.surface,
-    border: `1px solid ${theme.colors.border}`,
-    boxShadow: theme.shadow.md,
-  };
+  /**
+   * @description Estilos memorizados para el botón principal para evitar re-cálculos.
+   */
+  const buttonStyle = useMemo(
+    (): React.CSSProperties => ({
+      backgroundColor: `color-mix(in oklch, ${theme.colors.surface} 80%, transparent)`,
+      border: `1px solid ${theme.colors.border}`,
+      color: theme.colors.text,
+    }),
+    [theme.colors.surface, theme.colors.border, theme.colors.text],
+  );
 
-  const toggleMenu = (): void => {
-    setOpen((prev) => !prev);
-  };
-
-  const handleLanguageChange = (lang: LanguageType): void => {
-    changeTranslate(lang);
-    setOpen(false);
-  };
+  /**
+   * @description Estilos memorizados para el menú desplegable.
+   */
+  const menuStyle = useMemo(
+    (): React.CSSProperties => ({
+      backgroundColor: `color-mix(in oklch, ${theme.colors.surface} 95%, black)`,
+      border: `1px solid ${theme.colors.border}`,
+      boxShadow: theme.shadow.lg,
+    }),
+    [theme.colors.surface, theme.colors.border, theme.shadow.lg],
+  );
 
   return (
     <div className={`relative ${className ?? ""}`} ref={containerRef}>
       <button
-        onClick={toggleMenu}
-        className="
-          flex items-center gap-2 px-3 py-1.5 rounded-xl
-          backdrop-blur-md transition-all duration-300
-          hover:scale-105 hover:shadow-md
-          focus:outline-none focus:ring-2 focus:ring-offset-1
-        "
+        onClick={(): void => setOpen((prev) => !prev)}
+        className="group flex items-center gap-2 px-4 py-2 rounded-2xl backdrop-blur-xl transition-all duration-300 hover:shadow-lg active:scale-95"
         style={buttonStyle}
+        aria-expanded={open}
+        aria-haspopup="listbox"
       >
-        <FaGlobe className="opacity-80" />
-        <span className="text-sm sm:text-base font-medium uppercase">
+        <FaGlobe
+          className="transition-transform duration-500 group-hover:rotate-180"
+          style={{ color: theme.colors.primary }}
+        />
+        <span className="text-sm font-bold uppercase tracking-tighter">
           {language}
         </span>
+        <FaChevronDown
+          className={`text-[10px] opacity-50 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+        />
       </button>
 
       {open && (
         <ul
-          className="
-            absolute right-0 mt-2 w-28 sm:w-32 rounded-xl overflow-hidden
-            backdrop-blur-xl z-50
-            transition-all duration-300 ease-out origin-top-right
-          "
+          className="absolute right-0 mt-3 w-44 rounded-2xl overflow-hidden backdrop-blur-2xl z-[100] p-1.5 animate-in fade-in slide-in-from-top-2 duration-200"
           style={menuStyle}
+          role="listbox"
         >
-          {languages.map((lang: LanguageType) => {
-            const isActive: boolean = language === lang;
-
+          {languages.map((item) => {
+            const isActive = language === item.code;
             return (
-              <li key={lang}>
+              <li
+                key={item.code}
+                role="option"
+                aria-selected={isActive}
+                className="mb-1 last:mb-0"
+              >
                 <button
-                  onClick={(): void => handleLanguageChange(lang)}
-                  className="
-                    w-full px-3 py-2 text-left text-sm sm:text-base
-                    rounded-lg transition-all duration-200
-                    hover:scale-105 hover:bg-opacity-20
-                  "
+                  onClick={(): void => handleLanguageChange(item.code)}
+                  className="flex items-center justify-between w-full px-3 py-2.5 rounded-xl transition-all duration-200 group/item"
                   style={{
                     backgroundColor: isActive
                       ? theme.colors.primary
-                      : theme.colors.surface,
+                      : "transparent",
                     color: isActive
                       ? theme.colors.background
                       : theme.colors.text,
                   }}
                 >
-                  {lang.toUpperCase()}
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg group-hover/item:scale-110 transition-transform duration-200">
+                      {item.flag}
+                    </span>
+                    <span
+                      className={`text-sm ${isActive ? "font-bold" : "font-medium opacity-80"}`}
+                    >
+                      {item.label}
+                    </span>
+                  </div>
+
+                  {isActive && (
+                    <span
+                      className="w-1.5 h-1.5 rounded-full"
+                      style={{ backgroundColor: theme.colors.background }}
+                    />
+                  )}
                 </button>
               </li>
             );
@@ -123,4 +168,4 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
   );
 };
 
-export default LanguageSwitcherComponent;
+export default React.memo(LanguageSwitcherComponent);

@@ -10,61 +10,68 @@ import {
 } from "@domain";
 
 /**
- * @description Proveedor de contexto que permite cambiar y obtener el idioma actual de la aplicación.
- *              Sincroniza con i18next y guarda la preferencia en localStorage.
- * @version 1.0.1
+ * @component TranslateProvider
+ * @description Proveedor de contexto para la gestión de internacionalización (i18n).
+ * Se encarga de la detección inicial del idioma, la persistencia en el almacenamiento
+ * local y la sincronización con la instancia de i18next.
+ * @param {IChildren} props - Propiedades del componente que incluyen los elementos hijos.
+ * @returns {JSX.Element} El proveedor de contexto de traducción envolviendo a sus hijos.
+ * @version 1.0.4
  * @author Steveen Cues
  */
 export const TranslateProvider = ({ children }: IChildren): JSX.Element => {
   const LANGUAGE_CODE_LENGTH = 2;
 
   /**
-   * @description Type guard que verifica si una cadena es un idioma soportado.
-   * @param {string} lang
-   * @returns {lang is LanguageType}
-   */
-  function isLanguage(lang: string): lang is LanguageType {
-    return SUPPORTED_LANGUAGES.some((supported) => supported === lang);
-  }
-
-  /**
-   * @description Obtiene el idioma inicial de la aplicación.
-   *              1. Revisa localStorage.
-   *              2. Detecta el idioma del navegador.
-   *              3. Si no está soportado, devuelve 'es' por defecto.
-   * @returns {LanguageType} Idioma inicial
+   * @method getInitialLanguage
+   * @description Determina el idioma de inicio siguiendo este orden de prioridad:
+   * 1. Idioma previamente guardado en localStorage.
+   * 2. Idioma detectado en la configuración del navegador.
+   * 3. Idioma por defecto ('es').
+   * @returns {LanguageType} El código del idioma inicial validado.
    */
   const getInitialLanguage = (): LanguageType => {
     const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    if (stored !== null && isLanguage(stored)) {
-      return stored;
+    const validatedStored = SUPPORTED_LANGUAGES.find((lang) => lang === stored);
+    if (validatedStored) {
+      return validatedStored;
     }
 
     const browserLang = navigator.language.slice(0, LANGUAGE_CODE_LENGTH);
-    if (isLanguage(browserLang)) {
-      return browserLang;
-    }
+    const matchedLang = SUPPORTED_LANGUAGES.find((l) => l === browserLang);
 
-    return "es";
+    return matchedLang ?? "es";
   };
 
+  /**
+   * @state {LanguageType} language
+   * Estado global que rastrea el idioma activo en la aplicación.
+   */
   const [language, setLanguage] = useState<LanguageType>(getInitialLanguage);
 
-  useEffect(() => {
-    i18n.changeLanguage(language);
+  /**
+   * @effect
+   * @description Sincroniza el cambio de idioma con i18next y actualiza
+   * el localStorage cada vez que el estado 'language' se modifica.
+   * @returns {void}
+   */
+  useEffect((): void => {
+    void i18n.changeLanguage(language);
     localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
   }, [language]);
 
   /**
-   * @description Cambia el idioma de la aplicación de manera segura.
-   *              Solo permite idiomas soportados.
-   * @param {string} lang Idioma a cambiar
+   * @method changeTranslate
+   * @description Función expuesta para actualizar el idioma de la aplicación.
+   * Realiza una búsqueda segura en SUPPORTED_LANGUAGES antes de actualizar el estado.
+   * @param {string} lang - Código de idioma recibido (usualmente desde un evento de UI).
+   * @returns {void}
    */
   const changeTranslate = (lang: string): void => {
-    if (!isLanguage(lang)) {
-      return;
+    const newLang = SUPPORTED_LANGUAGES.find((l) => l === lang);
+    if (newLang) {
+      setLanguage(newLang);
     }
-    setLanguage(lang);
   };
 
   return (

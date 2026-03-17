@@ -1,0 +1,228 @@
+{
+  "briefcase": {
+    "page": {
+      "title": "Steveen Ordoñez | 专业投资组合",
+      "description": "探索我作为软件工程师的职业生涯、杰出项目以及我在数据科学和 DevOps 领域的专业知识。"
+    }
+  },
+  "notFound": {
+    "title": "404 - 页面未找到",
+    "message": "抱歉，您访问的页面不存在或已被移动。",
+    "back": "返回首页"
+  },
+  "footer": {
+    "rights": "版权所有。",
+    "description": "由 Steveen Cues 倾情设计与开发。",
+    "privacyPolicy": "隐私政策",
+    "terms": "服务条款",
+    "cookies": "Cookie 政策"
+  },
+  "login": {
+    "button": "登录",
+    "logout": "注销"
+  },
+  "register": {
+    "button": "注册"
+  },
+  "welcome": {
+    "button": "开始探索",
+    "title": "欢迎来到我的作品集",
+    "subtitle": "你好，我是 Steveen Ordoñez",
+    "description": "我是一名软件工程师，热衷于将复杂想法转化为高影响力的数字化解决方案。我的方法结合了严谨的技术和艺术创造力，致力于开发独特且可扩展的用户体验。目前专注于数据科学和 DevOps，旨在通过整洁的代码、稳健的架构和前沿技术来优化流程并创造价值。",
+    "buttonDownloadCV": "下载简历",
+    "work_experience": "项目经验",
+    "my_projects": "精选项目",
+    "my_studies": "教育与认证",
+    "github_nuances": "GitHub 活跃度",
+    "contact_me": "联系我"
+  },
+  "header": {
+    "home": "首页",
+    "logo_ccm": "商会",
+    "logo_ecuador": "厄瓜多尔庆典"
+  },
+  "user": {
+    "role": "职位",
+    "undefined": "访客用户"
+  },
+  "nav": {
+    "bienvenidos": "首页",
+    "briefcase": "作品集",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "home": "首页",
+    "agenda-activities": "议程",
+    "discover-ecuador-travel": "厄瓜多尔旅游",
+    "catalog": "目录",
+    "commercial-proposal": "提案",
+    "packages": "服务项目",
+    "contact": "联系方式"
+  },
+  "components": {
+    "ui": {
+      "carousel": {
+        "previous_slide": "上一页",
+        "next_slide": "下一页",
+        "go_to_slide": "跳转至"
+      },
+      "banner": {
+        "view_page": "查看详情"
+      },
+      "card": {
+        "card-action": {
+          "visit": "查看演示",
+          "view_code": "源代码"
+        }
+      }
+    }
+  },
+  "pages": {
+    "component": {
+      "matrics": {
+        "subtitle": "贡献与指标",
+        "commits": "提交数",
+        "prs": "合并请求 (PRs)",
+        "repos": "代码库",
+        "issues": "已解决问题",
+        "stars": "获赞数",
+        "top-repos": "最具影响力的项目",
+        "top_languages": "核心技术栈"
+      }
+    }
+  },
+  "work_experience": {
+    "jetmind": {
+      "title": "Jetmind Corporation",
+      "description": "负责使用 React 和 Angular 开发高性能的 Web 和移动端解决方案。在 AWS 上实施了可扩展的云架构，并使用 Laravel 优化了后端。专注于敏捷开发模式下的持续交付，确保产品在生产环境中的稳定性和成功。"
+    },
+    "madjs": {
+      "title": "MAD‑JS (联合创始人)",
+      "description": "作为联合创始人，我负责全栈项目的技术架构并主导 DevOps 策略。通过实施 CI/CD 流程来优化开发周期，确保为客户提供的定制化解决方案具有最高质量，将技术创新与商业愿景完美结合。"
+    },
+    "manticorelabs": {
+      "title": "Manticore Labs",
+      "description": "专注于 Angular 和 NestJS 微服务架构的全栈开发人员。积极参与核心平台的实施，并承担 QA 职责，确保大规模软件项目的稳健性和质量。"
+    },
+    "tcs": {
+      "title": "TCS Consultancy Service",
+      "description": "基于 .NET 和 Angular 设计并实施了采用六边形架构的企业级应用。集成了 Azure 服务，并利用 Tailwind CSS 和 PrimeNG 构建了模块化界面。在高效的 Scrum 团队中工作，优化了软件生命周期。"
+    }
+  },
+  "my_projects": {
+    "portfolio": {
+      "name": "个人作品集",
+      "description": "旨在展示职业生涯的平台，针对性能和访问性进行了优化，采用现代设计标准。"
+    },
+    "neuroniando": {
+      "name": "Neuroniando App",
+      "description": "基于游戏化学习的移动教育生态系统。主导了前端开发和部署自动化 (DevOps)，直至在 Google Play 商店成功发布。"
+    },
+    "neuroniandoWeb": {
+      "name": "Neuroniando 落地页",
+      "description": "使用 React 和 AWS 开发的官方网站，专注于用户转化和核心服务的高可用性。"
+    },
+    "pichinchaBank": {
+      "name": "金融沙盒",
+      "description": "用于验证金融流程和安全的银行测试环境。在受监管的环境中实施了严格的单元测试和 API 仿真。"
+    },
+    "travelEcuador": {
+      "name": "厄瓜多尔旅游门户",
+      "description": "与旅游部合作，为厄瓜多尔旅游展开发的技术解决方案，实现了极具吸引力且功能丰富的旅游推广界面。"
+    },
+    "southAmericanBank": {
+      "name": "银行设计概念",
+      "description": "现代银行界面原型，专注于用户体验和使用纯 CSS 实现的高级布局。"
+    },
+    "linkage": {
+      "name": "I.Y. 档案管理",
+      "description": "用于机构文件管理的行政系统。基于 Angular 开发，专注于易用性和内部流程的可扩展性。"
+    },
+    "docsUnibe": {
+      "name": "Unibe 云端文档",
+      "description": "集成 AWS 的云端文件管理平台。进行了压力测试和负载测试，以确保系统在高需求下的稳定性。"
+    }
+  },
+  "my_education": {
+    "unibe": {
+      "ing": {
+        "title": "厄瓜多尔伊比利亚美洲大学",
+        "description": "软件工程学士：专注于系统架构、敏捷管理和全栈开发。",
+        "finalized": "2025年5月毕业"
+      },
+      "maestria": {
+        "title": "厄瓜多尔伊比利亚美洲大学",
+        "description": "数据科学与大数据硕士：专注于预测分析、机器学习模型和海量数据处理。",
+        "finalized": "在读"
+      }
+    },
+    "unir": {
+      "maestria_devops": {
+        "title": "UNIR - 里奥哈国际大学",
+        "description": "软件开发与运营 (DevOps) 硕士：全自动化、基础设施即代码 (IaC) 和云安全。",
+        "finalized": "在读"
+      }
+    },
+    "yavirac": {
+      "tec": {
+        "title": "Yavirac 高等技术学院",
+        "description": "软件开发技术学位：在算法、数据库和开发方法论方面拥有扎实的技术基础。",
+        "finalized": "2023年5月毕业"
+      }
+    },
+    "udemy": {
+      "angular_complete": {
+        "title": "Angular 专业认证",
+        "description": "Angular 完全指南：状态管理、RxJS 和前端性能优化。",
+        "finalized": "2026年5月获得"
+      },
+      "csharp_oop": {
+        "title": "C# 面向对象编程",
+        "description": "精通 .NET 生态系统中的面向对象编程和设计模式。",
+        "finalized": "2025年5月获得"
+      },
+      "devops_ci_cd": {
+        "title": "DevOps 与 CI/CD",
+        "description": "实施自动化管道、Docker 容器化和编排技术。",
+        "finalized": "2025年5月获得"
+      },
+      "aws_solutions": {
+        "title": "AWS 解决方案架构师",
+        "description": "Amazon 云专业架构设计以及安全和成本管理的最佳实践。",
+        "finalized": "2025年5月获得"
+      }
+    }
+  },
+  "form": {
+    "title": "有合作项目吗？",
+    "subtitle": "让我们聊聊如何帮助您实现技术目标。",
+    "name": "全名",
+    "namePlaceholder": "例如：Steveen Ordoñez",
+    "email": "电子邮件",
+    "emailPlaceholder": "your@email.com",
+    "message": "项目详情",
+    "messagePlaceholder": "请简要说明您的需求...",
+    "send": "发送消息",
+    "sending": "消息发送中...",
+    "success_msg": "消息已发送！我会尽快回复您。",
+    "error_msg": "抱歉，出现错误。请重试。",
+    "errors": {
+      "name_min": "姓名太短",
+      "name_required": "请告诉我您的名字",
+      "email_invalid": "请输入有效的邮箱地址",
+      "email_required": "我需要您的邮箱以便回复",
+      "message_min": "请再多写一点（至少10个字符）",
+      "message_required": "消息内容不能为空"
+    }
+  },
+  "contactUs": {
+    "title": "建立联系",
+    "description": "我随时欢迎新项目合作、团队协作或技术咨询。"
+  },
+  "contactMe": {
+    "title": "联系信息",
+    "email": "电子邮件",
+    "phone": "WhatsApp / 手机",
+    "linkedin": "职业档案"
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "briefcase": {
+    "page": {
+      "title": "Steveen Ordoñez | Portfólio Profissional",
+      "description": "Explore minha trajetória como Engenheiro de Software, meus projetos de destaque e minha especialização em Data Science e DevOps."
+    }
+  },
+  "notFound": {
+    "title": "404 - Página não encontrada",
+    "message": "Desculpe, a página que você procura não existe ou foi movida.",
+    "back": "Voltar ao início"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "description": "Projetado e desenvolvido com paixão por Steveen Cues.",
+    "privacyPolicy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "cookies": "Política de Cookies"
+  },
+  "login": {
+    "button": "Entrar",
+    "logout": "Sair"
+  },
+  "register": {
+    "button": "Cadastrar-se"
+  },
+  "welcome": {
+    "button": "Começar",
+    "title": "Bem-vindo(a) ao meu portefólio",
+    "subtitle": "Olá, eu sou Steveen Ordoñez",
+    "description": "Engenheiro de Software apaixonado por transformar ideias complexas em soluções digitais de alto impacto. Minha abordagem funde o rigor técnico com a criatividade artística, permitindo-me desenvolver experiências de usuário únicas e escaláveis. Atualmente especializado em Ciência de Dados e DevOps, busco otimizar processos e gerar valor através de código limpo, arquitetura sólida e tecnologias de ponta.",
+    "buttonDownloadCV": "Baixar CV",
+    "work_experience": "Experiência Profissional",
+    "my_projects": "Proyectos em Destaque",
+    "my_studies": "Formação e Certificações",
+    "github_nuances": "Atividade no GitHub",
+    "contact_me": "Entre em contato"
+  },
+  "header": {
+    "home": "Início",
+    "logo_ccm": "Câmara de Comércio",
+    "logo_ecuador": "Ecuador Fest"
+  },
+  "user": {
+    "role": "Cargo",
+    "undefined": "Usuário Convidado"
+  },
+  "nav": {
+    "bienvenidos": "Início",
+    "briefcase": "Portfólio",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "home": "Home",
+    "agenda-activities": "Agenda",
+    "discover-ecuador-travel": "Travel Ecuador",
+    "catalog": "Catálogo",
+    "commercial-proposal": "Proposta",
+    "packages": "Serviços",
+    "contact": "Contato"
+  },
+  "components": {
+    "ui": {
+      "carousel": {
+        "previous_slide": "Anterior",
+        "next_slide": "Próximo",
+        "go_to_slide": "Ir para slide"
+      },
+      "banner": {
+        "view_page": "Explorar"
+      },
+      "card": {
+        "card-action": {
+          "visit": "Ver Demo",
+          "view_code": "Ver código"
+        }
+      }
+    }
+  },
+  "pages": {
+    "component": {
+      "matrics": {
+        "subtitle": "Contribuições e métricas em",
+        "commits": "Commits",
+        "prs": "Pull Requests",
+        "repos": "Repositórios",
+        "issues": "Issues Resolvidos",
+        "stars": "Estrelas",
+        "top-repos": "Projetos de maior impacto",
+        "top_languages": "Principais tecnologias"
+      }
+    }
+  },
+  "work_experience": {
+    "jetmind": {
+      "title": "Jetmind Corporation",
+      "description": "Liderei o desenvolvimento de soluções web e móveis de alto desempenho utilizando React e Angular. Implementei arquiteturas escaláveis na nuvem com AWS e otimizei o backend via Laravel. Foco na entrega contínua sob metodologias ágeis."
+    },
+    "madjs": {
+      "title": "MAD‑JS (Co-fundador)",
+      "description": "Como co-fundador, dirijo a arquitetura técnica de projetos full-stack e lidero as estratégias de DevOps. Implemento processos de CI/CD para otimizar os ciclos de desenvolvimento e garantir a máxima qualidade em soluções personalizadas."
+    },
+    "manticorelabs": {
+      "title": "Manticore Labs",
+      "description": "Desenvolvedor Full-stack especializado em arquiteturas de microsserviços com Angular e NestJS. Participei ativamente na implementação de plataformas-chave e assumi responsabilidades de QA."
+    },
+    "tcs": {
+      "title": "TCS Consultancy Service",
+      "description": "Projetei e implementei aplicações corporativas sob Arquitetura Hexagonal utilizando .NET e Angular. Integrei serviços Azure e Tailwind CSS para interfaces modulares em equipes Scrum."
+    }
+  },
+  "my_projects": {
+    "portfolio": {
+      "name": "Portfólio Pessoal",
+      "description": "Plataforma projetada para exibir minha trajetória, otimizada para desempenho e acessibilidade com padrões modernos."
+    },
+    "neuroniando": {
+      "name": "Neuroniando App",
+      "description": "Ecossistema educativo móvel baseado em gamificação. Liderei o desenvolvimento frontend e a automação de implantação (DevOps) até a publicação na Play Store."
+    },
+    "neuroniandoWeb": {
+      "name": "Neuroniando Landing",
+      "description": "Site corporativo desenvolvido com React e AWS, focado na conversão de usuários e alta disponibilidade."
+    },
+    "pichinchaBank": {
+      "name": "Sandbox Financeiro",
+      "description": "Ambiente de testes bancários para validação de fluxos e segurança. Implementei testes unitários rigorosos e simulações de APIs em ambientes regulados."
+    },
+    "travelEcuador": {
+      "name": "Portal Ecuador Travel",
+      "description": "Desenvolvimento tecnológico para a Feira Ecuador Travel em colaboração com o Ministério do Turismo."
+    },
+    "southAmericanBank": {
+      "name": "Banking Design Concept",
+      "description": "Protótipo de interface bancária moderna, focado na UX e layout avançado com CSS puro."
+    },
+    "linkage": {
+      "name": "Gestão Documental I.Y.",
+      "description": "Sistema administrativo para gestão de documentos institucionais, desenvolvido com Angular e focado em usabilidade."
+    },
+    "docsUnibe": {
+      "name": "Cloud Docs Unibe",
+      "description": "Plataforma de gestão de documentos na nuvem integrada com AWS. Realizei testes de carga e estresse para garantir estabilidade."
+    }
+  },
+  "my_education": {
+    "unibe": {
+      "ing": {
+        "title": "Universidad Iberoamericana del Ecuador",
+        "description": "Engenharia de Software: Especialização em arquitetura de sistemas, gestão ágil e desenvolvimento full-stack.",
+        "finalized": "Finalizado em Maio de 2025"
+      },
+      "maestria": {
+        "title": "Universidad Iberoamericana del Ecuador",
+        "description": "Mestrado em Ciência de Dados e Big Data: Análise preditiva, modelos de Machine Learning e Big Data.",
+        "finalized": "Em andamento"
+      }
+    },
+    "unir": {
+      "maestria_devops": {
+        "title": "UNIR - Universidad Internacional de La Rioja",
+        "description": "Mestrado em Desenvolvimento e Operações (DevOps): Automação, infraestrutura como código (IaC) e segurança em nuvem.",
+        "finalized": "Em andamento"
+      }
+    },
+    "yavirac": {
+      "tec": {
+        "title": "Instituto Superior Tecnológico Yavirac",
+        "description": "Tecnologia em Desenvolvimento de Software: Bases sólidas em algoritmos, bancos de dados e metodologias ágeis.",
+        "finalized": "Finalizado em Maio de 2023"
+      }
+    },
+    "udemy": {
+      "angular_complete": {
+        "title": "Especialização Angular",
+        "description": "Guia completo de Angular: Gestão de estado, RxJS e otimização de performance.",
+        "finalized": "Finalizado em Maio de 2026"
+      },
+      "csharp_oop": {
+        "title": "POO com C#",
+        "description": "Domínio de Programação Orientada a Objetos e padrões de projeto no ecossistema .NET.",
+        "finalized": "Finalizado em Maio de 2025"
+      },
+      "devops_ci_cd": {
+        "title": "DevOps & CI/CD",
+        "description": "Implementação de pipelines automatizados e containers com Docker.",
+        "finalized": "Finalizado em Maio de 2025"
+      },
+      "aws_solutions": {
+        "title": "AWS Solutions Architect",
+        "description": "Arquitetura profissional na nuvem Amazon e melhores práticas.",
+        "finalized": "Finalizado em Maio de 2025"
+      }
+    }
+  },
+  "form": {
+    "title": "Tem um projeto em mente?",
+    "subtitle": "Vamos conversar sobre como posso ajudar a alcançar seus objetivos tecnológicos.",
+    "name": "Nome completo",
+    "namePlaceholder": "Ex. Steveen Ordoñez",
+    "email": "E-mail",
+    "emailPlaceholder": "seu@email.com",
+    "message": "Detalhes do projeto",
+    "messagePlaceholder": "Conte-me brevemente o que você precisa...",
+    "send": "Enviar Mensagem",
+    "sending": "Enviando mensagem...",
+    "success_msg": "Mensagem enviada! Responderei o mais rápido possível.",
+    "error_msg": "Ops! Houve um erro. Por favor, tente novamente.",
+    "errors": {
+      "name_min": "O nome é muito curto",
+      "name_required": "Por favor, informe seu nome",
+      "email_invalid": "Insira um e-mail válido",
+      "email_required": "O e-mail é obrigatório para resposta",
+      "message_min": "Conte-me um pouco mais (mínimo 10 caracteres)",
+      "message_required": "A mensagem não pode estar vazia"
+    }
+  },
+  "contactUs": {
+    "title": "Conecte-se comigo",
+    "description": "Estou disponível para novos projetos, parcerias ou consultas técnicas."
+  },
+  "contactMe": {
+    "title": "Informações de contato",
+    "email": "E-mail",
+    "phone": "WhatsApp / Celular",
+    "linkedin": "Perfil Profissional"
+  }
+}
