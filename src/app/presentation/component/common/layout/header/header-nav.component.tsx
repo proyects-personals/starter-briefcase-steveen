@@ -1,10 +1,10 @@
 import React, { type JSX } from "react";
 
+import { LanguageSwitcherComponent, ThemeSwitcherComponent } from "@/app";
 import { useNavItems, useTheme } from "@application";
 import { type IHeaderNav } from "@domain";
 
 import HeaderNavItemComponent from "./header-nav-item.component";
-import { LanguageSwitcherComponent, ThemeSwitcherComponent } from "@/app";
 
 /**
  * Componente de navegación principal del encabezado.
