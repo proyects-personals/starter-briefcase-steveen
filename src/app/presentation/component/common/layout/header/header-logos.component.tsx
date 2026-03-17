@@ -80,12 +80,12 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
         }}
       />
       <div className="relative z-10 flex items-center justify-between  px-4 sm:px-8 py-1">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 h-16">
           <Link to="/" title={t("header.home")}>
             <img
               src={SteveenImage}
               alt={t("header.logo_ccm")}
-              className="h-16 w-16 object-contain rounded-full cursor-pointer transition-transform duration-300 hover:scale-105 bg-transparent"
+              className="h-12 w-12 object-contain rounded-full cursor-pointer transition-transform duration-300 hover:scale-105 bg-transparent"
             />
           </Link>
         </div>

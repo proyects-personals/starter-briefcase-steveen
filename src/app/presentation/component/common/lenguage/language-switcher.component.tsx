@@ -18,7 +18,7 @@ import { languages, type ILanguageSwitcher, type LanguageType } from "@domain";
  * @param {ILanguageSwitcher} props - Propiedades del componente.
  * @param {string} [props.className] - Clases adicionales de Tailwind para posicionamiento.
  * @returns {React.JSX.Element} Un selector de idiomas desplegable optimizado.
- * @version 1.2.1
+ * @version 1.2.2
  * @author Steveen Cues
  */
 const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
@@ -97,26 +97,32 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
     <div className={`relative ${className ?? ""}`} ref={containerRef}>
       <button
         onClick={(): void => setOpen((prev) => !prev)}
-        className="group flex items-center gap-2 px-4 py-2 rounded-2xl backdrop-blur-xl transition-all duration-300 hover:shadow-lg active:scale-95"
+        className={`
+          group flex items-center justify-center gap-1.5 
+          p-2 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl 
+          backdrop-blur-xl transition-all duration-300 
+          hover:shadow-lg active:scale-95
+        `}
         style={buttonStyle}
         aria-expanded={open}
         aria-haspopup="listbox"
       >
         <FaGlobe
-          className="transition-transform duration-500 group-hover:rotate-180"
+          className="text-base transition-transform duration-500 group-hover:rotate-180"
           style={{ color: theme.colors.primary }}
         />
-        <span className="text-sm font-bold uppercase tracking-tighter">
+        <span className="hidden sm:inline text-sm font-bold uppercase tracking-tighter">
           {language}
         </span>
+
         <FaChevronDown
-          className={`text-[10px] opacity-50 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`text-[9px] opacity-50 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>
 
       {open && (
         <ul
-          className="absolute right-0 mt-3 w-44 rounded-2xl overflow-hidden backdrop-blur-2xl z-[100] p-1.5 animate-in fade-in slide-in-from-top-2 duration-200"
+          className="absolute right-0 mt-3 w-40 sm:w-44 rounded-2xl overflow-hidden backdrop-blur-2xl z-[100] p-1.5 animate-in fade-in slide-in-from-top-2 duration-200"
           style={menuStyle}
           role="listbox"
         >
@@ -131,7 +137,7 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
               >
                 <button
                   onClick={(): void => handleLanguageChange(item.code)}
-                  className="flex items-center justify-between w-full px-3 py-2.5 rounded-xl transition-all duration-200 group/item"
+                  className="flex items-center justify-between w-full px-3 py-2 sm:py-2.5 rounded-xl transition-all duration-200 group/item"
                   style={{
                     backgroundColor: isActive
                       ? theme.colors.primary
@@ -142,19 +148,18 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
                   }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-lg group-hover/item:scale-110 transition-transform duration-200">
+                    <span className="text-base sm:text-lg group-hover/item:scale-110 transition-transform duration-200">
                       {item.flag}
                     </span>
                     <span
-                      className={`text-sm ${isActive ? "font-bold" : "font-medium opacity-80"}`}
+                      className={`text-xs sm:text-sm ${isActive ? "font-bold" : "font-medium opacity-80"}`}
                     >
                       {item.label}
                     </span>
                   </div>
-
                   {isActive && (
                     <span
-                      className="w-1.5 h-1.5 rounded-full"
+                      className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full"
                       style={{ backgroundColor: theme.colors.background }}
                     />
                   )}
