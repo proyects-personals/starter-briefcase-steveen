@@ -1,16 +1,15 @@
 import { UdemyImage, UnibeImage, UnirImage, YaviracImage } from "@/assets";
-
 import { UrlEnum, type IBannerItem } from "@domain";
 
 /**
  * @description Lista de elementos que representan los banners de educación.
  * Cada elemento contiene información sobre el título, imagen, enlace, descripción
  * y estado de finalización de cada curso o institución.
- * @property title - Clave de traducción del título del curso o institución
- * @property image - Imagen representativa de la institución o curso
- * @property link - URL al sitio oficial o certificado
- * @property description - Clave de traducción de la descripción
- * @property finalized - Clave de traducción que indica si el curso está finalizado
+ * @property {string} title - Clave de traducción del título del curso o institución
+ * @property {string} image - Imagen representativa de la institución o curso
+ * @property {UrlEnum} link - URL al sitio oficial o certificado desde el Enum de URLs
+ * @property {string} description - Clave de traducción de la descripción
+ * @property {string} finalized - Clave de traducción que indica si el curso está finalizado
  */
 export const BANNER_ITEM: IBannerItem[] = [
   {

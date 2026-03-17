@@ -3,7 +3,6 @@ import React from "react";
 import { FaEnvelope, FaPhoneAlt, FaLinkedin } from "react-icons/fa";
 
 import { ContactItemComponent } from "@/app";
-
 import { UrlEnum, type IContactComponent } from "@domain";
 
 /**
@@ -51,7 +50,6 @@ const ContactDetailsCard: React.FC<IContactComponent> = ({
         justifyContent: "center",
       }}
     >
-      {/* Barra decorativa lateral */}
       <div
         style={{
           position: "absolute",

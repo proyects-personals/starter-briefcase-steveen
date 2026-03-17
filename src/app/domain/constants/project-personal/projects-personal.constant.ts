@@ -1,3 +1,4 @@
+import { UrlEnum } from "@/app/domain";
 import {
   DocsUnibeImage,
   LinkageImage,
@@ -8,7 +9,6 @@ import {
   SouthAmericanBankImage,
   TravelEcuadorImage,
 } from "@/assets";
-import { UrlEnum } from "@/app/domain";
 
 /**
  * @description Lista de proyectos personales y profesionales.

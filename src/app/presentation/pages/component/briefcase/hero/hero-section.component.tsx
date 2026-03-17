@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { useLanguage } from "@application"; // Importamos el hook de lenguaje
 
-import { TranslateEnum, type IHeroSectionComponent } from "@domain";
 import { CVSTEVEENORDOLEZEN, CVSTEVEENORDOLEZES } from "@/assets";
+import { useLanguage } from "@application";
+import { TranslateEnum, type IHeroSectionComponent } from "@domain";
 
 /**
  * HeroSectionComponent
- *
- * @description
- * Sección principal del portfolio con descarga de CV dinámica por idioma.
+ * @description Sección principal del portfolio con descarga de CV dinámica por idioma.
  */
 const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
   theme,
@@ -17,10 +15,6 @@ const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
 }): React.JSX.Element => {
   const { language } = useLanguage();
 
-  /**
-   * @description
-   * Determina qué archivo descargar según el idioma activo.
-   */
   const handleDownloadCV = (): void => {
     let selectedCV: string;
 
@@ -36,11 +30,10 @@ const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
         break;
     }
 
-    // Crear un enlace temporal para forzar la descarga
     const link = document.createElement("a");
     link.href = selectedCV;
     link.download =
-      language === "es"
+      language === TranslateEnum.ES
         ? "CV_Steveen_Ordoñez_ES.pdf"
         : "CV_Steveen_Ordoñez_EN.pdf";
     document.body.appendChild(link);
@@ -75,16 +68,13 @@ const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.7 }}
-        style={{
-          color: theme.colors.textSecondary,
-          lineHeight: 1.7,
-        }}
+        style={{ color: theme.colors.textSecondary, lineHeight: 1.7 }}
       >
         {translate("welcome.description")}
       </motion.p>
 
       <motion.button
-        onClick={handleDownloadCV} // Agregamos la función de descarga
+        onClick={handleDownloadCV}
         className="px-6 py-3 rounded-lg font-medium shadow-md transition-all mb-8"
         style={{
           backgroundColor: theme.colors.primary,
