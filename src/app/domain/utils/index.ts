@@ -4,3 +4,8 @@ export * from "./safe-value.util";
 export * from "./storage.util";
 export * from "./get-youtube-id.util";
 export * from "./string.utils";
+export * from "./media-query.util";
+export * from "./github.util";
+export * from "./calculate-percentage.util";
+export * from "./calculate-percentage.util";
+export * from "./get-max-lenguage-count";

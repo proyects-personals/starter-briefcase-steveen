@@ -3,10 +3,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import { APP_ROUTES } from "@domain";
 import {
+  BriefcaseScreen,
   LoginScreen,
   NotFoundScreen,
   PageWrapperComponent,
-  WelcomeScreen,
 } from "@presentation";
 
 /**
@@ -27,13 +27,13 @@ const RoutesOnboarding: React.FC = () => {
     <Routes>
       <Route
         path={APP_ROUTES.ROOT}
-        element={<Navigate to={APP_ROUTES.WELCOME} replace />}
+        element={<Navigate to={APP_ROUTES.BRIEFCASE} replace />}
       />
       <Route
-        path={APP_ROUTES.WELCOME}
+        path={APP_ROUTES.BRIEFCASE}
         element={
           <PageWrapperComponent isBackground>
-            <WelcomeScreen />
+            <BriefcaseScreen />
           </PageWrapperComponent>
         }
       />

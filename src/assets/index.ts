@@ -1,3 +1,4 @@
 export * from "./i18n";
 export * from "./styles";
 export * from "./img";
+export * from "./docs";

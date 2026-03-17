@@ -6,9 +6,13 @@ import {
   FaHandshake,
   FaTag,
   FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
 } from "react-icons/fa";
 
-import type { IHeaderNavItem } from "../../interface";
+import { UrlEnum } from "@/app/domain/enums";
+import { type IHeaderNavItem } from "@domain";
 
 export const FONT_WEIGHT_ACTIVE = 600;
 export const FONT_WEIGHT_DEFAULT = 500;
@@ -21,15 +25,36 @@ export const FONT_WEIGHT_DEFAULT = 500;
  * el texto descriptivo y el nivel de acceso requerido (`auth`).
  * * - `auth: null`: Ruta pública accesible para todos.
  * - `auth: true`: Ruta protegida que requiere autenticación.
- * * @type {Array<{to: string, icon: import("react-icons").IconType, text: string, auth: boolean | null}>}
+ * * @type {IHeaderNavItem[]}
  * @version 1.0.0
  */
 export const NAV_ITEMS_BASE: IHeaderNavItem[] = [
   {
-    to: "/bienvenidos",
+    to: "/portafolio",
     icon: FaHome,
-    text: "nav.bienvenidos",
+    text: "nav.briefcase",
     auth: null,
+  },
+  {
+    to: UrlEnum.PROJECTS_PERSONALS,
+    icon: FaGithub,
+    text: "nav.github",
+    auth: null,
+    target: "_blank",
+  },
+  {
+    to: UrlEnum.LINKEDIN,
+    icon: FaLinkedin,
+    text: "nav.linkedin",
+    auth: null,
+    target: "_blank",
+  },
+  {
+    to: UrlEnum.INSTAGRAM,
+    icon: FaInstagram,
+    text: "nav.instagram",
+    auth: null,
+    target: "_blank",
   },
   {
     to: "/",
