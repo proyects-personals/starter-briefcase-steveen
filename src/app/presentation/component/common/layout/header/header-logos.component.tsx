@@ -2,13 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { useTheme, useLanguage } from "@application";
-import { logoMadjs } from "@assets";
-import {
-  StringUtils,
-  VideoUtils,
-  YoutubeEmbedURL,
-  type IHeaderLogos,
-} from "@domain";
+import { SteveenImage } from "@assets";
+import { StringUtils, UrlEnum, VideoUtils, type IHeaderLogos } from "@domain";
 
 import { LanguageSwitcherComponent } from "../../lenguage";
 import { ThemeSwitcherComponent } from "../../theme";
@@ -56,7 +51,7 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
         <div className="absolute inset-0 w-full h-full -z-10">
           <iframe
             className="w-full h-full object-cover"
-            src={`${YoutubeEmbedURL.BASE}${VideoUtils.getYoutubeID(
+            src={`${UrlEnum.YOUTUBE_BASE}${VideoUtils.getYoutubeID(
               backgroundYoutube,
             )}?autoplay=1&mute=1&loop=1&playlist=${VideoUtils.getYoutubeID(
               backgroundYoutube,
@@ -88,19 +83,9 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
         <div className="flex items-center gap-4">
           <Link to="/" title={t("header.home")}>
             <img
-              src={logoMadjs}
+              src={SteveenImage}
               alt={t("header.logo_ccm")}
-              className="h-16 sm:h-16 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
-            />
-          </Link>
-        </div>
-
-        <div className="flex-1 flex justify-center">
-          <Link to="/" title={t("header.home")} className="hidden sm:block">
-            <img
-              src={logoMadjs}
-              alt={t("header.logo_ecuador")}
-              className="h-16 sm:h-16 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+              className="h-16 w-16 object-contain rounded-full cursor-pointer transition-transform duration-300 hover:scale-105 bg-transparent"
             />
           </Link>
         </div>

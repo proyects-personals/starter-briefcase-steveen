@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { useState, useEffect, useCallback } from "react";
 
-import { useTheme } from "@application";
+import { useLanguage, useTheme } from "@application";
 import {
   BREAKPOINTS,
   SIDEBAR_STORAGE_KEY,
@@ -21,6 +21,7 @@ import MobileMenuComponent from "./sidebar/mobile-menu.component";
  */
 const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
   const { theme } = useTheme();
+  const { t } = useLanguage();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -46,8 +47,9 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
   }, [isAutentificated]);
 
   useEffect(() => {
+    document.title = t("briefcase.page.title");
     loadSidebarState();
-  }, [loadSidebarState]);
+  }, [loadSidebarState, t]);
 
   /**
    * @description Persiste el estado del sidebar en StorageUtil

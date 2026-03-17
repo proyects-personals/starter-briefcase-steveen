@@ -1,2 +1,2 @@
 export * from "./auth";
-export * from "./welcome";
+export * from "./briefcase";
