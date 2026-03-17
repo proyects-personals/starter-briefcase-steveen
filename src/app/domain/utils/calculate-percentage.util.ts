@@ -12,7 +12,9 @@ export const calculatePercentage = (
   count: number,
   maxCount: number,
 ): number => {
-  if (maxCount === 0) return 0;
+  if (maxCount === 0) {
+    return 0;
+  }
 
   return (count / maxCount) * PERCENTAGE_BASE;
 };

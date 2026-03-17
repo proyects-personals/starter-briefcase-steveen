@@ -8,3 +8,4 @@ export * from "./storage";
 export * from "./ui";
 export * from "./component";
 export * from "./cache";
+export * from "./config";

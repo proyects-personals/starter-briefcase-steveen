@@ -51,7 +51,9 @@ export const getTopLanguages = (
   const languages: Record<string, number> = {};
 
   repos.forEach((repo) => {
-    if (repo.language === null) return;
+    if (repo.language === null) {
+      return;
+    }
 
     const language = repo.language;
 

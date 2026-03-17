@@ -30,7 +30,8 @@
     "work_experience": "Experiencia Laboral",
     "my_projects": "Mis Proyectos",
     "my_studies": "Mis estudios y certificados",
-    "github_nuances": "Métricas de Github"
+    "github_nuances": "Métricas de Github",
+    "contact_me": "Contáctame"
   },
   "header": {
     "home": "Inicio",
@@ -193,5 +194,37 @@
         "finalized": "Finalizado en Mayo 2025"
       }
     }
+  },
+  "form": {
+    "title": "Envíame un mensaje",
+    "subtitle": "Complete el formulario para ponernos en contacto.",
+    "name": "Nombre",
+    "namePlaceholder": "Escribe tu nombre...",
+    "email": "Correo Electrónico",
+    "emailPlaceholder": "tu@correo.com",
+    "message": "Mensaje",
+    "messagePlaceholder": "¿En qué puedo ayudarte?",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success_msg": "¡Mensaje enviado con éxito!",
+    "error_msg": "Hubo un error al enviar el mensaje.",
+    "errors": {
+      "name_min": "El nombre debe tener al menos 3 caracteres",
+      "name_required": "El nombre es obligatorio",
+      "email_invalid": "Ingresa un correo electrónico válido",
+      "email_required": "El correo es obligatorio",
+      "message_min": "El mensaje debe tener al menos 10 caracteres",
+      "message_required": "El mensaje no puede estar vacío"
+    }
+  },
+  "contactUs": {
+    "title": "Hablemos",
+    "description": "Si tienes un proyecto en mente o simplemente quieres saludar, mi bandeja de entrada siempre está abierta."
+  },
+  "contactMe": {
+    "title": "Información de contacto",
+    "email": "Email",
+    "phone": "Teléfono",
+    "linkedin": "LinkedIn"
   }
 }

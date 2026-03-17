@@ -6,6 +6,7 @@ import {
   SKELETON_OPACITY_MIN,
   type ISkeletonBox,
 } from "@domain";
+
 import type { ReactElement } from "react";
 
 /**

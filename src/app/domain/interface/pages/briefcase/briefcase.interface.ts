@@ -1,6 +1,6 @@
-import React from "react";
 import type { IAppTheme } from "@/app/domain";
 import type { TFunction } from "i18next";
+import type React from "react";
 
 /**
  * ISectionComponent

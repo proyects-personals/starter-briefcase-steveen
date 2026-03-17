@@ -5,13 +5,12 @@ import {
   BannerComponent,
   CardComponent,
   CarouselComponent,
+  ContactComponent,
   GitHubMetricComponent,
   HeroSectionComponent,
   SectionComponent,
 } from "@/app";
-
 import { useTheme, useLanguage } from "@/app/application";
-
 import { BANNER_ITEM, PROJECTS_PERSONAL, WORK_EXPERIENCE } from "@domain";
 
 /**
@@ -91,6 +90,9 @@ const BriefcaseScreen: React.FC = (): React.JSX.Element => {
 
       <SectionComponent title={t("welcome.github_nuances")} theme={theme}>
         <GitHubMetricComponent theme={theme} translate={t} />
+      </SectionComponent>
+      <SectionComponent title={t("welcome.contact_me")} theme={theme}>
+        <ContactComponent theme={theme} translate={t} />
       </SectionComponent>
     </div>
   );

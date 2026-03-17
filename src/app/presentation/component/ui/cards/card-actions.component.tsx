@@ -1,6 +1,7 @@
-import type { CardActionsProps } from "@domain";
 import { motion } from "framer-motion";
 import React from "react";
+
+import type { CardActionsProps } from "@domain";
 
 /**
  * Componente que renderiza botones de acción de un proyecto (Visitar y Ver Código).

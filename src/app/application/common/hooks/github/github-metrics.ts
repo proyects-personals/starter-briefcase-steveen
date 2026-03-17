@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import { fetchOrgRepos, fetchUserRepos } from "@/app";
-
 import {
   calculateIssues,
   calculateStars,

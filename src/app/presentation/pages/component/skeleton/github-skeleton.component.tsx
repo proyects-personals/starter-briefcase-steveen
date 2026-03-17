@@ -1,6 +1,7 @@
 import React from "react";
 
 import { SkeletonBoxComponent } from "@/app";
+
 import type { ISkeletonMetric } from "@domain";
 
 /**

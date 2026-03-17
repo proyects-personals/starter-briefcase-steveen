@@ -1,5 +1,6 @@
 import {
   CACHE_TTL_MS,
+  CONNECTION_CONFIG,
   GITHUB_API_BASE_URL,
   MAX_REPOSITORIES_PER_REQUEST,
   type GitHubResponseType,
@@ -30,7 +31,7 @@ const isCacheEntry = <T>(value: unknown): value is ICacheEntry<T> => {
  * @returns Token de GitHub o undefined si no existe
  */
 const getToken = (): string | undefined => {
-  const token: unknown = import.meta.env.VITE_GITHUB_TOKEN;
+  const token: unknown = CONNECTION_CONFIG.GITHUB.GITHUB_TOKEN;
 
   if (typeof token === "string" && token.length > 0) {
     return token;

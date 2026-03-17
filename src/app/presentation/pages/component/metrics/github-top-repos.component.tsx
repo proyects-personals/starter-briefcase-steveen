@@ -1,5 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
 
 import { REPO_ANIMATION_DELAY, type IGitHubTopRepos } from "@domain";
 

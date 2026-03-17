@@ -30,7 +30,8 @@
     "work_experience": "Work Experience",
     "my_projects": "My projects",
     "my_studies": "My studies and certificates",
-    "github_nuances": "Github nuances"
+    "github_nuances": "Github nuances",
+    "contact_me": "Contact me"
   },
   "header": {
     "home": "Home",
@@ -193,5 +194,37 @@
         "finalized": "Completed in May 2025"
       }
     }
+  },
+  "form": {
+    "title": "Send me a message",
+    "subtitle": "Please fill out the form to get in touch.",
+    "name": "Name",
+    "namePlaceholder": "Enter your name...",
+    "email": "Email Address",
+    "emailPlaceholder": "you@email.com",
+    "message": "Message",
+    "messagePlaceholder": "How can I help you?",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success_msg": "Message sent successfully!",
+    "error_msg": "Something went wrong. Please try again.",
+    "errors": {
+      "name_min": "Name must be at least 3 characters",
+      "name_required": "Name is required",
+      "email_invalid": "Enter a valid email address",
+      "email_required": "Email is required",
+      "message_min": "Message must be at least 10 characters",
+      "message_required": "Message cannot be empty"
+    }
+  },
+  "contactUs": {
+    "title": "Let's Talk",
+    "description": "If you have a project in mind or just want to say hi, my inbox is always open."
+  },
+  "contactMe": {
+    "title": "Contact Information",
+    "email": "Email",
+    "phone": "Phone",
+    "linkedin": "LinkedIn"
   }
 }
