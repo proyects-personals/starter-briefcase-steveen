@@ -1,5 +1,4 @@
 import type { IConnectionConfig } from "@/app/domain";
-
 /**
  * @description
  * Configuración centralizada de servicios externos.
@@ -7,11 +6,15 @@ import type { IConnectionConfig } from "@/app/domain";
  */
 export const CONNECTION_CONFIG: IConnectionConfig = {
   EMAILJS: {
-    SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-    TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-    PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    SERVICE_ID:
+      process.env.EMAILJS_SERVICE_ID ?? import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    TEMPLATE_ID:
+      process.env.EMAILJS_TEMPLATE_ID ??
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    PUBLIC_KEY:
+      process.env.EMAILJS_PUBLIC_KEY ?? import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
   },
   GITHUB: {
-    GITHUB_TOKEN: import.meta.env.VITE_GITHUB_TOKEN,
+    GITHUB_TOKEN: process.env.GITHUB_TOKEN ?? import.meta.env.VITE_GITHUB_TOKEN,
   },
 };

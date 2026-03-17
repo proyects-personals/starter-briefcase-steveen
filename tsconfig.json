@@ -11,6 +11,7 @@
     "jsx": "react-jsx",
 
     "types": [
+      "node",
       "vite/client",
       "react",
       "react-dom"
