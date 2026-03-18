@@ -181,6 +181,11 @@
         "description": "Angular Masterclass: Gestione dello stato e ottimizzazione delle prestazioni frontend.",
         "finalized": "Completato a Maggio 2026"
       },
+      "angular_basics": {
+        "title": "Angular: Da zero a esperto",
+        "description": "Guida completa ad Angular da zero a esperto: Gestione dello stato, RxJS e ottimizzazione delle prestazioni frontend.",
+        "finalized": "Completato a Maggio 2026"
+      },
       "csharp_oop": {
         "title": "OOP con C#",
         "description": "Padronanza della programmazione orientata agli oggetti nell'ecosistema .NET.",

@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-import { CVSTEVEENORDOLEZEN, CVSTEVEENORDOLEZES } from "@/assets";
 import { useLanguage } from "@application";
-import { TranslateEnum, type IHeroSectionComponent } from "@domain";
+import { CV_RESOURCES, type IHeroSectionComponent } from "@domain";
 
 /**
  * HeroSectionComponent
@@ -15,27 +14,24 @@ const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
 }): React.JSX.Element => {
   const { language } = useLanguage();
 
+  /**
+   * Ejecuta la descarga del CV adaptando el nombre del archivo y el recurso según el idioma.
+   * @description
+   * Esta función obtiene el recurso dinámicamente desde CV_RESOURCES.
+   * Genera un nombre de archivo que incluye el código del idioma actual (ej. "CV_Steveen_Ordoñez_DE.pdf")
+   * y realiza la descarga mediante la inserción temporal de un elemento de anclaje en el DOM.
+   * @returns {void}
+   */
   const handleDownloadCV = (): void => {
-    let selectedCV: string;
+    const selectedCV = CV_RESOURCES[language];
+    const langSuffix = language.toUpperCase();
 
-    switch (language) {
-      case TranslateEnum.ES:
-        selectedCV = CVSTEVEENORDOLEZES;
-        break;
-      case TranslateEnum.EN:
-        selectedCV = CVSTEVEENORDOLEZEN;
-        break;
-      default:
-        selectedCV = CVSTEVEENORDOLEZEN;
-        break;
-    }
+    const fileName = `CV_Steveen_Ordoñez_${langSuffix}.pdf`;
 
     const link = document.createElement("a");
     link.href = selectedCV;
-    link.download =
-      language === TranslateEnum.ES
-        ? "CV_Steveen_Ordoñez_ES.pdf"
-        : "CV_Steveen_Ordoñez_EN.pdf";
+    link.download = fileName;
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -74,6 +70,7 @@ const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
       </motion.p>
 
       <motion.button
+        type="button"
         onClick={handleDownloadCV}
         className="px-6 py-3 rounded-lg font-medium shadow-md transition-all mb-8"
         style={{

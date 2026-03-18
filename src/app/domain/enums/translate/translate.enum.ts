@@ -7,4 +7,8 @@
 export enum TranslateEnum {
   EN = "en",
   ES = "es",
+  PT = "pt", // Portugués
+  ZH = "zh", // Chino Mandarín
+  DE = "de", // Alemán
+  IT = "it", // Italiano
 }

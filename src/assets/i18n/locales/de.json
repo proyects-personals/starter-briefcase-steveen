@@ -181,6 +181,11 @@
         "description": "Angular Masterclass: State Management und Performance-Optimierung.",
         "finalized": "Abgeschlossen im Mai 2026"
       },
+      "angular_basics": {
+        "title": "Angular: Von Null zum Experten",
+        "description": "Vollständiger Leitfaden für Angular von Null zum Experten: State Management, RxJS und Frontend-Leistungsoptimierung.",
+        "finalized": "Abgeschlossen im Mai 2026"
+      },
       "csharp_oop": {
         "title": "OOP mit C#",
         "description": "Beherrschung der objektorientierten Programmierung im .NET-Ökosystem.",
