@@ -1,10 +1,19 @@
 import { createContext } from "react";
 
-import type {
-  ILanguageOption,
-  ITranslateContext,
-  LanguageType,
+import {
+  type ILanguageOption,
+  type ITranslateContext,
+  type LanguageType,
 } from "@/app/domain";
+import { TranslateEnum } from "@/app/domain/enums";
+import {
+  CVSTEVEENORDOLEZDE,
+  CVSTEVEENORDOLEZEN,
+  CVSTEVEENORDOLEZES,
+  CVSTEVEENORDOLEZIT,
+  CVSTEVEENORDOLEZPT,
+  CVSTEVEENORDOLEZZH,
+} from "@/assets";
 
 /**
  * @file TranslateContext.ts
@@ -17,12 +26,6 @@ import type {
  * Contexto de React para la gestión global de traducciones.
  * @description
  * Actúa como el motor de estado para la internacionalización (i18n).
- * Permite que cualquier componente de la aplicación acceda al idioma actual
- * y a la función para conmutar entre las diferentes localizaciones disponibles.
- * @type {React.Context<ITranslateContext | undefined>}
- * @example
- * const { language, changeTranslate } = useContext(TranslateContext);
- * console.log(`Idioma actual: ${language}`);
  */
 export const TranslateContext = createContext<ITranslateContext | undefined>(
   undefined,
@@ -32,10 +35,6 @@ export const TranslateContext = createContext<ITranslateContext | undefined>(
  * Identificadores únicos de los idiomas soportados.
  * @description
  * Array de control que contiene los códigos ISO 639-1 autorizados.
- * Este array es utilizado principalmente por los Type Guards y validadores
- * del Provider para asegurar que no se intente cargar un idioma inexistente.
- * @type {LanguageType[]}
- * @constant
  */
 export const SUPPORTED_LANGUAGES: LanguageType[] = [
   "es", // Español
@@ -48,17 +47,6 @@ export const SUPPORTED_LANGUAGES: LanguageType[] = [
 
 /**
  * Configuración detallada de los idiomas para la interfaz de usuario.
- * @description
- * Provee la metadata necesaria para renderizar componentes visuales como el
- * `LanguageSwitcher`. Cada objeto incluye el código técnico, la etiqueta
- * legible por humanos y el glifo (emoji) de la bandera correspondiente.
- * @type {ILanguageOption[]}
- * @constant
- * @example
- * // Uso en un mapeo de UI:
- * languages.map(({ code, label, flag }) => (
- * <button key={code}>{flag} {label}</button>
- * ));
  */
 export const languages: ILanguageOption[] = [
   { code: "es", label: "Español", flag: "🇪🇸" },
@@ -68,3 +56,18 @@ export const languages: ILanguageOption[] = [
   { code: "de", label: "Deutsch", flag: "🇩🇪" },
   { code: "it", label: "Italiano", flag: "🇮🇹" },
 ];
+
+/**
+ * Mapa de configuración que asocia cada idioma con su respectivo recurso de CV.
+ * @description
+ * Se utilizan las claves del Enum de forma explícita. Si persiste el error de 'undefined'
+ * al leer 'ES', sustituye [TranslateEnum.ES] por 'es' directamente.
+ */
+export const CV_RESOURCES: Record<TranslateEnum, string> = {
+  [TranslateEnum.ES]: CVSTEVEENORDOLEZES,
+  [TranslateEnum.EN]: CVSTEVEENORDOLEZEN,
+  [TranslateEnum.DE]: CVSTEVEENORDOLEZDE,
+  [TranslateEnum.IT]: CVSTEVEENORDOLEZIT,
+  [TranslateEnum.PT]: CVSTEVEENORDOLEZPT,
+  [TranslateEnum.ZH]: CVSTEVEENORDOLEZZH,
+};

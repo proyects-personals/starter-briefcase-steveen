@@ -181,6 +181,11 @@
         "description": "Guia completo de Angular: Gestão de estado, RxJS e otimização de performance.",
         "finalized": "Finalizado em Maio de 2026"
       },
+      "angular_basics": {
+        "title": "Angular: Do zero ao especialista",
+        "description": "Guia completo de Angular do zero ao especialista: Gestão de estado, RxJS e otimização de desempenho frontend.",
+        "finalized": "Finalizado em Maio de 2026"
+      },
       "csharp_oop": {
         "title": "POO com C#",
         "description": "Domínio de Programação Orientada a Objetos e padrões de projeto no ecossistema .NET.",

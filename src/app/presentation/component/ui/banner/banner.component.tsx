@@ -7,15 +7,14 @@ import { BannerItemComponent } from "@/app";
 import type { IAnimatedBanner } from "@domain";
 
 /**
- * Componente principal que renderiza un banner animado con rotación automática.
- * Cada banner se muestra uno a la vez y se desplaza automáticamente según el intervalo definido.
+ * Componente principal que renderiza un banner animado con rotación automática y pausa al interactuar.
+ * @description
+ * El banner rota automáticamente cada X milisegundos. La rotación se detiene si el usuario:
+ * - Pasa el cursor sobre el banner (onMouseEnter).
+ * - Mantiene presionado el banner en dispositivos táctiles (onTouchStart).
  *
  * @param {IAnimatedBanner} props - Props del banner animado.
- * @param {IBannerItem[]} props.items - Lista de elementos del banner a mostrar.
- * @param {IAppTheme} props.theme - Tema de la aplicación, para estilos dinámicos.
- * @param {number} [props.interval=5000] - Intervalo en milisegundos para rotar entre banners.
- * @param {TFunction} props.translate - Función de traducción i18next para títulos y descripciones.
- * @returns {JSX.Element} Componente de banner con animación y rotación automática.
+ * @returns {JSX.Element} Componente de banner con animaciones y control de pausa.
  */
 const BannerComponent = ({
   items,
@@ -25,24 +24,33 @@ const BannerComponent = ({
 }: IAnimatedBanner): JSX.Element => {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
 
   /**
-   * Hook que controla la rotación automática de los banners.
-   * Crea un intervalo que cambia el índice actual cada cierto tiempo
-   * y limpia el intervalo cuando el componente se desmonta o cambian dependencias.
-   *
-   * @returns {() => void} Función de limpieza que elimina el intervalo activo.
+   * @description
+   * Hook que gestiona el ciclo de vida del intervalo de rotación.
+   * Se reinicia si cambia el intervalo, la cantidad de items o el estado de pausa.
    */
   useEffect((): (() => void) => {
-    const timer: ReturnType<typeof setInterval> = setInterval(() => {
-      setCurrentIndex((prev: number) => (prev + 1) % items.length);
+    if (isPaused) {
+      return () => {};
+    }
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % items.length);
     }, interval);
 
-    return (): void => clearInterval(timer);
-  }, [items.length, interval]);
+    return () => clearInterval(timer);
+  }, [items.length, interval, isPaused]);
 
   return (
-    <div className="relative w-full flex flex-col gap-10 overflow-hidden">
+    <div
+      className="relative w-full flex flex-col gap-10 overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
       <AnimatePresence mode="wait">
         {items.map(
           (item, index) =>

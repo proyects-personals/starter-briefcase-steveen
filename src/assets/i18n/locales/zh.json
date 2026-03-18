@@ -181,6 +181,11 @@
         "description": "Angular 完全指南：状态管理、RxJS 和前端性能优化。",
         "finalized": "2026年5月获得"
       },
+      "angular_basics": {
+        "title": "Angular：从零到专家",
+        "description": "Angular 全方位指南：涵盖状态管理、RxJS 以及前端性能优化。",
+        "finalized": "2026年5月完成"
+      },
       "csharp_oop": {
         "title": "C# 面向对象编程",
         "description": "精通 .NET 生态系统中的面向对象编程和设计模式。",

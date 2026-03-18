@@ -181,6 +181,11 @@
         "description": "Angular Masterclass: Advanced state management, RxJS, and performance optimization.",
         "finalized": "May 2026"
       },
+      "angular_basics": {
+        "title": "Angular: From Zero to Expert",
+        "description": "Complete guide to Angular from zero to expert: State management, RxJS, and frontend performance optimization.",
+        "finalized": "Completed in May 2026"
+      },
       "csharp_oop": {
         "title": "Professional Certifications",
         "description": "Mastering Object-Oriented Programming with C# and .NET Core.",
