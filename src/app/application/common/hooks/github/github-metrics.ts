@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { fetchOrgRepos, fetchUserRepos } from "@/app";
+import { fetchOrgRepos, fetchUserRepos, fetchRepoCommits } from "@/app";
 import {
   calculateIssues,
   calculateStars,
@@ -28,19 +28,25 @@ const mergeRepositories = (
 };
 
 /**
- * Construye el objeto de métricas a partir de una lista
- * de repositorios.
- *
- * @param repos - Lista de repositorios
- *
- * @returns Métricas agregadas
+ * Construye el objeto de métricas a partir de una lista de repositorios.
+ * @description
+ * Calcula dinámicamente el total de commits consultando cada repositorio.
+ * Utiliza Promise.all para realizar las peticiones en paralelo.
+ * * @param repos - Lista de repositorios
+ * @returns Métricas agregadas incluyendo commits reales
  */
-const buildMetrics = (repos: IGitHubRepo[]): IGitHubMetrics => {
+const buildMetrics = async (repos: IGitHubRepo[]): Promise<IGitHubMetrics> => {
+  const commitsCounts = await Promise.all(
+    repos.map((repo) => fetchRepoCommits(repo)),
+  );
+
+  const totalCommits = commitsCounts.reduce((acc, count) => acc + count, 0);
+
   return {
     repos: repos.length,
     stars: calculateStars(repos),
     issues: calculateIssues(repos),
-    commits: 0,
+    commits: totalCommits,
     topLanguages: getTopLanguages(repos),
     topRepos: getTopRepos(repos),
   };
@@ -98,7 +104,7 @@ export const useGithubMetrics = (
       try {
         const repos = await fetchRepositories(username, organization);
 
-        const result = buildMetrics(repos);
+        const result = await buildMetrics(repos);
 
         if (isMounted) {
           setMetrics(result);

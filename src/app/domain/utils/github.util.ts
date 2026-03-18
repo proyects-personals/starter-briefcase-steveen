@@ -83,3 +83,21 @@ export const getTopRepos = (
   [...repos]
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, limit);
+
+/**
+ * @description Calcula el total de commits sumando los commits de cada repositorio.
+ * Se ejecutan las peticiones en paralelo para optimizar el tiempo de respuesta.
+ * @param repos - Lista de repositorios
+ * @param fetchCommitsFn - Función que obtiene los commits de un repo individual
+ * @returns Promesa con el total de commits acumulados
+ */
+export const calculateTotalCommits = async (
+  repos: IGitHubRepo[],
+  fetchCommitsFn: (repo: IGitHubRepo) => Promise<number>,
+): Promise<number> => {
+  const commitCounts = await Promise.all(
+    repos.map((repo) => fetchCommitsFn(repo)),
+  );
+
+  return commitCounts.reduce((acc, count) => acc + count, 0);
+};
