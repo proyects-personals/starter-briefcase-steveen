@@ -1,33 +1,70 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import { useAnalytics } from "@/app";
 import { useLanguage, useTheme } from "@application";
 import { APP_ROUTES } from "@domain";
 
 /**
  * Pantalla de Error 404 (Recurso no encontrado).
- * * @description
- * Se muestra cuando el usuario navega a una ruta inexistente. Utiliza hooks globales
- * para adaptar el mensaje al idioma del usuario y los colores al tema activo
- * (Light/Dark).
- * * @component
- * @version 1.0.0
- * @returns {JSX.Element} Sección centrada con mensaje de error y botón de retorno.
+ *
+ * @description
+ * Se muestra cuando el usuario navega a una ruta inexistente.
+ *
+ * Incluye:
+ * - Soporte i18n (traducciones dinámicas)
+ * - Adaptación visual según el tema activo
+ * - Tracking analítico de visualización y acciones
+ *
+ * @component
+ * @version 1.1.0
+ *
+ * @returns {JSX.Element}
+ * Sección centrada con mensaje de error y botón de retorno.
  */
 const NotFoundScreen: React.FC = () => {
   const { t } = useLanguage();
   const { theme } = useTheme();
+  const { trackScreen, trackClick } = useAnalytics();
 
   /**
+   * @effect track404Screen
+   * @description
+   * Registra la visualización de la pantalla 404.
+   *
+   * Permite analizar:
+   * - Rutas inexistentes más visitadas
+   * - Problemas de navegación
+   * - Enlaces rotos dentro de la aplicación
+   *
+   * @analytics
+   * Evento:
+   * - Category: "Screen"
+   * - Action: "404 Not Found"
+   */
+  useEffect(() => {
+    trackScreen("404 Not Found");
+  }, [trackScreen]);
+
+  /**
+   * @function handleBackHome
+   * @description
+   * Registra el click del usuario al volver al home desde la pantalla 404.
+   *
+   * @returns {void}
+   *
+   * @analytics
+   * Evento:
+   * - Category: "Click"
+   * - Action: "404 Back Home"
+   */
+  const handleBackHome = (): void => {
+    trackClick("404 Back Home");
+  };
+
+  /**
+   * @description
    * Configuración de estilos dinámicos basados en el tema activo.
-   * * @description
-   * Objeto que mapea propiedades CSS personalizadas a elementos específicos
-   * de la interfaz.
-   * @property {Object} title - Estilos para el encabezado principal; utiliza el color primario de la marca.
-   * @property {Object} message - Estilos para el cuerpo de texto; asegura legibilidad con el color de fuente del tema.
-   * @property {Object} button - Estilos para el botón de acción principal (CTA), definiendo fondo y contraste de texto.
-   * * @version 1.0.0
-   * @see {@link ThemeContext} para la estructura de `theme.colors`.
    */
   const styles = {
     title: {
@@ -65,6 +102,7 @@ const NotFoundScreen: React.FC = () => {
       <div className="flex gap-4">
         <Link
           to={APP_ROUTES.ROOT}
+          onClick={handleBackHome}
           className="
             inline-flex
             items-center

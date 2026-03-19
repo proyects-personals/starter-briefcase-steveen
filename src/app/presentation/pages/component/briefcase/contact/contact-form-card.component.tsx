@@ -9,6 +9,7 @@ import {
   TextAreaFieldComponent,
   MessageErrorComponent,
   useMessages,
+  useAnalytics,
 } from "@/app";
 import {
   CONNECTION_CONFIG,
@@ -43,21 +44,40 @@ const HTTP_STATUS_OK = 200;
  */
 const ContactFormCard: React.FC<IContactComponent> = ({ theme, translate }) => {
   const config = CONNECTION_CONFIG.EMAILJS;
+
+  const { event } = useAnalytics();
+
   const [typeMessage, setTypeMessage] = useState<MessageType>(
     MessagesEnum.ERROR,
   );
+
   const { handleError, handleSuccess, errorMessage, successMessage } =
     useMessages();
+
   const validationSchema = contactValidationSchema(translate);
 
   /**
+   * @function handleSubmit
    * @description
-   * Manejador de envio del formulario.
+   * Gestiona el envío del formulario de contacto utilizando EmailJS
+   * y registra eventos analíticos clave para medir conversión.
+   *
+   * Eventos registrados:
+   * - "Contact" → "Submit Attempt" (intento de envío)
+   * - "Contact" → "Submit Success" (envío exitoso)
+   * - "Contact" → "Submit Error" (error en el envío)
+   *
+   * @param {IFormValues} values - Valores del formulario.
+   * @param {FormikHelpers<IFormValues>} helpers - Helpers de Formik.
+   *
+   * @returns {Promise<void>}
    */
   const handleSubmit = async (
     values: IFormValues,
     { resetForm }: FormikHelpers<IFormValues>,
   ): Promise<void> => {
+    event("Contact", "Submit Attempt");
+
     try {
       const templateParams: Record<string, string> = {
         name: values.name,
@@ -73,11 +93,15 @@ const ContactFormCard: React.FC<IContactComponent> = ({ theme, translate }) => {
       );
 
       if (response.status === HTTP_STATUS_OK) {
+        event("Contact", "Submit Success");
+
         setTypeMessage(MessagesEnum.SUCCESS);
         handleSuccess(translate("form.success_msg"));
         resetForm();
       }
     } catch (_error) {
+      event("Contact", "Submit Error");
+
       setTypeMessage(MessagesEnum.ERROR);
       handleError(translate("form.error_msg"));
     }

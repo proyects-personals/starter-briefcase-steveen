@@ -1,19 +1,36 @@
 import React from "react";
 
-import { useLanguage, useTheme } from "@application";
+import { useLanguage, useTheme, useAnalytics } from "@application";
 import { UrlEnum } from "@domain";
 
 /**
  * @description
  * Footer dinámico, responsive y adaptado al theme activo.
+ *
+ * Características:
  * - Soporta internacionalización (i18n)
- * - Colores y bordes del theme
- * - Transiciones suaves al cambiar de tema
- * - Enlaces legales profesionales
+ * - Estilos dinámicos según el theme
+ * - Transiciones suaves
+ * - Enlaces legales
+ * - Integración con analytics para tracking de interacciones
  */
 const FooterComponent: React.FC = () => {
   const { t } = useLanguage();
   const { theme } = useTheme();
+  const { event } = useAnalytics();
+
+  /**
+   * Tracking: click en enlace de política / términos
+   *
+   * @description
+   * Registra cuando el usuario interactúa con enlaces legales
+   * del footer (ej. términos y condiciones o política de privacidad).
+   *
+   * @returns {void}
+   */
+  const handleLegalClick = (): void => {
+    event("Footer", "Click - Terms & Privacy");
+  };
 
   return (
     <footer
@@ -34,6 +51,7 @@ const FooterComponent: React.FC = () => {
             <span style={{ color: theme.colors.primary }}>SteveenCues</span>{" "}
             Insights
           </p>
+
           <p
             className="text-xs sm:text-sm opacity-70 mt-1"
             style={{ color: theme.colors.textSecondary }}
@@ -41,10 +59,12 @@ const FooterComponent: React.FC = () => {
             {t("footer.rights")}
           </p>
         </div>
+
         <div
           className="h-px w-12 opacity-20"
           style={{ backgroundColor: theme.colors.textSecondary }}
         />
+
         <div className="flex flex-col items-center space-y-2">
           <p
             className="text-xs sm:text-sm text-center italic opacity-60"
@@ -58,6 +78,7 @@ const FooterComponent: React.FC = () => {
               href={UrlEnum.TERMS_AND_CONDITIONS}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleLegalClick}
               className="text-xs font-semibold uppercase tracking-wider hover:opacity-100 transition-opacity duration-300"
               style={{
                 color: theme.colors.primary,

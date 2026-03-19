@@ -4,3 +4,4 @@ export * from "./mesagges";
 export * from "./routes";
 export * from "./theme";
 export * from "./translate";
+export * from "./analytics";

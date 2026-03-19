@@ -99,9 +99,10 @@ export interface CardItem {
  * @property {IAppTheme} theme - Tema de la aplicación para aplicar estilos dinámicos.
  * @property translate - Función de traducción i18next
  */
-export interface CardActionsProps {
+export interface ICardActions {
   visitLink?: string;
   codeLink?: string;
+  name: string;
   theme: IAppTheme;
   translate: TFunction<"translation", undefined>;
 }

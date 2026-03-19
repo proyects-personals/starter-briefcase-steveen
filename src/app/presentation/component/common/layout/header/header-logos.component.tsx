@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { useTheme, useLanguage } from "@application";
+import { useTheme, useLanguage, useAnalytics } from "@application";
 import { SteveenImage } from "@assets";
 import { StringUtils, UrlEnum, VideoUtils, type IHeaderLogos } from "@domain";
 
@@ -10,9 +10,12 @@ import { ThemeSwitcherComponent } from "../../theme";
 
 /**
  * Header con soporte de fondo: video local, YouTube o imagen.
+ *
+ * @description
  * - Overlay de blur con colores del theme
  * - Logos centrados y responsive
  * - Transiciones suaves al hacer scroll
+ * - Integración con analytics para tracking de interacciones
  */
 const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
   scrolled,
@@ -22,6 +25,18 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
 }) => {
   const { theme } = useTheme();
   const { t } = useLanguage();
+  const { event } = useAnalytics();
+
+  /**
+   * Tracking: click en logo principal
+   *
+   * @description
+   * Registra cuando el usuario navega al home
+   * desde el logo del header visual.
+   */
+  const handleLogoClick = (): void => {
+    event("Header", "Click Logo - Home (Hero)");
+  };
 
   return (
     <div
@@ -79,9 +94,10 @@ const HeaderLogosComponent: React.FC<IHeaderLogos> = ({
           backdropFilter: "blur(6px)",
         }}
       />
-      <div className="relative z-10 flex items-center justify-between  px-4 sm:px-8 py-1">
+
+      <div className="relative z-10 flex items-center justify-between px-4 sm:px-8 py-1">
         <div className="flex items-center gap-4 h-16">
-          <Link to="/" title={t("header.home")}>
+          <Link to="/" title={t("header.home")} onClick={handleLogoClick}>
             <img
               src={SteveenImage}
               alt={t("header.logo_ccm")}

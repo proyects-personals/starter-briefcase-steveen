@@ -5,6 +5,9 @@ import type { IConnectionConfig } from "@/app/domain";
  * Gracias a la definición en env.d.ts, TypeScript reconoce estos valores como strings.
  */
 export const CONNECTION_CONFIG: IConnectionConfig = {
+  ENVIRONMENT: {
+    PROD: process.env.PROD ?? import.meta.env.VITE_PROD,
+  },
   EMAILJS: {
     SERVICE_ID:
       process.env.EMAILJS_SERVICE_ID ?? import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -16,5 +19,8 @@ export const CONNECTION_CONFIG: IConnectionConfig = {
   },
   GITHUB: {
     GITHUB_TOKEN: process.env.GITHUB_TOKEN ?? import.meta.env.VITE_GITHUB_TOKEN,
+  },
+  ANALYTICS: {
+    kEY: process.env.ANALYTICS_KEY ?? import.meta.env.VITE_ANALYTICS_KEY,
   },
 };
