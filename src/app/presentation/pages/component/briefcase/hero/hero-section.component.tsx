@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-import { useLanguage } from "@application";
+import { useAnalytics, useLanguage } from "@application";
 import { CV_RESOURCES, type IHeroSectionComponent } from "@domain";
 
 /**
@@ -13,6 +13,7 @@ const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
   translate,
 }): React.JSX.Element => {
   const { language } = useLanguage();
+  const { trackClick } = useAnalytics();
 
   /**
    * Ejecuta la descarga del CV adaptando el nombre del archivo y el recurso según el idioma.
@@ -27,6 +28,8 @@ const HeroSectionComponent: React.FC<IHeroSectionComponent> = ({
     const langSuffix = language.toUpperCase();
 
     const fileName = `CV_Steveen_Ordoñez_${langSuffix}.pdf`;
+
+    trackClick(`Descargar CV - ${langSuffix}`);
 
     const link = document.createElement("a");
     link.href = selectedCV;

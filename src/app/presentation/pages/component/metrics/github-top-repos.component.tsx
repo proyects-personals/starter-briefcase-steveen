@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
+import { useAnalytics } from "@/app";
 import { REPO_ANIMATION_DELAY, type IGitHubTopRepos } from "@domain";
 
 /**
@@ -39,6 +40,25 @@ const GitHubTopReposComponent: React.FC<IGitHubTopRepos> = ({
   translate,
   theme,
 }) => {
+  const { event } = useAnalytics();
+
+  /**
+   * @function handleRepoClick
+   * @description
+   * Registra un evento de analítica cuando el usuario hace click
+   * sobre un repositorio dentro del listado de GitHub.
+   *
+   * @category Analytics
+   * @param {string} repoName - Nombre del repositorio seleccionado.
+   * @returns {void}
+   * @example
+   * // Evento enviado:
+   * // "GitHub" → "Repo Click - portfolio-react"
+   */
+  const handleRepoClick = (repoName: string): void => {
+    event("GitHub", `Repo Click - ${repoName}`);
+  };
+
   return (
     <div
       style={{
@@ -62,19 +82,15 @@ const GitHubTopReposComponent: React.FC<IGitHubTopRepos> = ({
       >
         {translate("pages.component.matrics.top-repos")}
       </h3>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.75rem",
-        }}
-      >
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
         {repos.map((repo, index) => (
           <motion.a
             key={repo.id}
             href={repo.html_url}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleRepoClick(repo.name)}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * REPO_ANIMATION_DELAY }}
@@ -102,6 +118,7 @@ const GitHubTopReposComponent: React.FC<IGitHubTopRepos> = ({
             >
               {repo.name}
             </span>
+
             <div
               style={{
                 display: "flex",

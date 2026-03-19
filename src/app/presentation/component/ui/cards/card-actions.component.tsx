@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-import type { CardActionsProps } from "@domain";
+import { useAnalytics } from "@/app";
+
+import type { ICardActions } from "@domain";
 
 /**
  * Componente que renderiza botones de acción de un proyecto (Visitar y Ver Código).
@@ -10,18 +12,53 @@ import type { CardActionsProps } from "@domain";
  * @param {CardActionsProps} props - Props del componente.
  * @returns {JSX.Element | null} Elemento JSX con los botones o null si no hay links.
  */
-const CardActionsComponent: React.FC<CardActionsProps> = ({
+const CardActionsComponent: React.FC<ICardActions> = ({
   visitLink,
   codeLink,
   theme,
   translate,
+  name,
 }) => {
+  const { event } = useAnalytics();
+
   const hasVisitLink = typeof visitLink === "string" && visitLink.trim() !== "";
   const hasCodeLink = typeof codeLink === "string" && codeLink.trim() !== "";
 
   if (!hasVisitLink && !hasCodeLink) {
     return null;
   }
+
+  /**
+   * @function handleVisit
+   * @description
+   * Registra un evento de analítica cuando el usuario accede a la demo
+   * del proyecto (enlace de producción).
+   *
+   * @category Analytics
+   * @returns {void}
+   * @example
+   * // Evento enviado a analytics:
+   * // "Proyecto" → "Demo - E-commerce App"
+   */
+  const handleVisit = (): void => {
+    event("Proyecto", `Demo - ${name}`);
+  };
+
+  /**
+   * @function handleCode
+   * @description
+   * Registra un evento de analítica cuando el usuario accede al
+   * repositorio de código del proyecto.
+   *
+   * @category Analytics
+   * @returns {void}
+   * @example
+   * // Evento enviado a analytics:
+   * // "Proyecto" → "Code - Chat AI"
+   */
+  const handleCode = (): void => {
+    event("Proyecto", `Code - ${name}`);
+  };
 
   return (
     <div className="flex gap-2 mt-3">
@@ -30,6 +67,7 @@ const CardActionsComponent: React.FC<CardActionsProps> = ({
           href={visitLink}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleVisit}
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
           style={{
@@ -48,6 +86,7 @@ const CardActionsComponent: React.FC<CardActionsProps> = ({
           href={codeLink}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleCode}
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
           style={{

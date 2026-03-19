@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { FiArrowRight, FiCalendar } from "react-icons/fi";
 
-import { BannerImageComponent } from "@/app";
+import { BannerImageComponent, useAnalytics } from "@/app";
 
 import type { IBannerItemProps } from "@domain";
 
@@ -22,6 +22,55 @@ const BannerItemComponent: React.FC<IBannerItemProps> = ({
   translate,
   navigate,
 }) => {
+  const { event } = useAnalytics();
+
+  /**
+   * @function handleNavigation
+   * @description
+   * Gestiona la navegación principal del banner y registra un evento
+   * de analítica cuando el usuario interactúa con el contenedor completo.
+   *
+   * @category Analytics
+   * @returns {void}
+   * @example
+   * // Evento enviado:
+   * // "Banner" → "Click - Certificación AWS"
+   */
+  const handleNavigation = (): void => {
+    event("Banner", `Click - ${item.title}`);
+
+    if (item.link.startsWith("http")) {
+      window.open(item.link, "_blank");
+    } else {
+      navigate(item.link);
+    }
+  };
+
+  /**
+   * @function handleCTA
+   * @description
+   * Gestiona la interacción con el Call-To-Action (CTA) interno del banner
+   * y registra un evento de analítica específico para este elemento.
+   *
+   * @category Analytics
+   * @param {React.MouseEvent} e - Evento de click del usuario.
+   * @returns {void}
+   * @example
+   * // Evento enviado:
+   * // "Banner" → "CTA Click - Certificación AWS"
+   */
+  const handleCTA = (e: React.MouseEvent): void => {
+    e.stopPropagation();
+
+    event("Banner", `CTA Click - ${item.title}`);
+
+    if (item.link.startsWith("http")) {
+      window.open(item.link, "_blank");
+    } else {
+      navigate(item.link);
+    }
+  };
+
   return (
     <motion.div
       key={item.title}
@@ -35,15 +84,10 @@ const BannerItemComponent: React.FC<IBannerItemProps> = ({
         border: `1px solid ${theme.colors.borderGlass}`,
         backdropFilter: "blur(10px)",
       }}
-      onClick={() => {
-        if (item.link.startsWith("http")) {
-          window.open(item.link, "_blank");
-        } else {
-          navigate(item.link);
-        }
-      }}
+      onClick={handleNavigation}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
       <div className="flex-1 order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left z-10">
         <div
           className="mb-4 px-3 py-1 rounded-full flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest"
@@ -81,18 +125,12 @@ const BannerItemComponent: React.FC<IBannerItemProps> = ({
           className="mt-6 flex items-center gap-2 font-bold text-sm cursor-pointer"
           style={{ color: theme.colors.primary }}
           whileHover={{ x: 5 }}
-          onClick={(e) => {
-            e.stopPropagation();
-            if (item.link.startsWith("http")) {
-              window.open(item.link, "_blank");
-            } else {
-              navigate(item.link);
-            }
-          }}
+          onClick={handleCTA}
         >
           {translate("components.ui.banner.view_page")} <FiArrowRight />
         </motion.div>
       </div>
+
       <BannerImageComponent
         src={item.image}
         alt={item.title}

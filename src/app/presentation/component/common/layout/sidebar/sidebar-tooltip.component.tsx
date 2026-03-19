@@ -6,16 +6,16 @@ import type { ISidebarTooltip } from "@domain";
 
 /**
  * Componente de etiqueta flotante (Tooltip) para el Sidebar colapsado.
- * * @description
+ * @description
  * Se posiciona de forma absoluta a la derecha del ítem del menú.
  * Aprovecha la clase `group` del elemento padre para activarse únicamente
  * cuando el usuario pasa el cursor sobre el contenedor del icono.
  * Incluye animaciones suaves de opacidad y desplazamiento.
- * * @component
+ * @component
  * @param {Object} props - Propiedades del componente.
  * @param {string} props.label - Texto descriptivo que se mostrará al hacer hover.
  * @param {boolean} props.isActive - Indica si el item del sidebar está activo.
- * * @version 1.2.0
+ * @version 1.2.0
  * @returns {JSX.Element} Un elemento span posicionado con transiciones suaves.
  */
 const SidebarTooltipComponent: React.FC<ISidebarTooltip> = ({

@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import React from "react";
+import React, { useEffect } from "react";
 
-import { useTheme } from "@application";
+import { useTheme, useAnalytics } from "@application";
 import { SIDEBAR_ITEMS, type IMobileMenu } from "@domain";
 
 import SidebarItemComponent from "./sidebar-item.component";
@@ -23,17 +23,37 @@ import SidebarItemComponent from "./sidebar-item.component";
  * @returns {JSX.Element}
  * Renderiza el panel del menú móvil junto con su overlay.
  *
- * @version 1.0.0
+ * @version 1.0.1
  */
 const MobileMenuComponent: React.FC<IMobileMenu> = ({ isOpen, onClose }) => {
   const { theme } = useTheme();
+  const { event } = useAnalytics(); // ✅ analytics
+
+  /**
+   * @description
+   * Tracking: apertura del menú móvil
+   */
+  useEffect(() => {
+    if (isOpen) {
+      event("Mobile Menu", "Open");
+    }
+  }, [isOpen, event]);
+
+  /**
+   * @description
+   * Tracking: cierre del menú móvil
+   */
+  const handleClose = (): void => {
+    event("Mobile Menu", "Close - Overlay");
+    onClose();
+  };
 
   return (
     <>
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/40 z-40 md:hidden"
-          onClick={onClose}
+          onClick={handleClose}
         />
       )}
 

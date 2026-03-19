@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { FaGlobe, FaChevronDown } from "react-icons/fa";
 
+import { useAnalytics } from "@/app";
 import { useLanguage, useTheme } from "@application";
 import { languages, type ILanguageSwitcher, type LanguageType } from "@domain";
 
@@ -18,7 +19,7 @@ import { languages, type ILanguageSwitcher, type LanguageType } from "@domain";
  * @param {ILanguageSwitcher} props - Propiedades del componente.
  * @param {string} [props.className] - Clases adicionales de Tailwind para posicionamiento.
  * @returns {React.JSX.Element} Un selector de idiomas desplegable optimizado.
- * @version 1.2.2
+ * @version 1.2.3
  * @author Steveen Cues
  */
 const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
@@ -26,6 +27,7 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
 }): React.JSX.Element => {
   const { language, changeTranslate } = useLanguage();
   const { theme } = useTheme();
+  const { trackClick } = useAnalytics();
 
   const [open, setOpen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -37,21 +39,39 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
    * @returns {void}
    */
   useEffect((): (() => void) => {
-    const handleClickOutside = (event: MouseEvent): void => {
-      const target = event.target;
+    const handleClickOutside = (e: MouseEvent): void => {
+      const target = e.target;
+
       if (
         containerRef.current &&
         target instanceof Node &&
         !containerRef.current.contains(target)
       ) {
         setOpen(false);
+        trackClick("Language Menu Close (Outside)");
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
+
     return (): void => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [trackClick]);
+
+  /**
+   * @description
+   * Toggle del menú
+   */
+  const handleToggle = (): void => {
+    setOpen((prev) => {
+      const next = !prev;
+
+      trackClick(next ? "Language Menu Open" : "Language Menu Close");
+
+      return next;
+    });
+  };
 
   /**
    * @method handleLanguageChange
@@ -63,10 +83,12 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
     (lang: LanguageType): void => {
       if (lang !== language) {
         changeTranslate(lang);
+        trackClick(`Change Language - ${lang}`);
       }
+
       setOpen(false);
     },
-    [language, changeTranslate],
+    [language, changeTranslate, trackClick],
   );
 
   /**
@@ -96,13 +118,13 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
   return (
     <div className={`relative ${className ?? ""}`} ref={containerRef}>
       <button
-        onClick={(): void => setOpen((prev) => !prev)}
-        className={`
+        onClick={handleToggle}
+        className="
           group flex items-center justify-center gap-1.5 
           p-2 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl 
           backdrop-blur-xl transition-all duration-300 
           hover:shadow-lg active:scale-95
-        `}
+        "
         style={buttonStyle}
         aria-expanded={open}
         aria-haspopup="listbox"
@@ -111,12 +133,15 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
           className="text-base transition-transform duration-500 group-hover:rotate-180"
           style={{ color: theme.colors.primary }}
         />
+
         <span className="hidden sm:inline text-sm font-bold uppercase tracking-tighter">
           {language}
         </span>
 
         <FaChevronDown
-          className={`text-[9px] opacity-50 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`text-[9px] opacity-50 transition-transform duration-300 ${
+            open ? "rotate-180" : ""
+          }`}
         />
       </button>
 
@@ -128,6 +153,7 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
         >
           {languages.map((item) => {
             const isActive = language === item.code;
+
             return (
               <li
                 key={item.code}
@@ -151,12 +177,16 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcher> = ({
                     <span className="text-base sm:text-lg group-hover/item:scale-110 transition-transform duration-200">
                       {item.flag}
                     </span>
+
                     <span
-                      className={`text-xs sm:text-sm ${isActive ? "font-bold" : "font-medium opacity-80"}`}
+                      className={`text-xs sm:text-sm ${
+                        isActive ? "font-bold" : "font-medium opacity-80"
+                      }`}
                     >
                       {item.label}
                     </span>
                   </div>
+
                   {isActive && (
                     <span
                       className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full"

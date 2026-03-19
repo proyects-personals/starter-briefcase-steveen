@@ -27,6 +27,8 @@ export default defineConfig(({ mode }) => {
       'process.env.EMAILJS_TEMPLATE_ID': JSON.stringify(env.EMAILJS_TEMPLATE_ID),
       'process.env.EMAILJS_PUBLIC_KEY': JSON.stringify(env.EMAILJS_PUBLIC_KEY),
       'process.env.GITHUB_TOKEN': JSON.stringify(env.GITHUB_TOKEN),
+      'process.env.PROD': JSON.stringify(env.PROD),
+      'process.env.ANALYTICS_KEY': JSON.stringify(env.ANALYTICS_KEY),
     },
   }
 })
