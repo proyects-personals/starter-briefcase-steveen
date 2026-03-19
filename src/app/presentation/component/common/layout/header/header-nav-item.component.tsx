@@ -1,13 +1,27 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import { useTheme, useLanguage } from "@application";
+import { useTheme, useLanguage, useAnalytics } from "@application";
 import {
   FONT_WEIGHT_ACTIVE,
   FONT_WEIGHT_DEFAULT,
   type IHeaderNavItem,
 } from "@domain";
 
+/**
+ * HeaderNavItemComponent
+ *
+ * @description
+ * Componente de navegación del header con soporte para:
+ * - Rutas internas (React Router)
+ * - Enlaces externos
+ * - Estado activo
+ * - Tracking avanzado de analytics
+ *
+ * Incluye buenas prácticas de medición:
+ * - Categoría consistente
+ * - Acción estructurada (contexto + tipo + destino)
+ */
 const HeaderNavItemComponent: React.FC<IHeaderNavItem> = ({
   to,
   icon: Icon,
@@ -17,10 +31,41 @@ const HeaderNavItemComponent: React.FC<IHeaderNavItem> = ({
   const location = useLocation();
   const { theme } = useTheme();
   const { t } = useLanguage();
+  const { event } = useAnalytics();
 
   const isExternal = target === "_blank";
   const isActive = location.pathname === to;
 
+  /**
+   * Tracking: navegación del header
+   *
+   * @description
+   * Registra la interacción del usuario con elementos de navegación.
+   * Se estructura el evento con:
+   *
+   * - Contexto: Header
+   * - Tipo: Internal | External
+   * - Label: texto del item
+   * - Path: destino
+   *
+   * Esto permite análisis más profundo en herramientas como GA4.
+   *
+   * @returns {void}
+   *
+   * @example
+   * "Header | Internal | Projects | /projects"
+   */
+  const handleNavigationClick = (): void => {
+    const type = isExternal ? "External" : "Internal";
+    const label = t(text);
+
+    event("Navigation", `Header | ${type} | ${label} | ${to}`);
+  };
+
+  /**
+   * @description
+   * Props compartidas entre <Link> y <a>
+   */
   const commonProps = {
     className: "flex items-center gap-1 transition-all duration-200",
     style: {
@@ -30,6 +75,7 @@ const HeaderNavItemComponent: React.FC<IHeaderNavItem> = ({
         ? `2px solid ${theme.colors.primary}`
         : "2px solid transparent",
     },
+    onClick: handleNavigationClick,
     onMouseEnter: (e: React.MouseEvent<HTMLElement>): void => {
       if (!isActive) {
         e.currentTarget.style.color = theme.colors.primaryHover;

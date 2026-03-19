@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { useState, useEffect, useCallback } from "react";
 
-import { useLanguage, useTheme } from "@application";
+import { useAnalytics, useLanguage, useTheme } from "@application";
 import {
   BREAKPOINTS,
   SIDEBAR_STORAGE_KEY,
@@ -16,19 +16,33 @@ import MobileMenuComponent from "./sidebar/mobile-menu.component";
 
 /**
  * @description Layout principal de la aplicación, con sidebar, header y footer.
- * Gestiona el estado del sidebar y lo persiste en StorageUtil.
- * @version 2.0.0
+ * Gestiona estado UI global, persistencia del sidebar y comportamiento responsive.
+ * @version 2.0.1
  */
 const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
   const { theme } = useTheme();
   const { t } = useLanguage();
+  const { event } = useAnalytics();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [loaded, setLoaded] = useState<boolean>(false);
 
   /**
-   * @description Carga el estado inicial del sidebar desde StorageUtil
+   * @description
+   * Tracking helper (evita errores si event es undefined)
+   */
+  const track = useCallback(
+    (action: string): void => {
+      if (typeof event === "function") {
+        event("Layout", action);
+      }
+    },
+    [event],
+  );
+
+  /**
+   * @description Carga estado inicial del sidebar desde storage
    */
   const loadSidebarState = useCallback(() => {
     if (!isAutentificated) {
@@ -44,7 +58,9 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
 
     setIsSidebarOpen(initialSidebar);
     setLoaded(true);
-  }, [isAutentificated]);
+
+    track("Load Sidebar State");
+  }, [isAutentificated, track]);
 
   useEffect(() => {
     document.title = t("briefcase.page.title");
@@ -52,7 +68,7 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
   }, [loadSidebarState, t]);
 
   /**
-   * @description Persiste el estado del sidebar en StorageUtil
+   * @description Persistencia del estado del sidebar
    */
   useEffect(() => {
     if (loaded && isAutentificated) {
@@ -61,34 +77,49 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
   }, [isSidebarOpen, isAutentificated, loaded]);
 
   /**
-   * SIDEBAR DESKTOP
+   * @description
+   * Toggle sidebar (desktop)
    */
   const handleToggleSidebar = (): void => {
-    setIsSidebarOpen((prev) => !prev);
+    setIsSidebarOpen((prev) => {
+      const next = !prev;
+      track(`Sidebar ${next ? "Open" : "Close"}`);
+      return next;
+    });
   };
 
   const handleCloseSidebar = (): void => {
     setIsSidebarOpen(false);
+    track("Sidebar Close (Manual)");
   };
 
   /**
-   * MOBILE MENU
+   * @description
+   * Mobile menu
    */
   const toggleMobileMenu = (): void => {
-    setIsMobileMenuOpen((prev) => !prev);
+    setIsMobileMenuOpen((prev) => {
+      const next = !prev;
+      track(`Mobile Menu ${next ? "Open" : "Close"}`);
+      return next;
+    });
   };
 
   const closeMobileMenu = (): void => {
     setIsMobileMenuOpen(false);
+    track("Mobile Menu Close (Overlay)");
   };
 
   /**
-   * HAMBURGER (mobile vs desktop)
+   * @description
+   * Control inteligente (mobile vs desktop)
    */
   const handleHamburger = (): void => {
     if (window.innerWidth < BREAKPOINTS.MOBILE) {
+      track("Hamburger Mobile Click");
       toggleMobileMenu();
     } else {
+      track("Hamburger Desktop Click");
       handleToggleSidebar();
     }
   };
@@ -117,6 +148,7 @@ const LayoutComponent: React.FC<ILayout> = ({ children, isAutentificated }) => {
           />
         </aside>
       )}
+
       {isAutentificated && (
         <MobileMenuComponent
           isOpen={isMobileMenuOpen}

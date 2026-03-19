@@ -53,6 +53,7 @@ const CardContentComponent: React.FC<ICardContent> = ({
         codeLink={codeLink}
         theme={theme}
         translate={translate}
+        name={name}
       />
     </div>
   </div>

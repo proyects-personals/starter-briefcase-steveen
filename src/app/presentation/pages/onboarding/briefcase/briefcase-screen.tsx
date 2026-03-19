@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import {
   AnimatedBackgroundComponent,
@@ -9,6 +9,8 @@ import {
   GitHubMetricComponent,
   HeroSectionComponent,
   SectionComponent,
+  TrackSectionWrapperComponent,
+  useAnalytics,
 } from "@/app";
 import { useTheme, useLanguage } from "@/app/application";
 import { BANNER_ITEM, PROJECTS_PERSONAL, WORK_EXPERIENCE } from "@domain";
@@ -47,19 +49,24 @@ import { BANNER_ITEM, PROJECTS_PERSONAL, WORK_EXPERIENCE } from "@domain";
  * Pantalla completa del portafolio con todas sus secciones.
  */
 const BriefcaseScreen: React.FC = (): React.JSX.Element => {
-  /**
-   * @description
-   * Tema visual de la aplicación
-   * (colores, bordes, sombras, etc).
-   */
   const { theme } = useTheme();
+  const { t } = useLanguage();
+  const { trackScreen } = useAnalytics();
 
   /**
+   * @effect trackScreen
    * @description
-   * Función de traducción utilizada para
-   * internacionalización (i18n).
+   * Registra la visualización de la pantalla principal del portafolio
+   * en el sistema de analítica.
+   *
+   * @listens trackScreen - Función memoizada del hook `useAnalytics`.
+   * @returns {void}
+   * @example
+   * trackScreen("Portafolio");
    */
-  const { t } = useLanguage();
+  useEffect(() => {
+    trackScreen("Portafolio");
+  }, [trackScreen]);
 
   return (
     <div className="col-span-full w-full relative flex flex-col items-center justify-center pt-0 md:pt-22">
@@ -69,30 +76,46 @@ const BriefcaseScreen: React.FC = (): React.JSX.Element => {
         height="100%"
         opacity={0.1}
       />
+
       <HeroSectionComponent theme={theme} translate={t} />
 
       <SectionComponent title={t("welcome.work_experience")} theme={theme}>
-        <CarouselComponent
-          items={WORK_EXPERIENCE}
-          height="500px"
-          theme={theme}
-          translate={t}
-        />
+        <TrackSectionWrapperComponent name="Experiencia">
+          <CarouselComponent
+            items={WORK_EXPERIENCE}
+            height="500px"
+            theme={theme}
+            translate={t}
+          />
+        </TrackSectionWrapperComponent>
       </SectionComponent>
 
       <SectionComponent title={t("welcome.my_projects")} theme={theme}>
-        <CardComponent items={PROJECTS_PERSONAL} theme={theme} translate={t} />
+        <TrackSectionWrapperComponent name="Proyectos">
+          <CardComponent
+            items={PROJECTS_PERSONAL}
+            theme={theme}
+            translate={t}
+          />
+        </TrackSectionWrapperComponent>
       </SectionComponent>
 
       <SectionComponent title={t("welcome.my_studies")} theme={theme}>
-        <BannerComponent theme={theme} items={BANNER_ITEM} translate={t} />
+        <TrackSectionWrapperComponent name="Estudios">
+          <BannerComponent theme={theme} items={BANNER_ITEM} translate={t} />
+        </TrackSectionWrapperComponent>
       </SectionComponent>
 
       <SectionComponent title={t("welcome.github_nuances")} theme={theme}>
-        <GitHubMetricComponent theme={theme} translate={t} />
+        <TrackSectionWrapperComponent name="GitHub">
+          <GitHubMetricComponent theme={theme} translate={t} />
+        </TrackSectionWrapperComponent>
       </SectionComponent>
+
       <SectionComponent title={t("welcome.contact_me")} theme={theme}>
-        <ContactComponent theme={theme} translate={t} />
+        <TrackSectionWrapperComponent name="Contacto">
+          <ContactComponent theme={theme} translate={t} />
+        </TrackSectionWrapperComponent>
       </SectionComponent>
     </div>
   );

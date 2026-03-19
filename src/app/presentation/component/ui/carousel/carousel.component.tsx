@@ -6,6 +6,7 @@ import {
   CarouselControlsComponent,
   CarouselIndicatorsComponent,
   SlideComponent,
+  useAnalytics,
 } from "@/app";
 
 import type { ICarousel } from "@domain";
@@ -33,6 +34,7 @@ const CarouselComponent: React.FC<ICarousel> = ({
   const [current, setCurrent] = useState<number>(0);
   const [direction, setDirection] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
+  const { event } = useAnalytics();
   const DIRECTION_PREV = -1;
   const DIRECTION_NEXT = 1;
 
@@ -41,11 +43,18 @@ const CarouselComponent: React.FC<ICarousel> = ({
    * @param {number} newDir Direccion del cambio (DIRECTION_PREV | DIRECTION_NEXT)
    */
   const slideChange = useCallback(
-    (newDir: number): void => {
+    (newDir: number, source?: string): void => {
       setDirection(newDir);
       setCurrent((prev) => (prev + newDir + items.length) % items.length);
+
+      if (typeof source === "string" && source.length > 0) {
+        event(
+          "Carousel",
+          `Slide ${newDir === 1 ? "Next" : "Prev"} - ${source}`,
+        );
+      }
     },
-    [items.length],
+    [items.length, event],
   );
 
   /**
@@ -53,15 +62,17 @@ const CarouselComponent: React.FC<ICarousel> = ({
    * @returns {() => void} Limpia el intervalo al desmontar o cambiar estado de pausa
    */
   useEffect((): (() => void) => {
-    if (isPaused) {
-      return () => {};
+    if (isPaused === true) {
+      return (): void => {};
     }
 
     const interval = setInterval(() => {
       slideChange(DIRECTION_NEXT);
     }, autoPlayInterval);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, [isPaused, slideChange, autoPlayInterval]);
 
   /**
@@ -72,16 +83,23 @@ const CarouselComponent: React.FC<ICarousel> = ({
     if (idx === current) {
       return;
     }
+
     setDirection(idx > current ? DIRECTION_NEXT : DIRECTION_PREV);
     setCurrent(idx);
+
+    event("Carousel", `Indicator Click - Slide ${idx}`);
   };
 
   /**
    * @description Configuracion de swipe para dispositivos moviles
    */
   const handlers = useSwipeable({
-    onSwipedLeft: (): void => slideChange(DIRECTION_NEXT),
-    onSwipedRight: (): void => slideChange(DIRECTION_PREV),
+    onSwipedLeft: (): void => {
+      slideChange(DIRECTION_NEXT, "Swipe");
+    },
+    onSwipedRight: (): void => {
+      slideChange(DIRECTION_PREV, "Swipe");
+    },
     preventScrollOnSwipe: true,
     trackMouse: false,
   });
@@ -89,8 +107,12 @@ const CarouselComponent: React.FC<ICarousel> = ({
   return (
     <div
       className="w-full flex flex-col items-center"
-      onMouseEnter={(): void => setIsPaused(true)}
-      onMouseLeave={(): void => setIsPaused(false)}
+      onMouseEnter={(): void => {
+        setIsPaused(true);
+      }}
+      onMouseLeave={(): void => {
+        setIsPaused(false);
+      }}
     >
       <div
         {...handlers}
@@ -108,8 +130,12 @@ const CarouselComponent: React.FC<ICarousel> = ({
         </AnimatePresence>
 
         <CarouselControlsComponent
-          onPrev={(): void => slideChange(DIRECTION_PREV)}
-          onNext={(): void => slideChange(DIRECTION_NEXT)}
+          onPrev={(): void => {
+            slideChange(DIRECTION_PREV, "Button");
+          }}
+          onNext={(): void => {
+            slideChange(DIRECTION_NEXT, "Button");
+          }}
           theme={theme}
           translate={translate}
         />

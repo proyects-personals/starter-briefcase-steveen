@@ -2,7 +2,7 @@ import React from "react";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import { useTheme } from "@application";
+import { useTheme, useAnalytics } from "@application";
 import { logoMadjs } from "@assets";
 
 import HeaderUserMenuComponent from "./header-user-menu.component";
@@ -15,11 +15,15 @@ import type { IHeaderAuthBar } from "@domain";
  * Proporciona acceso rápido al menú lateral (Sidebar), el logo principal de la aplicación
  * y el menú de acciones del usuario. Gestiona visualmente el contraste y sombreado
  * basándose en el sistema de temas dinámico.
- * * @component
+ *
+ * Integra tracking de eventos para analítica de interacción del usuario.
+ *
+ * @component
  * @param {IHeaderAuthBar} props - Propiedades del componente.
  * @param {UserInterface} props.user - Objeto con la información del usuario actual.
  * @param {() => void} props.onToggleSidebar - Función para abrir/cerrar el menú lateral.
- * * @version 1.0.0
+ *
+ * @version 1.1.0
  * @returns {JSX.Element} Un contenedor horizontal con controles de navegación y usuario.
  */
 const HeaderAuthBarComponent: React.FC<IHeaderAuthBar> = ({
@@ -27,10 +31,33 @@ const HeaderAuthBarComponent: React.FC<IHeaderAuthBar> = ({
   onToggleSidebar,
 }) => {
   const { theme } = useTheme();
+  const { event } = useAnalytics();
+
+  /**
+   * Tracking: toggle del sidebar
+   *
+   * @description
+   * Registra cuando el usuario abre o cierra el menú lateral.
+   */
+  const handleToggleSidebar = (): void => {
+    event("Header", "Toggle Sidebar");
+    if (onToggleSidebar) {
+      onToggleSidebar();
+    }
+  };
+
+  /**
+   * 📊 Tracking: click en logo (home)
+   *
+   * @description
+   * Registra la navegación hacia la página principal desde el header.
+   */
+  const handleLogoClick = (): void => {
+    event("Header", "Click Logo - Home");
+  };
 
   /**
    * @description Estilos base para el contenedor principal
-   * Se separan para mantener el JSX limpio y facilitar la legibilidad.
    */
   const barStyles = {
     background: theme.colors.surface,
@@ -45,7 +72,7 @@ const HeaderAuthBarComponent: React.FC<IHeaderAuthBar> = ({
     >
       <div className="flex items-center gap-4">
         <button
-          onClick={onToggleSidebar}
+          onClick={handleToggleSidebar}
           aria-label="Toggle Sidebar"
           className="p-2 rounded-md transition-all duration-200 ease-in-out"
           style={{ color: theme.colors.text }}
@@ -59,7 +86,7 @@ const HeaderAuthBarComponent: React.FC<IHeaderAuthBar> = ({
           <FaBars size={18} />
         </button>
 
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center" onClick={handleLogoClick}>
           <img
             src={logoMadjs}
             alt="Logo MadJS"
